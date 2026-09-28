@@ -22,6 +22,20 @@ theorem main (V : ℝ) (hV : 0 < V) :
 Here `criticalVolume` is `V_* = 5 (2 - 2^{2/3}) / (2^{2/3} - 1)`, and minimisers are taken for the
 energy `𝓔(Ω) = P(Ω) + (1/2) ∫_Ω ∫_Ω |x - y|⁻¹ dx dy` among sets of volume `V` in `ℝ³`.
 
+## Differences from the paper
+
+- The theorems are stated for volume `V > 0`, and uniqueness means agreeing with a ball of
+  volume `V` up to a null set.
+- The main theorem is proved for Borel sets (`main`) and for Lebesgue-measurable sets
+  (`main_lebesgue`).
+- `main_binding` also proves that every optimiser of Corollary 1.2 is a ball of volume `5/2` up
+  to a null set.
+- The proof follows the blueprint in `blueprint/`, written by AI agents from the paper. Only the
+  statements were checked against the paper; the formal proof may differ from the paper's
+  argument.
+
+See `fidelity` in [`formalization.yaml`](formalization.yaml) for the full list.
+
 ## Checking
 
 ```bash

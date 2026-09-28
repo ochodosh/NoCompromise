@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
-# formalization.yaml (v0.4). Lines marked TODO(Otis) are guesses to check before publishing.
+# formalization.yaml (v0.4).
 
 version: "v0.4"
 
@@ -27,12 +27,11 @@ sources:
     type: "article"
     location: "Theorem 1.1 and Corollary 1.2"
     relationship: "formalizes"
-    # TODO(Otis): confirm the note below.
     note: >-
       The formalization follows a Lean-oriented blueprint of the paper's proof (blueprint/ in this
-      repository), in which every step is a separately numbered item. Some internal proof routes
-      differ from the paper; the theorems formalized are the paper's. The formalization is by
-      Otis Chodosh, an author of the paper; the coauthor, Matilde Gianocca, has not been contacted.
+      repository), written by AI agents. The theorem statements were checked against the paper;
+      the proofs were not (see fidelity). The formalization is by Otis Chodosh, an author of the
+      paper; the coauthor, Matilde Gianocca, has not been contacted.
     license: "CC-BY-4.0"
     author_endorsement: "not-contacted"
 
@@ -139,7 +138,26 @@ automation:
     the human author reviewed the statements in Challenge.lean against the paper.
 
 fidelity:
-  divergences: ""                         # TODO(Otis): see the suggested text in the handoff notes.
+  divergences: |
+    1. Positive volume. Theorem 1.1 is stated for V > 0 explicitly; the paper leaves this
+       implicit.
+    2. Uniqueness. "Balls uniquely minimize" is formalized as: a set is a minimizer exactly when
+       it agrees with a ball of volume V up to a null set (that is, up to translation and null
+       sets).
+    3. Measurability. The theorem is proved both with Borel sets and competitors (main) and with
+       Lebesgue-measurable ones (main_lebesgue).
+    4. Finite perimeter is part of the definition of a minimizer. For V > 0 this changes nothing,
+       since a ball of volume V has finite energy.
+    5. The energy. The perimeter is De Giorgi's, with C^1_c test fields bounded by 1 in the
+       Euclidean norm. The Coulomb term is an integral over Omega x Omega, which equals the
+       iterated integral by Tonelli. Both take values in [0, infinity].
+    6. Corollary 1.2 is strengthened. Besides the value and its attainment, main_binding proves
+       that every set attaining the infimum agrees with a ball of volume 5/2 up to a null set.
+    7. Proof. The proof follows a blueprint of the paper's argument (blueprint/), written by AI
+       agents from the paper. The blueprint was not required to follow the paper's proof, and
+       the author has not systematically compared the two, so the formal proof may differ from
+       the paper's argument. Only the statements were checked against the paper, in
+       Challenge.lean, with the differences listed above.
 
 review:
   status: "author-verified"
