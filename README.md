@@ -40,7 +40,8 @@ the challenge statements (comparator runs on Linux).
 ## Layout
 
 - `Challenge.lean`, `Solution.lean`, `Solution/Defs.lean`, `comparator.json`: the statement and its check.
-- `NoCompromise/`: the formalization (namespace `LiquidDrop`).
+- `NoCompromise/`: the formalization, about 216,000 lines of Lean in 1,206 files
+  (namespace `LiquidDrop`).
 - `blueprint/`: the LaTeX blueprint the formalization follows, with a compiled PDF.
 - `formalization.yaml`: metadata, including how the formalization was produced.
 
