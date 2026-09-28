@@ -1,0 +1,1034 @@
+\chapter{The $\varepsilon$-regularity theorem}\label{ch:eps-reg}
+\module{NoCompromise.Regularity.ApproxHarmonic,
+        NoCompromise.Regularity.EpsReg,
+        NoCompromise.Regularity.Excess,
+        NoCompromise.Regularity.FluxDefect,
+        NoCompromise.Regularity.GeometricRecurrence,
+        NoCompromise.Regularity.GraphApprox,
+        NoCompromise.Regularity.GraphBadBase,
+        NoCompromise.Regularity.GraphGoodBase,
+        NoCompromise.Regularity.GraphProjectedExcess,
+        NoCompromise.Regularity.GraphSingleValued,
+        NoCompromise.Regularity.GraphTwoPointCaps,
+        NoCompromise.Regularity.HarmonicAffine,
+        NoCompromise.Regularity.HarmonicBlowup,
+        NoCompromise.Regularity.HarmonicBlowupUniform,
+        NoCompromise.Regularity.HeightBound,
+        NoCompromise.Regularity.ReversePoincare,
+        NoCompromise.Regularity.TiltImprovement,
+        NoCompromise.Regularity.ZeroExcess}
+
+\section{Excess and its elementary comparisons}\label{sec:excess}
+
+\begin{definition}[Cylindrical and spherical excess]\label{def:excess}
+\uses{not:cylinders,thm:degiorgi-structure}
+For $E$ of locally finite perimeter, $x\in\R^3$, $r>0$ and $\nu\in\Sph^2$,
+\begin{align}
+  \Exc(E,x,r,\nu)
+  &:=\frac1{r^2}\int_{\rbd E\cap C_r^\nu(x)}|\nu_E-\nu|^2\,d\Hs^2 ,
+  \label{eq:excess-cyl}\\
+  \ExcB(E,x,r,\nu)
+  &:=\frac1{r^2}\int_{\rbd E\cap B_r(x)}|\nu_E-\nu|^2\,d\Hs^2 .
+  \label{eq:excess-ball}
+\end{align}
+\end{definition}
+
+\begin{lemma}[Ball--cylinder comparison]\label{lem:excess-ball-cyl}
+\uses{def:excess}
+From $B_r(x)\subset C_r^\nu(x)\subset B_{\sqrt2r}(x)$,
+\begin{equation}\label{eq:excess-ball-cyl}
+  \ExcB(E,x,r,\nu)\le\Exc(E,x,r,\nu)\le2\,\ExcB(E,x,\sqrt2r,\nu).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Use $B_r(x)\subset C_r^\nu(x)\subset B_{\sqrt2r}(x)$.  The second inclusion
+changes the normalization from $r^{-2}$ to $(\sqrt2r)^{-2}$ and therefore
+produces the factor $2$.
+\end{proof}
+
+\begin{lemma}[Change of centre]\label{lem:excess-center}
+\uses{def:excess}
+If $z\in C_{r/8}^\nu(x)$ then $C_{r/8}^\nu(z)\subset C_r^\nu(x)$, hence
+\begin{equation}\label{eq:excess-center}
+  \Exc(E,z,r/8,\nu)\le64\,\Exc(E,x,r,\nu).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The inclusion $C_{r/8}^\nu(z)\subset C_r^\nu(x)$ bounds the numerator by
+that defining $\Exc(E,x,r,\nu)$, while $(r/8)^{-2}=64r^{-2}$.
+\end{proof}
+
+\begin{fnote}[These are the only two]\label{fnote:excess-comparisons}
+Lemmas~\ref{lem:excess-ball-cyl} and \ref{lem:excess-center} are the only
+ball--cylinder and change-of-centre comparisons used in this chapter.  In
+particular \eqref{eq:excess-center} is what makes the iteration of
+\S\ref{sec:eps-completion} available at \emph{every} nearby boundary point,
+not just at the original centre.
+\end{fnote}
+
+\section{Zero-excess classification}
+
+\begin{lemma}[Zero-excess classification]\label{lem:zero-excess}
+\uses{def:excess,thm:polar}
+Let $F$ have finite perimeter in a connected open cylinder $C$ and suppose
+\begin{equation}\label{eq:zero-excess-hyp}
+  \nu_F=e_3\qquad|D\ind F|\text{-a.e.\ in }C .
+\end{equation}
+Then, after changing $F$ on a null set, exactly one of the following holds in
+$C$: $F\cap C=\varnothing$; $F\cap C=C$; or
+$F\cap C=C\cap\{x_3<c\}$ for some $c\in\R$, where the cutting plane is allowed
+to lie outside $C$.  In the nonconstant case only the \emph{lower} halfspace
+occurs.
+\end{lemma}
+
+\begin{proof}\uses{thm:polar,lem:bv-slices,conv:outward}
+The polar decomposition \eqref{eq:polar-sign} and
+\eqref{eq:zero-excess-hyp} give
+\begin{equation}\label{eq:zero-excess-derivs}
+  D_i\ind F=0\ (i=1,2),
+  \qquad
+  D_3\ind F=-|D\ind F| .
+\end{equation}
+Testing the first two identities against tensor-product test functions and
+using Fubini shows $\ind F(x',x_3)=g(x_3)$ a.e.\ in every smaller cylinder.
+The last identity says the distributional derivative of the
+$\{0,1\}$-valued $g$ is nonpositive, so $g$ is non-increasing; a
+non-increasing function taking only the values $0,1$ a.e.\ is identically
+$0$, identically $1$, or $\ind{(-\infty,c)}$.  Compatibility on overlapping
+smaller cylinders gives the stated form on $C$, including the two degenerate
+cases when the cutting plane lies outside the cylinder.
+\end{proof}
+
+\begin{fnote}[Both degenerate cases are needed]\label{fnote:zero-excess-degenerate}
+The two constant cases are not decoration: they occur in the compactness
+argument of Lemma~\ref{lem:height-bound}, where the limit may a priori be a
+full or empty cylinder, and they are excluded there by the density estimate at
+the origin rather than by hypothesis.  Similarly the specification
+\emph{lower} halfspace, rather than ``a halfspace'', is what makes the
+orientation in \eqref{eq:caps} determinate.
+\end{fnote}
+
+\section{The height bound}
+
+\begin{constants}\label{const:height}
+In Lemma~\ref{lem:height-bound} below, $\varepsilon_h$ depends only on $\eta$; the order of choice is
+$\eta\rightsquigarrow\varepsilon_h$.
+\end{constants}
+
+\begin{lemma}[Height bound]\label{lem:height-bound}
+\uses{def:excess,def:omega-minimal,conv:representative}
+For every $\eta\in(0,1/8)$ there is $\varepsilon_h(\eta)>0$ such that: if $E$
+is $\omega$-minimal, $0\in\partial\Omega$, $0<r\le1$, and
+\begin{equation}\label{eq:height-hyp}
+  \Exc(E,0,r,e_3)+\omega r\le\varepsilon_h(\eta),
+\end{equation}
+then
+\begin{equation}\label{eq:height-concl}
+  \partial\Omega\cap C_{3r/4}\subset\{|x_3|<\eta r\}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\uses{lem:ahlfors,thm:bv-compactness,lem:perimeter-measure-convergence,
+      lem:zero-excess,lem:two-sided-density,lem:open-representative}
+Scale to $r=1$; the rescaled set is $\omega r$-minimal at scales below
+$1/r\ge1$.  If the assertion failed there would be sets $E_j$ with
+quasiminimality constants $\omega_j\to0$, admissible comparison scales at
+least one, excess tending to zero, and points
+\[
+  x_j\in\partial\Omega_j\cap C_{3/4},\qquad|(x_j)_3|\ge\eta .
+\]
+The Ahlfors bounds \eqref{eq:ahlfors} and Theorem~\ref{thm:bv-compactness}
+give, after a subsequence, $\ind{E_j}\to\ind F$ in $L^1(C_{7/8})$, and
+every ball compactly contained in $C_{7/8}$ has radius less than one, so
+\eqref{eq:pmc-admissible-scales} holds there.
+Lemma~\ref{lem:perimeter-measure-convergence}\ref{it:pmc-measures} gives
+convergence of the perimeter measures on every smaller cylinder whose boundary
+carries no limiting perimeter.  Since
+$\int_{\rbd{E_j}\cap C_{7/8}}|\nu_{E_j}-e_3|^2\to0$, fix
+$0\le\phi\in C_c(C_{7/8})$.  The polar identity gives
+\[
+ \int\phi|\nu_{E_j}-e_3|^2\,d|D\ind{E_j}|
+ =2\int\phi\,d|D\ind{E_j}|+2\int\phi e_3\cdot D\ind{E_j}.
+\]
+Perimeter-measure convergence handles the first term, while local $L^1$
+convergence gives weak convergence of the distributional derivatives and
+handles the second.  The left side tends to zero, hence
+$D\ind F=-e_3|D\ind F|$ on $C_{7/8}$, which is exactly
+\eqref{eq:zero-excess-hyp}.  Thus Lemma~\ref{lem:zero-excess} makes $F$ a
+horizontal halfspace.  Because $0\in\partial\Omega_j$ and both phases have a
+uniform density at the origin by \eqref{eq:two-sided-density}, the constant
+cases are excluded and the limiting plane passes through zero.
+
+After a further subsequence $x_j\to x_\infty$ with
+$|(x_\infty)_3|\ge\eta$.  A ball of radius $c\eta$ centred at $x_j$ lies
+strictly in one phase of the limiting halfspace, yet
+\eqref{eq:two-sided-density} at the boundary point $x_j$ puts a fixed positive
+amount of \emph{each} phase in that ball.  This contradicts the local $L^1$
+convergence.
+\end{proof}
+
+\section{Phase separation and the reverse Poincar\'e inequality}
+
+\begin{lemma}[Exact flux-defect identity for the excess]\label{lem:flux-defect}
+\uses{def:slab-cap,def:excess}
+Let $E$ be in slab-and-cap configuration $(1,c,\eta_0)$ with
+$\eta_0<1$.  For a.e.\ $s\in(1/2,1)$,
+\begin{equation}\label{eq:flux}
+  \int_{\rbd E\cap(B_s^2\times(-1,1))}\nu_E\cdot e_3\,d\Hs^2=\pi s^2 ,
+\end{equation}
+and consequently
+\begin{equation}\label{eq:flux-defect}
+  \frac12\int_{\rbd E\cap(B_s^2\times(-1,1))}|\nu_E-e_3|^2\,d\Hs^2
+  =\Per\bigl(E;B_s^2\times(-1,1)\bigr)-\pi s^2 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{thm:gauss-green,def:slab-cap,thm:traces,lem:bv-slices,
+                    thm:degiorgi-structure}
+For a.e. $s$, slicing by $x'\mapsto|x'|$ gives no perimeter mass on the
+vertical wall and the interior and exterior traces there agree.  Apply the
+trace product formulas of Theorem~\ref{thm:traces} chartwise to the two caps
+and the smooth vertical wall of
+$D_s:=B_s^2\times(-1,1)$; the two circular edges are $\Hs^2$-null.  This
+identifies the boundary measure of $E\cap D_s$.  Gauss--Green
+\eqref{eq:gauss-green} for the constant field $e_3$ now has zero lateral
+flux, zero upper-cap contribution, and lower-cap contribution $-\pi s^2$
+because the trace of $E$ is respectively unrestricted, zero and one on those
+three pieces.  Since the outward normal of the lower cap is $-e_3$,
+cancellation of the total flux gives \eqref{eq:flux} with the displayed
+positive sign.
+Expanding $|\nu_E-e_3|^2=2-2\nu_E\cdot e_3$ and using
+$\Hs^2(\rbd E\cap\cdot)=\Per(E;\cdot)$
+(Theorem~\ref{thm:degiorgi-structure}) gives \eqref{eq:flux-defect}.
+\end{proof}
+
+\begin{fnote}[Where orientation enters]\label{fnote:orientation-enters}
+\eqref{eq:flux-defect} is \emph{the} point at which orientation enters the
+$\varepsilon$-regularity proof.  An unoriented area Jacobian must not be used
+to estimate $|\nu_E-e_3|^2$ pointwise: the flux identity \eqref{eq:flux}
+depends on the \emph{signed} cap traces \eqref{eq:caps}, and replacing it by an
+unoriented bound loses exactly the cancellation that makes the excess a
+\emph{defect}.
+\end{fnote}
+
+\begin{lemma}[Reverse Poincar\'e]\label{lem:reverse-poincare}
+\uses{def:slab-cap,def:excess,def:omega-minimal,thm:deformation}
+There is $\eta_0\in(0,1/2)$, absolute, with the following property.  Let $E$ be
+$\omega$-minimal, let $0<\rho\le2^{-1/2}$, and suppose that after a rigid
+motion $E$ is in slab-and-cap configuration $(\rho,c,\eta_0)$.  Then
+\begin{equation}\label{eq:reverse-poincare}
+  \Exc(E,0,\rho/2,e_3)
+  \le\frac{C}{\rho^4}\int_{\rbd E\cap C_\rho}(x_3-c)^2\,d\Hs^2
+   +C\omega\rho .
+\end{equation}
+If the two phases in \eqref{eq:caps} are reversed, the same holds with
+$-e_3$ in place of $e_3$.
+\end{lemma}
+
+\begin{proof}
+\uses{lem:flux-defect,thm:deformation,def:omega-minimal,def:slab-cap,
+      lem:locality}
+Put
+\[
+ \widetilde E:=\{y:\rho y\in E\},\qquad
+ \widetilde c:=c/\rho,\qquad \widetilde\omega:=\rho\omega.
+\]
+Then $\widetilde E$ has slab-and-cap configuration
+$(1,\widetilde c,\eta_0)$.  Scaling \eqref{eq:omega-minimal} directly shows
+that $\widetilde E$ satisfies the same comparison with coefficient
+$\widetilde\omega$ for every competitor supported compactly in a ball of
+radius at most $1/\rho$; this larger admissible radius must be retained after
+normalising the geometric scale.
+
+Choose
+$\sigma\in(1/2,5/8)$ and $\tau\in(7/8,1)$ so that
+\eqref{eq:cylindrical-regular-radii} holds for $\widetilde E$ and
+\eqref{eq:flux-defect} holds at $s=\sigma$.  The excluded sets of radii are
+null, so such a pair exists.  Apply Theorem~\ref{thm:deformation} to obtain
+$F$.  Since
+\[
+ \sqrt{\tau^2+1}<\sqrt2\le1/\rho,
+\]
+one can choose $R$ with
+$\sqrt{\tau^2+1}<R\le1/\rho$.  The support of
+$F\triangle\widetilde E$ lies in the closed cylinder
+$\overline{B_\tau^2}\times[-1,1]\Subset B_R$.  Hence the scaled
+quasiminimality inequality is applicable.  The construction gives matching
+traces on the outer wall and caps, while cylindrical regularity removes
+perimeter mass from the outer wall; locality therefore cancels the identical
+part outside the cylinder and yields
+\[
+ \Per\bigl(\widetilde E;B_\tau^2\times(-1,1)\bigr)
+ \le \Per\bigl(F;B_\tau^2\times(-1,1)\bigr)
+     +\widetilde\omega|F\triangle\widetilde E|.
+\]
+Now $|F\triangle\widetilde E|\le2\pi\tau^2$, and cylindrical regularity at
+$\sigma$ decomposes the first perimeter into its core and annular parts.
+Combining this with \eqref{eq:deformation-estimate}, and using
+$\tau-\sigma>1/4$, gives
+\begin{equation}\label{eq:reverse-unit}
+  \Per\bigl(\widetilde E;B_\sigma^2\times(-1,1)\bigr)-\pi\sigma^2
+  \le C\int_{\rbd{\widetilde E}\cap C_1}
+                 (y_3-\widetilde c)^2\,d\Hs^2(y)
+       +C\widetilde\omega .
+\end{equation}
+By \eqref{eq:flux-defect} at $s=\sigma$ and
+$C_{1/2}\subset B_\sigma^2\times(-1,1)$,
+\[
+ \Exc(\widetilde E,0,1/2,e_3)
+ \le C\int_{\rbd{\widetilde E}\cap C_1}
+              (y_3-\widetilde c)^2\,d\Hs^2(y)
+      +C\widetilde\omega .
+\]
+Finally, cylindrical excess is scale invariant, the displayed height
+integral equals
+$\rho^{-4}\int_{\rbd E\cap C_\rho}(x_3-c)^2\,d\Hs^2(x)$, and
+$\widetilde\omega=\rho\omega$.  This is \eqref{eq:reverse-poincare}.
+For the reversed configuration apply the proved case to $E^c$, whose outward
+normal is $-\nu_E$ and whose quasiminimality inequality is identical.
+\end{proof}
+
+\begin{remark}[The slab hypothesis is supplied, not assumed]
+\label{rem:slab-supplied}
+Under the hypotheses of Theorem~\ref{thm:eps-regularity},
+\eqref{eq:slab} follows from Lemma~\ref{lem:height-bound}, and
+\eqref{eq:caps} follows from the fact that the limiting halfspace in
+Lemma~\ref{lem:height-bound} has outward normal $e_3$.  When
+Lemma~\ref{lem:reverse-poincare} is applied at the \emph{new} affine plane in
+Lemma~\ref{lem:tilt-improvement}, verifying \eqref{eq:slab}--\eqref{eq:caps}
+requires a separate argument; see \eqref{eq:chebyshev}.  Skipping that
+verification is the most common way to produce a false proof of
+\eqref{eq:tilt-improvement}.
+\end{remark}
+
+\section{Maximal-function graph approximation}\label{sec:graph-approx}
+
+\begin{definition}[Projected excess measure and its maximal density]
+\label{def:projected-excess}
+\uses{def:excess,not:cylinders,def:maximal}
+For $E$ of locally finite perimeter let $\pi(x',x_3):=x'$ and put, for Borel
+$A\subset\R^2$,
+\begin{equation}\label{eq:projected-excess}
+  \mu(A):=\int_{\rbd E\cap\pi^{-1}(A)\cap C_{3/4}}|\nu_E-e_3|^2\,d\Hs^2 ,
+\end{equation}
+and $M_{1/8}\mu(x'):=\sup_{0<\rho<1/8}\mu(B^2_\rho(x'))/(\pi\rho^2)$.
+\end{definition}
+
+\begin{lemma}[Good base set]\label{lem:good-base}
+\uses{def:projected-excess,lem:maximal,def:excess}
+Let $E$ have locally finite perimeter, let $\mu$ be its projected excess
+measure from Definition~\ref{def:projected-excess}, and let $\gamma,c>0$.
+Put $c_\gamma:=c\gamma^2$.  Then
+\begin{equation}\label{eq:good-base-measure}
+  \bigl|\{M_{1/8}\mu>c_\gamma\}\bigr|\le Cc_\gamma^{-1}\mu(B^2_{3/4}),
+\end{equation}
+so with $G_0:=\{M_{1/8}\mu\le c\gamma^2\}\cap B^2_{1/2}$,
+\begin{equation}\label{eq:good-base-complement}
+  \bigl|B^2_{1/2}\setminus G_0\bigr|
+  \le Cc^{-1}\gamma^{-2}\Exc(E,0,1,e_3).
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:maximal,def:projected-excess}
+\eqref{eq:good-base-measure} is Lemma~\ref{lem:maximal}; then
+$\mu(B^2_{3/4})\le\Exc(E,0,1,e_3)$ by
+Definitions~\ref{def:excess} and \ref{def:projected-excess}.
+\end{proof}
+
+\begin{constants}\label{const:graph}
+In Lemma~\ref{lem:two-point-lipschitz} below, The order of choice is
+$\gamma\rightsquigarrow\tau\rightsquigarrow\eta\rightsquigarrow(c,\varepsilon_g)$:
+first the target Lipschitz constant $\gamma$; then a slab width
+$\tau<\min\{1/64,\gamma/256\}$; then a height parameter
+$\eta:=\min\{\gamma/4,1/4\}$ for Lemma~\ref{lem:height-bound}; then $c$ and
+$\varepsilon_g$ small enough that
+$Cc\gamma^2\le\varepsilon_h(\eta)$ and
+$\varepsilon_g\le\varepsilon_h(\eta)$, and also
+$\varepsilon_g|B_1|^{1/3}\le c_I/2$ so that
+Constants~\ref{const:rd} gives $r_d=1$ throughout this unit-scale argument.
+\end{constants}
+
+\begin{lemma}[Two-point Lipschitz estimate on the good base]
+\label{lem:two-point-lipschitz}
+\uses{lem:good-base,lem:height-bound,def:excess,lem:ahlfors,
+      thm:gauss-green,thm:degiorgi-structure}
+Let $\gamma\in(0,1/8)$.  There are $c=c(\gamma)>0$ and
+$\varepsilon_g(\gamma)>0$, chosen in the order of Constants~\ref{const:graph},
+such that, if $E$ is $\omega$-minimal with
+$0\in\partial\Omega$ and
+\begin{equation}\label{eq:graph-hyp}
+  \Exc(E,0,1,e_3)+\omega\le\varepsilon_g(\gamma),
+\end{equation}
+then any two reduced-boundary points $p=(p',p_3)$, $q=(q',q_3)$ with
+$p,q\in C_{1/2}$ and $p',q'\in G_0$ satisfy
+\begin{equation}\label{eq:two-point-lipschitz}
+  |p_3-q_3|\le\gamma|p'-q'| .
+\end{equation}
+Moreover the phases on the two horizontal faces are fixed, in the trace
+sense:
+\begin{equation}\label{eq:graph-cap-separation}
+ B_{1/2}^2\times\{-1/2\}\subset E^{(1)},
+ \qquad
+ B_{1/2}^2\times\{1/2\}\subset E^{(0)}
+ \quad\text{up to }\Hs^2\text{-null sets}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\uses{lem:height-bound,lem:good-base,def:projected-excess,const:graph,
+      lem:ahlfors,thm:gauss-green,thm:degiorgi-structure}
+First apply Lemma~\ref{lem:height-bound} at $(0,1)$ with a slab width
+\begin{equation}\label{eq:slab-width-choice}
+  \tau<\min\{1/64,\ \gamma/256\},
+\end{equation}
+so that $\partial\Omega\cap C_{3/4}\subset\{|x_3|<\tau\}$.  Since
+$D\ind E$ vanishes in each of the connected regions
+$B_{3/4}^2\times(-3/4,-\tau)$ and
+$B_{3/4}^2\times(\tau,3/4)$, the two corresponding phase values are constants
+$\ell,u\in\{0,1\}$.  For a.e. $s\in(1/2,5/8)$, Gauss--Green in
+$B_s^2\times(-1/2,1/2)$ gives
+\[
+ \int_{\rbd E\cap(B_s^2\times(-1/2,1/2))}\nu_E\cdot e_3\,d\Hs^2
+ =\pi s^2(\ell-u).
+\]
+On the other hand the left side is the perimeter in that cylinder minus one
+half of its excess numerator.  The cylinder contains $B_{1/4}$, so the
+Ahlfors lower bound makes its perimeter at least a fixed positive constant,
+whereas \eqref{eq:graph-hyp} makes the excess numerator arbitrarily small.
+Thus the left side is positive, forcing $(\ell,u)=(1,0)$.  This proves
+\eqref{eq:graph-cap-separation}; in particular no unrecorded replacement of
+$E$ by its complement is being made.
+
+Set $d:=|p'-q'|$ and $h:=|p_3-q_3|$.  If $d\ge1/32$ then the global slab
+bound and \eqref{eq:slab-width-choice} give $h\le2\tau<\gamma d$.  Suppose
+$d<1/32$ and, towards a contradiction, $h>\gamma d$.  Put
+$\rho:=2\max\{d,h\}$; the global slab bound gives $\rho<1/8$ and
+$q\in C_{3\rho/4}(p)$.  Since $p'\in G_0$,
+Definition~\ref{def:projected-excess} gives
+\begin{equation}\label{eq:excess-at-p}
+  \Exc(E,p,\rho,e_3)\le Cc\gamma^2 .
+\end{equation}
+By Constants~\ref{const:graph}, Lemma~\ref{lem:height-bound} applies at
+$(p,\rho)$ with height parameter $\eta=\min\{\gamma/4,1/4\}$ and gives
+$h<\eta\rho$.  If $d\ge h$ this says $h<2\eta d\le\tfrac\gamma2d$,
+contradicting $h>\gamma d$.  If $h>d$ it says $h<2\eta h\le h/2$, again a
+contradiction.  The case $d=0$ is included: it forces $h=0$.
+\end{proof}
+
+\begin{lemma}[Single-valuedness from slicing]\label{lem:single-valued}
+\uses{lem:two-point-lipschitz,lem:bv-slices}
+In the situation of Lemma~\ref{lem:two-point-lipschitz}, for a.e.\
+$x'\in B^2_{1/2}$ the restricted vertical slice
+$t\mapsto\ind E(x',t)$ on $(-1/2,1/2)$ is a one-dimensional BV function
+whose oriented jump number between its lower and upper traces is exactly one.
+If $x'\in G_0$, \eqref{eq:two-point-lipschitz} permits at most one
+reduced-boundary point in $\{x'\}\times(-1/2,1/2)$.  Hence, outside a planar
+null set, $\rbd E\cap C_{1/2}\cap\pi^{-1}(G_0)$ is a single-valued
+$\gamma$-Lipschitz graph over a Borel set $G\subset G_0$.
+\end{lemma}
+
+\begin{proof}\uses{lem:bv-slices,lem:two-point-lipschitz}
+Lemma~\ref{lem:bv-slices} gives the slice BV property.  The slab conclusion
+places no boundary on the portions with $|x_3|$ between the thin slab and
+$1/2$; equation \eqref{eq:graph-cap-separation} says that their traces are
+the lower-one and upper-zero phases.
+Thus the one-dimensional fundamental theorem for BV on $(-1/2,1/2)$ makes
+the oriented jump number equal to one.  The rest is
+\eqref{eq:two-point-lipschitz}.
+\end{proof}
+
+\begin{lemma}[Bad-base area bound]\label{lem:bad-base-area}
+\uses{lem:single-valued,def:excess}
+With $B:=B^2_{1/2}\setminus G$,
+\begin{equation}\label{eq:bad-base-area}
+\begin{aligned}
+  \Hs^2\bigl(\rbd E\cap C_{1/2}\cap\pi^{-1}(B)\bigr)
+  &\le|B|+3\int_{\rbd E\cap C_{1/2}\cap\pi^{-1}(B)}
+                    (1-\nu_3)\,d\Hs^2\\
+  &\le|B|+\tfrac32\Exc(E,0,1,e_3).
+\end{aligned}
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:single-valued,def:excess}
+Write $1=(1-|\nu_3|)+|\nu_3|$ and integrate over
+$S_B:=\rbd E\cap C_{1/2}\cap\pi^{-1}(B)$.  The localized signed slicing
+identity from Lemma~\ref{lem:single-valued} says that the signed sum of jump
+orientations in $(-1/2,1/2)$ is one, and therefore bounds
+$\int_{S_B}|\nu_3|\,d\Hs^2$ by
+$|B|+\int_{S_B}(|\nu_3|-\nu_3)\,d\Hs^2$.  Now use the elementary
+inequalities
+\begin{equation}\label{eq:elementary-nu3}
+  1-|t|\le1-t,
+  \qquad
+  |t|-t\le2(1-t)
+  \qquad(-1\le t\le1),
+\end{equation}
+and $|\nu_E-e_3|^2=2(1-\nu_3)$.
+\end{proof}
+
+\begin{theorem}[Graph approximation]\label{thm:graph-approx}
+\uses{lem:two-point-lipschitz,lem:single-valued,lem:bad-base-area}
+For every $\gamma\in(0,1/8)$ there are $C=C(\gamma)<\infty$ and
+$\varepsilon_g(\gamma)>0$ with the following property; the constant $C$ below
+depends only on $\gamma$, and every later use fixes $\gamma$ before any other
+constant (Lemmas~\ref{lem:blowup-compactness} and
+\ref{lem:harmonic-approx-uniform}, Constants~\ref{const:tilt}), so no
+uniformity in $\gamma$ is asserted or needed.  Let $E$ be $\omega$-minimal
+with $0\in\partial\Omega$ and \eqref{eq:graph-hyp}.  Then there are a Borel set $G\subset B^2_{1/2}$ and a
+function
+\begin{equation}\label{eq:graph-lipschitz}
+  f:B^2_{1/2}\to\R,\qquad\Lip(f)\le\gamma ,
+\end{equation}
+such that
+\begin{equation}\label{eq:graph-identity}
+  \rbd E\cap C_{1/2}\cap\pi^{-1}(G)
+  =\{(x',f(x')):x'\in G\}
+\end{equation}
+up to $\Hs^2$-null sets,
+\begin{equation}\label{eq:graph-loss}
+  \bigl|B^2_{1/2}\setminus G\bigr|
+  +\Hs^2\bigl((\rbd E\cap C_{1/2})\setminus\operatorname{graph}f\bigr)
+  \le C\gamma^{-2}\Exc(E,0,1,e_3),
+\end{equation}
+and
+\begin{equation}\label{eq:graph-dirichlet}
+  \int_{B^2_{1/2}}|\nabla f|^2\le C\,\Exc(E,0,1,e_3).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\uses{lem:two-point-lipschitz,lem:single-valued,lem:bad-base-area,
+      lem:good-base,cor:graph-area}
+Lemma~\ref{lem:single-valued} produces the single-valued
+$\gamma$-Lipschitz graph over $G\subset G_0$; extend its height from $G$ to all
+of $B^2_{1/2}$ by the McShane formula, which preserves the Lipschitz constant.
+If the height bound used in Lemma~\ref{lem:two-point-lipschitz} is
+$|x_3|<\tau$, compose this extension with the nearest-point projection onto
+$[-\tau,\tau]$.  This projection is $1$-Lipschitz and fixes the values on
+$G$, so the resulting extension still has Lipschitz constant at most
+$\gamma$, has the same good graph, and also satisfies
+\begin{equation}\label{eq:graph-extension-height}
+ \|f\|_{L^\infty(B^2_{1/2})}\le\tau.
+\end{equation}
+This gives \eqref{eq:graph-lipschitz}--\eqref{eq:graph-identity}.
+
+Equation \eqref{eq:graph-loss} combines
+\eqref{eq:good-base-complement} with \eqref{eq:bad-base-area}.
+
+For \eqref{eq:graph-dirichlet}: on the good graph,
+\begin{equation}\label{eq:normal-gradient-comparison}
+  |\nu_E-e_3|^2=2\Bigl(1-\frac1{\sqrt{1+|\nabla f|^2}}\Bigr)\ge c|\nabla f|^2
+\end{equation}
+because $|\nabla f|\le\gamma\le1/8$.  Here the signed slice identity and the
+lower-one/upper-zero cap separation orient every good jump upward, so the
+outward normal is $(-\nabla f,1)/\sqrt{1+|\nabla f|^2}$; without this sign
+information the first equality would be false.  On the bad planar set the McShane
+extension has $|\nabla f|\le\gamma$ a.e., so its Dirichlet energy there is at
+most $\gamma^2|B|\le C\Exc(E,0,1,e_3)$ by \eqref{eq:good-base-complement}.
+Corollary~\ref{cor:graph-area} on the good graph converts
+\eqref{eq:normal-gradient-comparison} into
+\eqref{eq:graph-dirichlet}.
+\end{proof}
+
+\section{Approximate harmonicity}
+
+\begin{lemma}[Approximate harmonicity]\label{lem:approx-harmonic}
+\uses{thm:graph-approx,lem:bounded-H}
+Fix $\gamma\in(0,1/8)$.  There is $C_\gamma<\infty$, depending only on
+$\gamma$ and chosen before the clamping height in
+\eqref{eq:graph-extension-height}, such that the graph approximation $f$ of
+Theorem~\ref{thm:graph-approx} may be taken to satisfy in addition, for every
+$\zeta\in C^1_c(B^2_{1/2})$,
+\begin{equation}\label{eq:approx-harmonic-clean}
+  \Bigl|\int_{B^2_{1/2}}\nabla f\cdot\nabla\zeta\Bigr|
+  \le C_\gamma\bigl(\Exc(E,0,1,e_3)+\omega\bigr)\|\nabla\zeta\|_\infty .
+\end{equation}
+At a general scale $r\in(0,1]$, for the graph approximation of the set
+rescaled to unit scale,
+\begin{equation}\label{eq:approx-harmonic-scaled}
+  \Bigl|\int_{B^2_{r/2}}\nabla f\cdot\nabla\zeta\Bigr|
+  \le C_\gamma\,r^2\bigl(\Exc(E,0,r,e_3)+\omega r\bigr)\|\nabla\zeta\|_\infty .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\uses{lem:bounded-H,thm:graph-approx,lem:height-bound,lem:ahlfors,
+      cor:graph-area,const:graph}
+Let $\eta\in C^1_c((-3/4,3/4))$ be identically one on the slab containing
+$\partial\Omega\cap C_{3/4}$ (available by
+Lemma~\ref{lem:height-bound}), and use in \eqref{eq:bounded-H} the vertical
+field $X(x',x_3):=\zeta(x')\eta(x_3)e_3$; the derivatives of $\eta$ vanish on
+the boundary portion under consideration.  Since
+$\spt\zeta\subset B^2_{1/2}$, this field is compactly supported in $B_1$, as
+required by Lemma~\ref{lem:bounded-H}.  On the good graph, with
+$Q:=\sqrt{1+|\nabla f|^2}$,
+\begin{equation}\label{eq:graph-divergence}
+  \dvgt X=\frac{\nabla f\cdot\nabla\zeta}{Q^2},
+  \qquad
+  d\Hs^2=Q\,dx',
+\end{equation}
+so the graph contribution is $\int_G\nabla f\cdot\nabla\zeta/Q$.  Since
+$|\nabla f|\le\gamma$,
+\begin{equation}\label{eq:harmonic-err-1}
+  \Bigl|\int_G\Bigl(1-\frac1Q\Bigr)\nabla f\cdot\nabla\zeta\Bigr|
+  \le C\gamma\|\nabla\zeta\|_\infty\int_G|\nabla f|^2
+  \le C\gamma\,\Exc\,\|\nabla\zeta\|_\infty
+\end{equation}
+by \eqref{eq:graph-dirichlet}.  The boundary omitted by the graph has area
+bounded by \eqref{eq:graph-loss}, and on it
+$|\dvgt X|\le C\|\nabla\zeta\|_\infty$, so its contribution is at most
+\begin{equation}\label{eq:harmonic-err-2}
+  C\gamma^{-2}\,\Exc\,\|\nabla\zeta\|_\infty .
+\end{equation}
+The McShane extension contributes on the bad planar set at most
+\begin{equation}\label{eq:harmonic-err-3}
+  \int_{B^2_{1/2}\setminus G}|\nabla f||\nabla\zeta|
+  \le\gamma\bigl|B^2_{1/2}\setminus G\bigr|\|\nabla\zeta\|_\infty
+  \le C\gamma^{-1}\,\Exc\,\|\nabla\zeta\|_\infty .
+\end{equation}
+Finally the right side of \eqref{eq:bounded-H} is at most
+$\omega\int_{\rbd E}|X\cdot\nu_E|\le C\omega\|\zeta\|_\infty$.  Indeed,
+cover the portion of $\rbd E\cap B_1$ meeting the support of $X$ by a fixed
+dimension-dependent number of balls of radius $1/4$ centred on the boundary,
+and apply the Ahlfors upper bound \eqref{eq:ahlfors} in each ball; the
+smallness convention in Constants~\ref{const:graph} makes these constants
+absolute.  Combining
+\eqref{eq:harmonic-err-1}--\eqref{eq:harmonic-err-3} gives the two-term
+estimate
+\begin{equation}\label{eq:approx-harmonic}
+  \Bigl|\int_{B^2_{1/2}}\nabla f\cdot\nabla\zeta\Bigr|
+  \le C_\gamma\,\Exc(E,0,1,e_3)\|\nabla\zeta\|_\infty
+   +C\omega\|\zeta\|_\infty ,
+\end{equation}
+with $C_\gamma\le C(1+\gamma^{-2})$.  Since
+$\|\zeta\|_\infty\le C\|\nabla\zeta\|_\infty$ for compactly supported
+$\zeta$ on $B^2_{1/2}$, this yields \eqref{eq:approx-harmonic-clean}.  Only
+the clean form is used later, and only the fact that $C_\gamma$ depends on
+$\gamma$ alone matters; the two-term form and the explicit growth in
+$\gamma^{-2}$ are not part of the statement.
+
+\emph{Scaling.}  Write $x=r\xi$, $f(x')=r\widetilde f(\xi')$,
+$\widetilde\zeta(\xi'):=\zeta(r\xi')$.  The physical left side is $r$ times
+the unit-scale one, while
+$\|\nabla_\xi\widetilde\zeta\|_\infty=r\|\nabla_x\zeta\|_\infty$; this gives
+the factor $r^2$ in \eqref{eq:approx-harmonic-scaled}.
+\end{proof}
+
+\section{Harmonic blow-up}\label{sec:harmonic-blowup}
+
+\begin{lemma}[Compactness of the normalised graphs]\label{lem:blowup-compactness}
+\uses{thm:graph-approx,lem:approx-harmonic,thm:rellich,
+      lem:two-point-lipschitz}
+Fix $\gamma\in(0,1/8)$, and use this same graph parameter for every $j$.
+Let $E_j$ be $\omega_j$-minimal at unit scale with
+$0\in\partial\Omega_j$, satisfying \eqref{eq:graph-hyp}, and put
+\begin{equation}\label{eq:blowup-scale}
+  a_j:=\bigl(\Exc(E_j,0,1,e_3)+\omega_j\bigr)^{1/2}>0,
+  \qquad a_j\longrightarrow0 .
+\end{equation}
+Let $f_j$ be the graph approximations of Theorem~\ref{thm:graph-approx} and
+\begin{equation}\label{eq:blowup-normalized}
+  \bar f_j:=\avg_{B^2_{1/2}}f_j,
+  \qquad
+  g_j:=\frac{f_j-\bar f_j}{a_j}.
+\end{equation}
+Then, after a subsequence,
+\begin{equation}\label{eq:blowup-convergence}
+  g_j\rightharpoonup h\ \text{in }H^1(B^2_{1/2}),
+  \qquad
+  g_j\to h\ \text{in }L^2(B^2_{1/2}),
+\end{equation}
+and $h$ is harmonic (hence smooth).
+\end{lemma}
+
+\begin{proof}
+\uses{thm:graph-approx,lem:approx-harmonic,thm:rellich,thm:bv-poincare,
+      lem:sobolev-Ck}
+\eqref{eq:graph-dirichlet} and Poincar\'e give a uniform $H^1$ bound for
+$g_j$; Theorem~\ref{thm:rellich} gives \eqref{eq:blowup-convergence} after a
+subsequence.  Dividing \eqref{eq:approx-harmonic-clean} by $a_j$ makes the
+right side $O(a_j)$, so $\int\nabla h\cdot\nabla\zeta=0$ for every test
+function.  Weakly harmonic implies smooth by
+Lemma~\ref{lem:sobolev-Ck}.
+\end{proof}
+
+\begin{fnote}[Strong $L^2$, not strong $H^1$]\label{fnote:only-L2}
+Only strong $L^2$ convergence is claimed.  Strong $H^1$ would require an
+additional energy-convergence argument and is \emph{unnecessary}, because
+Lemma~\ref{lem:reverse-poincare} converts height control into tilt control.
+Do not attempt to prove the stronger statement.
+\end{fnote}
+
+\begin{lemma}[Uniform harmonic approximation]\label{lem:harmonic-approx-uniform}
+\uses{lem:blowup-compactness,thm:graph-approx}
+Fix $\gamma\in(0,1/8)$.  There is $C_b(\gamma)<\infty$ such that for every
+$\tau_0\in(0,1]$ there is
+$0<\varepsilon_b(\tau_0,\gamma)\le\varepsilon_g(\gamma)$ with the following
+property.  If $E$ is $\omega$-minimal at unit scale with
+$0\in\partial\Omega$ and
+$a:=\bigl(\Exc(E,0,1,e_3)+\omega\bigr)^{1/2}$ satisfies
+$0<a^2\le\varepsilon_b$, then, for every graph approximation $f$ furnished
+by Theorem~\ref{thm:graph-approx}, with
+$\bar f:=\avg_{B^2_{1/2}}f$, there is a harmonic $h$ on $B^2_{1/4}$ with
+\begin{equation}\label{eq:harmonic-approx}
+  \int_{B^2_{1/4}}\Bigl|\frac{f-\bar f}{a}-h\Bigr|^2\le\tau_0,
+  \qquad
+  \int_{B^2_{1/4}}\bigl(|h|^2+|\nabla h|^2\bigr)\le C_b(\gamma).
+\end{equation}
+The same assertion includes the clamped extension in
+\eqref{eq:graph-extension-height}.  The bound $C_b(\gamma)$ is independent
+of $\tau_0$ and of the chosen slab width.
+\end{lemma}
+
+\begin{proof}
+\uses{lem:blowup-compactness,thm:graph-approx,thm:bv-poincare}
+The gradient estimate \eqref{eq:graph-dirichlet} and the planar
+Poincar\'e inequality give a uniform $H^1$ bound, depending only on the
+fixed $\gamma$, for $(f-\bar f)/a$.  Choose $C_b(\gamma)$ larger than the
+square of that bound.  If the approximation failed for some $\tau_0$, choose
+sets with $a_j\downarrow0$ and a failing graph approximation for each set.
+Lemma~\ref{lem:blowup-compactness} gives a harmonic limit $h$ and strong
+$L^2$ convergence on $B^2_{1/4}$; weak lower semicontinuity gives its stated
+$H^1$ bound.  This contradicts the failure.  Clamping preserves the graph,
+Lipschitz and Dirichlet estimates used here, so the bound is uniform over
+those extensions as well.
+\end{proof}
+
+\section{Improvement of tilt}
+
+\begin{lemma}[Affine approximation of a harmonic function]\label{lem:harmonic-affine}
+\uses{lem:harmonic-deriv}
+For $h$ harmonic on $B^2_{1/4}$ and $\theta\in(0,1/32)$,
+\begin{equation}\label{eq:harmonic-affine}
+  \int_{B^2_{4\theta}}\bigl|h-h(0)-\nabla h(0)\cdot x'\bigr|^2
+  \le C\theta^6\int_{B^2_{1/4}}|\nabla h|^2 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:harmonic-deriv}
+Interior derivative estimates \eqref{eq:harmonic-deriv} bound $\|D^2h\|_\infty$
+on $B^2_{1/8}$ by $C\|\nabla h\|_{L^2(B^2_{1/4})}$; Taylor's theorem then gives
+a pointwise bound $C\theta^2\|D^2h\|_\infty$ on $B^2_{4\theta}$, and squaring
+and integrating over a set of area $C\theta^2$ gives $\theta^6$.
+\end{proof}
+
+\begin{constants}\label{const:tilt}
+Fix the graph parameter once and for all at $\gamma_0:=1/16$.  The order of
+choice in Lemma~\ref{lem:tilt-improvement} is
+\[
+ \gamma_0\rightsquigarrow C\rightsquigarrow\theta
+ \rightsquigarrow\tau_t\rightsquigarrow\tau_0
+ \rightsquigarrow\varepsilon_t(\theta).
+\]
+The graph, harmonic and reverse-Poincar\'e bounds at this fixed $\gamma_0$
+give $C$ before the scale $\theta$ is chosen.  For each
+$\theta\in(0,1/32)$ choose a slab width $\tau_t$, put $\tau_0=\theta^6$,
+and then shrink $\varepsilon_t(\theta)$ to meet the explicitly listed
+smallness conditions in the proof.  Corollary~\ref{cor:excess-decay} chooses
+one scale after this uniform $C$ is known.
+\end{constants}
+
+\begin{lemma}[Improvement of tilt]\label{lem:tilt-improvement}
+\uses{lem:reverse-poincare,lem:harmonic-approx-uniform,lem:harmonic-affine}
+There is an absolute $C\ge1$ such that for every $\theta\in(0,1/32)$ there
+is $\varepsilon_t(\theta)>0$ with the following property.  If $E$ is
+$\omega$-minimal at unit scale with $0\in\partial\Omega$, put
+\begin{equation}\label{eq:tilt-hyp}
+  a:=\bigl(\Exc(E,0,1,e_3)+\omega\bigr)^{1/2}
+  \quad\text{and assume}\quad a^2\le\varepsilon_t(\theta).
+\end{equation}
+Then there is a unit vector $\nu'$ with $|\nu'-e_3|\le Ca$ such that
+\begin{equation}\label{eq:tilt-improvement}
+  \Exc(E,0,\theta,\nu')
+  \le C\theta^2\,\Exc(E,0,1,e_3)+C\theta\omega .
+\end{equation}
+In particular the same $C$ works for all these scales; only the admissible
+initial excess $\varepsilon_t(\theta)$ changes with $\theta$.
+\end{lemma}
+
+\begin{proof}
+\uses{lem:harmonic-approx-uniform,lem:harmonic-affine,lem:reverse-poincare,
+      lem:height-bound,thm:graph-approx,lem:two-point-lipschitz,
+      lem:harmonic-deriv,def:slab-cap,const:tilt}
+Fix $\gamma_0=1/16$.  In this proof every generic constant $C$ depends only
+on the estimates for that fixed graph parameter, the harmonic derivative
+and affine-approximation estimates, and the absolute constants of
+Lemma~\ref{lem:reverse-poincare}.  None depends on $\theta$.
+The $H^1$ bound in \eqref{eq:harmonic-approx} and
+Lemma~\ref{lem:harmonic-deriv} give a fixed $C_h\ge1$ such that every
+harmonic approximant used below satisfies
+$|h(0)|+|\nabla h(0)|\le C_h$.
+
+Now let $\theta\in(0,1/32)$.  Choose
+\begin{equation}\label{eq:tilt-slab-choice}
+ 0<\tau_t<\min\{\theta^3,\eta_0\theta/32,1/64,\gamma_0/256\},
+ \qquad \tau_0:=\theta^6,
+\end{equation}
+where $\eta_0$ is the fixed slab constant of
+Lemma~\ref{lem:reverse-poincare}.  Choose the positive
+$\varepsilon_t(\theta)$ so that
+\[
+ \varepsilon_t(\theta)\le\min\left\{
+ \varepsilon_g(\gamma_0),\ \varepsilon_h(\tau_t),\
+ \varepsilon_b(\theta^6,\gamma_0),\ \theta^6,\
+ \left(\frac{\eta_0\theta}{64C_h}\right)^2,\
+ \left(\frac1{16C_h}\right)^2\right\}.
+\]
+These choices affect the hypotheses, not the constants in the estimates.
+If $a=0$, take $\nu'=e_3$; zero excess at unit scale gives zero excess in
+the smaller cylinder.  Assume $a>0$.
+
+The height bound gives $\partial\Omega\cap C_{3/4}\subset\{|x_3|<\tau_t\}$.
+Choose the graph approximation with its extension clamped to
+$[-\tau_t,\tau_t]$, so $|\bar f|\le\tau_t$.  The phase-separation argument
+of Lemma~\ref{lem:two-point-lipschitz} gives the lower-one and upper-zero
+regions outside this slab in $C_{3/4}$: each of the two boundary-free
+regions is connected, so its phase is constant, and the cap traces in that
+lemma identify the two constants.  Shrinking the slab is permitted by
+\eqref{eq:tilt-slab-choice}.  Apply
+Lemma~\ref{lem:harmonic-approx-uniform} to this graph with tolerance
+$\theta^6$, and define
+\begin{equation}\label{eq:new-normal}
+  \nu':=\frac{(-a\nabla h(0),1)}{\sqrt{1+a^2|\nabla h(0)|^2}}.
+\end{equation}
+Then $|\nu'-e_3|\le2C_ha\le1/8$.  In particular the rotated cylinder
+$C_{2\theta}^{\nu'}$ lies inside $C_{3\theta}\subset C_{3/4}$ and its
+horizontal projection lies inside $B^2_{3\theta}\subset B^2_{4\theta}$.
+
+\emph{Step 1: height above the new affine plane.}  Let the plane be
+\begin{equation}\label{eq:new-plane}
+  x_3=\bar f+a\bigl(h(0)+\nabla h(0)\cdot x'\bigr).
+\end{equation}
+On the portion of the boundary contained in $\operatorname{graph}f$,
+its squared vertical discrepancy is at most
+\[
+ 2a^2\left(\int_{B^2_{1/4}}\left|\frac{f-\bar f}{a}-h\right|^2
+ +\int_{B^2_{4\theta}}|h-h(0)-\nabla h(0)\cdot x'|^2\right)
+ \le Ca^2\theta^6
+\]
+after integration over the base.  Here
+\eqref{eq:harmonic-approx} and \eqref{eq:harmonic-affine} apply, and the
+area element of the graph is bounded by $\sqrt{1+\gamma_0^2}$.
+Distance to the affine plane is no larger than this vertical discrepancy.
+
+For a boundary point in $C_{2\theta}^{\nu'}$ outside $\operatorname{graph}f$,
+$|x_3|\le\tau_t$, $|\bar f|\le\tau_t$ and the bound on $h(0),\nabla h(0)$
+make its squared distance at most $C(\tau_t^2+a^2)$.  By
+\eqref{eq:graph-loss}, the area of such points is bounded by
+$C\gamma_0^{-2}\Exc(E,0,1,e_3)$.  Since
+$\tau_t^2\le\theta^6$, $a^2\le\theta^6$ and
+$\Exc(E,0,1,e_3)\le a^2$, their contribution is at most $Ca^2\theta^6$.
+Thus the full boundary height-square in the rotated cylinder is at most
+$Ca^2\theta^6$, with $C$ independent of $\theta$.
+
+\emph{Step 2: slab and caps relative to the new plane.}
+Write $b:=\bar f+ah(0)$ and
+$c:=b/\sqrt{1+a^2|\nabla h(0)|^2}$, the signed distance of the plane from
+zero.  The choices above give
+\begin{equation}\label{eq:chebyshev}
+ |b|+3\theta a|\nabla h(0)|
+ \le\tau_t+(1+3\theta)C_ha<\eta_0\theta/8.
+\end{equation}
+Consequently every boundary point in $C_{2\theta}^{\nu'}$ has distance
+less than $\tau_t+\eta_0\theta/8<2\eta_0\theta$ from the new plane.
+Also $|c|\le|b|<\eta_0\theta/8$, so
+$|c|+2\eta_0\theta<2\theta$ because $\eta_0<1/2$.
+This verifies both the slab and clearance conditions of
+Definition~\ref{def:slab-cap} at radius $2\theta$.
+
+A point on either cap has the form $x=\pm2\theta\nu'+y$, with
+$y\cdot\nu'=0$ and $|y|<2\theta$.  Since $|\nu'-e_3|\le1/8$, its third
+coordinate is less than $-\theta$ on the lower cap and greater than
+$\theta$ on the upper cap.  Both caps lie in $C_{3/4}$ and outside the
+original slab, so their traces are respectively one and zero by the phase
+separation already established.  The complete slab-and-cap configuration
+therefore holds after rotating $\nu'$ to $e_3$.
+
+\emph{Step 3: apply reverse Poincar\'e.}
+Since $2\theta<2^{-1/2}$, Lemma~\ref{lem:reverse-poincare} applies and gives
+\[
+  \Exc(E,0,\theta,\nu')
+  \le C\theta^{-4}\bigl(a^2\theta^6\bigr)+C\omega\theta.
+\]
+Substitute $a^2=\Exc(E,0,1,e_3)+\omega$ and use $\theta<1$ to absorb
+$C\theta^2\omega$ into $C\theta\omega$.  Every constant in these three
+steps was independent of $\theta$; choose one common $C\ge1$ larger than
+those constants and $2C_h$.  This establishes the quantified statement.
+\end{proof}
+
+\begin{corollary}[Excess decay]\label{cor:excess-decay}
+\uses{lem:tilt-improvement}
+Let $C\ge1$ be the uniform constant in Lemma~\ref{lem:tilt-improvement}, and
+choose once and for all
+\begin{equation}\label{eq:theta-choice}
+ \theta:=\min\{1/64,1/(4C)\}\in(0,1/32),
+ \qquad C\theta^2\le\theta/4\le\theta/2.
+\end{equation}
+Then there is $\varepsilon_0>0$, absolute, such that: if $E$ is
+$\omega$-minimal, $0\in\partial\Omega$, $0<r\le1$, and
+\begin{equation}\label{eq:eps-reg-hyp}
+  \Exc(E,0,r,e_3)+\omega r\le\varepsilon_0,
+\end{equation}
+then there is a unit vector $\nu'$ with
+\begin{equation}\label{eq:excess-decay}
+  \Exc(E,0,\theta r,\nu')
+  \le\frac\theta2\,\Exc(E,0,r,e_3)+C\theta\omega r.
+\end{equation}
+\end{corollary}
+
+\begin{proof}\uses{lem:tilt-improvement}
+Obtain $C$ first from Lemma~\ref{lem:tilt-improvement}, then choose
+$\theta$ by \eqref{eq:theta-choice}, then set
+$\varepsilon_0:=\varepsilon_t(\theta)$.  Under $x=r\xi$ the excess is
+invariant and the quasiminimality coefficient becomes $\omega r$, with
+admissible comparison radii at least one since $r\le1$.  Apply the lemma
+at this scale and use $C\theta^2\le\theta/2$.
+\end{proof}
+
+\section{Iteration and completion}\label{sec:eps-completion}
+
+\begin{lemma}[Geometric recurrence]\label{lem:geometric-recurrence}
+Let $E_0\ge0$, $\theta\in(0,1)$, $\omega,r\ge0$, and let $E_j\ge0$ satisfy
+\begin{equation}\label{eq:recurrence}
+  E_{j+1}\le\frac\theta2E_j+C\theta\omega r_j,
+  \qquad r_j:=\theta^jr .
+\end{equation}
+Then $E_j\le C'\theta^j(E_0+\omega r)$ for every $j$, with $C'$ depending only
+on $C$.
+\end{lemma}
+
+\begin{proof}
+Divide by $\theta^{j+1}$: the recurrence for $\widetilde E_j:=E_j/\theta^j$
+becomes $\widetilde E_{j+1}\le\tfrac12\widetilde E_j+C\omega r$, whose
+solution is bounded by $\widetilde E_0+2C\omega r$.
+\end{proof}
+
+\begin{lemma}[The optimal normals are Cauchy]\label{lem:normals-cauchy}
+\uses{cor:excess-decay,lem:ahlfors}
+In the iteration of Corollary~\ref{cor:excess-decay} at scales
+$r_j=\theta^jr$, with $E_j$ the excess relative to the normal $\nu_j$ selected
+at step $j$,
+\begin{equation}\label{eq:normal-increment}
+  |\nu_{j+1}-\nu_j|^2\le C\bigl(E_j+\omega r_j\bigr) ,
+\end{equation}
+and consequently $\nu_j\to\nu_\infty$ with
+\begin{equation}\label{eq:normal-rate}
+  |\nu_j-\nu_\infty|\le C\theta^{j/2}\bigl(E_0+\omega r\bigr)^{1/2}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:ahlfors,lem:geometric-recurrence,cor:excess-decay}
+On a cylinder of radius comparable to $r_{j+1}$, expand
+$|\nu_{j+1}-\nu_j|^2$ through $\nu_E$, bound the two error integrals by the
+excesses $E_j$ and $E_{j+1}$, and use the Ahlfors \emph{lower} bound
+\eqref{eq:ahlfors} to divide by a positive multiple of $r_{j+1}^2$.
+Because $\theta$ is fixed, this gives
+$|\nu_{j+1}-\nu_j|^2\le C(E_j+E_{j+1})$; the recurrence
+\eqref{eq:recurrence} gives \eqref{eq:normal-increment}.  Then
+Lemma~\ref{lem:geometric-recurrence} gives
+$E_j+\omega r_j\le C\theta^j(E_0+\omega r)$, and summing
+\eqref{eq:normal-increment} gives \eqref{eq:normal-rate}.
+\end{proof}
+
+\begin{lemma}[Uniform iteration at nearby centres]\label{lem:uniform-centers}
+\uses{lem:excess-center,cor:excess-decay,lem:normals-cauchy}
+There is $\varepsilon_0'>0$, absolute, such that if $E$ is $\omega$-minimal,
+$0\in\partial\Omega$, $0<r\le1$, and
+$\Exc(E,0,r,e_3)+\omega r\le\varepsilon_0'$, then
+\eqref{eq:eps-reg-hyp} holds at every $z\in\partial\Omega\cap C_{r/8}$ at
+scale $r/8$, and hence the iteration of
+Corollary~\ref{cor:excess-decay} and Lemma~\ref{lem:normals-cauchy} runs at
+every such centre.
+\end{lemma}
+
+\begin{proof}\uses{lem:excess-center}
+$C_{r/8}(z)\subset C_{r/2}$, so \eqref{eq:excess-center} gives
+$\Exc(E,z,r/8,e_3)\le64\,\Exc(E,0,r,e_3)$; take
+$\varepsilon_0':=\varepsilon_0/64$ (also shrinking to absorb the $\omega r/8$
+term).
+\end{proof}
+
+\begin{theorem}[$\varepsilon$-regularity]\label{thm:eps-regularity}
+\uses{cor:excess-decay,lem:normals-cauchy,lem:uniform-centers,conv:representative}
+There are absolute constants $\varepsilon_0>0$, $\theta\in(0,1/16)$ and
+$C<\infty$ such that the following holds.  Let $E$ be $\omega$-minimal with
+$0\in\partial\Omega$, let $0<r\le1$, and assume
+\begin{equation}\label{eq:eps-reg-hyp-final}
+  \Exc(E,0,r,e_3)+\omega r\le\varepsilon_0 .
+\end{equation}
+Then $\partial\Omega\cap C_{r/4}$ is, after rotation, the graph of a
+$C^{1,1/2}$ function, and
+\begin{equation}\label{eq:eps-reg-holder}
+  |\nu_\Omega(x)-\nu_\Omega(y)|
+  \le Cr^{-1/2}|x-y|^{1/2}
+    \bigl(\Exc(E,0,r,e_3)+\omega r\bigr)^{1/2}
+\end{equation}
+for $x,y\in\partial\Omega\cap C_{r/8}$.
+\end{theorem}
+
+\begin{proof}
+\uses{cor:excess-decay,lem:normals-cauchy,lem:uniform-centers,
+      lem:geometric-recurrence,lem:bv-slices,lem:height-bound,
+      lem:two-point-lipschitz,lem:open-representative,
+      thm:degiorgi-structure}
+\emph{Step 1: iterate.}  Apply \eqref{eq:excess-decay} recursively at the
+scales $r_j=\theta^jr$.  Lemma~\ref{lem:geometric-recurrence} gives
+$E_j\le C\theta^j(E_0+\omega r)$ and Lemma~\ref{lem:normals-cauchy} gives the
+limiting normal $\nu_\infty$ with the rate \eqref{eq:normal-rate}.
+
+\emph{Step 2: run the iteration at every nearby centre.}
+Lemma~\ref{lem:uniform-centers}.
+
+\emph{Step 3: one graph.}  The limiting normal at every reduced-boundary point
+in a sufficiently small common cylinder makes an angle less than $\pi/4$ with
+$e_3$.  Indeed, at a reduced-boundary point, differentiation of the excess
+measure and \eqref{eq:normal-rate} identify the limiting normal with the
+measure-theoretic normal $\nu_E$ there.  Hence
+$D_3\ind E=-\nu_E\cdot e_3\,|D\ind E|$ has one sign in the common cylinder.
+By BV slicing (Lemma~\ref{lem:bv-slices}), for a.e.\ vertical line the
+one-dimensional slice of $\ind E$ is therefore monotone and has at most one
+jump.  After rescaling, the phase-separation conclusion
+\eqref{eq:graph-cap-separation} of Lemma~\ref{lem:two-point-lipschitz} gives
+uniform lower-one and upper-zero regions, and hence exactly one jump for a.e.\
+base point.  Let $f(x')$ be that jump height on this full-measure set.
+
+The preceding a.e.\ graph has a unique continuous extension.  To see this
+without making an exceptional-slice assumption, take two sequences of
+reduced-boundary points converging to topological-boundary points.  Apply the
+height bound at the first point at the smallest dyadic iteration scale which
+contains the second.  Because all limiting normals make angle less than
+$\pi/4$ with $e_3$, the resulting cone estimate says that two sufficiently
+near boundary points with the same horizontal projection must coincide, and
+that the vertical separation tends to zero with the horizontal separation.
+The reduced boundary is dense in $\partial\Omega$ by
+Lemma~\ref{lem:open-representative}, so this estimate passes to the limiting
+topological-boundary points.  The lower-one and upper-zero regions show that
+every vertical segment over the smaller base disk meets the boundary.
+Consequently the extended $f$ is continuous and its graph is the entire
+topological boundary in the smaller cylinder, not merely an a.e.\ subset.
+Local graph extensions agree on overlaps because they represent the same
+density-one open set.
+
+\emph{Step 4: H\"older estimate.}  Let $d:=|x-y|$ and choose the largest
+iteration scale $s$ with $s\asymp d$.  Take the fixed comparison factor in
+$s\asymp d$ large enough that one ball of radius $cs$ centred at a boundary
+point lies in both scale-$s$ cylinders.  Expanding the squared difference of
+the two scale-$s$ normals through $\nu_E$ on that ball, using the two excess
+bounds and dividing by its Ahlfors lower bound, gives
+\[
+ |\nu_{x,s}-\nu_{y,s}|
+ \le C(d/r)^{1/2}
+       \bigl(\Exc(E,0,r,e_3)+\omega r\bigr)^{1/2}.
+\]
+The two tails from these scale-$s$ normals to their limiting normals have the
+same bound by \eqref{eq:normal-rate}.  This proves
+\eqref{eq:eps-reg-holder} first on the reduced boundary and then everywhere
+by continuity.  The continuous graph has this field as its normal; solving
+the normal--gradient relation in the cone $\nu\cdot e_3>1/2$ gives
+$f\in C^{1,1/2}$.
+\end{proof}
+

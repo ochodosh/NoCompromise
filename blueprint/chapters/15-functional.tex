@@ -1,0 +1,161 @@
+\chapter{The functional and its elementary properties}\label{ch:functional}
+\module{NoCompromise.Energy.Coulomb,
+        NoCompromise.Energy.CoulombDefs,
+        NoCompromise.Energy.Defs,
+        NoCompromise.Energy.NullInvariance,
+        NoCompromise.Energy.Scaling}
+
+\section{Definitions}
+
+\begin{definition}[Coulomb potential and energy]\label{def:coulomb}
+\uses{conv:ambient}
+For measurable $E\subset\R^3$ of finite measure put
+\[
+  v_E(x):=\int_E\frac{dy}{|x-y|},
+  \qquad
+  D(E):=\frac12\iint_{E\times E}\frac{dx\,dy}{|x-y|}
+       =\frac12\int_Ev_E(x)\,dx ,
+\]
+and for disjoint measurable $E,F$ put
+$I(E,F):=\iint_{E\times F}\frac{dx\,dy}{|x-y|}$.
+\end{definition}
+
+\begin{definition}[Energy]\label{def:energy}
+\uses{def:perimeter,def:coulomb}
+$\Ec(E):=\Per(E)+D(E)$.
+\end{definition}
+
+\begin{definition}[Fixed-volume minimiser]\label{def:minimizer}
+\uses{def:energy}
+A \emph{fixed-volume minimiser at volume $V>0$} is a measurable
+$\Omega\subset\R^3$ with $|\Omega|=V$, $\Per(\Omega)<\infty$, and
+$\Ec(\Omega)\le\Ec(F)$ for every measurable $F$ with $|F|=V$.
+\end{definition}
+
+\begin{lemma}[Null-set invariance]\label{lem:null-invariance}
+\uses{def:energy}
+If $|E\triangle F|=0$ then $|E|=|F|$, $\Per(E)=\Per(F)$, $D(E)=D(F)$ and
+$\Ec(E)=\Ec(F)$.
+\end{lemma}
+
+\begin{proof}\uses{lem:perimeter-invariances}
+Lemma~\ref{lem:perimeter-invariances}\ref{it:per-null} for the perimeter; for
+$D$, the double integral only sees $\ind E$ as an $L^1$ class.
+\end{proof}
+
+\section{Quantitative Coulomb estimates}
+
+\begin{notation}[The Coulomb constant]\label{not:C0}
+$C_0:=2\pi+1$.
+\end{notation}
+
+\begin{lemma}[Uniform potential bound]\label{lem:potential-bound}
+\uses{def:coulomb,not:C0}
+Let $|E|=M<\infty$.  Then for every $x\in\R^3$ and $r>0$,
+\begin{equation}\label{eq:potential-split}
+  v_E(x)\le\int_{B_r(x)}\frac{dy}{|x-y|}+\frac Mr=2\pi r^2+\frac Mr ,
+\end{equation}
+and consequently
+\begin{equation}\label{eq:potential-bound}
+  \|v_E\|_{L^\infty}\le C_0M^{2/3},
+  \qquad
+  D(E)\le\tfrac12C_0M^{5/3}.
+\end{equation}
+In particular $D(E)<\infty$ for every set of finite measure.
+\end{lemma}
+
+\begin{proof}\uses{def:coulomb,not:C0}
+\eqref{eq:potential-split} splits the integral at radius $r$ and uses
+$|x-y|^{-1}\le r^{-1}$ outside $B_r(x)$; the interior integral is exactly
+$2\pi r^2$.  If $M>0$ choose $r=M^{1/3}$; if $M=0$ both assertions are
+trivial.  No rearrangement inequality is needed.
+\end{proof}
+
+\begin{lemma}[Bilinear identity]\label{lem:coulomb-bilinear}
+\uses{def:coulomb}
+For measurable $E,F$ of finite measure,
+\begin{equation}\label{eq:coulomb-bilinear}
+  D(E)-D(F)=\frac12\int_{\R^3}(\ind E-\ind F)(v_E+v_F)\,dx .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{def:coulomb,lem:potential-bound}
+Expand both sides for the truncated kernels $\min\{|x-y|^{-1},k\}$, where
+every integral is finite and the algebraic identity is a direct computation;
+then let $k\to\infty$.  Lemma~\ref{lem:potential-bound} makes
+$(\ind E-\ind F)(v_E+v_F)$ absolutely integrable, so positive and negative
+parts may be passed separately by monotone convergence.
+\end{proof}
+
+\begin{lemma}[$L^1$-Lipschitz estimate]\label{lem:coulomb-lipschitz}
+\uses{lem:coulomb-bilinear,lem:potential-bound}
+If $|E|,|F|\le M$ then
+\begin{equation}\label{eq:coulomb-lipschitz}
+  |D(E)-D(F)|\le C_0M^{2/3}\,|E\triangle F| .
+\end{equation}
+In particular $D$ is continuous under global $L^1$ convergence with uniformly
+bounded volumes.
+\end{lemma}
+
+\begin{proof}\uses{lem:coulomb-bilinear,lem:potential-bound}
+Bound the integrand of \eqref{eq:coulomb-bilinear} using
+\eqref{eq:potential-bound}; the factor $\ind E-\ind F$ is supported on
+$E\triangle F$ and bounded by $1$.
+\end{proof}
+
+\begin{fnote}[Where \eqref{eq:coulomb-lipschitz} is used]\label{fnote:lipschitz-uses}
+Three times, and it is essential in all three:
+Theorem~\ref{thm:decomposition} (Coulomb splitting), Lemma~\ref{lem:penalization}
+(volume penalisation), and Lemma~\ref{lem:quasiminimal} (perimeter
+quasiminimality).
+\end{fnote}
+
+\begin{lemma}[Disjoint-union formula]\label{lem:coulomb-disjoint}
+\uses{def:coulomb}
+For disjoint measurable $E,F$ of finite measure,
+\begin{equation}\label{eq:coulomb-disjoint}
+  D(E\cup F)=D(E)+D(F)+I(E,F),
+\end{equation}
+and $I(E,F)>0$ whenever both sets have positive measure.
+\end{lemma}
+
+\begin{proof}\uses{def:coulomb}
+Expand the double integral over $(E\cup F)\times(E\cup F)$; strict positivity
+holds because the kernel is strictly positive off the diagonal, and the
+diagonal has product measure zero.
+\end{proof}
+
+\begin{lemma}[Cross-interaction decays under translation]\label{lem:cross-decay}
+\uses{def:coulomb}
+Let $E,F$ be bounded, contained in $B_{R}$, and let $e\in\Sph^2$.  Then for
+$t>2R$,
+\begin{equation}\label{eq:cross-decay}
+  I(E,F+te)\le\frac{|E|\,|F|}{t-2R},
+\end{equation}
+so $I(E,F+te)\to0$ as $t\to\infty$.
+\end{lemma}
+
+\begin{proof}\uses{def:coulomb}
+For $x\in E$, $y\in F+te$ one has $|x-y|\ge t-2R$.
+\end{proof}
+
+\section{Scaling}
+
+\begin{lemma}[Translation and dilation]\label{lem:coulomb-scaling}
+\uses{def:energy}
+For $a\in\R^3$, $r>0$ and measurable $E$ of finite measure,
+\begin{equation}\label{eq:scaling}
+\begin{gathered}
+  |a+E|=|E|,\quad\Per(a+E)=\Per(E),\quad D(a+E)=D(E),\\
+  |rE|=r^3|E|,\quad\Per(rE)=r^2\Per(E),\quad D(rE)=r^5D(E).
+\end{gathered}
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:perimeter-invariances,def:coulomb}
+The perimeter statements are
+Lemma~\ref{lem:perimeter-invariances}\ref{it:per-transl},\ref{it:per-dil}.
+The Coulomb scaling follows from the change of variables $x=rx'$, $y=ry'$,
+which produces $r^6$ from the measures and $r^{-1}$ from the kernel.
+\end{proof}
+

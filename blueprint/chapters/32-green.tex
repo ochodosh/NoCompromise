@@ -1,0 +1,126 @@
+\chapter{The Coulomb--capacity identity}\label{ch:green}
+\module{NoCompromise.Green.Identity}
+
+\begin{remark}[Only one case is needed]\label{rem:green-only-case}
+The headline theorem uses Green's identity only for the charge density
+$\ind\Omega$.  The stronger measurable-set version is therefore \emph{not}
+stated and must not be formalised.
+\end{remark}
+
+\begin{notation}\label{not:v-omega}
+\uses{not:stationary,def:coulomb}
+$v:=v_\Omega$.  Since $\Omega\subset K$
+(Lemma~\ref{lem:hull-properties}), $v$ is harmonic on $\R^3\setminus K$;
+Lemma~\ref{lem:potential-C1beta} gives $v\in C^{1,\beta}(\R^3)$, and
+Proposition~\ref{prop:newtonian} gives
+\begin{equation}\label{eq:newtonian-omega}
+  -\Delta v=4\pi\ind\Omega
+\end{equation}
+distributionally.
+\end{notation}
+
+\section{Interior flux via a tubular cutoff}\label{sec:green}
+
+\begin{lemma}[Interior flux]\label{lem:interior-flux}
+\uses{not:v-omega,lem:hull-properties}
+\begin{equation}\label{eq:interior-flux}
+  \int_{\partial K}\partial_{\nu_K}v\,d\Hs^2=-4\pi V .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{not:v-omega,lem:potential-C1beta,thm:tubular}
+Let $d$ be the signed distance to $\partial K$, negative in $K$, in a fixed
+tubular neighbourhood (Theorem~\ref{thm:tubular}).  Choose
+$\eta\in C^\infty(\R)$ with $\eta=1$ on $(-\infty,-1]$, $\eta=0$ on
+$[0,\infty)$, $\eta'\le0$, and set
+\begin{equation}\label{eq:tubular-cutoff}
+  \chi_\varepsilon(x):=
+  \begin{cases}
+    1,&d(x)\le-\varepsilon,\\
+    \eta(d(x)/\varepsilon),&-\varepsilon<d(x)<0,\\
+    0,&d(x)\ge0 .
+  \end{cases}
+\end{equation}
+After smoothing the two flat joins, $\chi_\varepsilon\in C^\infty_c$,
+$0\le\chi_\varepsilon\le1$, and $\chi_\varepsilon\to\ind K$ pointwise.  Testing
+\eqref{eq:newtonian-omega} with $\chi_\varepsilon$,
+\begin{equation}\label{eq:green-cutoff}
+  -4\pi\int_\Omega\chi_\varepsilon
+  =\langle\Delta v,\chi_\varepsilon\rangle
+  =-\int\nabla v\cdot\nabla\chi_\varepsilon .
+\end{equation}
+In tubular coordinates $x=p+t\nu_K(p)$ the right side is
+\[
+  -\int_{\partial K}\int_{-\varepsilon}^0
+    \partial_{\nu_K}v\bigl(p+t\nu_K(p)\bigr)
+    \frac1\varepsilon\eta'(t/\varepsilon)J(p,t)\,dt\,d\Hs^2(p),
+\]
+with $J(p,t)\to1$ uniformly.  Since $\nabla v$ is continuous
+(Lemma~\ref{lem:potential-C1beta}) and $-\int_{-1}^0\eta'=1$, this tends to
+$\int_{\partial K}\partial_{\nu_K}v$.  Dominated convergence on the left of
+\eqref{eq:green-cutoff}, together with $\Omega\subset K$, gives
+\eqref{eq:interior-flux}.
+\end{proof}
+
+\section{The outer Wronskian cancellation}
+
+\begin{lemma}[Multipole expansion of $v$]\label{lem:v-expansion}
+\uses{not:v-omega}
+Since $\Omega$ is bounded, for $|x|>2\sup_{y\in\Omega}|y|$
+\begin{equation}\label{eq:kernel-expansion}
+  \frac1{|x-y|}=\frac1{|x|}+\frac{x\cdot y}{|x|^3}
+    +O\Bigl(\frac{|y|^2}{|x|^3}\Bigr),
+\end{equation}
+with a uniform $O(|x|^{-4})$ remainder after differentiating in $x$.
+Integrating over $y\in\Omega$,
+\begin{equation}\label{eq:v-expansion}
+  v(x)=\frac V{|x|}+\frac{b\cdot x}{|x|^3}+O(|x|^{-3})
+\end{equation}
+with differentiated remainder.
+\end{lemma}
+
+\begin{proof}\uses{def:coulomb}
+Taylor expansion of the kernel and integration.
+\end{proof}
+
+\begin{lemma}[The outer integral vanishes]\label{lem:wronskian}
+\uses{lem:v-expansion,lem:kelvin,thm:capacitary-potential}
+With $u$ from Theorem~\ref{thm:capacitary-potential},
+\begin{equation}\label{eq:wronskian}
+  \int_{\partial B_R}\bigl(v\,\partial_ru-u\,\partial_rv\bigr)\,d\Hs^2
+  =O(R^{-2})\longrightarrow0 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:v-expansion,lem:kelvin,thm:capacitary-potential}
+By \eqref{eq:u-expansion} and \eqref{eq:v-expansion}, the monopole terms
+cancel exactly:
+\[
+  \frac VR\Bigl(-\frac{\mathsf C}{R^2}\Bigr)
+  -\frac{\mathsf C}{R}\Bigl(-\frac V{R^2}\Bigr)=0 .
+\]
+Every remaining term is $O(R^{-4})$ pointwise, so its integral over
+$\partial B_R$, of area $4\pi R^2$, is $O(R^{-2})$.
+\end{proof}
+
+\begin{theorem}[Coulomb--capacity identity for $\Omega$]\label{thm:green-identity}
+\uses{lem:interior-flux,lem:wronskian,not:w}
+\begin{equation}\label{eq:green-identity}
+  \frac1{4\pi}\int_{\partial K}v_\Omega\,|\nabla u|\,d\Hs^2=|\Omega|=V .
+\end{equation}
+\end{theorem}
+
+\begin{proof}\uses{lem:interior-flux,lem:wronskian,thm:W11-gauss-green,not:w}
+Apply Green's second identity to $u$ and $v$ on $A_R:=B_R\setminus K$, where
+both are smooth.  The outward normal of $A_R$ on its inner boundary is
+$-\nu_K$; since $u=1$ and $\partial_{-\nu_K}u=w$ on $\partial K$
+(Notation~\ref{not:w}),
+\begin{equation}\label{eq:green-second}
+  \int_{\partial K}\bigl(vw+\partial_{\nu_K}v\bigr)\,d\Hs^2
+  +\int_{\partial B_R}\bigl(v\,\partial_ru-u\,\partial_rv\bigr)\,d\Hs^2=0 .
+\end{equation}
+Lemma~\ref{lem:wronskian} kills the outer integral as $R\to\infty$, giving
+$\int_{\partial K}vw=-\int_{\partial K}\partial_{\nu_K}v$, and
+Lemma~\ref{lem:interior-flux} evaluates the right side as $4\pi V$.
+\end{proof}
+

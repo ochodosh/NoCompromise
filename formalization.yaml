@@ -1,0 +1,137 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+# formalization.yaml (v0.4). Lines marked TODO(Otis) are guesses to check before publishing.
+
+version: "v0.4"
+
+project:
+  name: "NoCompromise"
+  description: >-
+    A complete Lean 4 / Mathlib formalization of the main results of Chodosh and Gianocca,
+    "No compromise in the liquid drop model" (arXiv:2608.11517). For Gamow's liquid-drop energy
+    E(Ω) = P(Ω) + (1/2) ∫_Ω ∫_Ω |x - y|⁻¹ dx dy on sets Ω ⊆ ℝ³ of volume V, with
+    V_* = 5 (2 - 2^{2/3}) / (2^{2/3} - 1): if 0 < V ≤ V_*, the minimisers are exactly the balls
+    of volume V (up to null sets), and if V > V_* there is no minimiser. The binding-energy
+    corollary is also proved: the optimal energy per unit volume is 3 (9π/5)^{1/3}, it is
+    attained, and every optimiser is a ball of volume 5/2 up to a null set. The development is
+    self-contained over Mathlib, including the required BV, geometric measure theory,
+    regularity and elliptic PDE theory.
+  authors: ["Otis Chodosh"]                # TODO(Otis): list everyone you consider an author.
+  responsible_maintainers: ["Otis Chodosh"]
+  license: "Apache-2.0"
+
+sources:
+  - title: "No compromise in the liquid drop model"
+    authors: ["Otis Chodosh", "Matilde Gianocca"]
+    contributors: []
+    id: "arXiv:2608.11517"
+    type: "article"
+    location: "Main theorem and binding-energy corollary"   # TODO(Otis): theorem numbers in the paper.
+    relationship: "formalizes"
+    # TODO(Otis): confirm the note below.
+    note: >-
+      The formalization follows a Lean-oriented blueprint of the paper's proof (blueprint/ in this
+      repository), in which every step is a separately numbered item. Some internal proof routes
+      differ from the paper; the theorems formalized are the paper's.
+    license: ""                           # TODO(Otis): the arXiv licence of the paper, if relevant.
+    author_endorsement: "participated"
+
+related_formalizations: []
+
+classification:
+  arxiv: ["math.DG", "math.AP"]           # paper: primary math.DG; cross-lists math-ph, math.AP.
+  msc2020: ["49Q10", "49Q20", "31B15"]    # as listed on the arXiv record.
+
+status:
+  scope: >-
+    Complete. The main theorem (for Borel and for Lebesgue-measurable sets) and the binding-energy
+    corollary are proved with no sorry and no axioms beyond Lean's standard three.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  main_results:
+    - declaration: "NoCompromise.main"
+      file: "Solution.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+    - declaration: "NoCompromise.main_lebesgue"
+      file: "Solution.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+    - declaration: "NoCompromise.main_binding"
+      file: "Solution.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+
+automation:
+  methods:
+    - method: "agent"
+      # TODO(Otis): check this list, and add the models used by the Codex orchestrator before
+      # 2026-09-23 and to write the blueprint.
+      models:
+        - "claude-opus-5-5"
+        - "claude-fable-5-1"
+        - "claude-opus-5"
+        - "claude-sonnet-5"
+        - "gpt-6-astra"
+        - "gpt-6-sol"
+        - "gpt-6-luna"
+        - "labs-leanstral-1-5"
+      framework: "Codex CLI, Claude Code, Mistral Vibe"
+      tool_setup: >-
+        An orchestrating agent (Codex until 2026-09-23, then Claude Code) worked from the blueprint.
+        It split the work into bounded Lean tasks for worker agents (Claude, GPT-6 through the Codex
+        CLI, and Leanstral through Mistral Vibe), each running in an isolated git worktree. The
+        orchestrator reviewed each patch, rebuilt the project, and audited axioms before committing.
+      cost:
+        wall_time: "About one month (2026-08-25 to 2026-09-24)."
+        spend_usd: ""                     # TODO(Otis)
+        hardware: "API-only; orchestrated from a 16 GB laptop."
+      prompting_notes: >-
+        Workers received exact hypotheses, a limited set of files, and explicit checks. Mathematical
+        doubts were returned to the human author rather than resolved by the agents.
+    - method: "manual"
+      models: []
+      framework: ""
+      tool_setup: >-
+        The human author reviewed the formal statements, approved every change to a blueprint
+        statement, and decided the questions of mathematical convention raised during the work.
+  spend_usd: ""                           # TODO(Otis)
+  # TODO(Otis): confirm the notes below, and say how Challenge.lean was reviewed.
+  notes: >-
+    The Lean proofs were written by AI agents. The statements in Challenge.lean were reviewed
+    by the human author.
+
+fidelity:
+  divergences: ""                         # TODO(Otis): see the suggested text in the handoff notes.
+
+review:
+  status: "author-verified"               # TODO(Otis): or self-assessed / agent-reviewed.
+  reviewers: ["Otis Chodosh"]
+  notes: ""                               # TODO(Otis)
+
+alignment:
+  namespace: "NoCompromise"
+  statements:
+    - source: "Main theorem"              # TODO(Otis): paper numbering.
+      lean: "NoCompromise.main"
+      module: "Challenge"
+      status: "proved"
+      note: "Borel-measurable sets and competitors."
+    - source: "Main theorem"
+      lean: "NoCompromise.main_lebesgue"
+      module: "Challenge"
+      status: "proved"
+      note: "Lebesgue-measurable sets and competitors."
+    - source: "Binding-energy corollary"  # TODO(Otis): paper numbering.
+      lean: "NoCompromise.main_binding"
+      module: "Challenge"
+      status: "proved"
+      note: ""
+
+acknowledgements: ""

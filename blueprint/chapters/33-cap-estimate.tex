@@ -1,0 +1,130 @@
+\chapter{The capacitary estimate for stationary domains}\label{ch:cap-estimate}
+\module{NoCompromise.Stationary.CapacitaryEstimate}
+
+\begin{notation}\label{not:cap-estimate}
+\uses{not:stationary,def:capacity,not:w}
+$\mathsf C:=\Capa(K)>0$,
+$\mathsf I:=\int_{\partial K}|\nabla u|^2\,d\Hs^2$, and
+$\mathsf P:=\Per(\Omega)$.
+\end{notation}
+
+\begin{lemma}[Integrating the Euler--Lagrange equation]\label{lem:integrate-EL}
+\uses{not:cap-estimate,cor:EL-pointwise,thm:green-identity,lem:flux-identity,
+      thm:capacitary-inequalities}
+\begin{equation}\label{eq:integrate-EL}
+  \lambda\mathsf C-V=\frac1{4\pi}\int_{\partial K}H|\nabla u|\,d\Hs^2 ,
+\end{equation}
+and consequently, by \eqref{eq:capacitary-inequalities},
+\begin{equation}\label{eq:integrate-EL-bound}
+  \lambda\mathsf C-V\ge\frac{\mathsf I}{\pi}-2 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\uses{cor:EL-pointwise,lem:hull-properties,lem:flux-identity,
+      thm:green-identity,thm:capacitary-inequalities}
+Since $\partial K\subset\partial\Omega$ and the outward normals agree
+(Lemma~\ref{lem:hull-properties}), \eqref{eq:EL-pointwise} gives
+$H+v_\Omega=\lambda$ on $\partial K$.  Multiply by $|\nabla u|/(4\pi)$ and
+integrate: the flux formula \eqref{eq:flux-boundary} evaluates
+$\lambda\int_{\partial K}|\nabla u|/(4\pi)=\lambda\mathsf C$, and
+Theorem~\ref{thm:green-identity} evaluates the $v_\Omega$ term as $V$.  This is
+\eqref{eq:integrate-EL}; the second inequality of
+\eqref{eq:capacitary-inequalities} gives \eqref{eq:integrate-EL-bound}.
+\end{proof}
+
+\begin{lemma}[Two lower bounds for $\mathsf I$]\label{lem:two-bounds-I}
+\uses{not:cap-estimate,thm:capacitary-inequalities}
+\begin{equation}\label{eq:I-bound-1}
+  \mathsf I\ge4\pi,
+  \qquad\text{hence}\qquad
+  \lambda\mathsf C-V\ge2 ,
+\end{equation}
+and
+\begin{equation}\label{eq:I-bound-2}
+  \mathsf I\ge\frac{\bigl(\int_{\partial K}|\nabla u|\bigr)^2}{\Per(K)}
+  =\frac{16\pi^2\mathsf C^2}{\Per(K)}
+  \ge\frac{16\pi^2\mathsf C^2}{\mathsf P},
+  \qquad\text{hence}\qquad
+  \lambda\mathsf C-V\ge\frac{16\pi\mathsf C^2}{\mathsf P}-2 .
+\end{equation}
+Combining,
+\begin{equation}\label{eq:I-bound-combined}
+  \lambda\mathsf C-V\ \ge\ \max\Bigl\{2,\ \frac{16\pi\mathsf C^2}{\mathsf P}-2\Bigr\}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\uses{thm:capacitary-inequalities,lem:flux-identity,lem:hull-properties,
+      lem:integrate-EL}
+\eqref{eq:I-bound-1} is the first inequality of
+\eqref{eq:capacitary-inequalities} fed into
+\eqref{eq:integrate-EL-bound}.  For \eqref{eq:I-bound-2}, Cauchy--Schwarz on
+$\partial K$ and the flux identity \eqref{eq:flux-boundary} give the displayed
+lower bound for $\mathsf I$, and \eqref{eq:hull-perimeter} replaces $\Per(K)$
+by $\mathsf P$; feed into \eqref{eq:integrate-EL-bound}.
+\end{proof}
+
+\begin{lemma}[Elimination of the capacity]\label{lem:eliminate-capacity}
+\uses{lem:two-bounds-I}
+Put
+\begin{equation}\label{eq:sy-def}
+  s:=\mathsf C\sqrt{\frac{4\pi}{\mathsf P}}>0,
+  \qquad
+  y:=\lambda\sqrt{\frac{\mathsf P}{4\pi}},
+\end{equation}
+so $\lambda\mathsf C=sy$.  Then \eqref{eq:I-bound-combined} becomes
+\begin{equation}\label{eq:sy-bounds}
+  y\ge\frac{V+2}{s},
+  \qquad
+  y\ge4s+\frac{V-2}{s},
+\end{equation}
+and consequently
+\begin{equation}\label{eq:y-lower}
+  y\ge\begin{cases}V+2,&0<V\le6,\\[1mm]4\sqrt{V-2},&V\ge6 .\end{cases}
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:two-bounds-I,lem:ledger-six}
+Substituting \eqref{eq:sy-def} into \eqref{eq:I-bound-combined} gives
+\eqref{eq:sy-bounds}, so
+$y\ge\max\{(V+2)/s,\ 4s+(V-2)/s\}$.
+
+\emph{If $s\le1$:} the first term gives $y\ge V+2$.  For $V\ge6$ this already
+gives $y\ge4\sqrt{V-2}$, because
+$(V+2)^2-16(V-2)=(V-6)^2\ge0$ (Lemma~\ref{lem:ledger-six}).
+
+\emph{If $s\ge1$:} consider $g_V(s):=4s+(V-2)/s$.  For $0<V\le6$ its minimum
+on $[1,\infty)$ is at $s=1$, giving $V+2$.  For $V\ge6$ its minimum is at
+$s=\sqrt{V-2}/2\ge1$ and equals $4\sqrt{V-2}$.
+\end{proof}
+
+\begin{proposition}[The capacitary estimate]\label{prop:cap-estimate}
+\uses{def:stationary,lem:eliminate-capacity}
+Every bounded connected $C^3$ stationary domain $\Omega$ of volume $V>0$ with
+multiplier $\lambda$ satisfies
+\begin{equation}\label{eq:cap-estimate}
+  \lambda\sqrt{\frac{\Per(\Omega)}{4\pi}}
+  \ \ge\
+  \begin{cases}
+    V+2,&0<V\le6,\\[1mm]
+    4\sqrt{V-2},&V\ge6 .
+  \end{cases}
+\end{equation}
+\end{proposition}
+
+\begin{proof}\uses{lem:eliminate-capacity,lem:integrate-EL,lem:two-bounds-I}
+\eqref{eq:y-lower} with $y=\lambda\sqrt{\Per(\Omega)/(4\pi)}$.
+\end{proof}
+
+\begin{fnote}[The interface]\label{fnote:cap-interface}
+Proposition~\ref{prop:cap-estimate} is the \emph{only} statement from
+Parts~\ref{part:regularity}--\ref{part:capacity} that
+Chapters~\ref{ch:classification}--\ref{ch:nonexistence} use, apart from
+Corollary~\ref{cor:minimizer-stationary} and
+Proposition~\ref{prop:scaling-identity}.  Everything after it is elementary
+one-variable algebra.  A formalisation can therefore develop
+Chapters~\ref{ch:classification}--\ref{ch:binding} against
+\eqref{eq:cap-estimate} as a hypothesis, in parallel with the heavy machinery.
+\end{fnote}
+

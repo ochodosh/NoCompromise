@@ -1,0 +1,651 @@
+% Lean module tree: each file with the blueprint items it owns.
+{\small
+\begin{verbatim}
+NoCompromise.lean  -- root: imports Main and Binding.Main
+
+NoCompromise/
+
+  Area/
+    AlmostLinear.lean
+      -- const:almost-linear
+      -- lem:almost-linear
+    Cofactor.lean
+      -- lem:cofactor
+    Formula.lean
+      -- thm:area-formula-2d
+    GoodPieces.lean
+      -- def:good-pieces
+    GoodPiecesCover.lean
+      -- lem:good-pieces-exhaust
+    Graph.lean
+      -- cor:graph-area
+    Linear.lean
+      -- def:jacobian
+      -- lem:linear-distortion
+    PieceFormula.lean
+      -- lem:area-one-piece
+    RankDeficient.lean
+      -- lem:rank-deficient
+    Rectifiable.lean
+      -- def:rectifiable
+      -- thm:area-formula-rect
+      -- lem:smooth-surface-rectifiable
+    Sphere.lean
+      -- lem:sphere-area
+
+  BV/
+    AnnularGluingFull.lean
+      -- prop:annular-gluing
+    Basic.lean
+      -- conv:outward
+      -- lem:test-class
+      -- thm:polar
+      -- lem:perimeter-invariances
+      -- lem:lsc
+      -- lem:locality
+    BoundaryTraces.lean
+      -- thm:traces
+    Coarea.lean
+      -- thm:bv-coarea
+    CoareaCritical.lean
+      -- lem:coarea-critical-part
+    CoareaL1Lebesgue.lean
+      -- cor:coarea-L1
+    CoareaRegular.lean
+      -- lem:coarea-regular-part
+    Compactness.lean
+      -- lem:translation-estimate
+      -- lem:grid-approx
+      -- thm:bv-compactness
+    Defs.lean
+      -- def:density
+      -- def:variation
+      -- def:perimeter
+    ExactCuts.lean
+      -- prop:cut-identities
+    Gluing.lean
+      -- prop:gluing
+    GoodRadii.lean
+      -- def:good-radius
+      -- lem:good-radius-ae
+    GoodTruncation.lean
+      -- lem:good-truncation
+    JumpDisintegration.lean
+      -- lem:bv-slices
+    Rellich.lean
+      -- lem:L2-interp
+    Slicing.lean
+      -- cor:slicing
+    SmoothApprox.lean
+      -- thm:smooth-approx
+      -- cor:smooth-approx-energy
+    StrictApprox.lean
+      -- lem:bv-product-smooth
+      -- lem:strict-approx
+    WeightedCoarea.lean
+      -- thm:weighted-coarea
+
+  Ball/
+    Defs.lean
+      -- not:BV
+    Perimeter.lean
+      -- lem:ball-perimeter
+    Potential.lean
+      -- lem:ball-coulomb
+      -- cor:ball-energy
+
+  Binding/
+    BallRatio.lean
+      -- lem:optimal-ball-volume
+    Main.lean
+      -- thm:main-binding
+    Ratio.lean
+      -- def:relaxed-ratio
+      -- lem:relaxed-attained
+      -- lem:ratio-is-fixed
+      -- lem:stabilization
+    Splitting.lean
+      -- lem:scaling-lower
+      -- def:splitting-functions
+      -- lem:ND-positive
+      -- lem:two-piece
+      -- lem:splitting-substitution
+      -- lem:splitting-F
+      -- thm:splitting
+    Strict.lean
+      -- prop:strict-binding
+
+  CapacitaryK/
+    Asymptotics.lean
+      -- conv:level-orientation
+      -- lem:K-normalization
+      -- lem:K-level-asymptotics
+      -- def:K-F
+      -- lem:K-far-field
+    Inequality.lean
+      -- lem:K-gauss-bonnet-input
+      -- prop:K-measure-inequality
+      -- lem:K-h-monotone
+      -- prop:K-two-ineq
+      -- thm:capacitary-inequalities
+    PositiveMeasure.lean
+      -- lem:K-bochner
+      -- prop:K-mu
+      -- lem:K-level-identities
+    Representatives.lean
+      -- def:K-p
+      -- lem:K-p-geometric
+      -- def:K-Fhat
+      -- prop:K-structure
+      -- lem:K-pushforward-density
+    SlabIdentities.lean
+      -- lem:K-slab-H
+      -- lem:K-slab-F
+      -- lem:gradient-vanishes-on-zero-set
+
+  Capacity/
+    Flux.lean
+      -- def:capacity
+      -- lem:potential-decay
+      -- lem:flux-identity
+    Kelvin.lean
+      -- lem:kelvin
+      -- lem:level-asymptotics
+    Levels.lean
+      -- lem:level-connected
+    Potential.lean
+      -- thm:capacitary-potential
+      -- not:w
+
+  Classification/
+    Endpoint.lean
+      -- prop:endpoint
+    Subcritical.lean
+      -- not:z-delta
+      -- lem:one-ball-upper
+      -- prop:classification
+
+  Compactness/
+    Decomposition.lean
+      -- thm:decomposition
+      -- lem:radii-construction
+      -- lem:perimeter-splitting
+      -- lem:coulomb-splitting
+    Nonvanishing.lean
+      -- lem:cube-nonvanishing
+      -- lem:coulomb-lsc
+      -- thm:compactness
+
+  Cones/
+    NoSingular.lean
+      -- prop:no-singular-points
+    ThreeDim.lean
+      -- lem:cone-tangent-cylinder
+      -- lem:cone-descent
+      -- lem:cone-smooth
+      -- lem:cone-link-great-circle
+      -- thm:cone-3d
+    TwoDim.lean
+      -- lem:cone-2d-link
+      -- lem:cone-2d
+  Conventions.lean
+    -- conv:ambient
+    -- conv:null
+    -- conv:test-fields
+    -- conv:constants
+
+  DeGiorgi/
+    Blowup.lean
+      -- thm:halfspace-blowup
+    ConeConcentration.lean
+      -- lem:cone-concentration
+    ExactDensity.lean
+      -- thm:exact-density
+    NormalFlux.lean
+      -- lem:normal-flux
+    Rectifiability.lean
+      -- lem:rectifiability-criterion
+    Reduced.lean
+      -- not:degiorgi
+      -- def:reduced-boundary
+      -- lem:polar-differentiation
+    ReducedDensity.lean
+      -- lem:reduced-density
+    ReducedPerimeter.lean
+      -- lem:reduced-perimeter
+    SmoothBoundary.lean
+      -- cor:smooth-perimeter
+    Structure.lean
+      -- thm:degiorgi-structure
+      -- thm:gauss-green
+
+  Elliptic/
+    Boundary.lean
+      -- not:half-ball
+      -- thm:boundary-C1a
+      -- thm:boundary-C2a
+      -- thm:boundary-nondiv
+      -- thm:boundary-neumann
+    Caccioppoli.lean
+      -- lem:caccioppoli
+    CampanatoComparison.lean
+      -- lem:campanato-compare
+    CampanatoGrowth.lean
+      -- lem:campanato-energy-growth
+    CampanatoHolder.lean
+      -- thm:campanato
+    CampanatoHolderDatum.lean
+      -- lem:Gh
+    CampanatoIteration.lean
+      -- lem:campanato-iteration
+    ClassicalAdmissible.lean
+      -- thm:W11-gauss-green
+    ClassicalKernelFlux.lean
+      -- cor:W11-GG-uses
+    FrozenDecay.lean
+      -- lem:frozen-decay
+    HarmonicDerivative.lean
+      -- lem:harmonic-deriv
+    HarmonicMeanValue.lean
+      -- lem:mean-value
+    HolderInterpolation.lean
+      -- lem:holder-interp
+    Hopf.lean
+      -- prop:hopf
+    HopfExterior.lean
+      -- cor:hopf-exterior
+    InteriorH2.lean
+      -- lem:interior-H2
+    KelvinRemovable.lean
+      -- prop:kelvin-removable
+    Newtonian.lean
+      -- prop:newtonian
+    NewtonianSchauder.lean
+      -- thm:newtonian-schauder
+    NondivSchauder.lean
+      -- thm:nondiv-schauder
+    Quasilinear.lean
+      -- thm:quasilinear-schauder
+    Schauder.lean
+      -- const:nondiv-order
+    SobolevChain.lean
+      -- lem:sobolev-Ck
+    StrongMaximumHarmonic.lean
+      -- prop:strong-max
+    TraceL1.lean
+      -- conv:domain-classes
+      -- prop:trace-L1
+    WeakDirichlet.lean
+      -- prop:weak-dirichlet
+    WeakMaximum.lean
+      -- lem:weak-max
+    WeakSolutions.lean
+      -- prop:weak-neumann
+
+  Energy/
+    Coulomb.lean
+      -- not:C0
+      -- lem:potential-bound
+      -- lem:coulomb-bilinear
+      -- lem:coulomb-lipschitz
+      -- lem:coulomb-disjoint
+      -- lem:cross-decay
+    CoulombDefs.lean
+      -- def:coulomb
+    Defs.lean
+      -- def:energy
+      -- def:minimizer
+    NullInvariance.lean
+      -- lem:null-invariance
+    PotentialHolder.lean
+      -- lem:potential-C1beta
+    Scaling.lean
+      -- lem:coulomb-scaling
+
+  Existence/
+    Subcritical.lean
+      -- prop:existence-subcritical
+
+  Flow/
+    FlowBox.lean
+      -- thm:flow-box
+      -- cor:flow-manifold
+    ODE.lean
+      -- thm:global-flow
+      -- lem:flow-group
+      -- lem:flow-gronwall
+      -- lem:flow-variational
+      -- thm:flow-Ck
+
+  Green/
+    Identity.lean
+      -- not:v-omega
+      -- lem:interior-flux
+      -- lem:v-expansion
+      -- lem:wronskian
+      -- thm:green-identity
+
+  Hull/
+    Defs.lean
+      -- def:hull
+    Properties.lean
+      -- lem:hull-properties
+
+  Isoperimetric/
+    ABP.lean
+      -- lem:abp-neumann
+      -- lem:abp-contact
+      -- prop:iso-smooth
+      -- lem:concavity-23
+      -- cor:iso-smooth-components
+      -- thm:sharp-isoperimetric
+    Rigidity.lean
+      -- thm:isoperimetric-rigidity
+  Main.lean
+    -- thm:main
+
+  Measure/
+    SignedRiesz.lean
+      -- def:locally-bounded
+      -- def:upper-variation
+      -- lem:upper-variation-additive
+      -- thm:signed-riesz
+      -- lem:riesz-exhaustion
+    WeakStar.lean
+      -- lem:C0-separable
+      -- def:exhaustion-cutoffs
+      -- thm:weak-star-compactness
+
+  Nonexistence/
+    Sharp.lean
+      -- not:L
+      -- lem:two-ball-comparison
+      -- prop:nonexistence-6
+      -- prop:nonexistence-8
+      -- cor:nonexistence
+    Slicing.lean
+      -- lem:slicing-inequality
+      -- lem:slicing-integrals
+      -- prop:V-le-8
+
+  Regularity/
+    ApproxHarmonic.lean
+      -- lem:approx-harmonic
+    CompressionJacobian.lean
+      -- lem:compression-jacobian
+    CompressionProfileTheorem.lean
+      -- lem:compression-profile
+    Cylinders.lean
+      -- not:cylinders
+    Deformation.lean
+      -- thm:deformation
+    Density.lean
+      -- const:rd
+    DensityAhlfors.lean
+      -- lem:ahlfors
+    DensityCutComparison.lean
+      -- lem:cut-comparison
+    DensityEstimates.lean
+      -- lem:two-sided-density
+    DensityRadial.lean
+      -- not:mx-nx
+      -- lem:mx-derivative
+    EpsReg.lean
+      -- lem:normals-cauchy
+      -- lem:uniform-centers
+      -- thm:eps-regularity
+    Excess.lean
+      -- def:excess
+      -- lem:excess-ball-cyl
+      -- lem:excess-center
+    FirstVariation.lean
+      -- lem:bounded-H
+    FixedNormalExcess.lean
+      -- lem:fixed-normal-excess-convergence
+    FluxDefect.lean
+      -- lem:flux-defect
+    GeometricRecurrence.lean
+      -- lem:geometric-recurrence
+    GraphApprox.lean
+      -- thm:graph-approx
+    GraphBadBase.lean
+      -- lem:bad-base-area
+    GraphGoodBase.lean
+      -- lem:good-base
+    GraphProjectedExcess.lean
+      -- def:projected-excess
+    GraphSingleValued.lean
+      -- lem:single-valued
+    GraphTwoPointCaps.lean
+      -- const:graph
+      -- lem:two-point-lipschitz
+    HarmonicAffine.lean
+      -- lem:harmonic-affine
+    HarmonicBlowup.lean
+      -- lem:blowup-compactness
+    HarmonicBlowupUniform.lean
+      -- lem:harmonic-approx-uniform
+    HeightBound.lean
+      -- const:height
+      -- lem:height-bound
+    Monotonicity.lean
+      -- thm:monotonicity
+    OmegaMinimal.lean
+      -- def:omega-minimal
+    Penalization.lean
+      -- lem:penalization
+    PenalizationDilation.lean
+      -- lem:dilation-quotients
+    PenalizationQuasiminimal.lean
+      -- lem:quasiminimal
+    PerimeterConvergence.lean
+      -- lem:perimeter-measure-convergence
+    RadialDivergence.lean
+      -- lem:radial-divergence
+    RepresentativeBoundary.lean
+      -- conv:representative
+      -- lem:open-representative
+    RepresentativeBounded.lean
+      -- lem:bounded-representative
+    ReversePoincare.lean
+      -- lem:reverse-poincare
+    SlabCap.lean
+      -- def:slab-cap
+    TangentCone.lean
+      -- prop:tangent-is-cone
+    TangentExistence.lean
+      -- lem:tangent-cone-minimizing
+    TiltImprovement.lean
+      -- const:tilt
+      -- lem:tilt-improvement
+      -- cor:excess-decay
+    ZeroExcess.lean
+      -- lem:zero-excess
+
+  Sard/
+    Equidimensional.lean
+      -- lem:sard-equidim
+      -- cor:sard-charts
+    FourToThree.lean
+      -- thm:sard-4to3
+    OneDimensional.lean
+      -- lem:sard-1d
+    Scalar.lean
+      -- lem:sard-2d
+    ThreeDimensional.lean
+      -- thm:sard-3d
+
+  Sobolev/
+    BV.lean
+      -- lem:GN-smooth
+      -- thm:bv-sobolev
+      -- lem:planar-sobolev-L2
+    Extension.lean
+      -- lem:bilip-chain
+      -- lem:bv-extension
+    H1Extension.lean
+      -- lem:H1-extension-disk
+    Maximal.lean
+      -- def:maximal
+      -- lem:maximal
+    PlanarDomain.lean
+      -- lem:planar-GN
+    Poincare.lean
+      -- thm:bv-poincare
+    PoincareTrace.lean
+      -- prop:poincare-trace
+    RelativeCubes.lean
+      -- prop:rel-iso-cube
+    RelativeScaling.lean
+      -- prop:rel-iso-ball
+      -- prop:rel-iso-disk
+    Rellich.lean
+      -- thm:rellich
+
+  Stationary/
+    Bootstrap.lean
+      -- lem:mc-elliptic
+      -- prop:bootstrap-C2
+      -- prop:bootstrap-C3
+      -- cor:EL-pointwise
+    CapacitaryEstimate.lean
+      -- not:cap-estimate
+      -- lem:integrate-EL
+      -- lem:two-bounds-I
+      -- lem:eliminate-capacity
+      -- prop:cap-estimate
+    Connected.lean
+      -- prop:connected
+    Defs.lean
+      -- def:stationary
+      -- not:stationary
+    EulerLagrange.lean
+      -- thm:constrained-first-var
+      -- lem:graph-PMC
+    MinimizerContext.lean
+      -- not:minimizer-rep
+    ScalingIdentity.lean
+      -- prop:scaling-identity
+      -- cor:minimizer-stationary
+
+  Surface/
+    Geometry.lean
+      -- conv:curvature
+      -- def:frame-free
+    Morse.lean
+      -- lem:morse-height
+      -- lem:morse-distinct
+      -- lem:morse-coords
+      -- lem:one-manifold
+      -- lem:morse-band
+      -- cor:sublevel-stable
+      -- lem:local-sectors
+    MorseCount.lean
+      -- def:merging-saddle
+      -- lem:level-adjacency
+      -- lem:sublevel-closure
+      -- lem:count-submerging
+      -- lem:merge-disjoint
+      -- prop:morse-count
+    Shape.lean
+      -- lem:hess-height
+      -- lem:gauss-jacobian
+      -- conv:gauss-orientation
+      -- lem:sign-kappa-index
+      -- lem:critical-normal
+    TotalCurvature.lean
+      -- lem:regular-fiber-finite
+      -- def:index-sum
+      -- lem:gauss-map-extension
+      -- thm:total-curvature-index
+      -- prop:index-sum-antipodal
+      -- thm:total-curvature-bound
+
+  Tests/
+    Constants.lean
+      -- test:product-cost
+      -- test:constants
+    Curvature.lean
+      -- test:total-curvature
+      -- test:antipodal
+    Iteration.lean
+      -- test:recurrence
+      -- test:excess-values
+    LevelFunctionals.lean
+      -- test:K-model
+      -- test:K-bochner
+    Signs.lean
+      -- test:model-potential
+      -- test:ball-stationary
+      -- test:green-normal
+      -- test:tubular-flux
+      -- test:kappa-sign
+
+  Threshold/
+    Algebra.lean
+      -- lem:Vstar-form
+      -- lem:Vstar-identity
+      -- lem:Vstar-bounds
+    Comparison.lean
+      -- prop:two-ball
+    Defs.lean
+      -- def:threshold
+    Ledger.lean
+      -- lem:ledger-Fprime
+      -- lem:ledger-oneball
+      -- lem:ledger-six
+      -- lem:ledger-cubic
+      -- lem:ledger-binding
+      -- lem:ledger-L5
+      -- lem:ledger-h
+
+  Topology/
+    Parity.lean
+      -- prop:orientation-parity
+      -- thm:component-count
+    Transversality.lean
+      -- thm:transversality
+      -- cor:transv-preimage
+      -- lem:handshake
+    Tubular.lean
+      -- thm:tubular
+
+  Value/
+    BoundedApprox.lean
+      -- lem:bounded-approx
+    Continuity.lean
+      -- lem:m-concave
+      -- prop:m-continuous
+    Defs.lean
+      -- def:value
+      -- lem:m-finite
+      -- lem:subadditivity
+
+  Variation/
+    ConstantTranslation.lean
+      -- lem:sym-diff-constant
+    CoulombBoundary.lean
+      -- lem:coulomb-first-var
+    FieldStability.lean
+      -- lem:sym-diff-stability
+    OneDimensionalTranslation.lean
+      -- lem:1d-translation
+    Perimeter.lean
+      -- thm:first-var-perimeter
+    Piola.lean
+      -- lem:piola
+    Straight.lean
+      -- conv:first-variation
+    StraightCofactor.lean
+      -- lem:straight-cofactor
+    StraightDiffeo.lean
+      -- def:straight
+      -- lem:straight-diffeo
+    SymmetricDifferenceFull.lean
+      -- thm:sym-diff
+    TransportC1.lean
+      -- thm:transport-perimeter
+    VolumeBoundary.lean
+      -- thm:first-var-volume
+\end{verbatim}
+}

@@ -1,0 +1,96 @@
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{esint}      % supplies \fint
+\usepackage[margin=1.05in]{geometry}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{microtype}
+\usepackage{seqsplit}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+% Long Lean identifiers may break across lines without inserting a hyphen.
+\newcommand{\code}[1]{\texttt{\seqsplit{#1}}}
+\setlength{\emergencystretch}{3em}
+
+% ----------------------------------------------------------------------------
+%  Blueprint macros.
+%
+%  These are defined here as no-ops so that this file compiles with plain
+%  pdflatex.  When this document is imported into a `leanblueprint` project,
+%  DELETE this block: plasTeX supplies the real definitions.
+%
+%    \uses{lab1,lab2}  dependency edges in the blueprint DAG
+%    \lean{Decl.Name}  the Lean declaration realising the item
+%    \leanok           the item is fully formalised
+%    \notready         the statement is not yet in a formalisable shape
+%    \discussion{n}    link to a GitHub issue
+% ----------------------------------------------------------------------------
+\providecommand{\uses}[1]{}
+\providecommand{\lean}[1]{}
+\providecommand{\leanok}{}
+\providecommand{\notready}{}
+\providecommand{\discussion}[1]{}
+
+% ----------------------------------------------------------------------------
+%  Theorem environments.  One shared counter, so that every citable item in
+%  the document has a unique number and there is no ambiguity about what
+%  "Lemma 7.3" means.
+% ----------------------------------------------------------------------------
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{constants}[theorem]{Constants}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{fnote}[theorem]{Formalisation note}
+\newtheorem{test}[theorem]{Regression test}
+
+% Intended Lean module for the current section.
+\newcommand{\module}[1]{%
+  \par\noindent{\small\raggedright\textsf{Lean module:}\ \texttt{#1}\par}\smallskip}
+
+% ----------------------------------------------------------------------------
+%  Notation
+% ----------------------------------------------------------------------------
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Sph}{\mathbb S}
+\newcommand{\Ec}{\mathcal E}
+\newcommand{\Hs}{\mathcal H}
+\newcommand{\Lloc}{L^1_{\mathrm{loc}}}
+\newcommand{\ind}[1]{\mathbf 1_{#1}}
+\newcommand{\Per}{P}
+\newcommand{\rbd}{\partial^*}
+\newcommand{\ebd}{\partial^{\mathrm e}}
+\newcommand{\dvg}{\operatorname{div}}
+\newcommand{\dvgt}{\operatorname{div}_\tau}
+\newcommand{\Exc}{\operatorname{\mathbf E}}
+\newcommand{\ExcB}{\operatorname{\mathbf E}^{\mathrm b}}
+\newcommand{\Capa}{\operatorname{Cap}}
+\newcommand{\cof}{\operatorname{cof}}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\spt}{\operatorname{spt}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\avg}{\fint}
+\DeclareMathOperator{\Id}{Id}
+\newcommand{\halfsp}[1]{\{y : y\cdot #1 < 0\}}
+
+\title{\bfseries The Three-Dimensional Liquid-Drop Threshold\\[2mm]
+\large A Lean-friendly blueprint specification}
+\author{Autoformalisation specification}
+\date{}
+

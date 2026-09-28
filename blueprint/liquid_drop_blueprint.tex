@@ -1,0 +1,95 @@
+% ============================================================================
+%  The Three-Dimensional Liquid-Drop Threshold
+%
+%  Mathematical target:
+%    O. Chodosh and M. Gianocca, "No compromise in the liquid drop model",
+%    arXiv:2608.11517.
+%
+%  This file contains NO Lean code.  It is a mathematical specification
+%  organised so that (a) a leanblueprint project can be generated from it
+%  mechanically, and (b) each numbered item is small enough to be a single
+%  Lean declaration.
+% ============================================================================
+
+\documentclass[11pt]{report}
+
+% Inputs resolve from blueprint/ or from the repository root.
+\makeatletter
+\def\input@path{{blueprint/}}
+\makeatother
+
+\input{preamble.tex}
+\begin{document}
+\input{frontmatter.tex}
+% ============================================================================
+\part{Ground rules}
+% ============================================================================
+
+\input{chapters/01-base.tex}
+\input{chapters/02-conventions.tex}
+% ============================================================================
+\part{Foundations: measure theory and BV}
+% ============================================================================
+
+\input{chapters/03-signed.tex}
+\input{chapters/04-bv.tex}
+\input{chapters/05-coarea.tex}
+\input{chapters/06-area.tex}
+\input{chapters/07-sobolev.tex}
+\input{chapters/08-degiorgi.tex}
+\input{chapters/09-transport.tex}
+\input{chapters/10-elliptic.tex}
+\input{chapters/11-sard.tex}
+\input{chapters/12-smooth-approx.tex}
+\input{chapters/13-isoperimetric.tex}
+\input{chapters/14-flows.tex}
+% ============================================================================
+\part{The liquid-drop functional}\label{part:functional}
+% ============================================================================
+
+\input{chapters/15-functional.tex}
+\input{chapters/16-algebra.tex}
+\input{chapters/17-value.tex}
+\input{chapters/18-binding-ineq.tex}
+\input{chapters/19-existence.tex}
+% ============================================================================
+\part{Regularity of minimisers}\label{part:regularity}
+% ============================================================================
+
+\input{regularity-introduction.tex}
+\input{chapters/20-penalization.tex}
+\input{chapters/21-density.tex}
+\input{chapters/22-monotonicity.tex}
+\input{chapters/23-deformation.tex}
+\input{chapters/24-eps-reg.tex}
+\input{chapters/25-cones.tex}
+\input{chapters/26-no-singular.tex}
+\input{chapters/27-rigidity.tex}
+\input{chapters/28-euler-lagrange.tex}
+% ============================================================================
+\part{The hull, the exterior potential, and the capacitary inequality}
+\label{part:capacity}
+% ============================================================================
+
+\input{chapters/29-hull.tex}
+\input{chapters/30-potential.tex}
+\input{chapters/31-appk.tex}
+% ============================================================================
+\part{The threshold theorems}\label{part:threshold}
+% ============================================================================
+
+\input{chapters/32-green.tex}
+\input{chapters/33-cap-estimate.tex}
+\input{chapters/34-classification.tex}
+\input{chapters/35-endpoint.tex}
+\input{chapters/36-nonexistence.tex}
+\input{chapters/37-assembly.tex}
+\input{chapters/38-binding.tex}
+% ============================================================================
+\part{Formalisation apparatus}
+% ============================================================================
+
+\input{chapters/39-tests.tex}
+\input{chapters/40-dependencies.tex}
+\input{chapters/41-lean-files.tex}
+\end{document}

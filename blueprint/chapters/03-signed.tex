@@ -1,0 +1,154 @@
+\chapter{Signed measures from positive ones}\label{ch:signed}
+\module{NoCompromise.Measure.SignedRiesz,
+        NoCompromise.Measure.WeakStar}
+
+The base \ref{base:measure} represents \emph{positive} functionals only, and
+\ref{base:alaoglu} is a compactness statement about duals of normed spaces,
+not about signed Radon measures.  Both gaps are closed here, before any BV
+object is defined.  Everything downstream of $Df$ depends on this chapter.
+
+\section{Signed Riesz representation}\label{sec:signed-riesz}
+
+\begin{definition}[Locally bounded functional]\label{def:locally-bounded}
+Let $n\ge1$ and $U\subset\R^n$ be open.  A linear map
+$\Lambda:C_c(U;\R)\to\R$ is \emph{locally bounded} if for every compact
+$K\Subset U$ there is $C_K<\infty$ with
+\begin{equation}\label{eq:locally-bounded}
+  |\Lambda(\phi)|\le C_K\|\phi\|_\infty
+  \qquad\text{whenever }\spt\phi\subset K .
+\end{equation}
+\end{definition}
+
+\begin{definition}[Upper variation]\label{def:upper-variation}
+\uses{def:locally-bounded}
+For $\Lambda$ locally bounded and $\phi\in C_c(U)$ with $\phi\ge0$, set
+\begin{equation}\label{eq:upper-variation}
+  \Lambda^+(\phi):=\sup\{\Lambda(\psi):\psi\in C_c(U),\ 0\le\psi\le\phi\}.
+\end{equation}
+\end{definition}
+
+\begin{lemma}[$\Lambda^+$ is finite, homogeneous and additive on the cone]
+\label{lem:upper-variation-additive}
+\uses{def:upper-variation}
+Let $\Lambda$ be locally bounded.  Then for $\phi,\eta\in C_c(U)$ nonnegative
+and $t\ge0$:
+$\Lambda^+(\phi)<\infty$, $\Lambda^+(t\phi)=t\Lambda^+(\phi)$, and
+$\Lambda^+(\phi+\eta)=\Lambda^+(\phi)+\Lambda^+(\eta)$.
+\end{lemma}
+
+\begin{proof}\uses{def:locally-bounded}
+The competing set in \eqref{eq:upper-variation} contains $0$ and is bounded
+above by \eqref{eq:locally-bounded}, so the supremum is finite and
+nonnegative; positive homogeneity is immediate.  For
+$\ge$ in additivity, add a competitor for $\phi$ to one for $\eta$.  For
+$\le$, let $0\le\psi\le\phi+\eta$ and put
+$\psi_1:=\min\{\psi,\phi\}$, $\psi_2:=\psi-\psi_1$.  Then $\psi_1,\psi_2$ are
+continuous with compact support, $0\le\psi_1\le\phi$ and
+$0\le\psi_2\le\eta$, whence
+$\Lambda(\psi)=\Lambda(\psi_1)+\Lambda(\psi_2)\le\Lambda^+(\phi)+\Lambda^+(\eta)$.
+\end{proof}
+
+\begin{theorem}[Signed Riesz representation]\label{thm:signed-riesz}
+\uses{def:locally-bounded}
+Let $n\ge1$, let $U\subset\R^n$ be open, and let
+$\Lambda:C_c(U;\R)\to\R$ be linear and locally
+bounded.  Then there are positive, locally finite, regular Borel measures
+$\mu^+,\mu^-$ on $U$ with
+\begin{equation}\label{eq:signed-riesz}
+  \Lambda(\phi)=\int_U\phi\,d\mu^+-\int_U\phi\,d\mu^-
+  \qquad(\phi\in C_c(U)).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\uses{lem:upper-variation-additive,def:upper-variation}
+Write $g=g_+-g_-$ for $g\in C_c(U)$ and set
+$P(g):=\Lambda^+(g_+)-\Lambda^+(g_-)$.  Additivity
+(Lemma~\ref{lem:upper-variation-additive}) makes this independent of the
+chosen nonnegative decomposition: if $g=h-k=h'-k'$ with all four functions
+nonnegative, then $h+k'=h'+k$, so additivity gives
+$\Lambda^+(h)-\Lambda^+(k)=\Lambda^+(h')-\Lambda^+(k')$.  Thus $P$ is linear
+and $P\ge0$ on the positive cone.  Also $Q:=P-\Lambda$ is positive, because
+$P(\phi)=\Lambda^+(\phi)\ge\Lambda(\phi)$ for $\phi\ge0$.  Apply
+\ref{base:measure} (\texttt{RealRMK.rieszMeasure} and its integral identity)
+to $P$ and to $Q$, obtaining $\mu^+,\mu^-$ and \eqref{eq:signed-riesz}.
+
+Local finiteness is explicit: for $K\Subset U$ pick
+$\eta\in C_c(U;[0,1])$ equal to $1$ on $K$; then $\mu^+(K)\le P(\eta)<\infty$
+and $\mu^-(K)\le Q(\eta)<\infty$.
+\end{proof}
+
+\begin{lemma}[Exhaustion and gluing]\label{lem:riesz-exhaustion}
+\uses{thm:signed-riesz}
+Suppose $\Lambda$ is given only on an exhaustion
+$U_m\Subset U_{m+1}$, $\bigcup_mU_m=U$, and is locally bounded on each
+$U_m$.  Performing the construction of Theorem~\ref{thm:signed-riesz} on each
+$U_m$ yields measures which agree on overlaps and glue to a single pair of
+locally finite measures on $U$ representing $\Lambda$.
+\end{lemma}
+
+\begin{proof}\uses{lem:upper-variation-additive,def:upper-variation}
+Uniqueness in positive Riesz--Markov, applied to the positive and negative
+parts produced by \eqref{eq:upper-variation}, gives agreement on overlaps;
+the positive and negative parts are themselves defined by a formula that does
+not reference $m$.
+\end{proof}
+
+\section{Weak-$*$ compactness for the signed measures constructed above}
+\label{sec:signed-compactness}
+
+\begin{lemma}[$C_0(U)$ is separable]\label{lem:C0-separable}
+For $n\ge1$ and open $U\subset\R^n$ the space $C_0(U)$ is separable.
+\end{lemma}
+
+\begin{proof}\uses{def:exhaustion-cutoffs}
+Compactly supported continuous functions are dense in $C_0(U)$: multiply by
+the cutoffs $\zeta_m$ of Definition~\ref{def:exhaustion-cutoffs}.  On a fixed
+compact support, uniform continuity gives uniform approximation by
+piecewise-affine functions on rational cubical grids with rational vertex
+values.  The union over $m$ of these countable families is countable and
+dense.
+\end{proof}
+
+\begin{definition}[Exhaustion cutoffs]\label{def:exhaustion-cutoffs}
+For $n\ge1$ and open $U\subset\R^n$ fix once and for all compact
+$K_m\subset\operatorname{int}K_{m+1}$ with $\bigcup_mK_m=U$, and
+$\zeta_m\in C_c(U;[0,1])$ with $\zeta_m\equiv1$ on $K_m$ and
+$\spt\zeta_m\subset K_{m+1}$.
+\end{definition}
+
+\begin{theorem}[Local weak-$*$ compactness]\label{thm:weak-star-compactness}
+\uses{thm:signed-riesz,def:exhaustion-cutoffs}
+Let $n,q\ge1$, let $U\subset\R^n$ be open, and let $\lambda_j$ be signed
+(or $\R^q$-valued) Radon measures on $U$ which are
+\emph{locally variation-bounded}: $\sup_j|\lambda_j|(K)<\infty$ for every
+compact $K\Subset U$.  Then there is a subsequence and a locally finite
+signed (resp.\ vector) Radon measure $\lambda$ with
+\[
+  \int_U\phi\,d\lambda_j\longrightarrow\int_U\phi\,d\lambda
+  \qquad\text{for every }\phi\in C_c(U).
+\]
+\end{theorem}
+
+\begin{proof}
+\uses{lem:C0-separable,thm:signed-riesz,lem:riesz-exhaustion,
+      def:locally-bounded}
+Multiplication by $\zeta_m$ identifies $\zeta_m\lambda_j$ with a uniformly
+bounded functional on $C_0(U)$, which is separable by
+Lemma~\ref{lem:C0-separable}; \ref{base:alaoglu} therefore gives a
+weak-$*$ convergent subsequence for each $m$.  Diagonalise in $m$.  For
+$L(\phi):=\lim_j\int\phi\,d\lambda_j$; the limit exists because that integral
+equals $\int\phi\,d(\zeta_m\lambda_j)$, and is independent of the larger $m$
+chosen because it is the limit of the same scalar sequence.  The local
+variation bounds make $L$ locally bounded in the sense of
+\eqref{eq:locally-bounded}, so Theorem~\ref{thm:signed-riesz} and
+Lemma~\ref{lem:riesz-exhaustion} represent it.  For vector-valued measures,
+diagonalise over the finitely many components as well.
+\end{proof}
+
+\begin{fnote}\label{fnote:no-signed-compactness}
+No compactness theorem stated directly for signed Radon measures has been
+used, and none may be.  Theorem~\ref{thm:weak-star-compactness} is the only
+compactness statement about measures that later chapters may cite.
+\end{fnote}
+

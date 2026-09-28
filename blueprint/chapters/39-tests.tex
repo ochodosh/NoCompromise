@@ -1,0 +1,153 @@
+\chapter{Regression tests}\label{ch:tests}
+\module{NoCompromise.Tests.Constants,
+        NoCompromise.Tests.Curvature,
+        NoCompromise.Tests.Iteration,
+        NoCompromise.Tests.LevelFunctionals,
+        NoCompromise.Tests.Signs}
+
+The tests below exist to catch sign, orientation and normalisation errors ---
+the failure mode most likely to produce a Lean development that compiles and
+proves something false.  Each should be an actual theorem in the Lean
+development, not a comment.  They are grouped by which convention they probe.
+
+\section{Conventions \ref{conv:outward} and \ref{conv:curvature}: normals and curvature}
+
+\begin{test}[The model exterior potential]\label{test:model-potential}
+For $u=\mathsf C/|x|$ on $\{|x|>r\}$, with the normal toward infinity,
+\[
+  H=\frac2r,
+  \qquad
+  w=\frac{\mathsf C}{r^2},
+  \qquad
+  \langle\nabla w,\nabla u\rangle=Hw^2 .
+\]
+A sign error in Convention~\ref{conv:curvature} flips the third identity.
+\end{test}
+
+\begin{test}[Stationarity of the round ball]\label{test:ball-stationary}
+For $\Omega=B_R$, \eqref{eq:EL-pointwise} holds with
+$H=2/R$ and $v_{B_R}=2\pi(R^2-r^2/3)$ from
+\eqref{eq:ball-potential}; solving gives an explicit $\lambda$, which must
+agree with \eqref{eq:scaling-identity}, i.e.\
+$3V\lambda=2P_B+5D(B_V)$.  \emph{Checking both routes agree is the test.}
+\end{test}
+
+\begin{test}[The inner normal in Green's identity]\label{test:green-normal}
+In \eqref{eq:green-second} the outward normal of the exterior on its inner
+boundary is $-\nu_K$, so
+\[
+  \int_{\partial K}v_\Omega\,w\,d\Hs^2
+  =-\int_{\partial K}\partial_{\nu_K}v_\Omega\,d\Hs^2 .
+\]
+Dropping the minus sign leaves \eqref{eq:green-identity} looking plausible but
+gives $-V$.
+\end{test}
+
+\begin{test}[The tubular flux]\label{test:tubular-flux}
+The tubular-cutoff computation of Lemma~\ref{lem:interior-flux} must return
+\[
+  \int_{\partial K}\partial_{\nu_K}v_\Omega\,d\Hs^2=-4\pi V ,
+\]
+\emph{not} $+4\pi V$ and not $-V$.  Test it on $\Omega=K=B_R$, where
+$v_{B_R}(x)=V/|x|$ outside and $\partial_{\nu_K}v=-V/R^2$, giving
+$-V/R^2\cdot4\pi R^2=-4\pi V$.
+\end{test}
+
+\section{Chapter \ref{ch:appK}: the level functionals}
+
+\begin{test}[The model level functionals]\label{test:K-model}
+For $u=\mathsf C/r$ the Euclidean level functions of
+Chapter~\ref{ch:appK} satisfy
+\[
+  F(t)=4\pi t^2,
+  \qquad
+  p(t)=8\pi t,
+  \qquad
+  h(t)=0 .
+\]
+The third is the equality case of Lemma~\ref{lem:K-h-monotone} and is the
+sharpest available check on \eqref{eq:K-h}.
+\end{test}
+
+\begin{test}[The Bochner density]\label{test:K-bochner}
+For $u=\mathsf C/r$, $\Delta|\nabla u|=2\mathsf C/r^4$, matching
+\eqref{eq:K-density} since a sphere of radius $r$ has
+$|A|^2=2/r^2$ and $w=\mathsf C/r^2$, hence
+$w|A|^2=2\mathsf C/r^4$ and $\nabla_\Sigma w=0$.
+\end{test}
+
+\section{Chapter \ref{ch:eps-reg}: the iteration}
+
+\begin{test}[Normalisation of the recurrence]\label{test:recurrence}
+The recurrence
+\[
+  E_{j+1}\le(\theta/2)E_j+C\theta^{j+1}\omega r
+\]
+must normalise, after division by $\theta^{j+1}$, to a geometric sum with
+ratio $1/2$ (Lemma~\ref{lem:geometric-recurrence}).  If the ratio comes out
+as $\theta/2$ or as $1$, the choice \eqref{eq:theta-choice} has been applied in
+the wrong place.
+\end{test}
+
+\begin{test}[Excess of an exact halfspace and of a tilted plane]
+\label{test:excess-values}
+$\Exc(H,0,r,\nu)=0$ for the halfspace $H$ with outward normal $\nu$, and for a
+halfspace with outward normal $\nu'$ at angle $\vartheta$ to $\nu$,
+$\Exc(H',0,r,\nu)$ is a positive absolute multiple of $\vartheta^2$ for small
+$\vartheta$.  This pins the normalisation $r^{-2}$ in
+Definition~\ref{def:excess}.
+\end{test}
+
+\section{Chapter \ref{ch:flows}: the total curvature bound}
+
+\begin{test}[Sphere and torus]\label{test:total-curvature}
+For $\Sigma=\partial B_R$ with the outward normal, $\kappa\equiv1/R^2$, the
+Gauss map is a diffeomorphism, $\iota_y(n)=1$ for every $y$, and
+$\int_\Sigma\kappa\,d\Hs^2=4\pi$ --- equality in
+\eqref{eq:total-curvature-bound}.  For a standard torus of revolution,
+$\int_\Sigma\kappa\,d\Hs^2=0$, and a height function in a generic direction has
+$c_0=c_2=1$, $c_1=2$, so
+$c_0-c_1+c_2=0$: this exercises
+Proposition~\ref{prop:index-sum-antipodal} and
+Proposition~\ref{prop:morse-count} in a case where the inequality is slack and
+$\kappa$ changes sign.
+\end{test}
+
+\begin{test}[The antipodal averaging is not vacuous]\label{test:antipodal}
+On the round sphere, $\iota_y(n)=\iota_{-y}(n)=1$, so
+$\iota_y+\iota_{-y}=2$ and Proposition~\ref{prop:morse-count} is tight.  A
+version of \eqref{eq:index-sum-antipodal} that dropped the antipodal term ---
+bounding $\iota_y(n)$ alone by $2$ rather than $\iota_y+\iota_{-y}$ --- would
+still pass on the sphere but would give only
+$\int_\Sigma\kappa\le8\pi$, which is too weak for
+Chapter~\ref{ch:appK}.  Test the factor $\tfrac12$ explicitly.
+\end{test}
+
+\begin{test}[Curvature sign convention]\label{test:kappa-sign}
+For $\Sigma=\partial B_R$ with the \emph{outward} normal, the shape operator
+of Definition~\ref{def:frame-free} is $A=\tfrac1RI$, so $H=2/R>0$ and
+$\kappa=1/R^2>0$, matching Convention~\ref{conv:curvature}.  With the inward
+normal both signs of $H$ flip while $\kappa$ does not --- which is why
+\eqref{eq:sign-kappa-index} is orientation-independent and
+\eqref{eq:hess-height} is not.
+\end{test}
+
+\section{Chapter \ref{ch:cones}: the product competitor}
+
+Regression test~\ref{test:product-cost} (horizontal cost exactly
+$2|A\triangle L|$) belongs here.
+
+\section{Chapter \ref{ch:algebra}: the constants}
+
+\begin{test}[Headline constants]\label{test:constants}
+The following must be provable numerically (or as exact algebraic identities):
+\[
+  V_*=\frac{5\cdot2^{2/3}}{2^{1/3}+1}\approx3.51207,
+  \qquad
+  \frac52<V_*<4,
+\]
+the optimal ball volume is $5/2$, and
+$e_*=3(9\pi/5)^{1/3}$.  The ratio of the two ways of writing $V_*$ in
+Definition~\ref{def:threshold} and \eqref{eq:Vstar-form} must be exactly $1$.
+\end{test}
+

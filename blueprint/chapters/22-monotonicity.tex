@@ -1,0 +1,324 @@
+\chapter{First variation and almost-monotonicity}\label{ch:monotonicity}
+\module{NoCompromise.Regularity.FirstVariation,
+        NoCompromise.Regularity.FixedNormalExcess,
+        NoCompromise.Regularity.Monotonicity,
+        NoCompromise.Regularity.PerimeterConvergence,
+        NoCompromise.Regularity.RadialDivergence,
+        NoCompromise.Regularity.TangentCone,
+        NoCompromise.Regularity.TangentExistence}
+
+\section{Bounded generalised mean curvature}
+
+\begin{lemma}[Bounded generalised mean curvature]\label{lem:bounded-H}
+\uses{def:omega-minimal}
+Let $E$ be $\omega$-minimal and $x\in\R^3$.  For every
+$X\in C^1_c(B_{r_d}(x);\R^3)$,
+\begin{equation}\label{eq:bounded-H}
+  \Bigl|\int_{\rbd E}\dvgt X\,d\Hs^2\Bigr|
+  \le\omega\int_{\rbd E}|X\cdot\nu_E|\,d\Hs^2 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\uses{def:omega-minimal,thm:first-var-perimeter,thm:sym-diff,lem:straight-diffeo}
+For $|t|\|DX\|_\infty<1$ the map $F^X_t$ is a compactly supported $C^1$
+diffeomorphism (Lemma~\ref{lem:straight-diffeo}).  Choose
+$s<r_d\le1$ with $\spt X\Subset B_s(x)$.  Injectivity and the fact that
+$F_t^X$ is the identity off $\spt X$ give
+$F_t^X(E)\triangle E\Subset B_s(x)$.  Apply \eqref{eq:omega-minimal} in
+$B_s(x)$ to $F=F^X_t(E)$ for both signs of $t$ and divide by $|t|$.
+The local formula \eqref{eq:first-var-perimeter} gives
+\[
+ \frac{\Per(F^X_t(E);B_s(x))-\Per(E;B_s(x))}{t}
+ \longrightarrow\int_{\rbd E}\dvgt X\,d\Hs^2,
+\]
+and
+Theorem~\ref{thm:sym-diff} gives
+$|E\triangle F^X_t(E)|/|t|\to\int_{\rbd E}|X\cdot\nu_E|$.  The two signs of
+$t$ yield \eqref{eq:bounded-H}.
+\end{proof}
+
+\begin{remark}[The scalar curvature is optional]\label{rem:hE-optional}
+\eqref{eq:bounded-H} also implies the existence of
+$h_E\in L^\infty(\rbd E,\Hs^2)$ with $\|h_E\|_\infty\le\omega$ and
+$\int_{\rbd E}\dvgt X=\int_{\rbd E}h_E\,X\cdot\nu_E$: the measure
+$\Hs^2\llcorner\rbd E$ is $\sigma$-finite, the set
+$\mathcal N:=\{X\cdot\nu_E:X\in C^1_c(\R^3;\R^3)\}\subset L^1(\rbd E)$ is a
+linear subspace, the left side of \eqref{eq:bounded-H} vanishes whenever the
+normal trace does, and Hahn--Banach with $\sigma$-finite $L^1$--$L^\infty$
+duality produces $h_E$.  \emph{Nothing later in this document requires it};
+all critical-path arguments use \eqref{eq:bounded-H} directly.  It should
+therefore \emph{not} be formalised.
+\end{remark}
+
+\section{Almost-monotonicity}
+
+\begin{lemma}[Radial-field tangential divergence]\label{lem:radial-divergence}
+For a two-plane $T_y$ with unit normal $\nu$, a radial field
+$X(y)=\eta(|y|)y$ satisfies
+\begin{equation}\label{eq:radial-divergence}
+  \dvg_{T_y}X
+  =2\eta(|y|)+\frac{\eta'(|y|)}{|y|}|y^T|^2
+  =2\eta+\eta'|y|-\frac{\eta'}{|y|}|y^\perp|^2 ,
+\end{equation}
+where $y^T,y^\perp$ are the components of $y$ in $T_y$ and $\nu$.  Also
+$|X\cdot\nu|\le|\eta|\,|y^\perp|$.
+\end{lemma}
+
+\begin{proof}
+Direct computation from $DX=\eta I+\eta'|y|^{-1}y\otimes y$ and
+$\dvg_TX=\operatorname{tr}(DX)-\nu\cdot DX\nu$.
+\end{proof}
+
+\begin{theorem}[Almost-monotonicity]\label{thm:monotonicity}
+\uses{lem:bounded-H,lem:open-representative,lem:ahlfors}
+There are absolute constants $c,c_0>0$ such that for every $\omega$-minimal
+$E$ and every $x\in\partial\Omega$ the function
+\begin{equation}\label{eq:monotone-quantity}
+  r\longmapsto e^{c\omega r}\frac{\Per(E;B_r(x))}{r^2}
+\end{equation}
+is nondecreasing on $(0,r_d)$.  More precisely, for
+$0<\sigma<\rho<r_d$ and $x=0$,
+\begin{equation}\label{eq:monotonicity-quantitative}
+  e^{c\omega\rho}\frac{\Per(E;B_\rho)}{\rho^2}
+  -e^{c\omega\sigma}\frac{\Per(E;B_\sigma)}{\sigma^2}
+  \ge c_0\int_{(B_\rho\setminus B_\sigma)\cap\rbd E}
+     e^{c\omega|y|}\frac{|y^\perp|^2}{|y|^4}\,d\Hs^2 .
+\end{equation}
+Consequently the density
+\begin{equation}\label{eq:theta-density}
+  \Theta(E,x):=\lim_{r\downarrow0}\frac{\Per(E;B_r(x))}{r^2}
+\end{equation}
+exists, and by \eqref{eq:ahlfors} it is finite and positive.
+\end{theorem}
+
+\begin{proof}
+\uses{lem:bounded-H,lem:radial-divergence,lem:ahlfors}
+Translate $x$ to zero and write $\mu:=\Per(E;\cdot)$.  On $(0,r_d)$ put
+\[
+ f(r):=\frac{\mu(B_r)}{r^2},\qquad
+ A(r):=\int_{B_r\cap\rbd E}\frac{|y^\perp|^2}{|y|^4}\,d\Hs^2(y).
+\]
+Both are locally of bounded variation in the radius away from zero: this is
+immediate from the monotonicity of the two cumulative radial measures (give
+the integrand defining $A$ the arbitrary value zero at $y=0$).  Insert the radial field of
+Lemma~\ref{lem:radial-divergence} into \eqref{eq:bounded-H}, first with a
+smooth nonnegative radial cutoff and then with piecewise linear cutoffs.
+Push the measures forward by $y\mapsto|y|$ and integrate by parts in the
+one-dimensional radius.  This gives the following inequality of Radon
+measures on $(0,r_d)$:
+\begin{equation}\label{eq:monotonicity-measure-ode}
+  df+c\omega f\,dr\ \ge\ c_0\,dA .
+\end{equation}
+Here is the term-by-term calculation behind \eqref{eq:monotonicity-measure-ode}.
+For a sharp cutoff at a radius $r$ not charged by $\mu$, the three terms in
+\eqref{eq:radial-divergence} give
+\[
+ r^3\bigl(A'(r)-f'(r)\bigr).
+\]
+The right side of \eqref{eq:bounded-H} is at most
+$\omega\int_{B_r}|y^\perp|\,d\mu\le\omega r\mu(B_r)
+=\omega r^3f(r)$.  Mollification in the radius proves the measure inequality,
+with absolute constants (indeed one may take $c=c_0=1$ with these
+normalisations); atoms are recovered by one-sided approximation.
+
+Multiplying \eqref{eq:monotonicity-measure-ode} by $e^{c\omega r}$ and
+integrating on $[\sigma,\rho)$ gives
+\[
+ e^{c\omega\rho}f(\rho)-e^{c\omega\sigma}f(\sigma)
+ \ge c_0\int_{[\sigma,\rho)}e^{c\omega r}\,dA(r),
+\]
+and the last Stieltjes integral is exactly the right side of
+\eqref{eq:monotonicity-quantitative}.  Thus the quantity
+\eqref{eq:monotone-quantity} is nondecreasing.  Its limit at zero exists;
+the Ahlfors bounds \eqref{eq:ahlfors} make that limit finite and positive.
+\end{proof}
+
+\section{Tangent cones}
+
+\begin{lemma}[Perimeter-measure convergence for $\omega_j$-minimal sequences]
+\label{lem:perimeter-measure-convergence}
+\uses{def:omega-minimal}
+Let $s_j\in(0,\infty]$, let $E_j$ be $\omega_j$-minimal at scales below
+$s_j$, with $\omega_j\to\omega_\infty\ge0$, and let
+$\ind{E_j}\to\ind{F}$ in $\Lloc(U)$.  Suppose the
+$\Per(E_j;\cdot)$ are uniformly locally bounded and that
+\begin{equation}\label{eq:pmc-admissible-scales}
+  B_R(x)\Subset U\quad\Longrightarrow\quad
+  R\le s_j\quad\text{for all sufficiently large }j.
+\end{equation}
+Then:
+\begin{enumerate}[label=(\roman*)]
+\item\label{it:pmc-minimal} $F$ is locally $\omega_\infty$-minimal in $U$,
+  meaning that for every $B_R(x)\Subset U$ and every locally
+  finite-perimeter $G$ with $G\triangle F\Subset B_R(x)$,
+  \[
+    \Per(F;B_R(x))\le\Per(G;B_R(x))
+       +\omega_\infty|F\triangle G|;
+  \]
+\item\label{it:pmc-measures} $\Per(E_j;\cdot)\rightharpoonup\Per(F;\cdot)$
+  as measures on $U$; in particular $\Per(E_j;A)\to\Per(F;A)$ for every open
+  $A\Subset U$ with $\Per(F;\partial A)=0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\uses{prop:annular-gluing,lem:lsc,thm:weak-star-compactness,def:omega-minimal}
+\ref{it:pmc-minimal}: Let $G\triangle F\Subset B_R(x)\Subset U$.  Choose
+$a<b<R$ so that $G=F$ a.e. outside $B_a(x)$.  On
+$B_b(x)\setminus\overline{B_a(x)}$ one has $E_j\to F=G$ in $L^1$.
+Proposition~\ref{prop:annular-gluing} and its averaging identity give radii
+$t_j\in(a,b)$ and competitors
+\[
+  G_j=(G\cap B_{t_j}(x))\cup(E_j\setminus B_{t_j}(x))
+\]
+whose trace errors tend to zero; choose the radii also to carry no perimeter
+mass for the finitely many sets involved.  By
+\eqref{eq:pmc-admissible-scales}, $b\le s_j$ eventually, and
+$G_j\triangle E_j\Subset B_b(x)$, so \eqref{eq:omega-minimal} applies in
+$B_b(x)$.  Cancel the common exterior perimeter and use
+\eqref{eq:annular-gluing}; lower semicontinuity on the left gives
+\[
+  \Per(F;B_a(x))\le\Per(G;B_a(x))
+       +\omega_\infty|F\triangle G|.
+\]
+Since $F=G$ on $B_R(x)\setminus\overline{B_a(x)}$, locality (and a good
+intermediate radius followed by approximation if necessary) adds the same
+outer perimeter to both sides and proves the asserted inequality on $B_R(x)$.
+
+\ref{it:pmc-measures}: By Theorem~\ref{thm:weak-star-compactness} a
+subsequence of $\Per(E_j;\cdot)$ converges weakly-$*$ to some $\lambda\ge
+\Per(F;\cdot)$ (the inequality from Lemma~\ref{lem:lsc}).  For the reverse,
+apply the same construction with $G=F$ inside a ball compactly contained in
+$U$.  The penalty now tends to zero because $\omega_j$ is bounded and
+$E_j\to F$ locally in $L^1$; hence
+$\limsup_j\Per(E_j;B)\le\Per(F;B)$ for every concentric smaller ball whose
+boundary is null for the relevant measures.  Such balls form a basis (only
+countably many radii are excluded), so outer regularity gives
+$\lambda\le\Per(F;\cdot)$.  Thus $\lambda=\Per(F;\cdot)$.  Every
+subsequential limit is the same, proving convergence of the full sequence;
+the final assertion is the Portmanteau continuity-set criterion.
+\end{proof}
+
+\begin{lemma}[Fixed-normal excess under strict perimeter convergence]
+\label{lem:fixed-normal-excess-convergence}
+\uses{thm:polar}
+Let $U\subset\R^n$ be open, let $E_j,E$ have locally finite perimeter in $U$,
+and suppose
+\[
+ \ind{E_j}\to\ind E\quad\text{in }L^1_{\mathrm{loc}}(U),
+ \qquad
+ |D\ind{E_j}|\rightharpoonup|D\ind E|\quad\text{as Radon measures on }U.
+\]
+If $\nu_E=\nu$ for one fixed unit vector $\nu$ at
+$|D\ind E|$-a.e. point of $U$, then for every nonnegative
+$\phi\in C_c(U)$,
+\begin{equation}\label{eq:fixed-normal-excess-convergence}
+ \int_U\phi|\nu_{E_j}-\nu|^2\,d|D\ind{E_j}|\longrightarrow0.
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{thm:polar}
+Local $L^1$ convergence gives $D\ind{E_j}\to D\ind E$ distributionally.
+The assumed convergence of the variation measures supplies uniform variation
+bounds on compact subsets, so approximation of a continuous test field by
+smooth ones upgrades this to weak convergence of the vector Radon measures.
+Using $D\ind{E_j}=-\nu_{E_j}|D\ind{E_j}|$ and $|\nu_{E_j}|=|\nu|=1$,
+\[
+ \int\phi|\nu_{E_j}-\nu|^2\,d|D\ind{E_j}|
+ =2\int\phi\,d|D\ind{E_j}|+2\int\phi\nu\cdot D\ind{E_j}.
+\]
+The limit is
+$2\int\phi\,d|D\ind E|+2\int\phi\nu\cdot D\ind E=0$, because
+$D\ind E=-\nu|D\ind E|$.
+\end{proof}
+
+\begin{fnote}[Extracted from a proof]\label{fnote:pmc-extracted}
+Lemma~\ref{lem:perimeter-measure-convergence} is a step of the blow-up
+argument for almost-monotonicity, and is used again inside the proof of the
+height bound.  It is stated separately here precisely because
+it has two independent consumers
+(Lemma~\ref{lem:tangent-cone-minimizing} and Lemma~\ref{lem:height-bound}),
+and because \ref{it:pmc-measures} --- convergence of \emph{measures}, not just
+of characteristic functions --- is the part that is easy to use without
+proving.
+\end{fnote}
+
+\begin{lemma}[Existence of tangent cones]\label{lem:tangent-cone-minimizing}
+\uses{thm:monotonicity,lem:perimeter-measure-convergence}
+Let $E$ be $\omega$-minimal and $x\in\partial\Omega$.  Every sequence
+$r_j\downarrow0$ has a subsequence along which
+\begin{equation}\label{eq:blowup-family}
+  E_{x,r_j}:=\frac{E-x}{r_j}
+\end{equation}
+converges in $\Lloc$ to a locally perimeter-minimising set $C$ with
+$0\in\partial(C^{(1)})$, with $\Per(C;\cdot)$ the limit of the rescaled
+perimeter measures, and
+$\Per(C;B_R)/R^2=\Theta(E,x)$ for every $R>0$.
+\end{lemma}
+
+\begin{proof}
+\uses{lem:ahlfors,thm:bv-compactness,lem:perimeter-measure-convergence,
+      thm:monotonicity,lem:open-representative}
+$E_{x,r_j}$ is $\omega r_j$-minimal at scales below $1/r_j$, with
+$\omega r_j\to0$.  Thus \eqref{eq:pmc-admissible-scales} holds on
+$U=\R^3$.  Moreover
+\eqref{eq:ahlfors} gives uniform local perimeter bounds, so
+Theorem~\ref{thm:bv-compactness} gives a local $L^1$ limit $C$ along a
+subsequence and Lemma~\ref{lem:perimeter-measure-convergence} makes $C$
+locally perimeter minimising with convergence of the perimeter measures.  The
+density identity first follows at every radius $R$ satisfying
+$\Per(C;\partial B_R)=0$:
+\[
+  \frac{\Per(C;B_R)}{R^2}
+  =\lim_j\frac{\Per(E;B_{Rr_j}(x))}{(Rr_j)^2}=\Theta(E,x).
+\]
+Only countably many radii are excluded.  The function
+$R\mapsto\Per(C;B_R)$ is continuous from below because the balls $B_s$
+increase to $B_R$ as $s\uparrow R$; approximation of an arbitrary $R$ from
+below by nonexceptional radii therefore proves the identity for every $R>0$.
+Finally, the two phase-density estimates at $x$, after rescaling and passing
+to the local $L^1$ limit, give fixed positive lower density fractions for
+both $C$ and its complement in every ball about $0$.  Thus $0\in\ebd C$, and
+Lemma~\ref{lem:open-representative}, applied to the locally minimizing set
+$C$, gives $0\in\partial(C^{(1)})$.
+\end{proof}
+
+\begin{proposition}[Tangent cones are cones]\label{prop:tangent-is-cone}
+\uses{lem:tangent-cone-minimizing,thm:monotonicity}
+The set $C$ of Lemma~\ref{lem:tangent-cone-minimizing} satisfies $e^tC=C$
+modulo null sets for every $t\in\R$, and its density-one representative is an
+actual cone with vertex $0$.
+\end{proposition}
+
+\begin{proof}
+\uses{thm:monotonicity,lem:tangent-cone-minimizing,lem:radial-divergence,
+      conv:representative}
+Lemma~\ref{lem:tangent-cone-minimizing} says that $C$ is locally perimeter
+minimising, that $0\in\partial(C^{(1)})$, and that all its density ratios are
+constant.  Fix $0<\sigma<\rho$.  After a dilation making $\rho<1$, apply
+\eqref{eq:monotonicity-quantitative} directly to $C$ with $\omega=0$; local
+perimeter minimality is preserved by dilation and supplies the unit-scale
+hypothesis.  The left side is zero, so
+\begin{equation}\label{eq:cone-vanishing}
+  \int_{(B_\rho\setminus B_\sigma)\cap\rbd C}
+  \frac{|y^\perp|^2}{|y|^4}\,d\Hs^2=0
+\end{equation}
+for all $0<\sigma<\rho$.  This avoids any passage to the limit in an integrand
+depending on the measure-theoretic normal.  Hence the radial vector lies in
+the approximate tangent plane $\Hs^2$-a.e.  By the polar identity this says
+$y\cdot D\ind C=0$ as a measure.  For completeness, localise the field
+$X(y)=y$ on the support of a test function and let $\Phi_t(y)=e^ty$.  Change
+variables and the BV integration-by-parts identity give
+\[
+ \frac d{dt}\int_{\R^3}\ind C(\Phi_{-t}(x))\varphi(x)\,dx
+ =-\int_{\R^3}\varphi(x)\,X(x)\cdot
+       D\bigl(\ind C\circ\Phi_{-t}\bigr)(x)=0;
+\]
+the last equality is the transported form of $X\cdot D\ind C=0$.
+At $t=0$ the integral is $\int\ind C\varphi$, so
+$\ind C\circ\Phi_{-t}=\ind C$ a.e. for every $t$.  Thus $e^tC=C$ modulo null
+sets, and
+Convention~\ref{conv:representative} makes $C^{(1)}$ a cone.
+\end{proof}
+

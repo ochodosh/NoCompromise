@@ -1,0 +1,256 @@
+% ----------------------------------------------------------------------------
+\chapter{Balls, the threshold, and exact algebra}\label{ch:algebra}
+\module{NoCompromise.Ball.Defs,
+        NoCompromise.Ball.Perimeter,
+        NoCompromise.Ball.Potential,
+        NoCompromise.Threshold.Algebra,
+        NoCompromise.Threshold.Comparison,
+        NoCompromise.Threshold.Defs,
+        NoCompromise.Threshold.Ledger}
+
+\section{The ball}
+
+\begin{notation}[Balls by volume]\label{not:BV}
+\uses{conv:ambient}
+$B_V$ denotes any ball of volume $V>0$; its radius is
+$R=(3V/4\pi)^{1/3}$ and $P_B=P_B(V):=\Per(B_V)$.
+\end{notation}
+
+\begin{lemma}[Volume and perimeter of a ball]\label{lem:ball-perimeter}
+\uses{not:BV}
+\begin{equation}\label{eq:ball-perimeter}
+ P_B=4\pi R^2=(36\pi)^{1/3}V^{2/3},\qquad RP_B=3V.
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{cor:smooth-perimeter,lem:sphere-area,not:BV}
+$\Per(B_R)=\Hs^2(\partial B_R)$ by
+Corollary~\ref{cor:smooth-perimeter}, and
+$\Hs^2(\partial B_R)=4\pi R^2$ by
+Lemma~\ref{lem:sphere-area}; substitute $V=\tfrac43\pi R^3$.
+\end{proof}
+
+\begin{lemma}[Potential and energy of a ball]\label{lem:ball-coulomb}
+\uses{def:coulomb,not:BV}
+For $|x|=r\le R$,
+\begin{equation}\label{eq:ball-potential}
+  v_{B_R}(x)=2\pi\Bigl(R^2-\frac{r^2}{3}\Bigr),
+\end{equation}
+and consequently
+\begin{equation}\label{eq:ball-coulomb}
+  D(B_R)=\frac{16\pi^2}{15}R^5=\frac V5P_B .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{prop:newtonian,def:coulomb}
+The potential is radial and, by Proposition~\ref{prop:newtonian}, satisfies
+$v''+\tfrac2rv'=-4\pi$ on $(0,R)$.  Regularity at the origin gives
+$v(r)=C-\tfrac{2\pi}3r^2$.  Outside the ball the radial harmonic equation and
+decay give $v(r)=V/r$.  The potential is continuous: split its defining
+integral into a small ball about the moving point, whose contribution is
+uniformly $O(\rho^2)$, and its complement, where the kernel is uniformly
+continuous.  Matching at $r=R$ therefore yields $C=2\pi R^2$, which is
+\eqref{eq:ball-potential}.  Integrating,
+\[
+  D(B_R)=\tfrac12\cdot4\pi\int_0^R2\pi\Bigl(R^2-\frac{r^2}3\Bigr)r^2\,dr
+  =\frac{16\pi^2}{15}R^5 ,
+\]
+and the identity with $VP_B/5$ follows from $V=4\pi R^3/3$.
+\end{proof}
+
+\begin{corollary}[Ball energy]\label{cor:ball-energy}
+\uses{lem:ball-perimeter,lem:ball-coulomb,not:BV,def:energy}
+\begin{equation}\label{eq:ball-energy}
+  \Ec(B_V)=\frac{V+5}{5}P_B(V)
+  =(36\pi)^{1/3}\frac{V+5}{5}V^{2/3}.
+\end{equation}
+\end{corollary}
+
+\begin{proof}\uses{lem:ball-perimeter,lem:ball-coulomb,def:energy}
+By \eqref{eq:ball-coulomb},
+$\Ec(B_V)=P_B(V)+D(B_V)=(1+V/5)P_B(V)$.  Substitute
+$P_B(V)=(36\pi)^{1/3}V^{2/3}$ from \eqref{eq:ball-perimeter}.
+\end{proof}
+
+\section{The cube-root parameter and the threshold}
+
+\begin{definition}[$q$ and $V_*$]\label{def:threshold}
+\[
+  q:=2^{1/3},
+  \qquad
+  V_*:=5\,\frac{2-q^2}{q^2-1}.
+\]
+\end{definition}
+
+\begin{lemma}[Convenient form of $V_*$]\label{lem:Vstar-form}
+\uses{def:threshold}
+$q>1$, $q^3=2$, $2^{2/3}=q^2$, and
+\begin{equation}\label{eq:Vstar-form}
+  V_*=\frac{5q^2}{q+1}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{def:threshold}
+$2-q^2=q^3-q^2=q^2(q-1)$ and $q^2-1=(q-1)(q+1)$; cancel $q-1>0$.
+\end{proof}
+
+\begin{lemma}[The key threshold identity]\label{lem:Vstar-identity}
+\uses{lem:Vstar-form}
+\begin{equation}\label{eq:Vstar-identity}
+  q^{-2}(V_*+10)=V_*+5 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:Vstar-form}
+Using \eqref{eq:Vstar-form},
+$q^{-2}(V_*+10)-(V_*+5)=-5(q^3-2)/q^2=0$.
+\end{proof}
+
+\begin{lemma}[Numerical bounds on $V_*$]\label{lem:Vstar-bounds}
+\uses{lem:Vstar-form}
+$V_*>0$ and
+\begin{equation}\label{eq:Vstar-bounds}
+  \tfrac52<V_*<4<6 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:Vstar-form}
+For $V_*>5/2$: by \eqref{eq:Vstar-form} this is $2q^2>q+1$, i.e.\
+$2q^2-q-1=(2q+1)(q-1)>0$.  For $V_*<4$: first $q<4/3$, since
+$q^3=2<64/27$.  The polynomial $5x^2-4x-4$ is increasing for $x\ge1$ and
+$5(4/3)^2-4(4/3)-4=-4/9<0$, so $5q^2<4(q+1)$, which by
+\eqref{eq:Vstar-form} is $V_*<4$.
+\end{proof}
+
+\begin{proposition}[One ball versus two equal balls]\label{prop:two-ball}
+\uses{cor:ball-energy,def:threshold}
+For $V>0$, with $L:=q^{-2}(V+10)$,
+\begin{equation}\label{eq:two-ball-energy}
+  2\Ec(B_{V/2})=\Bigl(q+\frac{V}{5q^2}\Bigr)P_B(V)=\frac L5P_B(V),
+\end{equation}
+and $\Ec(B_V)=2\Ec(B_{V/2})$ holds if and only if $V=V_*$.  Moreover
+$\Ec(B_V)<2\Ec(B_{V/2})$ for $V<V_*$ and $>$ for $V>V_*$.
+\end{proposition}
+
+\begin{proof}
+\uses{lem:ball-perimeter,lem:ball-coulomb,lem:Vstar-form,lem:Vstar-identity}
+A ball of volume $V/2$ has radius $R/q$, so
+$2\Per(B_{V/2})=2q^{-2}P_B=qP_B$ (using $2/q^2=q$), and by
+\eqref{eq:ball-coulomb},
+$2D(B_{V/2})=2\cdot\tfrac{V/2}{5}\cdot q^{-2}P_B=\tfrac{V}{5q^2}P_B$.  This is
+\eqref{eq:two-ball-energy}.  By \eqref{eq:ball-energy} the equation
+$\Ec(B_V)=2\Ec(B_{V/2})$ is $V+5=q^{-2}(V+10)$, an affine equation in $V$ with
+coefficient $1-q^{-2}>0$ on the left, hence with the unique solution
+$V=V_*$ by \eqref{eq:Vstar-identity}; the sign statements follow from the same
+monotonicity.
+\end{proof}
+
+\section{The algebraic ledger}\label{sec:ledger}
+
+The following exact identities are used at the sharp points of the argument.
+Each is a polynomial identity in $q$ (with $q^3=2$) or in a real variable, and
+each should be a standalone lemma discharged by an ordered-field normalisation
+tactic after adjoining the positive real cube root $q$.
+
+\begin{lemma}[Splitting-function derivative numerator]\label{lem:ledger-Fprime}
+For $p>1$,
+\begin{equation}\label{eq:ledger-Fprime}
+  \frac{d}{dp}\left[\frac{3(p+2)}{(p-1)(p^3+3p^2+6p+5)}\right]
+  =-\frac{9(p^2+p+1)(p^2+3p+1)}{(p-1)^2(p^3+3p^2+6p+5)^2}<0 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Differentiate by the quotient rule, put the two terms over the positive
+denominator
+$(p-1)^2(p^3+3p^2+6p+5)^2$, and expand the numerator.  It factors as
+$-9(p^2+p+1)(p^2+3p+1)$.  Every factor other than the leading minus sign is
+positive for $p>1$.
+\end{proof}
+
+\begin{lemma}[One-ball contradiction factor]\label{lem:ledger-oneball}
+For $\delta\ge0$ and $V\in\R$,
+\begin{equation}\label{eq:ledger-oneball}
+  V+2-\bigl(V+5-3(1+\delta)^2\bigr)(1+\delta)
+  =\delta\bigl(4-V+9\delta+3\delta^2\bigr).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Expand the left side and collect powers of $\delta$:
+$4\delta-V\delta+9\delta^2+3\delta^3$, which is the displayed right side.
+\end{proof}
+
+\begin{lemma}[The $V=6$ discriminant]\label{lem:ledger-six}
+$(V+2)^2-16(V-2)=(V-6)^2$.
+\end{lemma}
+
+\begin{proof}
+Both sides expand to $V^2-12V+36$.
+\end{proof}
+
+\begin{lemma}[Cubic majorant]\label{lem:ledger-cubic}
+For $L>0$, $x\ge0$ and $t:=3x/\sqrt L$,
+\begin{equation}\label{eq:ledger-cubic}
+  \frac{2L^{3/2}}9-(Lx-3x^3)=\frac{L^{3/2}}9(t-1)^2(t+2)\ge0 ,
+\end{equation}
+so $Lx-3x^3\le\tfrac29L^{3/2}$.
+\end{lemma}
+
+\begin{proof}
+Since $L>0$, substitution of $x=t\sqrt L/3$ gives
+\[
+  \frac{2L^{3/2}}9-(Lx-3x^3)
+  =\frac{L^{3/2}}9(t^3-3t+2)
+  =\frac{L^{3/2}}9(t-1)^2(t+2).
+\]
+Here $t\ge0$, so the last expression is nonnegative.
+\end{proof}
+
+\begin{lemma}[Binding-ratio factorisation]\label{lem:ledger-binding}
+For $x>0$ and $a:=(5/2)^{1/3}$ (so $a^3=5/2$),
+\begin{equation}\label{eq:ledger-binding}
+  \frac1x+\frac{x^2}{5}-\frac{3}{2a}
+  =\frac{(x-a)^2(x+2a)}{2a^3x}\ge0 ,
+\end{equation}
+with equality exactly at $x=a$.
+\end{lemma}
+
+\begin{proof}
+The denominator $2a^3x$ is positive.  Multiplication by it reduces the
+identity to
+\[
+  2a^3+\frac{2a^3x^3}{5}-3a^2x=(x-a)^2(x+2a).
+\]
+Using $2a^3=5$, both sides expand to $x^3-3a^2x+2a^3$.
+The factored right side is nonnegative, and it vanishes exactly when $x=a$.
+\end{proof}
+
+\begin{lemma}[Two-ball smallness at $V\le8$]\label{lem:ledger-L5}
+\uses{def:threshold}
+If $0<V\le8$ and $L=q^{-2}(V+10)$ then $L/5\le18/(5q^2)<q^4$.
+\end{lemma}
+
+\begin{proof}\uses{def:threshold}
+The first inequality is $V\le8$.  For the second, multiply by $5q^2$: the
+claim is $18<5q^6=5\cdot4=20$.
+\end{proof}
+
+\begin{lemma}[Monotonicity of $h$]\label{lem:ledger-h}
+For $h(V):=(V+10)^3/(V-2)$ on $[6,8]$,
+\begin{equation}\label{eq:ledger-h}
+  h'(V)=\frac{2(V+10)^2(V-8)}{(V-2)^2}\le0,
+  \qquad
+  h(V)\le h(6)=1024<1296 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The quotient rule gives
+\[
+ h'(V)=\frac{3(V+10)^2(V-2)-(V+10)^3}{(V-2)^2}
+      =\frac{2(V+10)^2(V-8)}{(V-2)^2}.
+\]
+This is nonpositive on $[6,8]$, so $h(V)\le h(6)=16^3/4=1024<1296$.
+\end{proof}
+

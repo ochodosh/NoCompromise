@@ -1,0 +1,99 @@
+\chapter{Dependency overview}\label{ch:dependencies}
+\module{(none)}
+
+The \verb|\uses| graph is acyclic, but the expository document order is not
+itself a topological order: a small number of theorem wrappers precede their
+technical lemmas, and a few low-cost modules are grouped thematically.  A
+formalisation must topologically sort the labeled nodes.  Remarks
+\ref{rem:acyclic-elliptic} and \ref{rem:acyclic-isoperimetric} record the two
+most important architectural constraints.  The table below records a coarse
+topological layering and the size class of each layer; ``L'' marks a dominant
+cost.
+
+\begin{longtable}{@{}p{0.05\textwidth}p{0.40\textwidth}p{0.30\textwidth}p{0.13\textwidth}@{}}
+\toprule
+& \textbf{Layer} & \textbf{Depends on} & \textbf{Size} \\
+\midrule
+\endhead
+1 & Signed measures (Ch.~\ref{ch:signed}) & base only & \textbf{L} \\
+2 & BV core (Ch.~\ref{ch:bv}) & 1 & \textbf{L} \\
+3 & Coarea, slicing, traces (Ch.~\ref{ch:coarea}) & 2 & medium \\
+4 & Area formula (Ch.~\ref{ch:area}) & base only & \textbf{L} \\
+5 & Sobolev, Poincar\'e, relative isoperimetry, maximal (Ch.~\ref{ch:sobolev}) & 2,\,3 & medium \\
+6 & De Giorgi structure (Ch.~\ref{ch:degiorgi}) & 2--5 & \textbf{L} \\
+7 & Transport, first variation (Ch.~\ref{ch:transport}) & 4,\,6 & medium \\
+8 & Elliptic estimates (Ch.~\ref{ch:elliptic}) & 2,\,5 & \textbf{L} \\
+9 & Sard (Ch.~\ref{ch:sard}) & base only & small \\
+10 & Smooth approximation (Ch.~\ref{ch:smooth-approx}) & 3,\,9 & small \\
+11 & Sharp isoperimetric inequality (Ch.~\ref{ch:isoperimetric}) & 8,\,10 & small \\
+12 & Flows, transversality, Morse count, total curvature (Ch.~\ref{ch:flows}) & 4,\,9, base & \textbf{L} \\
+13 & The functional (Ch.~\ref{ch:functional}--\ref{ch:algebra}) & 2,\,11 & small \\
+14 & Value function, splitting, existence (Ch.~\ref{ch:value}--\ref{ch:existence}) & 3,\,5,\,11,\,13 & medium \\
+15 & Penalisation, density, representative (Ch.~\ref{ch:penalization}--\ref{ch:density}) & 6,\,11,\,13 & medium \\
+16 & Monotonicity, tangent cones (Ch.~\ref{ch:monotonicity}) & 7,\,15 & medium \\
+17 & Deformation (Ch.~\ref{ch:deformation}) & 3,\,7 & medium \\
+18 & $\varepsilon$-regularity (Ch.~\ref{ch:eps-reg}) & 2,\,5,\,16,\,17 & \textbf{L} \\
+19 & Cones, no singular set (Ch.~\ref{ch:cones}--\ref{ch:no-singular}) & 8,\,18 & medium \\
+20 & Isoperimetric rigidity (Ch.~\ref{ch:rigidity}) & 11,\,19 & small \\
+21 & Euler--Lagrange, bootstrap (Ch.~\ref{ch:euler-lagrange}) & 7,\,8,\,19 & medium \\
+22 & Hull (Ch.~\ref{ch:hull}) & 12,\,21 & small \\
+23 & Exterior potential (Ch.~\ref{ch:potential}) & 8,\,9,\,22 & medium \\
+24 & Appendix K closure (Ch.~\ref{ch:appK}) & 1,\,3,\,12,\,23 & medium \\
+25 & Green identity (Ch.~\ref{ch:green}) & 8,\,12,\,21,\,23 & small \\
+26 & Capacitary estimate (Ch.~\ref{ch:cap-estimate}) & 13,\,24,\,25 & small \\
+27 & Classification, endpoint, nonexistence, assembly (Ch.~\ref{ch:classification}--\ref{ch:assembly}) & 13,\,14,\,20,\,21,\,26 & small \\
+28 & Binding energy (Ch.~\ref{ch:binding}) & 13,\,14,\,27 & small \\
+\bottomrule
+\end{longtable}
+
+\begin{fnote}[The three dominant costs]\label{fnote:three-costs}
+Layers 1, 12 and 18 --- signed Riesz representation, the
+flow/degree package, and the $\varepsilon$-regularity iteration ---
+together with the De Giorgi structure theorem (layer 6) and the area formula
+(layer 4) account for most of the work.  Within layer 12 the dominant item is
+\S\ref{sec:flow} alone (Formalisation note~\ref{fnote:flow-cost}).  Layers 26--28, which contain the
+sharp mathematics of the paper, are comparatively small.  Do not schedule the
+project as if the difficulty were distributed evenly along the document.
+\end{fnote}
+
+\begin{fnote}[Items off the critical path]\label{fnote:off-critical-path}
+Exactly six numbered results in this document are stated but never used by
+Theorem~\ref{thm:main} or Theorem~\ref{thm:main-binding}:
+\begin{itemize}[nosep]
+\item Lemma~\ref{lem:subadditivity} (subadditivity of $m$);
+\item Lemma~\ref{lem:bounded-approx} (bounded approximation; its only consumer
+  is the previous item);
+\item Corollary~\ref{cor:smooth-approx-energy} (energy convergence of the
+  smooth approximants);
+\item Lemma~\ref{lem:level-asymptotics} (level asymptotics before
+  renormalisation);
+\item Proposition~\ref{prop:rel-iso-disk} (relative isoperimetry on a planar
+  disk).
+\item Theorem~\ref{thm:boundary-nondiv} (a standalone boundary regularity
+  theorem for uniformly elliptic nondivergence-form equations).
+\end{itemize}
+Each carries an inline note saying so (Formalisation
+notes~\ref{fnote:subadditivity-unused} and
+\ref{fnote:level-asymptotics-unused}, Remark~\ref{rem:three-signatures},
+Formalisation note~\ref{fnote:boundary-nondiv-status}, and the remark inside
+Corollary~\ref{cor:smooth-approx-energy}).  They are
+retained because each is the natural companion of a neighbouring result, but a
+formalisation may skip all six at no cost.  Everything else in the document is
+reachable from the two main theorems by following \verb|\uses| edges; if a tool
+finds a seventh unreachable item, that is a defect in this document.
+
+Note also Remark~\ref{rem:hE-optional}, which describes a construction that is
+deliberately \emph{not} given the status of a numbered result precisely so that
+it is not formalised.
+\end{fnote}
+
+\begin{fnote}[Two independent tracks]\label{fnote:parallel-tracks}
+Layers 13--14 and 26--28 depend on the heavy layers only through
+Theorem~\ref{thm:sharp-isoperimetric}, and
+Proposition~\ref{prop:cap-estimate} respectively.  A team can therefore build
+the ``liquid-drop'' half against those two statements as hypotheses while the
+``geometric measure theory'' half is being built, and discharge the hypotheses
+at the end.  Formalisation note~\ref{fnote:cap-interface} makes the interface
+explicit.
+\end{fnote}
+

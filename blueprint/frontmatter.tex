@@ -1,0 +1,125 @@
+\hypersetup{pageanchor=false}
+\maketitle
+\tableofcontents
+\clearpage
+\hypersetup{pageanchor=true}
+
+% ============================================================================
+\chapter*{How to read and use this document}
+\addcontentsline{toc}{chapter}{How to read and use this document}
+% ============================================================================
+
+\section*{What this document is}
+
+This is a blueprint of the proof of the results of O.~Chodosh and
+M.~Gianocca, \emph{No compromise in the liquid drop model}
+(arXiv:2608.11517), written in a form that can be turned into a
+\texttt{leanblueprint} project and then autoformalised.  Its organising
+principles are:
+
+\begin{enumerate}[label=(\arabic*)]
+\item \textbf{Every citable claim is its own numbered item.}  Mathematical
+  content that would ordinarily live inside prose paragraphs or inside proofs
+  of larger results is extracted into a
+  \texttt{lemma}, \texttt{proposition}, \texttt{theorem} or
+  \texttt{definition} with a stable \verb|\label|.  Nothing is proved twice;
+  forward dependencies are permitted only when recorded in the acyclic
+  \verb|\uses| graph.
+\item \textbf{Every statement is dependency-explicit.}  Its data and
+  hypotheses are either quantified in the statement or imported through a
+  cited named definition or result.  There are no unnamed ambient hypotheses.
+  A downstream formaliser should expand a cited setting into Lean parameters
+  while following the corresponding \verb|\uses| edge.
+\item \textbf{Constants are named and their dependencies are declared.}
+  Quantitative statements specify whether constants are absolute or list
+  their allowed parameters.  The six high-risk arguments with nested
+  smallness choices additionally carry a numbered \texttt{Constants} block
+  recording the order of choice.
+\item \textbf{Dependency edges are machine-readable.}  Every nonempty
+  internal dependency set is recorded by \verb|\uses{...}|; dependency-free
+  items omit the macro.  Following \texttt{leanblueprint} convention, a
+  \verb|\uses| \emph{on the statement} lists what is needed to \emph{state}
+  the item (definitions, earlier notation); a \verb|\uses| \emph{on the
+  proof} lists what is needed to \emph{prove} it.
+\item \textbf{The dependency graph is acyclic and machine-readable.}  The
+  presentation order is chosen for exposition and contains a small number of
+  forward edges (for example, a theorem may be stated before the technical
+  lemmas that prove it).  Formalisation must follow any topological sort of
+  the \verb|\uses| graph, not blindly follow page order.  The two most
+  important ordering constraints are called out explicitly
+  (Remarks~\ref{rem:acyclic-isoperimetric} and \ref{rem:acyclic-elliptic}).
+\item \textbf{Intended Lean module names appear in situ.}  Chapter headers
+  list the modules owning their labelled items in a \verb|\module{...}| line.
+  Chapter~\ref{ch:lean-files} gives the complete assignment, including every
+  definition, convention and constant annotation.
+\end{enumerate}
+
+\section*{What a downstream tool should do with it}
+
+\begin{itemize}
+\item \textbf{To build a blueprint:} delete the \verb|\providecommand| block
+  in the preamble (plasTeX supplies \verb|\uses|, \verb|\lean|, \verb|\leanok|),
+  reuse the existing chapter inputs, and keep the labels verbatim.
+  The labels are the blueprint's node names
+  and are referenced from Chapter~\ref{ch:lean-files}.
+\item \textbf{To autoformalise:} topologically sort the nodes using
+  \verb|\uses| and process them in that order.  An item's \verb|\uses| set is
+  the set of internal items its Lean proof may cite; it need not consist only
+  of earlier pages.  If a proof needs an internal result not in its
+  \verb|\uses| set, that is a bug in this document; report it rather than
+  adding a hypothesis.
+\item \textbf{Never discharge an item with \texttt{sorry}, \texttt{axiom} or
+  an appeal to the literature.}  The permitted library base is pinned in
+  Chapter~\ref{ch:base}.  An implementation may refine an item into further
+  local measurability, trace or constant-selection lemmas; it may not add a
+  mathematical hypothesis.
+\end{itemize}
+
+\section*{Item-type discipline}
+
+\begin{itemize}
+\item \texttt{definition} --- introduces notation or a predicate.  Expect a
+  Lean \texttt{def} or \texttt{structure}.
+\item \texttt{lemma} --- a step used only inside this document.
+\item \texttt{proposition} --- a milestone consumed by a later chapter.
+\item \texttt{theorem} --- a headline result, or a result whose statement is
+  quotable outside this development.
+\item \texttt{convention} --- a sign, orientation or representative choice.
+  These are the highest-risk items in the whole project: a convention silently
+  flipped in one file and not another is the single most likely source of a
+  false theorem.  Each is stated once and referenced by label everywhere.
+\item \texttt{fnote} (Formalisation note) --- advice to the formaliser.
+  Carries no mathematical content and generates no blueprint node.
+\item \texttt{test} (Regression test) --- a computation the finished Lean
+  development should be able to discharge, used to detect sign errors.
+  Collected in Chapter~\ref{ch:tests}.
+\end{itemize}
+
+\section*{Statement of the target}
+
+The two results this document exists to prove are stated below informally,
+for orientation.  Their canonical statements --- the ones a blueprint should
+treat as nodes --- are Theorem~\ref{thm:main} in Chapter~\ref{ch:assembly} and
+Theorem~\ref{thm:main-binding} in Chapter~\ref{ch:binding}, each stated
+immediately above its proof.
+
+\medskip\noindent
+\textbf{Main theorem.}  With $\Ec$ and $V_*$ as in
+Definitions~\ref{def:energy} and \ref{def:threshold}: for $0<V\le V_*$ the
+minimisers of $\Ec$ among measurable subsets of $\R^3$ of volume $V$ are
+exactly the translates of a round ball of volume $V$, up to Lebesgue-null
+sets; for $V>V_*$ no minimiser exists.
+
+\medskip\noindent
+\textbf{Binding-energy corollary.}
+$e_*:=\inf_{0<|\Omega|<\infty}\Ec(\Omega)/|\Omega|=3(9\pi/5)^{1/3}$, the
+infimum is attained, and every optimiser is a translate of a ball of volume
+$5/2$, up to a null set.
+
+\medskip
+
+\begin{remark}[Volume zero]\label{rem:volume-zero}
+The statement is deliberately restricted to $V>0$.  A ``ball of volume zero''
+is not a useful formal object, and the $V=0$ case of the source paper is
+tacit.
+\end{remark}

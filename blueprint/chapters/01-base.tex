@@ -1,0 +1,132 @@
+\chapter{The permitted library base}\label{ch:base}
+\module{(none --- this chapter is a contract, not mathematics)}
+
+\section{The pin}
+
+The permitted base is Lean \texttt{v4.34.0-rc2} and mathlib commit
+\code{85e3a25e006c35636f0e53b0e9296caca2685bc0}, as recorded in the
+repository's \texttt{lean-toolchain} and \texttt{lake-manifest.json}.
+Everything in this document that is not on the following list is derived
+here.
+
+\section{What may be assumed}
+
+\begin{enumerate}[label=(B\arabic*),leftmargin=*]
+\item\label{base:linalg} Real and finite-dimensional linear algebra,
+  Euclidean topology, compactness, smooth partitions of unity
+  (\texttt{SmoothPartitionOfUnity}, \texttt{SmoothBumpCovering}), and
+  elementary convexity.
+\item\label{base:lp} Completeness of $L^p$ spaces; weak sequential
+  compactness of bounded sequences in a Hilbert space.
+\item\label{base:measure} Lebesgue and Hausdorff measure, Bochner
+  integration, Fubini--Tonelli, monotone and dominated convergence,
+  Radon--Nikodym for \emph{positive} measures, the \emph{positive-functional}
+  Riesz--Markov theorem (\texttt{RealRMK.rieszMeasure} together with
+  \code{RealRMK.integral\_rieszMeasure}), and regularity of the resulting
+  positive measures.
+\item\label{base:alaoglu} Banach--Alaoglu (\code{WeakDual.isCompact\_closedBall})
+  and its sequential form for duals of separable normed spaces
+  (\code{WeakDual.isSeqCompact\_closedBall}).
+\item\label{base:besicovitch} The Besicovitch covering and differentiation
+  theorems for Euclidean balls, including differentiation of one Radon
+  measure with respect to another
+  (\code{Besicovitch.exists\_disjoint\_closedBall\_covering\_ae},
+  \code{Besicovitch.ae\_tendsto\_rnDeriv}).
+\item\label{base:calculus} Finite-dimensional Fr\'echet calculus, the inverse
+  and implicit function theorems
+  (\code{HasStrictFDerivAt.to\_localInverse}), Taylor's theorem,
+  Rademacher's theorem (\code{LipschitzWith.ae\_differentiableAt}), and
+  \emph{equidimensional} Jacobian change of variables
+  (\code{integral\_image\_eq\_integral\_abs\_det\_fderiv\_smul}).
+\item\label{base:ode} Picard--Lindel\"of local existence and uniqueness,
+  including a locally simultaneous family of solutions Lipschitz in the
+  initial point
+  (\code{IsPicardLindelof.exists\_forall\_mem\_closedBall\_eq\_hasDerivWithinAt\_lipschitzOnWith}),
+  together with \texttt{ODE\_solution\_unique}.
+\item\label{base:fourier} The Fourier transform on Schwartz functions,
+  Fourier inversion, differentiation under the transform, and the $L^2$
+  Plancherel isometry.  The pinned APIs include
+  \code{MeasureTheory.Integrable.fourierInv\_fourier\_eq}, the derivative
+  identities in \code{Analysis/Fourier/FourierTransformDeriv.lean}, and
+  the $L^2$ Fourier linear isometry constructed in
+  \code{Analysis/Fourier/LpSpace.lean}, with norm theorem
+  \code{MeasureTheory.Lp.norm\_fourier\_eq}.  Real-valued Sobolev functions
+  are sent to the complex theory by the canonical isometric inclusion.
+  The inversion theorem requires integrability of the function and its
+  Fourier transform, and continuity at the evaluation point.  In the
+  Sobolev application it is first applied to smooth compactly supported
+  approximants, for which these hypotheses hold, and the result is then
+  extended by the quantitative Sobolev estimate and completeness.
+\end{enumerate}
+
+\section{What may \emph{not} be assumed}
+
+The following are \emph{absent} from the base and are derived in this
+document.  Each entry names the chapter that supplies it.  The list exists
+because each of these has previously been mistaken for a library primitive.
+
+\begin{longtable}{@{}p{0.52\textwidth}p{0.42\textwidth}@{}}
+\toprule
+\textbf{Not in the base} & \textbf{Derived in} \\
+\midrule
+\endhead
+Signed Riesz representation (\ref{base:measure} gives positive functionals
+only; \texttt{RealRMK.rieszMeasure} returns a \texttt{Measure}, not a
+\texttt{SignedMeasure})
+  & \S\ref{sec:signed-riesz} \\
+Weak-$*$ compactness stated for signed or vector Radon measures
+  & \S\ref{sec:signed-compactness} \\
+Sets of finite perimeter, reduced boundary, several-variable BV
+(mathlib's \code{Analysis/BoundedVariation.lean} is one-dimensional)
+  & Ch.~\ref{ch:bv}--\ref{ch:degiorgi} \\
+The \emph{lower-dimensional} (rectifiable) area formula; \ref{base:calculus}
+gives the equidimensional one only
+  & \S\ref{sec:area-formula} \\
+De Giorgi's structure theorem; \ref{base:besicovitch} is not a substitute
+  & Ch.~\ref{ch:degiorgi} \\
+Coarea for BV and for $C^1$ functions with a weight
+  & \S\ref{sec:coarea} \\
+Any Sobolev, Poincar\'e, Rellich or isoperimetric inequality
+  & Ch.~\ref{ch:sobolev} \\
+Elliptic estimates: Campanato, Schauder, maximum and Hopf principles,
+boundary regularity
+  & Ch.~\ref{ch:elliptic} \\
+Sard's theorem in any form
+  & Ch.~\ref{ch:sard} \\
+Differentiability of ODE solutions in the initial point; a global flow
+generated by a vector field (\texttt{Dynamics/Flow.lean} is an abstract
+continuous monoid action, never built from an ODE); the flow-box theorem
+  & \S\ref{sec:flow} \\
+Transversality in any form; tubular neighbourhoods
+  & \S\ref{sec:transversality}, \S\ref{sec:tubular} \\
+Morse theory; Gauss--Bonnet; the degree of a smooth map; classification of
+compact surfaces
+  & \S\ref{sec:shape}--\S\ref{sec:total-curvature} (degree theory is
+    \emph{avoided}, not derived --- Formalisation
+    note~\ref{fnote:not-a-degree}) \\
+Any regularity theorem for perimeter (quasi)minimisers
+  & Ch.~\ref{ch:eps-reg} \\
+Capacitary monotonicity (Agostiniani--Mazzieri)
+  & Ch.~\ref{ch:appK} \\
+\bottomrule
+\end{longtable}
+
+\begin{fnote}[The ODE trap]\label{fnote:ode-trap}
+The mathlib ODE results are named by the shape of their conclusion, not by
+the words ``dependence'' or ``flow'', and the local flow they produce is a
+bare function rather than a \texttt{Flow}.  Keyword searches miss them.
+Grep for conclusion shapes, or read
+\code{Mathlib/Analysis/ODE/ExistUnique.lean} directly.  In particular
+\ref{base:ode} \emph{does} give Lipschitz dependence on the initial point and
+joint continuity, and \emph{does not} give differentiability in the initial
+point.
+\end{fnote}
+
+\begin{fnote}[Two false friends]\label{fnote:false-friends}
+Do not use \ref{base:calculus}'s equidimensional Jacobian theorem where the
+rectifiable area formula (\S\ref{sec:area-formula}) is required, and do not
+use \ref{base:besicovitch}'s differentiation theorem where De Giorgi's
+structure theorem (Ch.~\ref{ch:degiorgi}) is required.  Both substitutions
+typecheck as English and neither is valid.
+\end{fnote}
+

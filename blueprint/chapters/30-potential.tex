@@ -1,0 +1,247 @@
+\chapter{The exterior capacitary potential}\label{ch:potential}
+\module{NoCompromise.Capacity.Flux,
+        NoCompromise.Capacity.Kelvin,
+        NoCompromise.Capacity.Levels,
+        NoCompromise.Capacity.Potential}
+
+\section{Existence, uniqueness and the Hopf sign}
+
+\begin{theorem}[Capacitary potential]\label{thm:capacitary-potential}
+\uses{lem:hull-properties,conv:domain-classes}
+There is a unique
+\[
+  u\in C^\infty(\R^3\setminus K)
+    \cap C^{2,\alpha}_{\mathrm{loc}}\bigl(\overline{\R^3\setminus K}\bigr)
+  \qquad(0<\alpha<1)
+\]
+with
+\begin{equation}\label{eq:capacitary-problem}
+  \Delta u=0\ \text{on }\R^3\setminus K,
+  \qquad
+  u=1\ \text{on }\partial K,
+  \qquad
+  u(x)\to0\ (|x|\to\infty).
+\end{equation}
+It satisfies
+\begin{equation}\label{eq:capacitary-signs}
+  0<u<1\ \text{outside }K,
+  \qquad
+  \partial_{\nu_K}u<0\ \text{on }\partial K .
+\end{equation}
+Extending $u$ by the constant $1$ on $K$ gives a continuous, locally $H^1$
+function on $\R^3$.
+\end{theorem}
+
+\begin{proof}
+\uses{prop:weak-dirichlet,prop:strong-max,lem:weak-max,thm:boundary-C2a,
+      cor:hopf-exterior,prop:hopf,lem:sobolev-Ck,prop:poincare-trace,
+      lem:hull-properties}
+Translate so that $0\in\operatorname{int}K$ and choose
+\begin{equation}\label{eq:hull-radii}
+  0<a<R_0,\qquad B_a\subset\operatorname{int}K\subset K\subset B_{R_0}.
+\end{equation}
+
+\emph{Step 1: annular minimisation.}  For $R>R_0$ let
+$A_R:=B_R\setminus K$.  In the affine Sobolev class with traces $1$ on
+$\partial K$ and $0$ on $\partial B_R$, minimise
+$J(v):=\tfrac12\int_{A_R}|\nabla v|^2$.  A fixed smooth interpolant makes the
+class nonempty; \eqref{eq:poincare-L2} on the zero-trace difference space gives
+coercivity, and the direct method
+(Proposition~\ref{prop:weak-dirichlet}) gives a unique minimiser $u_R$, weakly
+harmonic.  Testing with $(u_R-1)_+$ and $(u_R)_-$ gives $0\le u_R\le1$;
+Lemma~\ref{lem:sobolev-Ck} and Proposition~\ref{prop:strong-max} give strict
+inequalities inside.  Boundary flattening and
+Theorem~\ref{thm:boundary-C2a} give $C^{2,\alpha}$ regularity up to either
+boundary.  Here $A_R$ is connected: an exterior path may have every portion
+outside $B_R$ replaced by a path on a sphere of radius in $(R_0,R)$, which is
+disjoint from $K$.
+
+For all sufficiently large $R$, a single smooth function equal to one near
+$K$ and zero outside $B_{2R_0}$ is an admissible competitor.  Consequently
+$\int_{A_R}|\nabla u_R|^2\le C(K)$ uniformly.
+
+\emph{Step 2: monotone limit.}  If $R_2>R_1$, comparison on $A_{R_1}$ gives
+$u_{R_2}\ge u_{R_1}$, since the larger-domain solution is nonnegative on
+$\partial B_{R_1}$.  The family is monotone and bounded by one; local elliptic
+estimates and monotone convergence give a harmonic limit $u$ with \emph{no
+subsequence needed}, and the fixed inner-boundary estimates preserve the trace
+$u=1$.  Local weak convergence of the gradients and exhaustion pass the
+uniform energy bound to the limit:
+\begin{equation}\label{eq:capacity-finite-energy}
+ \int_{\R^3\setminus K}|\nabla u|^2<\infty .
+\end{equation}
+
+\emph{Step 3: barriers.}  The function $R_0/|x|$ is harmonic on the exterior
+(its pole lies in $K$), is $\ge1$ on $\partial K$, and tends to zero, so
+comparison gives
+\begin{equation}\label{eq:upper-barrier}
+  u(x)\le\frac{R_0}{|x|}.
+\end{equation}
+For a lower barrier on the finite annulus use
+\begin{equation}\label{eq:lower-barrier-annulus}
+  b_R(r):=\frac{a(R/r-1)}{R-a},
+\end{equation}
+harmonic for $a<r<R$, equal to $1$ at $r=a$ and $0$ at $r=R$.  Since
+$|x|\ge a$ on $\partial K$, $b_R(|x|)\le1=u_R$ there, and both vanish on
+$\partial B_R$; comparison gives $u_R\ge b_R$, and letting $R\to\infty$,
+\begin{equation}\label{eq:lower-barrier}
+  \frac a{|x|}\le u(x)\qquad(|x|\ge R_0).
+\end{equation}
+So $u\to0$ and $u\not\equiv0$.
+
+\emph{Step 4: uniqueness.}  For two solutions apply
+Lemma~\ref{lem:weak-max} to their difference on $B_R\setminus K$; the boundary
+difference on $\partial B_R$ tends uniformly to zero.
+
+\emph{Step 5: the Hopf sign.}  Corollary~\ref{cor:hopf-exterior}, using an
+exterior tangent ball at $p\in\partial K$ and the radial barrier
+\eqref{eq:hopf-barrier}, gives $\partial_{\nu_K}(1-u)>0$.
+\end{proof}
+
+\begin{notation}[$w$]\label{not:w}
+\uses{thm:capacitary-potential,conv:outward}
+$w:=|\nabla u|$.  On $\partial K$,
+\begin{equation}\label{eq:w-boundary}
+  \nabla u=-w\,\nu_K,\qquad w>0 .
+\end{equation}
+\end{notation}
+
+\section{Capacity, flux and Kelvin asymptotics}
+
+\begin{definition}[Capacity]\label{def:capacity}
+\uses{thm:capacitary-potential}
+\begin{equation}\label{eq:capacity}
+  \Capa(K):=\frac1{4\pi}\int_{\R^3\setminus K}|\nabla u|^2 ,
+  \qquad
+  \mathsf C:=\Capa(K).
+\end{equation}
+\end{definition}
+
+\begin{lemma}[Decay]\label{lem:potential-decay}
+\uses{thm:capacitary-potential}
+$u(x)=O(|x|^{-1})$ and $|\nabla u(x)|=O(|x|^{-2})$.
+\end{lemma}
+
+\begin{proof}\uses{lem:harmonic-deriv,thm:capacitary-potential}
+\eqref{eq:upper-barrier} rescaled on dyadic annuli combined with the interior
+gradient estimate \eqref{eq:harmonic-deriv}.
+\end{proof}
+
+\begin{lemma}[Flux identity]\label{lem:flux-identity}
+\uses{def:capacity,not:w,thm:sard-3d}
+\begin{equation}\label{eq:flux-boundary}
+  4\pi\mathsf C=\int_{\partial K}w\,d\Hs^2 ,
+\end{equation}
+and for every regular value $s\in(0,1)$,
+\begin{equation}\label{eq:flux-level}
+  \int_{\{u=s\}}w\,d\Hs^2=4\pi\mathsf C .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\uses{thm:W11-gauss-green,lem:potential-decay,thm:sard-3d,not:w}
+Integrate by parts on $B_R\setminus K$ using \eqref{eq:W11-GG} and let
+$R\to\infty$, using Lemma~\ref{lem:potential-decay}: this gives
+\eqref{eq:flux-boundary}.  Applying \eqref{eq:W11-GG} on
+$\{s<u<1\}$ instead gives \eqref{eq:flux-level}; regular values are dense by
+Theorem~\ref{thm:sard-3d}.
+\end{proof}
+
+\begin{lemma}[Kelvin transform and the multipole expansion]\label{lem:kelvin}
+\uses{thm:capacitary-potential,prop:kelvin-removable}
+The Kelvin transform
+\begin{equation}\label{eq:kelvin}
+  \widetilde u(z):=|z|^{-1}u\Bigl(\frac z{|z|^2}\Bigr)
+\end{equation}
+extends smoothly across the origin, so
+$\widetilde u(z)=\mathsf C_\infty+a\cdot z+O(|z|^2)$ and, transforming back
+with differentiated remainders,
+\begin{align}
+  u(x)&=\frac{\mathsf C_\infty}{|x|}+\frac{a\cdot x}{|x|^3}+O(|x|^{-3}),
+    \label{eq:u-expansion}\\
+  \nabla u(x)&=-\mathsf C_\infty\frac{x}{|x|^3}+O(|x|^{-3}),
+    \label{eq:grad-u-expansion}\\
+  D^2u(x)&=\mathsf C_\infty\Bigl(3\frac{x\otimes x}{|x|^5}-\frac{I}{|x|^3}\Bigr)
+    +O(|x|^{-4}).
+    \label{eq:hess-u-expansion}
+\end{align}
+Moreover $\mathsf C_\infty=\mathsf C$.
+\end{lemma}
+
+\begin{proof}
+\uses{prop:kelvin-removable,lem:potential-decay,lem:flux-identity,
+      lem:caccioppoli}
+$\widetilde u$ is bounded and harmonic on a punctured ball by
+Lemma~\ref{lem:potential-decay}; the removability argument of
+Proposition~\ref{prop:kelvin-removable} --- test against a cutoff vanishing on
+$B_\varepsilon$, bound the boundary error by $\sup\widetilde u$ times the
+capacity of $B_\varepsilon$ --- makes it distributionally harmonic, and
+difference-quotient interior regularity makes it smooth.  Taylor's theorem
+then gives the expansion, and differentiating the explicit Kelvin
+transformation gives \eqref{eq:u-expansion}--\eqref{eq:hess-u-expansion}.  The
+inward flux through a large sphere is $4\pi\mathsf C_\infty+o(1)$; comparing
+with \eqref{eq:flux-boundary} gives $\mathsf C_\infty=\mathsf C$.
+\end{proof}
+
+\begin{lemma}[Asymptotic level geometry]\label{lem:level-asymptotics}
+\uses{lem:kelvin,conv:curvature}
+For small regular $\varepsilon>0$ the level $\{u=\varepsilon\}$ is a radial
+graph $r_\varepsilon(\theta)=\mathsf C/\varepsilon+O(1)$ with two angular
+derivatives controlled uniformly, and with the normal toward infinity,
+\begin{equation}\label{eq:level-asymptotics}
+  w=\frac{\varepsilon^2}{\mathsf C}+O(\varepsilon^3),
+  \quad
+  H=\frac{2\varepsilon}{\mathsf C}+O(\varepsilon^2),
+  \quad
+  d\Hs^2=\frac{\mathsf C^2}{\varepsilon^2}\bigl(1+O(\varepsilon)\bigr)d\omega .
+\end{equation}
+Consequently
+\begin{equation}\label{eq:level-Hw-asymptotics}
+  \int_{\{u=\varepsilon\}}\bigl(Hw-4\varepsilon^{-1}w^2\bigr)
+  =-8\pi\varepsilon+O(\varepsilon^2).
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:kelvin,thm:sard-3d}
+The implicit function theorem applied to $u(r\theta)=\varepsilon$ using
+\eqref{eq:u-expansion}--\eqref{eq:hess-u-expansion}.
+\end{proof}
+
+\begin{fnote}[Off the critical path]\label{fnote:level-asymptotics-unused}
+Lemma~\ref{lem:level-asymptotics} is \emph{not used} below.  Chapter~\ref{ch:appK}
+needs the far-field normalisation in the translated coordinates of
+Lemma~\ref{lem:K-normalization} and re-derives exactly what it needs as
+Lemma~\ref{lem:K-far-field}; in particular
+\eqref{eq:level-Hw-asymptotics} is the untranslated precursor of
+\eqref{eq:K-far-field-limits}.  Lemma~\ref{lem:level-asymptotics} is retained
+because it is the natural place to record the level geometry, and because
+comparing it with Lemma~\ref{lem:K-far-field} is a useful consistency check
+(Regression test~\ref{test:K-model}).  A formalisation may skip it.
+\end{fnote}
+
+\section{Connectedness of regular levels}
+
+\begin{lemma}[Regular levels are connected]\label{lem:level-connected}
+\uses{thm:capacitary-potential,thm:component-count,lem:hull-properties}
+Every regular level $\{u=s\}$, $0<s<1$, is connected.
+\end{lemma}
+
+\begin{proof}
+\uses{prop:strong-max,lem:weak-max,thm:component-count,lem:hull-properties,
+      lem:sobolev-Ck}
+Extend $u$ by $1$ on $K$.  The superlevel $\{u>s\}$ is bounded by
+\eqref{eq:upper-barrier}.  Every one of its components meets $K$: otherwise
+$u$ would be harmonic on a bounded component, equal to $s$ on its boundary and
+$>s$ inside, contradicting Proposition~\ref{prop:strong-max}.  Since $K$ is
+connected (Lemma~\ref{lem:hull-properties}) it lies in one component, so the
+whole superlevel is connected.
+
+The sublevel $\{u<s\}$ contains the complement of a large ball by
+\eqref{eq:upper-barrier}.  A bounded component would have boundary value $s$
+and an interior minimum below $s$, contradicting the minimum principle.  So the
+sublevel is connected.  These are exactly the two complementary components of
+the regular level.  That level is a compact smooth surface with finitely many,
+say $k$, connected components; Theorem~\ref{thm:component-count} says its
+complement has $k+1$ components.  Hence $k+1=2$ and $k=1$.
+\end{proof}
+

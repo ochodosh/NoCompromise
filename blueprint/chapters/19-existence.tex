@@ -1,0 +1,254 @@
+% ----------------------------------------------------------------------------
+\chapter{Concentration compactness and existence}\label{ch:existence}
+\module{NoCompromise.Compactness.Decomposition,
+        NoCompromise.Compactness.Nonvanishing,
+        NoCompromise.Existence.Subcritical}
+
+The package of this chapter is used twice: for fixed-volume existence
+(Proposition~\ref{prop:existence-subcritical}) and for the binding-energy
+corollary (Lemma~\ref{lem:relaxed-attained}).
+
+\section{Non-vanishing and compactness}
+
+\begin{lemma}[Cube non-vanishing]\label{lem:cube-nonvanishing}
+\uses{prop:rel-iso-cube}
+Let $E_n$ satisfy $0<c\le|E_n|\le C$ and $\Per(E_n)\le C$.  Choose a
+translation of the unit-cube grid so that $|D\ind{E_n}|$ assigns zero mass to
+every grid face for all $n$; a countable intersection of full-measure choices
+suffices.  Let $Q_k$ be the open cubes and $m_{n,k}:=|E_n\cap Q_k|$.  Then
+there is $c_0=c_0(c,C)>0$ with
+\begin{equation}\label{eq:cube-nonvanishing}
+  \sup_km_{n,k}\ge c_0\qquad\text{for every }n .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{prop:rel-iso-cube}
+If some $m_{n,k}\ge1/2$ then \eqref{eq:cube-nonvanishing} holds with
+$c_0\le1/2$.  Otherwise
+$m_{n,k}\le|Q_k\setminus E_n|$, so \eqref{eq:rel-iso-cube} gives
+$m_{n,k}^{2/3}\le C_{\mathrm{cube}}\Per(E_n;Q_k)$, whence
+\[
+\begin{aligned}
+  |E_n|&=\sum_km_{n,k}=\sum_km_{n,k}^{1/3}m_{n,k}^{2/3}\\
+  &\le\Bigl(\sup_km_{n,k}\Bigr)^{1/3}
+     C_{\mathrm{cube}}\sum_k\Per(E_n;Q_k)
+  \le C_{\mathrm{cube}}C\Bigl(\sup_km_{n,k}\Bigr)^{1/3}.
+\end{aligned}
+\]
+The lower volume bound $|E_n|\ge c$ gives
+$\sup_km_{n,k}\ge\bigl(c/(C_{\mathrm{cube}}C)\bigr)^3$.
+\end{proof}
+
+\begin{fnote}\label{fnote:no-maximizing-cube}
+The proof chooses a cube with mass at least half the supremum; \emph{no
+maximising cube is required}, which matters because the supremum need not be
+attained.
+\end{fnote}
+
+\begin{lemma}[Coulomb lower semicontinuity]\label{lem:coulomb-lsc}
+\uses{def:coulomb}
+If $\ind{E_n}\to\ind E$ in $\Lloc(\R^3)$ then
+$D(E)\le\liminf_nD(E_n)$.
+\end{lemma}
+
+\begin{proof}\uses{def:coulomb}
+If $L:=\liminf_nD(E_n)=+\infty$ there is nothing to prove.  Otherwise choose
+a subsequence $n_k$ with $D(E_{n_k})\to L$; local $L^1$ convergence admits a
+further subsequence whose characteristic functions converge a.e. on
+$\R^3$.  Apply Fatou's lemma on $\R^3\times\R^3$ to the nonnegative integrand
+$\ind{E_{n_k}}(x)\ind{E_{n_k}}(y)/|x-y|$.  The diagonal has product measure
+zero, so no value of the kernel there is needed, and the result is
+$D(E)\le L$.
+\end{proof}
+
+\begin{theorem}[Compactness]\label{thm:compactness}
+\uses{def:energy}
+Let $E_n\subset\R^3$ satisfy
+\begin{equation}\label{eq:compactness-hyp}
+  0<c\le|E_n|\le C,\qquad\Per(E_n)\le C .
+\end{equation}
+Then, after translations and passage to a subsequence, there is a
+finite-perimeter set $E$ with $0<|E|\le C$ such that
+$\ind{E_n}\to\ind E$ in $\Lloc(\R^3)$, and
+\begin{equation}\label{eq:compactness-lsc}
+  \Per(E)\le\liminf_n\Per(E_n),
+  \qquad
+  D(E)\le\liminf_nD(E_n).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\uses{lem:cube-nonvanishing,thm:bv-compactness,lem:lsc,lem:coulomb-lsc}
+Apply Lemma~\ref{lem:cube-nonvanishing} and choose for each $n$ a cube with
+mass at least $\tfrac12\sup_km_{n,k}\ge c_0/2$; translate it to a fixed cube
+at the origin.  Theorem~\ref{thm:bv-compactness} on each ball, followed by a
+diagonal subsequence, gives $\Lloc$ convergence to a set $E$ of locally finite
+perimeter.  Non-vanishing gives $|E\cap B_R|\ge c_0/2$ for one fixed $R$, so
+$|E|>0$; exhaustion by balls and Fatou give
+$|E|\le\liminf_n|E_n|\le C$.  Perimeter lower semicontinuity is
+Lemma~\ref{lem:lsc}; Coulomb lower semicontinuity is
+Lemma~\ref{lem:coulomb-lsc}.  Finally
+$\Per(E)\le C<\infty$.
+\end{proof}
+
+\section{The one-profile decomposition}
+
+\begin{theorem}[Decomposition]\label{thm:decomposition}
+\uses{thm:compactness,def:good-radius}
+In the situation of Theorem~\ref{thm:compactness} there are radii
+$R_n\to\infty$, each a good radius for $E_n$ at the origin, such that with
+\[
+  F_n:=E_n\cap B_{R_n},\qquad G_n:=E_n\setminus B_{R_n},
+\]
+one has
+\begin{align}
+  &\ind{F_n}\to\ind E\ \text{in }L^1(\R^3),
+   \qquad \ind{G_n}\to0\ \text{in }\Lloc(\R^3),
+   \label{eq:decomp-conv}\\
+  &|F_n|\to|E|,\qquad |G_n|=|E_n|-|F_n|,
+   \label{eq:decomp-volumes}\\
+  &\Per(E_n)\ge\Per(E)+\Per(G_n)+o(1),
+   \label{eq:decomp-perimeter}\\
+  &D(E_n)=D(E)+D(G_n)+o(1).
+   \label{eq:decomp-coulomb}
+\end{align}
+\end{theorem}
+
+\begin{proof}
+\uses{lem:radii-construction,lem:perimeter-splitting,lem:coulomb-splitting}
+Lemma~\ref{lem:radii-construction} constructs the radii and gives
+\eqref{eq:decomp-conv}--\eqref{eq:decomp-volumes};
+Lemma~\ref{lem:perimeter-splitting} gives \eqref{eq:decomp-perimeter};
+Lemma~\ref{lem:coulomb-splitting} gives \eqref{eq:decomp-coulomb}.
+\end{proof}
+
+\begin{lemma}[Quantified construction of the radii]\label{lem:radii-construction}
+\uses{thm:compactness,def:good-radius}
+In the situation of Theorem~\ref{thm:compactness} there are strictly
+increasing integers $N_j$ with $N_1=1$, integers $k_j\uparrow\infty$, and
+radii $R_n$ such that: $R_n\in(k_j,k_j+1)$ for $N_j\le n<N_{j+1}$; each $R_n$
+is a good radius for $E_n$ at $0$;
+\begin{equation}\label{eq:radii-an}
+  a_n:=\Hs^2\bigl(E_n^{(1)}\cap\partial B_{R_n}\bigr)\le2^{1-j}
+  \longrightarrow0;
+\end{equation}
+and $|F_n\triangle E|\le2^{1-j}\to0$, so
+$\ind{F_n}\to\ind E$ in $L^1(\R^3)$ and $|F_n|\to|E|$.
+\end{lemma}
+
+\begin{proof}\uses{cor:slicing,lem:good-radius-ae}
+Choose $k_j\uparrow\infty$ with $|E\setminus B_{k_j}|\le2^{-j}$.  By local
+convergence choose strictly increasing $N_j$ so that for $n\ge N_j$,
+$|(E_n\triangle E)\cap B_{k_j+1}|\le2^{-j}$; after discarding finitely many
+terms, take $N_1=1$.  For $N_j\le n<N_{j+1}$,
+Corollary~\ref{cor:slicing} gives
+\[
+\begin{aligned}
+  \int_{k_j}^{k_j+1}\Hs^2\bigl(E_n^{(1)}\cap\partial B_r\bigr)\,dr
+  &=\bigl|E_n\cap(B_{k_j+1}\setminus B_{k_j})\bigr|\\
+  &\le|E\setminus B_{k_j}|+|(E_n\triangle E)\cap B_{k_j+1}|\le2^{1-j}.
+\end{aligned}
+\]
+By Lemma~\ref{lem:good-radius-ae}, choose $R_n\in(k_j,k_j+1)$ among the good
+radii with $a_n\le2^{1-j}$.  Then $R_n\to\infty$, $a_n\to0$, and
+\[
+  |F_n\triangle E|
+  \le|(E_n\triangle E)\cap B_{k_j+1}|+|E\setminus B_{k_j}|\le2^{1-j}.
+\]
+Since $G_n\cap B_R=\varnothing$ for every fixed $R$ and all large $n$, the
+remainders converge locally to $\varnothing$.
+\end{proof}
+
+\begin{lemma}[Perimeter splitting]\label{lem:perimeter-splitting}
+\uses{lem:radii-construction,prop:cut-identities}
+With the notation of Lemma~\ref{lem:radii-construction},
+\begin{equation}\label{eq:perimeter-splitting-exact}
+  \Per(F_n)+\Per(G_n)=\Per(E_n)+2a_n ,
+\end{equation}
+and consequently
+\[
+  \Per(E_n)\ge\Per(E)+\Per(G_n)+o(1).
+\]
+\end{lemma}
+
+\begin{proof}\uses{prop:cut-identities,lem:lsc,lem:radii-construction}
+Adding \eqref{eq:cut-in} and \eqref{eq:cut-out} at the good radius $R_n$ gives
+\eqref{eq:perimeter-splitting-exact}, since
+$\Per(E_n;B_{R_n})+\Per(E_n;\R^3\setminus\overline{B_{R_n}})=\Per(E_n)$ by
+$|D\ind{E_n}|(\partial B_{R_n})=0$.  Global $L^1$ convergence
+$F_n\to E$ and Lemma~\ref{lem:lsc} give
+$\Per(F_n)\ge\Per(E)+o(1)$, whence
+$\Per(E_n)=\Per(F_n)+\Per(G_n)-2a_n\ge\Per(E)+\Per(G_n)+o(1)$.
+\end{proof}
+
+\begin{lemma}[Coulomb splitting]\label{lem:coulomb-splitting}
+\uses{lem:radii-construction,lem:coulomb-disjoint}
+With the notation of Lemma~\ref{lem:radii-construction},
+$I(F_n,G_n)\to0$ and $D(F_n)\to D(E)$, hence
+\[
+  D(E_n)=D(E)+D(G_n)+o(1).
+\]
+\end{lemma}
+
+\begin{proof}
+\uses{lem:coulomb-disjoint,lem:coulomb-lipschitz,lem:potential-bound,
+      lem:radii-construction}
+$D(E_n)=D(F_n)+D(G_n)+I(F_n,G_n)$ by \eqref{eq:coulomb-disjoint}.  Global
+$L^1$ convergence and \eqref{eq:coulomb-lipschitz} give $D(F_n)\to D(E)$ and
+\[
+  |I(F_n,G_n)-I(E,G_n)|\le C_0C^{2/3}|F_n\triangle E|\to0 .
+\]
+For fixed $M$ and large $n$, $G_n\subset\R^3\setminus B_{R_n}$, so
+\[
+  I(E\cap B_M,G_n)\le\frac{|E\cap B_M|\,|G_n|}{R_n-M}\longrightarrow0 ,
+\]
+while for the tail \eqref{eq:potential-bound} gives
+\[
+  I(E\setminus B_M,G_n)\le\|v_{G_n}\|_\infty|E\setminus B_M|
+  \le C_0C^{2/3}|E\setminus B_M| .
+\]
+Let $n\to\infty$ and then $M\to\infty$.
+\end{proof}
+
+\begin{remark}[One profile only]\label{rem:one-profile}
+Theorem~\ref{thm:decomposition} is a \emph{one-profile} decomposition.  No
+assertion is made that $G_n$ is itself tight; only its volume and a lower
+bound for its energy are used downstream.  In particular no iterated
+concentration-compactness induction is needed.
+\end{remark}
+
+\section{Existence below the threshold}
+
+\begin{proposition}[Existence for $V<V_*$]\label{prop:existence-subcritical}
+\uses{def:value,def:threshold,def:minimizer}
+For every $0<V<V_*$ the infimum $m(V)$ is attained.
+\end{proposition}
+
+\begin{proof}
+\uses{thm:compactness,thm:decomposition,prop:m-continuous,prop:strict-binding,
+      lem:m-finite}
+Let $E_n$ be a minimising sequence with $|E_n|=V$.  Since
+$\Per(E_n)\le\Ec(E_n)$, the perimeters are bounded, so
+\eqref{eq:compactness-hyp} holds.  Apply
+Theorems~\ref{thm:compactness} and \ref{thm:decomposition}, obtaining a
+nonzero local limit $E$ of volume $V_0\in(0,V]$ together with $F_n,G_n$.
+
+\emph{Case $V_0<V$.}  From \eqref{eq:decomp-perimeter} and
+\eqref{eq:decomp-coulomb},
+$\Ec(E_n)\ge\Ec(E)+\Ec(G_n)+o(1)$.  Since
+$|G_n|=V-|F_n|\to V-V_0>0$, we have $\Ec(G_n)\ge m(|G_n|)$, so continuity of
+$m$ (Proposition~\ref{prop:m-continuous}) gives
+\[
+  m(V)=\lim_n\Ec(E_n)
+  \ge\Ec(E)+\liminf_nm(|G_n|)
+  \ge m(V_0)+m(V-V_0),
+\]
+contradicting Proposition~\ref{prop:strict-binding} with $s=V_0/V$.
+
+\emph{Case $V_0=V$.}  Then $|F_n|\to V=|E_n|$, so $|G_n|\to0$ and the
+translated sequence converges to $E$ globally in $L^1$.  Lower
+semicontinuity \eqref{eq:compactness-lsc} gives
+$\Ec(E)\le\liminf_n\Ec(E_n)=m(V)$; the reverse inequality is the definition of
+$m(V)$, and $|E|=V$.
+\end{proof}
+

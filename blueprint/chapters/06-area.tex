@@ -1,0 +1,350 @@
+% ----------------------------------------------------------------------------
+\chapter{The lower-dimensional area formula}\label{ch:area}
+\module{NoCompromise.Area.AlmostLinear,
+        NoCompromise.Area.Cofactor,
+        NoCompromise.Area.Formula,
+        NoCompromise.Area.GoodPieces,
+        NoCompromise.Area.GoodPiecesCover,
+        NoCompromise.Area.Graph,
+        NoCompromise.Area.Linear,
+        NoCompromise.Area.PieceFormula,
+        NoCompromise.Area.RankDeficient,
+        NoCompromise.Area.Rectifiable,
+        NoCompromise.Area.Sphere}
+
+The base supplies the equidimensional change of variables only
+(Formalisation note~\ref{fnote:false-friends}).  This chapter derives the
+$2$-dimensional area formula in $\R^m$ and its consequence for rectifiable
+subsets of $\R^3$.  The decomposition into four elementary lemmas is
+deliberate: each is separately formalisable and only the last needs
+Rademacher.
+
+\section{Linear distortion}\label{sec:area-linear}
+
+\begin{definition}[$2$-Jacobian]\label{def:jacobian}
+For a linear $L:\R^2\to\R^m$ put
+$J_2(L):=\sqrt{\det(L^{\mathsf T}L)}$.  For $f:\R^2\to\R^m$ Lipschitz set
+$J_2f(x):=J_2(Df(x))$ at differentiability points and $J_2f(x):=0$
+elsewhere.
+\end{definition}
+
+\begin{lemma}[Linear image measure]\label{lem:linear-distortion}
+\uses{def:jacobian}
+Let $L:\R^2\to\R^m$ have rank two with singular values $s_1\ge s_2>0$, and
+let $B\subset\R^2$ be Borel.  Then
+\begin{equation}\label{eq:linear-distortion}
+  \Hs^2(LB)=s_1s_2|B|=J_2(L)\,|B| .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Choose orthonormal singular bases.  Isometries preserve Hausdorff measure;
+the remaining diagonal map is handled first on rectangles and then on Borel
+sets by outer regularity.
+\end{proof}
+
+\begin{constants}\label{const:almost-linear}
+In Lemma~\ref{lem:almost-linear} below, $C_L$ may be chosen uniformly over all $L$ with $\|L\|\le N$ and
+$s_2(L)\ge1/N$; it then depends only on $N$.
+\end{constants}
+
+\begin{lemma}[Almost-linear maps]\label{lem:almost-linear}
+\uses{lem:linear-distortion}
+Let $L:\R^2\to\R^m$ have rank two with singular values
+$s_1\ge s_2>0$, let $B\subset\R^2$ be Borel, and let $h:B\to\R^m$ satisfy
+\begin{equation}\label{eq:almost-linear-hyp}
+  |h(x)-h(y)-L(x-y)|\le\varepsilon|x-y|
+  \quad(x,y\in B),\qquad\varepsilon<s_2/2 .
+\end{equation}
+Then $h$ is injective, its inverse on $h(B)$ is Lipschitz, and
+\begin{equation}\label{eq:almost-linear}
+  \bigl(J_2(L)-C_L\varepsilon\bigr)|B|
+  \le\Hs^2(h(B))
+  \le\bigl(J_2(L)+C_L\varepsilon\bigr)|B| .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:linear-distortion}
+Injectivity and the Lipschitz inverse follow from
+\eqref{eq:almost-linear-hyp} and $\varepsilon<s_2/2$.  Orthogonal projection
+onto $L(\R^2)$ followed by $L^{-1}$ differs from the identity by at most
+$\varepsilon/s_2$ in Lipschitz norm.  Apply
+$\Hs^2(TC)\le\Lip(T)^2\Hs^2(C)$ to this projection and to $h$, and combine
+with \eqref{eq:linear-distortion}.
+\end{proof}
+
+\section{The area formula in the plane}\label{sec:area-formula}
+
+\begin{definition}[Uniform differentiability piece]\label{def:good-pieces}
+\uses{def:jacobian}
+Let $f:\R^2\to\R^m$ be Lipschitz.  A Borel set $G$ is a \emph{uniform
+differentiability piece} if there are a compact carrier
+$G\subset K\subset[-N,N]^2$, an integer $N\ge1$, and a nondecreasing modulus
+$\omega:[0,\infty)\to[0,\infty)$ with $\omega(r)\downarrow0$ as
+$r\downarrow0$ such that $f$ is differentiable at every $x\in K$ and, for
+all distinct $x,z\in K$,
+\begin{equation}\label{eq:good-pieces}
+\begin{gathered}
+  \|Df(x)\|\le N,\qquad s_2(Df(x))\ge1/N,\\
+  |f(z)-f(x)-Df(x)(z-x)|\le\omega(|z-x|)|z-x|,\\
+  \|Df(x)-Df(z)\|\le\omega(|x-z|).
+\end{gathered}
+\end{equation}
+Every Borel subset of such a piece is again a uniform differentiability
+piece with the same compact carrier, $N$, and $\omega$.
+\end{definition}
+
+\begin{lemma}[The uniform pieces exhaust the rank-two set]
+\label{lem:good-pieces-exhaust}
+\uses{def:good-pieces}
+The rank-two differentiability points of a Lipschitz map
+$f:\R^2\to\R^m$ are, up to a Lebesgue-null set, a countable disjoint union
+of uniform differentiability pieces.
+\end{lemma}
+
+\begin{proof}
+Partition first by integer bounds for $|x|$, $\|Df(x)\|$, and
+$s_2(Df(x))^{-1}$.  Lusin's theorem gives countably many compact subsets on
+which $Df$ is uniformly continuous, up to a null set.  At a differentiability
+point put
+\[
+ R_x(r):=\sup_{0<|y-x|\le r}
+ \frac{|f(y)-f(x)-Df(x)(y-x)|}{|y-x|}.
+\]
+The supremum may be taken over a countable dense set, so $R_x(r)$ is
+measurable, and differentiability says $R_x(r)\to0$.  Egorov on the compact
+Lusin pieces, followed by a countable exhaustion, makes this convergence
+uniform.  The maximum of the two resulting uniform moduli gives
+\eqref{eq:good-pieces} on each compact set.  Finally replace the countable
+cover by successive set differences; each resulting Borel piece retains the
+compact set from which it came as a carrier.
+\end{proof}
+
+\begin{lemma}[Area formula on one uniform piece]\label{lem:area-one-piece}
+\uses{def:good-pieces}
+Let $G$ be a uniform differentiability piece, let $A\subset G$ be Borel, and
+let $q:A\to[0,\infty]$ be Borel.  Then
+\begin{equation}\label{eq:area-one-piece}
+  \int_Aq(x)J_2f(x)\,dx
+  =\int_{\R^m}\sum_{x\in A\cap f^{-1}(y)}q(x)\,d\Hs^2(y).
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:almost-linear}
+Let $K,N,\omega$ be as in Definition~\ref{def:good-pieces}.  Partition
+$[-N,N]^2$ into half-open grid squares of side $r$.  If $r$ is small enough
+that $4\omega(\sqrt2r)<1/N$, then on the intersection of $G$ with any one
+square, \eqref{eq:good-pieces} and the last inequality there show that $f$
+differs, in the pairwise Lipschitz sense, from any one base derivative
+$Df(x_Q)$ by at most $2\omega(\sqrt2r)$.  Lemma~\ref{lem:almost-linear} in
+fact makes $f$ injective on $K\cap\overline Q$ and gives, uniformly for every
+Borel subset $C$ of $G\cap Q$,
+\[
+ \left|\Hs^2(f(C))-\int_CJ_2f(x)\,dx\right|
+ \le C_N\omega(\sqrt2r)|C|.
+\]
+Here the replacement of $J_2(Df(x_Q))$ by $J_2(Df(x))$ uses the last line of
+\eqref{eq:good-pieces} and the uniform local Lipschitz continuity of $J_2$ on
+the compact family $\{L:\|L\|\le N,\ s_2(L)\ge1/N\}$.
+The image $f(C)$ is Borel without a descriptive-set theorem: the continuous
+injection $f:K\cap\overline Q\to\R^m$ is a homeomorphism onto its compact
+image, and $C$ is a Borel subset of that compact domain.
+
+Sum this estimate over the grid squares.  On the target side the sum of the
+image indicators is exactly the number of preimages, because the source
+squares are disjoint and $f$ is injective within each square.  The total
+error is at most $C_N\omega(\sqrt2r)|G|$, which tends to zero.  This proves
+\eqref{eq:area-one-piece} for $q=1$.  Applying the same argument to Borel
+subsets of $A$ gives simple weights, and monotone convergence gives every
+nonnegative Borel $q$.
+\end{proof}
+
+\begin{lemma}[The rank-deficient part is null in the image]
+\label{lem:rank-deficient}
+\uses{def:jacobian}
+For $f:\R^2\to\R^m$ Lipschitz, $\Hs^2\bigl(f(\{J_2f=0\})\bigr)=0$.
+\end{lemma}
+
+\begin{proof}\uses{lem:good-pieces-exhaust}
+Let $Z$ be the set of differentiability points at which $J_2f=0$.  Partition
+$Z$ by bounds $|x|\le R$ and $\|Df(x)\|\le N$.  As in the Egorov step of
+Lemma~\ref{lem:good-pieces-exhaust}, discard a null set and split the
+remainder into countably many Borel pieces $G$.  With
+\[
+ R_x(r):=\sup_{0<|y-x|\le r}
+ \frac{|f(y)-f(x)-Df(x)(y-x)|}{|y-x|},
+\]
+these pieces may be chosen so that on each of them
+\[
+ \sup_{x\in G}R_x(r)=:\omega_G(r)\longrightarrow0.
+\]
+Fix one such $G$ and cover it by grid squares $Q$ of side $r$, choosing
+$x_Q\in G\cap Q$ in each occupied square.  For $y\in G\cap Q$, differentiability
+at $x_Q$ puts $f(y)$ within $C\omega_G(2r)r$ of
+$f(x_Q)+Df(x_Q)(y-x_Q)$.  Since $J_2f(x_Q)=0$, the linear image of $Q$ is a
+line segment of length at most $CNr$ (or a point).  With
+$\varepsilon_r:=\max\{\omega_G(2r),r\}\downarrow0$, the set $f(G\cap Q)$
+is therefore covered by at most $C_N/\varepsilon_r$ balls of radius
+$C\varepsilon_rr$.  The sum of their squared diameters is at most
+$C_N\varepsilon_rr^2$.
+
+There are $O_R(r^{-2})$ occupied squares.  Hence the $2$-dimensional
+Hausdorff content of $f(G)$ at scale $C\varepsilon_rr$ is at most
+$C_{N,R}\varepsilon_r\to0$, proving $\Hs^2(f(G))=0$.  The discarded
+nondifferentiability and Egorov sets are Lebesgue-null, and their images are
+$\Hs^2$-null by the elementary Lipschitz inequality
+$\Hs^2(f(B))\le\Lip(f)^2\Hs^2(B)$.  Countable union over all pieces, $N$, and
+$R$ proves the claim, including the points where $J_2f$ was defined to be
+zero because $f$ is not differentiable.
+\end{proof}
+
+\begin{theorem}[Two-dimensional area formula with multiplicity]
+\label{thm:area-formula-2d}
+\uses{def:jacobian}
+Let $A\subset\R^2$ be Borel, $f:\R^2\to\R^m$ Lipschitz with $m\ge2$, and
+$q:\R^2\to[0,\infty]$ Borel.  Then
+\begin{equation}\label{eq:area-formula-2d}
+  \int_Aq(x)\,J_2f(x)\,dx
+  =\int_{\R^m}\ \sum_{x\in A\cap f^{-1}(y)}q(x)\ d\Hs^2(y).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\uses{lem:area-one-piece,lem:rank-deficient,lem:good-pieces-exhaust}
+Lemma~\ref{lem:good-pieces-exhaust} partitions the rank-two differentiability
+set, modulo a null set, into countably many disjoint uniform pieces $G_j$.
+Apply Lemma~\ref{lem:area-one-piece} to $A\cap G_j$ and sum; on the target
+side the sums over $j$ combine into the full preimage sum.  Everything left
+in the source is either the null exceptional set discarded in
+Lemma~\ref{lem:good-pieces-exhaust}, whose image is $\Hs^2$-null by the
+Lipschitz inequality, or lies in $\{J_2f=0\}$, whose image is $\Hs^2$-null by
+Lemma~\ref{lem:rank-deficient}.  Both sides therefore ignore it, proving
+\eqref{eq:area-formula-2d} with the stated nonnegative Borel weight.
+\end{proof}
+
+\section{Rectifiable sets in $\R^3$}
+
+\begin{definition}[Countably $\Hs^2$-rectifiable]\label{def:rectifiable}
+$S\subset\R^3$ is \emph{countably $\Hs^2$-rectifiable} if it is
+$\Hs^2$-measurable and, up to an $\Hs^2$-null set, contained in a countable
+union of images of Lipschitz maps $\R^2\to\R^3$.  Its approximate tangent
+plane $T_xS$ is taken in the \emph{chartwise} sense: fix, once for $S$, a
+countable family of disjoint Borel pieces $A_j\subset\R^2$ and injective
+Lipschitz maps $\psi_j$ with $D\psi_j$ of rank two on $A_j$ whose images cover
+$S$ up to an $\Hs^2$-null set (such a family exists by Rademacher's theorem),
+and set $T_xS:=\operatorname{range}D\psi_j(z)$ at $x=\psi_j(z)$, $z\in A_j$.
+Statements about $T_xS$ refer to this fixed family.
+\end{definition}
+
+\begin{theorem}[Area formula on a rectifiable set]\label{thm:area-formula-rect}
+\uses{def:rectifiable,def:jacobian}
+Let $S\subset\R^3$ be countably $\Hs^2$-rectifiable, $\Phi:\R^3\to\R^3$
+Lipschitz, and $q:S\to[0,\infty]$ Borel.  Then at $\Hs^2$-a.e.\ $x\in S$
+there is a tangential approximate differential
+$D^S\Phi(x):T_xS\to\R^3$, and
+\begin{equation}\label{eq:area-formula-rect}
+  \int_Sq(x)\,J_2\bigl(D^S\Phi(x)\bigr)\,d\Hs^2(x)
+  =\int_{\R^3}\ \sum_{x\in S\cap\Phi^{-1}(y)}q(x)\ d\Hs^2(y).
+\end{equation}
+If $\Phi$ is differentiable at $x$ (in particular, if it is $C^1$ near
+$S$), then $D^S\Phi(x)=D\Phi(x)|_{T_xS}$.
+\end{theorem}
+
+\begin{proof}\uses{thm:area-formula-2d,lem:good-pieces-exhaust,
+                    lem:rank-deficient}
+Refine a countable Lipschitz parametrisation of $S$ into disjoint injective
+pieces $\psi_j:A_j\to S$, discarding the parameter sets where
+$J_2\psi_j=0$ (null in the image by Lemma~\ref{lem:rank-deficient}).  Apply
+Rademacher in the parameter plane to $\psi_j$ and $\Phi\circ\psi_j$.  At a
+rank-two point define the unique map $D^S\Phi$ by
+\[
+ D^S\Phi(\psi_j(z))\circ D\psi_j(z)=D(\Phi\circ\psi_j)(z).
+\]
+This is independent of the injective chart: on an overlap, both candidates
+give the approximate linearisation of $\Phi$ along the common approximate
+tangent plane, and uniqueness follows by testing on two independent tangent
+density directions.  Apply \eqref{eq:area-formula-2d} to $\psi_j$ and to
+$\Phi\circ\psi_j$; the a.e.\ chain rule and cancellation of the common factor
+$J_2\psi_j$ give \eqref{eq:area-formula-rect}.  Ordinary differentiability of
+$\Phi$ makes the displayed defining identity the usual chain rule and gives
+the final assertion.
+\end{proof}
+
+\begin{lemma}[Cofactor formula]\label{lem:cofactor}
+\uses{def:jacobian}
+For linear $L:\R^3\to\R^3$ and a unit vector $\nu$,
+\begin{equation}\label{eq:cofactor}
+  J_2\bigl(L|_{\nu^\perp}\bigr)=|\cof(L)\,\nu| .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Choose an oriented orthonormal basis $a,b$ of $\nu^\perp$ and use
+$La\times Lb=\cof(L)(a\times b)$ together with $a\times b=\nu$.
+\end{proof}
+
+\begin{corollary}[Graph area]\label{cor:graph-area}
+\uses{thm:area-formula-2d,lem:cofactor}
+For Lipschitz $f:\R^2\to\R$ and Borel $G\subset\R^2$,
+\[
+  \Hs^2\bigl(\{(x',f(x')):x'\in G\}\bigr)
+  =\int_G\sqrt{1+|\nabla f|^2}\,dx' ,
+\]
+and for the upward unit normal
+$\nu=(-\nabla f,1)/\sqrt{1+|\nabla f|^2}$ one has
+$d\Hs^2=\sqrt{1+|\nabla f|^2}\,dx'$ on the graph.
+\end{corollary}
+
+\begin{proof}\uses{thm:area-formula-2d,def:jacobian}
+Apply \eqref{eq:area-formula-2d} to $x'\mapsto(x',f(x'))$, whose
+$2$-Jacobian is $\sqrt{1+|\nabla f|^2}$ by Definition~\ref{def:jacobian}.
+\end{proof}
+
+\begin{lemma}[Smooth surfaces are rectifiable]\label{lem:smooth-surface-rectifiable}
+\uses{def:rectifiable}
+Let $\Sigma\subset\R^3$ be a compact smooth embedded surface.  Then $\Sigma$ is
+countably $\Hs^2$-rectifiable, $\Hs^2(\Sigma)<\infty$, and for every
+$x\in\Sigma$ the approximate tangent plane of
+Definition~\ref{def:rectifiable} coincides with the classical tangent plane
+$T_x\Sigma$.
+\end{lemma}
+
+\begin{proof}\uses{def:rectifiable,cor:graph-area}
+Cover $\Sigma$ by finitely many relatively compact graph subcharts; each is
+the image of a smooth map whose derivative is bounded on the closure, hence
+of a Lipschitz map from a bounded planar domain.  Then
+Corollary~\ref{cor:graph-area} gives its finite area and identifies the
+tangent plane.
+\end{proof}
+
+\begin{lemma}[Area of a sphere]\label{lem:sphere-area}
+\uses{cor:graph-area}
+For every $R>0$, $\Hs^2(\partial B_R)=4\pi R^2$; in particular
+$\Hs^2(\Sph^2)=4\pi$.
+\end{lemma}
+
+\begin{proof}\uses{cor:graph-area}
+Write $\partial B_R$ as the union of the two graphs
+$x_3=\pm\sqrt{R^2-|x'|^2}$ over $B_R^2$, whose common boundary circle is
+$\Hs^2$-null.  These graph functions are not Lipschitz up to
+$\partial B_R^2$, so first apply Corollary~\ref{cor:graph-area} on
+$B_{(1-1/j)R}^2$, $j\ge2$, and then let $j\to\infty$ by monotone
+convergence.  This gives
+\[
+  \Hs^2(\partial B_R)
+  =2\int_{B_R^2}\frac{R}{\sqrt{R^2-|x'|^2}}\,dx'
+  =2\cdot2\pi\int_0^R\frac{Rr\,dr}{\sqrt{R^2-r^2}}
+  =4\pi R^2 .
+\]
+\end{proof}
+
+\begin{fnote}[A small gap worth closing early]\label{fnote:sphere-area}
+Lemma~\ref{lem:sphere-area} is used by
+Lemma~\ref{lem:ball-perimeter} and by
+Theorem~\ref{thm:total-curvature-bound}, and it is the kind of fact that is
+easy to assume without proof.  Note that it must \emph{not} be derived from
+$\Per(B_R)=4\pi R^2$, which is how it would naturally be quoted: that identity
+is proved \emph{from} this lemma via
+Corollary~\ref{cor:smooth-perimeter}.
+\end{fnote}
+

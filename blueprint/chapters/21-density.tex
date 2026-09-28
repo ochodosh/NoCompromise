@@ -1,0 +1,204 @@
+\chapter{Density, Ahlfors bounds and the canonical representative}
+\label{ch:density}
+\module{NoCompromise.Regularity.Density,
+        NoCompromise.Regularity.DensityAhlfors,
+        NoCompromise.Regularity.DensityCutComparison,
+        NoCompromise.Regularity.DensityEstimates,
+        NoCompromise.Regularity.DensityRadial,
+        NoCompromise.Regularity.RepresentativeBoundary,
+        NoCompromise.Regularity.RepresentativeBounded}
+
+\begin{notation}\label{not:mx-nx}
+\uses{def:omega-minimal,def:density}
+Throughout this chapter $E$ is $\omega$-minimal
+(Definition~\ref{def:omega-minimal}).  For $x\in\ebd E$ put
+\[
+  m_x(r):=|E\cap B_r(x)|,\qquad n_x(r):=|B_r(x)\setminus E| .
+\]
+\end{notation}
+
+\begin{lemma}[Coarea derivatives]\label{lem:mx-derivative}
+\uses{not:mx-nx,prop:cut-identities}
+For a.e.\ $r>0$,
+\begin{equation}\label{eq:mx-derivative}
+  m_x'(r)=\Hs^2\bigl(E^{(1)}\cap\partial B_r(x)\bigr),
+  \qquad
+  n_x'(r)=4\pi r^2-m_x'(r),
+\end{equation}
+and the cut identities \eqref{eq:cut-in}--\eqref{eq:cut-out} hold at $r$.
+\end{lemma}
+
+\begin{proof}\uses{cor:slicing,prop:cut-identities,lem:good-radius-ae}
+Corollary~\ref{cor:slicing} and Lemma~\ref{lem:good-radius-ae}.
+\end{proof}
+
+\begin{lemma}[Cut comparison]\label{lem:cut-comparison}
+\uses{def:omega-minimal,not:mx-nx}
+For $x\in\ebd E$ and a.e.\ $0<r\le1$,
+\begin{equation}\label{eq:cut-comparison}
+  \Per\bigl(E;B_r(x)\bigr)\le m_x'(r)+\omega\,m_x(r),
+\end{equation}
+and symmetrically, comparing with $E\cup B_r(x)$,
+\begin{equation}\label{eq:fill-comparison}
+  \Per\bigl(E;B_r(x)\bigr)\le n_x'(r)+\omega\,n_x(r).
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{def:omega-minimal,lem:mx-derivative,lem:lsc,
+                    prop:cut-identities}
+Apply \eqref{eq:omega-minimal} to the competitor
+$F=E\setminus B_{r-\eta}(x)$, whose symmetric difference from $E$ is compactly
+contained in $B_r(x)$, and then let $\eta\downarrow0$.  The BV trace formula
+\eqref{eq:cut-out} and Lemma~\ref{lem:lsc} give the same inequality as the
+formal comparison with $E\setminus B_r(x)$, namely
+\eqref{eq:cut-comparison}.  For \eqref{eq:fill-comparison} use
+$F=E\cup B_{r-\eta}(x)$.
+\end{proof}
+
+\begin{constants}\label{const:rd}
+\uses{not:mx-nx}
+In Lemma~\ref{lem:two-sided-density} below, set
+\[
+ r_d:=
+ \begin{cases}
+  1,&\omega=0,\\
+  \min\{1,c_I/(2\omega|B_1|^{1/3})\},&\omega>0,
+ \end{cases}
+ \qquad c_I=(36\pi)^{1/3}.
+\]
+Thus $0<r_d\le1$ and
+$\omega|B_1|^{1/3}r_d\le c_I/2$; then $c_d$ depends only on $c_I$.
+The order of choice is
+$\omega\rightsquigarrow r_d\rightsquigarrow c_d$.
+\end{constants}
+
+\begin{lemma}[Two-sided density]\label{lem:two-sided-density}
+\uses{def:omega-minimal,not:mx-nx}
+There are $r_d=r_d(\omega)>0$ and $c_d=c_d(\omega)\in(0,|B_1|/2)$ such that
+for every $x\in\ebd E$ and $0<r<r_d$,
+\begin{equation}\label{eq:two-sided-density}
+  c_dr^3\le|E\cap B_r(x)|\le\bigl(|B_1|-c_d\bigr)r^3 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\uses{lem:cut-comparison,thm:sharp-isoperimetric,prop:cut-identities,
+      lem:mx-derivative,const:rd}
+Apply \eqref{eq:sharp-isoperimetric} to $E\cap B_r(x)$ and use
+\eqref{eq:cut-in}:
+\[
+  c_Im_x(r)^{2/3}\le\Per\bigl(E\cap B_r(x)\bigr)
+  =\Per\bigl(E;B_r(x)\bigr)+m_x'(r) .
+\]
+With \eqref{eq:cut-comparison},
+\begin{equation}\label{eq:density-ode}
+  c_Im_x(r)^{2/3}\le2m_x'(r)+\omega\,m_x(r).
+\end{equation}
+Since $m_x(r)\le|B_1|r^3$, choosing $r_d$ as in
+Constants~\ref{const:rd} absorbs the last term:
+\begin{equation}\label{eq:density-ode-clean}
+  m_x'(r)\ge c\,m_x(r)^{2/3}\qquad\text{for a.e.\ }r<r_d .
+\end{equation}
+At an essential-boundary point $m_x(r)>0$ for every $r>0$, so
+$\tfrac{d}{dr}m_x(r)^{1/3}=m_x'(r)/(3m_x(r)^{2/3})\ge c/3$ a.e., and
+integrating from zero gives $m_x(r)\ge c_dr^3$.  For the complement, use
+\eqref{eq:fill-comparison}, apply \eqref{eq:sharp-isoperimetric} to
+$B_r(x)\setminus E$, and repeat with $n_x$; then
+$n_x(r)\ge c_dr^3$ is the upper bound in \eqref{eq:two-sided-density}.
+\end{proof}
+
+\begin{lemma}[Ahlfors perimeter bounds]\label{lem:ahlfors}
+\uses{lem:two-sided-density}
+After reducing $r_d$ if necessary, there are
+$0<c_P<C_P<\infty$, depending only on $\omega$, such that for every
+$x\in\ebd E$ and $0<r<r_d/2$,
+\begin{equation}\label{eq:ahlfors}
+  c_Pr^2\le\Per\bigl(E;B_r(x)\bigr)\le C_Pr^2 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\uses{prop:rel-iso-ball,lem:two-sided-density,lem:cut-comparison,
+      lem:mx-derivative}
+\emph{Lower bound.}  \eqref{eq:rel-iso-ball} together with
+\eqref{eq:two-sided-density}.
+
+\emph{Upper bound.}  Fix $r<r_d/2$.  Averaging \eqref{eq:mx-derivative} over
+$(r,2r)$, choose a radius $\rho\in(r,2r)$ at which
+\eqref{eq:cut-comparison} holds and
+\[
+  m_x'(\rho)\le\frac{m_x(2r)-m_x(r)}{r}\le Cr^2 .
+\]
+Then \eqref{eq:cut-comparison} at $\rho$ gives
+$\Per(E;B_\rho(x))\le Cr^2+C\omega r^3\le C_Pr^2$, and monotonicity of the
+perimeter measure under inclusion gives the same bound on $B_r(x)$.
+\end{proof}
+
+\section{The canonical representative}
+
+\begin{convention}[The representative]\label{conv:representative}
+\uses{def:density,def:omega-minimal}
+For an $\omega$-minimal set $E$ put
+\begin{equation}\label{eq:representative}
+  \Omega:=E^{(1)} .
+\end{equation}
+From this point on, $\Omega$ always denotes the density-one representative of
+whichever $\omega$-minimal set is under discussion.  Statements about
+$\partial\Omega$ are statements about a genuine topological boundary, not
+about a null-set equivalence class.
+\end{convention}
+
+\begin{lemma}[Openness and representative conversion]\label{lem:open-representative}
+\uses{conv:representative,lem:two-sided-density,lem:ahlfors}
+The set $\Omega=E^{(1)}$ is open, $\ind\Omega=\ind E$ a.e., $E^{(0)}$ is open,
+and
+\begin{equation}\label{eq:boundary-identification}
+  \partial\Omega=\ebd E=\overline{\rbd E} .
+\end{equation}
+Consequently every point of $\partial\Omega$ satisfies
+\eqref{eq:two-sided-density} and \eqref{eq:ahlfors}.
+\end{lemma}
+
+\begin{proof}
+\uses{lem:two-sided-density,lem:ahlfors,prop:rel-iso-ball,
+      thm:degiorgi-structure,def:density}
+Lebesgue's density theorem gives $\ind\Omega=\ind E$ a.e.  Suppose
+$x\in E^{(1)}$ were not interior to $E^{(1)}$.  Then every sufficiently small
+ball about $x$ contains positive measure of both $E$ and its complement, so
+\eqref{eq:rel-iso-ball} gives positive perimeter in that ball.  Since
+$\mu_E=\Hs^2\llcorner\rbd E$ (Theorem~\ref{thm:degiorgi-structure}), the ball
+contains a reduced-boundary point, and such points $x_j\to x$ may be chosen.
+Put $d_j:=|x_j-x|$; the complement-density estimate in
+$B_{d_j/2}(x_j)\subset B_{2d_j}(x)$ gives
+$|B_{2d_j}(x)\setminus E|\ge cd_j^3$, contradicting density one at $x$.  So
+$E^{(1)}$ is open, and the same argument with the phases exchanged shows
+$E^{(0)}$ is open.  Their common complement is therefore both
+$\partial\Omega$ and, by definition, $\ebd E$.  Finally
+$\ebd E=\overline{\rbd E}$: the lower perimeter-density bound
+\eqref{eq:ahlfors} makes every ball centred at an essential-boundary point
+have positive perimeter and hence meet $\rbd E$, while the reverse inclusion
+is automatic.
+\end{proof}
+
+\begin{lemma}[Boundedness]\label{lem:bounded-representative}
+\uses{lem:open-representative,lem:two-sided-density}
+If $E$ is $\omega$-minimal with $|E|<\infty$ then $\Omega=E^{(1)}$ is bounded,
+so $\partial\Omega$ is compact.
+\end{lemma}
+
+\begin{proof}\uses{lem:two-sided-density,lem:open-representative}
+Suppose not.  Choose $y_j\in\Omega$ tending to infinity and mutually separated
+by more than $4r_d$.  The balls $B_{r_d}(y_j)$ are pairwise disjoint after a
+harmless thinning, so finite volume implies infinitely many are not contained
+in $\Omega$; keep only those indices.  Since $y_j\in\Omega$ and the ball is
+convex, a segment from $y_j$ to a point outside $\Omega$ meets
+$\partial\Omega$; choose $x_j\in\partial\Omega\cap B_{r_d}(y_j)$.  Thin once
+more so that the balls $B_{r_d/4}(x_j)$ are pairwise disjoint.  By
+the lower phase-density bound \eqref{eq:two-sided-density},
+\[
+  |E|\ge\sum_j|E\cap B_{r_d/4}(x_j)|
+  \ge\sum_jc_d(r_d/4)^3=\infty,
+\]
+a contradiction.
+\end{proof}
+

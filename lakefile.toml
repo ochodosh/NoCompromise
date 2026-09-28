@@ -1,0 +1,27 @@
+name = "NoCompromise"
+version = "0.1.0"
+keywords = ["math"]
+defaultTargets = ["NoCompromise", "Challenge", "Solution"]
+
+[leanOptions]
+pp.unicode.fun = true # pretty-prints `fun a ↦ b`
+relaxedAutoImplicit = false
+weak.linter.mathlibStandardSet = true
+weak.linter.style.header = false # copyright/authors block is for Mathlib submissions
+maxSynthPendingDepth = 3
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.35.0-rc3"
+
+[[lean_lib]]
+name = "NoCompromise"
+
+# Mathlib-only statement of the main results (the `comparator` challenge).
+[[lean_lib]]
+name = "Challenge"
+
+# Proofs of the challenge statements from the library (the `comparator` solution).
+[[lean_lib]]
+name = "Solution"

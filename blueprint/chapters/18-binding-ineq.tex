@@ -1,0 +1,184 @@
+% ----------------------------------------------------------------------------
+\chapter{The splitting inequality and strict binding}\label{ch:binding-ineq}
+\module{NoCompromise.Binding.Splitting,
+        NoCompromise.Binding.Strict}
+
+\section{A scaling lower bound}
+
+\begin{lemma}[Scaling lower bound]\label{lem:scaling-lower}
+\uses{def:value,not:BV}
+For $V>0$ and $s\in(0,1)$,
+\begin{equation}\label{eq:scaling-lower}
+  m(sV)\ge s^{5/3}m(V)+(1-s)s^{2/3}P_B(V).
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:coulomb-scaling,thm:sharp-isoperimetric,def:value}
+Let $|E|=sV$.  Then $|s^{-1/3}E|=V$, so by \eqref{eq:scaling}
+\[
+  m(V)\le s^{-2/3}\Per(E)+s^{-5/3}D(E)
+  =s^{-5/3}\Ec(E)-\bigl(s^{-5/3}-s^{-2/3}\bigr)\Per(E).
+\]
+Multiplying by $s^{5/3}$ gives
+$\Ec(E)\ge s^{5/3}m(V)+(1-s)\Per(E)$, and
+\eqref{eq:sharp-isoperimetric} gives $\Per(E)\ge s^{2/3}P_B(V)$.  Take the
+infimum over $E$.
+\end{proof}
+
+\begin{definition}[The splitting functions]\label{def:splitting-functions}
+For $s\in(0,1)$ put
+\[
+  N(s):=s^{2/3}+(1-s)^{2/3}-1,
+  \qquad
+  D_0(s):=1-s^{5/3}-(1-s)^{5/3},
+  \qquad
+  f(s):=\frac{N(s)}{D_0(s)} .
+\]
+\end{definition}
+
+\begin{lemma}[Positivity]\label{lem:ND-positive}
+\uses{def:splitting-functions}
+$N(s)>0$ and $D_0(s)>0$ for every $s\in(0,1)$.
+\end{lemma}
+
+\begin{proof}\uses{lem:concavity-23}
+$N>0$ is Lemma~\ref{lem:concavity-23} with $a=s$, $b=1-s$.  $D_0>0$ because
+$s^{5/3}+(1-s)^{5/3}<s+(1-s)=1$, using $t^{5/3}<t$ for $t\in(0,1)$.
+\end{proof}
+
+\begin{lemma}[Two-piece scaling bound]\label{lem:two-piece}
+\uses{lem:scaling-lower,def:splitting-functions}
+For $V>0$ and $s\in(0,1)$,
+\begin{equation}\label{eq:two-piece}
+  m(sV)+m((1-s)V)-m(V)
+  \ge P_B(V)\,D_0(s)\Bigl(f(s)-\frac V5\Bigr).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\uses{lem:scaling-lower,lem:ND-positive,cor:ball-energy,lem:m-finite,
+      def:splitting-functions}
+Apply \eqref{eq:scaling-lower} to $s$ and to $1-s$ and add:
+\begin{equation}\label{eq:two-piece-raw}
+\begin{aligned}
+  m(sV)+m((1-s)V)-m(V)
+  \ge{}&\bigl(s^{5/3}+(1-s)^{5/3}-1\bigr)m(V)\\
+  &+\bigl((1-s)s^{2/3}+s(1-s)^{2/3}\bigr)P_B(V).
+\end{aligned}
+\end{equation}
+The coefficient of $m(V)$ is $-D_0(s)<0$, so substituting the upper bound
+$m(V)\le\Ec(B_V)=(1+V/5)P_B(V)$ from
+Corollary~\ref{cor:ball-energy} \emph{decreases} the right side.  Doing so and
+using the identity
+\[
+  (1-s)s^{2/3}+s(1-s)^{2/3}-D_0(s)
+  = N(s)
+\]
+--- which is the algebraic rearrangement
+$(1-s)s^{2/3}+s(1-s)^{2/3}
+ =s^{2/3}+(1-s)^{2/3}-s^{5/3}-(1-s)^{5/3}$ --- gives
+\[
+  m(sV)+m((1-s)V)-m(V)\ge P_B(V)\Bigl[N(s)-\frac V5D_0(s)\Bigr],
+\]
+which is \eqref{eq:two-piece}.
+\end{proof}
+
+\section{The one-variable splitting inequality}
+
+\begin{lemma}[Change of variable]\label{lem:splitting-substitution}
+\uses{def:splitting-functions}
+For $s\in(0,1)$ put $x:=s^{1/3}$, $y:=(1-s)^{1/3}$, $p:=x+y$, $r:=xy$.  Then
+$x,y>0$, $x^3+y^3=1$,
+\begin{equation}\label{eq:splitting-p-range}
+  1<p\le q^2,
+\end{equation}
+with $p=q^2$ exactly when $s=1/2$, and
+\begin{equation}\label{eq:splitting-r}
+  r=\frac{p^3-1}{3p},
+\end{equation}
+\begin{equation}\label{eq:splitting-N}
+  N(s)=p^2-2r-1=\frac{(p-1)^2(p+2)}{3p},
+\end{equation}
+\begin{equation}\label{eq:splitting-D}
+  D_0(s)=1-p^2+2r+r^2p
+        =\frac{(p-1)^3(p^3+3p^2+6p+5)}{9p} .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{def:splitting-functions,def:threshold}
+$p>1$ since $x^3+y^3=1$ and $x,y>0$ force $x+y>\max(x,y)\ge$ the cube root of
+$\max(x^3,y^3)$, and more simply $p^3=1+3rp>1$.  For $p\le q^2$: expanding,
+\[
+  4(x^3+y^3)-(x+y)^3=3(x+y)(x-y)^2\ge0,
+\]
+so $p^3\le4=q^6$, with equality exactly when $x=y$, i.e.\ $s=1/2$.
+Equation \eqref{eq:splitting-r} is
+$p^3=x^3+y^3+3xy(x+y)=1+3rp$.  Then $N(s)=x^2+y^2-1=p^2-2r-1$, and
+substituting \eqref{eq:splitting-r} and simplifying gives the closed form in
+\eqref{eq:splitting-N}.  Similarly
+$x^5+y^5=(x^2+y^2)(x^3+y^3)-x^2y^2(x+y)=p^2-2r-r^2p$, so
+$D_0(s)=1-p^2+2r+r^2p$, and substituting \eqref{eq:splitting-r} gives
+\eqref{eq:splitting-D}.
+\end{proof}
+
+\begin{lemma}[$f$ as a function of $p$]\label{lem:splitting-F}
+\uses{lem:splitting-substitution}
+With $p$ as in Lemma~\ref{lem:splitting-substitution},
+\begin{equation}\label{eq:splitting-F}
+  f(s)=F(p):=\frac{3(p+2)}{(p-1)(p^3+3p^2+6p+5)} .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:splitting-substitution}
+Divide \eqref{eq:splitting-N} by \eqref{eq:splitting-D}.
+\end{proof}
+
+\begin{theorem}[Splitting inequality]\label{thm:splitting}
+\uses{def:splitting-functions,def:threshold}
+For every $s\in(0,1)$,
+\begin{equation}\label{eq:splitting}
+  f(s)\ge f(1/2)=\frac{q^2}{q+1}=\frac{V_*}{5}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\uses{lem:splitting-F,lem:ledger-Fprime,lem:splitting-substitution,lem:Vstar-form}
+By Lemma~\ref{lem:ledger-Fprime}, $F'<0$ on $(1,\infty)$, and by
+\eqref{eq:splitting-p-range}, $p\le q^2$, so $F(p)\ge F(q^2)$.  The endpoint
+$p=q^2$ corresponds to $s=1/2$, and
+\[
+  f(1/2)=\frac{2\cdot2^{-2/3}-1}{1-2\cdot2^{-5/3}}
+        =\frac{q-1}{1-q^{-2}}
+        =\frac{q^2}{q+1},
+\]
+which equals $V_*/5$ by \eqref{eq:Vstar-form}.
+\end{proof}
+
+\begin{fnote}[Why this proof]\label{fnote:splitting-choice}
+This algebraic proof is specialised to the exponents $2/3$ and $5/3$ and is
+preferable for formalisation to the entropy-interpolation proof in the
+literature, because \eqref{eq:splitting-N}--\eqref{eq:splitting-F} and
+\eqref{eq:ledger-Fprime} are pure polynomial algebra.
+\end{fnote}
+
+\section{Strict binding}
+
+\begin{proposition}[Strict binding below the threshold]\label{prop:strict-binding}
+\uses{def:value,def:threshold}
+If $0<V<V_*$ then for every $s\in(0,1)$,
+\begin{equation}\label{eq:strict-binding}
+  m(V)<m(sV)+m((1-s)V).
+\end{equation}
+Quantitatively,
+$m(sV)+m((1-s)V)-m(V)\ge P_B(V)D_0(s)\dfrac{V_*-V}{5}>0$.
+\end{proposition}
+
+\begin{proof}\uses{lem:two-piece,thm:splitting,lem:ND-positive}
+Combine \eqref{eq:two-piece} with \eqref{eq:splitting}:
+\[
+  m(sV)+m((1-s)V)-m(V)
+  \ge P_B(V)D_0(s)\Bigl(\frac{V_*}5-\frac V5\Bigr)>0 ,
+\]
+using $D_0(s)>0$ (Lemma~\ref{lem:ND-positive}) and $P_B(V)>0$.
+\end{proof}
+

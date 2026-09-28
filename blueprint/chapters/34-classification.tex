@@ -1,0 +1,73 @@
+\chapter{Classification at volumes at most $V_*$}\label{ch:classification}
+\module{NoCompromise.Classification.Subcritical}
+
+\begin{notation}[The isoperimetric deficit parameter]\label{not:z-delta}
+\uses{not:BV,thm:sharp-isoperimetric}
+For a fixed-volume minimiser $\Omega$ at volume $V$ put
+\begin{equation}\label{eq:z-delta}
+  \delta:=\sqrt{\frac{\Per(\Omega)}{P_B(V)}}-1\ge0,
+  \qquad
+  z:=1+\delta ,
+\end{equation}
+the inequality by Theorem~\ref{thm:sharp-isoperimetric}.  Then
+\begin{equation}\label{eq:z-identities}
+  \Per(\Omega)=P_B z^2,
+  \qquad
+  \sqrt{\frac{\Per(\Omega)}{4\pi}}=Rz .
+\end{equation}
+\end{notation}
+
+\begin{lemma}[Upper bound from the one-ball comparison]\label{lem:one-ball-upper}
+\uses{not:z-delta,prop:scaling-identity,cor:ball-energy}
+Let $\Omega$ be a fixed-volume minimiser at volume $V>0$ with multiplier
+$\lambda$.  Then
+\begin{equation}\label{eq:one-ball-upper}
+  \lambda\sqrt{\frac{\Per(\Omega)}{4\pi}}\le\bigl(V+5-3z^2\bigr)z .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\uses{prop:scaling-identity,cor:ball-energy,lem:ball-perimeter,not:z-delta,
+      def:minimizer}
+Comparison with the ball gives
+$\Ec(\Omega)\le\Ec(B_V)=\tfrac{V+5}5P_B$
+(Corollary~\ref{cor:ball-energy}).  By the scaling identity
+\eqref{eq:scaling-identity} and $RP_B=3V$
+(Lemma~\ref{lem:ball-perimeter}),
+\[
+  \lambda\sqrt{\frac{\Per(\Omega)}{4\pi}}
+  =\frac{Rz}{3V}\bigl(5\Ec(\Omega)-3\Per(\Omega)\bigr)
+  \le\frac{Rz}{3V}\bigl((V+5)P_B-3P_Bz^2\bigr)
+  =\bigl(V+5-3z^2\bigr)z .
+\]
+\end{proof}
+
+\begin{proposition}[Classification at $V\le V_*$]\label{prop:classification}
+\uses{prop:cap-estimate,lem:one-ball-upper,thm:isoperimetric-rigidity}
+At every volume $0<V\le V_*$, every fixed-volume minimiser is a ball, uniquely
+up to translation and null sets.
+\end{proposition}
+
+\begin{proof}
+\uses{cor:minimizer-stationary,prop:cap-estimate,lem:one-ball-upper,
+      lem:ledger-oneball,lem:Vstar-bounds,thm:isoperimetric-rigidity}
+Let $\Omega$ be a minimiser of volume $V\le V_*$; by
+Corollary~\ref{cor:minimizer-stationary} take the bounded connected smooth
+representative and its multiplier $\lambda$.  Since $V\le V_*<4<6$
+(Lemma~\ref{lem:Vstar-bounds}), Proposition~\ref{prop:cap-estimate} gives
+\begin{equation}\label{eq:classification-lower}
+  \lambda\sqrt{\frac{\Per(\Omega)}{4\pi}}\ge V+2 ,
+\end{equation}
+while Lemma~\ref{lem:one-ball-upper} gives the opposite bound
+\eqref{eq:one-ball-upper}.  By Lemma~\ref{lem:ledger-oneball},
+\[
+  V+2-\bigl(V+5-3(1+\delta)^2\bigr)(1+\delta)
+  =\delta\bigl(4-V+9\delta+3\delta^2\bigr),
+\]
+which is \emph{strictly positive} for $\delta>0$ because $V\le V_*<4$.  That
+contradicts \eqref{eq:classification-lower} together with
+\eqref{eq:one-ball-upper}.  Hence $\delta=0$, i.e.\ equality in the
+isoperimetric inequality, and Theorem~\ref{thm:isoperimetric-rigidity} makes
+$\Omega$ a translate of $B_V$ up to a null set.
+\end{proof}
+

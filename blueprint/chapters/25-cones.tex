@@ -1,0 +1,214 @@
+\chapter{Classification of minimising cones}\label{ch:cones}
+\module{NoCompromise.Cones.ThreeDim,
+        NoCompromise.Cones.TwoDim,
+        NoCompromise.Tests.Constants}
+
+\section{The two-dimensional case}
+
+\begin{lemma}[Structure of a minimising cone in the plane]\label{lem:cone-2d-link}
+\uses{def:omega-minimal}
+Let $C\subset\R^2$ be a nontrivial locally perimeter-minimising cone.  Then
+the link $\Gamma:=\partial C\cap S^1$ is a finite set, $\partial C$ in the
+punctured plane is exactly the union of the corresponding rays, and
+$\#\Gamma$ is even.
+\end{lemma}
+
+\begin{proof}\uses{lem:bilip-chain,lem:bv-slices,def:density}
+Replace $C$ by its density-one representative.  Cover the annulus
+$B_2\setminus\overline{B_{1/2}}$ by finitely many polar-coordinate sectors on
+which $(r,\theta)\mapsto r(\cos\theta,\sin\theta)$ and its inverse are
+bi-Lipschitz.  Lemma~\ref{lem:bilip-chain} puts the pullback of $\ind C$ in
+$BV$ on every such rectangle.  Cone invariance makes this pullback independent
+of $r$ a.e.; Lemma~\ref{lem:bv-slices} therefore shows that its angular factor
+is a $\{0,1\}$-valued $BV$ function on every coordinate arc.  Compatibility on
+overlaps gives a $BV$ function on the compact circle $S^1$.
+
+A one-dimensional $\{0,1\}$-valued $BV$ function has only finitely many jumps:
+each jump has variation one, while its total variation is finite.  Its jump
+set is precisely $\Gamma=\partial C\cap S^1$.  Indeed, away from a jump the
+angular factor is a.e.\ constant on an arc, and cone invariance makes the
+corresponding open sector one phase; at a jump both phases occupy sectors of
+positive density.  Dilation then shows that the punctured boundary is exactly
+the union of the rays through these jump points.  Traversing the circle, the
+two values alternate at successive jumps and return to the starting value, so
+the number of jumps is even.  No rectifiable-set coarea theorem or curvature
+argument is used.
+\end{proof}
+
+\begin{lemma}[Two-dimensional minimising cones are halfplanes]\label{lem:cone-2d}
+\uses{lem:cone-2d-link}
+A nontrivial locally perimeter-minimising cone in $\R^2$ is a halfplane.
+\end{lemma}
+
+\begin{proof}\uses{lem:cone-2d-link,def:omega-minimal,lem:locality}
+\emph{Two rays.}  If there are exactly two rays with angle
+$\alpha\ne\pi$, replace the two radial segments in $B_1$ by the chord joining
+their endpoints.  The competitor has the same trace on $\partial B_1$ and its
+added interface has length $2\sin(\alpha/2)<2$, contradicting minimality.
+
+\emph{Four or more rays.}  If there are $2m\ge4$ rays, enumerate their
+endpoints cyclically and pair $1$ with $2$, $3$ with $4$, and so on.  The
+corresponding chords are disjoint, each lying in the closed sector between
+consecutive rays.  Fill the alternating caps so that the trace on
+$\partial B_1$ is unchanged.  No chord is longer than the two radial segments
+it replaces, and at least one is strictly shorter: equality would require a
+paired arc of angle $\pi$, and not all paired arcs can have angle $\pi$ when
+there are at least four rays.  Hence the total perimeter strictly decreases, a
+contradiction.
+
+In both comparisons the competitor is understood to agree with $C$ outside
+$B_1$.  Its symmetric difference is compactly contained in, say, $B_2$;
+apply local minimality there and use locality to cancel the unchanged annulus.
+Thus exactly two antipodal rays occur.
+\end{proof}
+
+\section{The three-dimensional case}
+
+\begin{lemma}[Tangent cones of a cone are cylinders]\label{lem:cone-tangent-cylinder}
+\uses{prop:tangent-is-cone,lem:tangent-cone-minimizing}
+Let $C\subset\R^3$ be a nontrivial locally perimeter-minimising cone and
+$p\in\partial C\setminus\{0\}$.  Then every tangent limit $T$ of $C$ at $p$ is
+invariant under translations in the direction $p$, and there is a measurable
+$L\subset p^\perp$ with
+\begin{equation}\label{eq:cone-product}
+  T=L\times\R p\qquad\text{modulo null sets.}
+\end{equation}
+Moreover $L$ is a cone in $p^\perp$ centred at the origin.
+\end{lemma}
+
+\begin{proof}
+\uses{prop:tangent-is-cone,lem:tangent-cone-minimizing,thm:monotonicity}
+Blow up at $p$ along $r_j\downarrow0$.  Cone invariance gives, whenever
+$1+r_jt>0$,
+\begin{equation}\label{eq:cone-rescale}
+  \ind C\bigl(p+r_j(z+tp)\bigr)
+  =\ind C\Bigl(p+\frac{r_j}{1+r_jt}z\Bigr),
+\end{equation}
+and $(1+r_jt)^{-1}\to1$.  Translation and dilation continuity in $\Lloc$
+therefore show $T$ is invariant under translations in $\R p$.  Choosing
+coordinates with $p=e_3$, invariance means
+$\ind T(x',x_3+t)=\ind T(x',x_3)$ for every $t$; Fubini and the
+distributional identity $D_3\ind T=0$ give \eqref{eq:cone-product}.  That $T$
+is itself a cone centred at $0$ is Proposition~\ref{prop:tangent-is-cone}
+applied at $p$, whose almost-monotonicity error vanishes because $C$ is
+exactly minimising; hence $L$ is a cone in $p^\perp$.
+\end{proof}
+
+\begin{lemma}[Product competitor and descent of minimality]\label{lem:cone-descent}
+\uses{lem:cone-tangent-cylinder}
+Let $T=L\times\R$ be locally perimeter minimising in $\R^3$.  Then $L$ is
+locally perimeter minimising in $\R^2$.
+\end{lemma}
+
+\begin{proof}\uses{lem:cone-tangent-cylinder,prop:gluing,lem:bv-slices,
+                    lem:locality}
+Testing $D\ind T$ with product test fields on a unit vertical interval first
+shows that $L$ has locally finite perimeter; equivalently this is the product
+case of the BV slicing identity.
+Let $A\subset\R^2$ have locally finite perimeter and
+$A\triangle L\Subset B_R^2$.  For $T_0>1$ define the explicit competitor
+\begin{equation}\label{eq:product-competitor}
+  F_{T_0}:=\bigl(A\times(-T_0,T_0)\bigr)
+    \cup\bigl(L\times((-\infty,-T_0]\cup[T_0,\infty))\bigr),
+\end{equation}
+so $F_{T_0}\triangle T\Subset B_R^2\times(-T_0-1,T_0+1)$.  Put
+$Q_{T_0}:=B_{R+1}^2\times(-T_0-1,T_0+1)$.  The BV product and gluing formulas
+give the finite local identity
+\begin{equation}\label{eq:product-perimeter}
+  \Per(F_{T_0};Q_{T_0})-\Per(T;Q_{T_0})
+  =2T_0\bigl(\Per_2(A;B^2_{R+1})-\Per_2(L;B^2_{R+1})\bigr)
+    +2|A\triangle L| .
+\end{equation}
+The last term is the pair of horizontal jump interfaces at heights $\pm T_0$;
+it is \emph{independent of $T_0$}.  Since the symmetric difference is
+compactly contained in $Q_{T_0}$, apply local minimality in an enclosing ball
+and use locality to cancel the region where the two sets agree.  This gives
+the corresponding inequality on $Q_{T_0}$; division by $2T_0$ and
+$T_0\to\infty$ give
+$\Per_2(L;B^2_{R+1})\le\Per_2(A;B^2_{R+1})$.  Since $A=L$ on the annulus
+$B^2_{R+1}\setminus B^2_R$, this is exactly
+$\Per_2(L;B^2_R)\le\Per_2(A;B^2_R)$.
+\end{proof}
+
+\begin{test}[Horizontal cost]\label{test:product-cost}
+\eqref{eq:product-perimeter} must have horizontal cost exactly
+$2|A\triangle L|$.  Getting this factor wrong (e.g.\ $|A\triangle L|$ or
+$4|A\triangle L|$) still gives a $T_0$-independent term, so the limit
+argument still works and the error is invisible.  A regression test on
+\eqref{eq:product-perimeter} is therefore worth writing.
+\end{test}
+
+\begin{lemma}[Smoothness of the punctured cone]\label{lem:cone-smooth}
+\uses{lem:cone-2d,lem:cone-descent,thm:eps-regularity}
+Let $C\subset\R^3$ be a nontrivial locally perimeter-minimising cone.  Then
+$\partial C\setminus\{0\}$ is a smooth embedded surface with zero mean
+curvature.
+\end{lemma}
+
+\begin{proof}
+\uses{lem:cone-tangent-cylinder,lem:cone-descent,lem:cone-2d,
+      thm:eps-regularity,lem:tangent-cone-minimizing,thm:campanato,
+      thm:quasilinear-schauder,lem:excess-ball-cyl,
+      lem:fixed-normal-excess-convergence,lem:bounded-H}
+By Lemmas~\ref{lem:cone-tangent-cylinder}, \ref{lem:cone-descent} and
+\ref{lem:cone-2d}, every tangent cone of $C$ at every nonzero boundary point
+is a halfspace; the empty and full planar factors are excluded by the
+two-sided density estimate at the tangent-cone vertex.  Let $C_j$ denote the
+rescalings along a subsequence converging to such a halfspace, and let $\nu$
+be its normal.  Perimeter-measure convergence from
+Lemma~\ref{lem:tangent-cone-minimizing} and
+Lemma~\ref{lem:fixed-normal-excess-convergence}, applied to a continuous
+cutoff equal to one on a smaller cylinder, show that
+$\int|\nu_{C_j}-\nu|^2\,d|D\ind{C_j}|\to0$ there.  Rescaling back, the
+cylindrical excess of $C$ is therefore arbitrarily small at a sufficiently
+small scale around any $p\ne0$.
+Theorem~\ref{thm:eps-regularity} (with $\omega=0$) then makes
+$\partial C\setminus\{0\}$ a $C^{1,1/2}$ embedded surface.  Its weak mean
+curvature vanishes by \eqref{eq:bounded-H} with $\omega=0$.  The
+Campanato/Schauder package of Chapter~\ref{ch:elliptic}
+(Theorems~\ref{thm:campanato} and \ref{thm:quasilinear-schauder}), which is
+logically prior to this chapter, makes it $C^{2,\alpha}$ with zero right side, and
+the mean curvature then vanishes pointwise.  Smoothness follows by iterating
+the Schauder estimate to all orders.
+\end{proof}
+
+\medskip\noindent\emph{Formalisation note.} The formalisation proves the $C^{2,\alpha}$ regularity and the pointwise zero-mean-curvature equation here, proves Theorem~\ref{thm:cone-3d} from that alone (dilation invariance forces the graph to be affine), and then obtains the smoothness asserted in this lemma a posteriori: $\partial C$ is a plane.
+
+\begin{lemma}[The link is a single great circle]\label{lem:cone-link-great-circle}
+\uses{lem:cone-smooth}
+With $C$ as in Lemma~\ref{lem:cone-smooth}, the link
+$\Gamma:=\partial C\cap\Sph^2$ is a single great circle.
+\end{lemma}
+
+\begin{proof}\uses{lem:cone-smooth,lem:bounded-H}
+By Lemma~\ref{lem:cone-smooth}, $\Gamma$ is a smooth compact embedded
+one-manifold, hence a finite disjoint union of circles.  To obtain its Euler
+equation, let $Y$ be a smooth tangent vector field on $\Sph^2$, let
+$\eta\in C^\infty_c((1/2,2))$, and use the ambient variation
+$X(r\theta):=\eta(r)Y(\theta)$ in \eqref{eq:bounded-H} with $\omega=0$.  The
+first variation of the conical surface factors as
+\begin{equation}\label{eq:cone-link-variation}
+  0=\int_{1/2}^2\eta(r)\,dr\int_\Gamma\dvg_\Gamma Y\,ds .
+\end{equation}
+Choosing $\eta$ with nonzero integral shows the geodesic-curvature vector of
+each component vanishes.  If a component is parametrised by unit speed
+$\gamma$, its acceleration in $\R^3$ is normal to the sphere, so
+$\gamma''=-\gamma$ and hence $\gamma(t)=a\cos t+b\sin t$ for orthonormal
+$a,b$: its image is a great circle.  Two distinct great circles intersect,
+whereas distinct components of the embedded link are disjoint.  So $\Gamma$ is
+one great circle.
+\end{proof}
+
+\medskip\noindent\emph{Formalisation note.} The formalisation proves Theorem~\ref{thm:cone-3d} directly from the $C^{2,\alpha}$ regularity of Lemma~\ref{lem:cone-smooth} and derives this lemma as a corollary (local flatness of $\partial C$ plus a local-to-global great-circle argument); the endgame of the argument above, that a nonempty family of pairwise disjoint great circles is a single great circle, is formalised as well.
+
+\begin{theorem}[Three-dimensional minimising cones are halfspaces]
+\label{thm:cone-3d}
+\uses{lem:cone-link-great-circle}
+Every nontrivial locally perimeter-minimising cone in $\R^3$ is a halfspace.
+\end{theorem}
+
+\begin{proof}\uses{lem:cone-link-great-circle}
+$\partial C$ is the plane spanned by the great circle of
+Lemma~\ref{lem:cone-link-great-circle}, so $C$ is one of the two halfspaces.
+\end{proof}
+

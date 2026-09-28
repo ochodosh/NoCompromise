@@ -1,0 +1,36 @@
+\chapter{Elimination of the singular set}\label{ch:no-singular}
+\module{NoCompromise.Cones.NoSingular}
+
+\begin{proposition}[Every boundary point is regular]\label{prop:no-singular-points}
+\uses{thm:eps-regularity,thm:cone-3d,lem:tangent-cone-minimizing}
+Let $E$ be $\omega$-minimal with $|E|<\infty$.  Then every point of
+$\partial\Omega$ is regular; $\partial\Omega$ is a compact embedded
+$C^{1,1/2}$ surface with finitely many connected components; and
+\begin{equation}\label{eq:omega-regular-closed}
+  \Omega=\operatorname{int}\overline\Omega,
+  \qquad
+  \Per(\Omega)=\Hs^2(\partial\Omega).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+\uses{lem:tangent-cone-minimizing,prop:tangent-is-cone,thm:cone-3d,
+      thm:eps-regularity,lem:bounded-representative,cor:smooth-perimeter,
+      lem:excess-ball-cyl,lem:fixed-normal-excess-convergence}
+Fix $x\in\partial\Omega$.  Lemma~\ref{lem:tangent-cone-minimizing} and
+Proposition~\ref{prop:tangent-is-cone} supply a locally perimeter-minimising
+tangent cone; Theorem~\ref{thm:cone-3d} says it is a halfspace.
+Perimeter-measure convergence along the tangent sequence and
+Lemma~\ref{lem:fixed-normal-excess-convergence} imply that the cylindrical
+excess relative to the limiting halfspace tends to zero, so at
+some scale \eqref{eq:eps-reg-hyp-final} holds and
+Theorem~\ref{thm:eps-regularity} gives $x$ a $C^{1,1/2}$ graph
+neighbourhood.  Since $x$ was arbitrary there are no singular points.
+
+Compactness of $\partial\Omega$ (Lemma~\ref{lem:bounded-representative}) gives
+a finite graph cover, whence \eqref{eq:omega-regular-closed} by
+Corollary~\ref{cor:smooth-perimeter}.  Finally $\partial\Omega$ has finitely
+many components: the components of a manifold are open in the manifold, and
+compactness extracts a finite subcover from the component cover.
+\end{proof}
+

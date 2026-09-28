@@ -1,0 +1,32 @@
+\chapter{Assembly of the main theorem}\label{ch:assembly}
+\module{NoCompromise.Main}
+
+\begin{theorem}[Main theorem]\label{thm:main}
+\uses{def:energy,def:threshold,def:minimizer}
+Let $\Ec$ be as in Definition~\ref{def:energy}, $V_*$ as in
+Definition~\ref{def:threshold}, and let ``minimiser'' mean fixed-volume
+minimiser in the sense of Definition~\ref{def:minimizer}.  Then for every
+$V>0$:
+\begin{enumerate}[label=(\roman*)]
+\item if $0<V\le V_*$, the minimisers at volume $V$ are exactly the translates
+  of a round ball of volume $V$, up to Lebesgue-null sets;
+\item if $V>V_*$, there is no minimiser at volume $V$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\uses{prop:existence-subcritical,prop:classification,prop:endpoint,
+      cor:nonexistence,def:value,cor:ball-energy}
+For $0<V<V_*$: Proposition~\ref{prop:existence-subcritical} gives existence and
+Proposition~\ref{prop:classification} gives that every minimiser is a ball,
+unique up to translation and null sets.
+
+At $V=V_*$: Proposition~\ref{prop:endpoint} gives existence, and
+Proposition~\ref{prop:classification} gives uniqueness.
+
+For $V>V_*$: Corollary~\ref{cor:nonexistence} gives nonexistence.
+
+Conversely a translate of $B_V$ has energy $\Ec(B_V)=m(V)$ for
+$V\le V_*$, so every such translate is a minimiser.
+\end{proof}
+

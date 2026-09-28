@@ -1,0 +1,1154 @@
+% ----------------------------------------------------------------------------
+\chapter{Flows, transversality and the total curvature bound}\label{ch:flows}
+\module{NoCompromise.Flow.FlowBox,
+        NoCompromise.Flow.ODE,
+        NoCompromise.Surface.Geometry,
+        NoCompromise.Surface.Morse,
+        NoCompromise.Surface.MorseCount,
+        NoCompromise.Surface.Shape,
+        NoCompromise.Surface.TotalCurvature,
+        NoCompromise.Topology.Parity,
+        NoCompromise.Topology.Transversality,
+        NoCompromise.Topology.Tubular}
+
+This chapter supplies the differential-topological layer.  Its output is used
+in exactly three places: Theorem~\ref{thm:component-count} by
+Lemma~\ref{lem:hull-properties} and Lemma~\ref{lem:level-connected},
+Theorem~\ref{thm:tubular} by Lemma~\ref{lem:interior-flux}, and the total
+curvature bound \eqref{eq:total-curvature-bound} by
+Lemma~\ref{lem:K-gauss-bonnet-input}.
+
+It is the most expensive part of the project
+(Formalisation note~\ref{fnote:flow-cost}).  Formalisation
+note~\ref{fnote:why-degree} records what the present design already avoids,
+and Formalisation note~\ref{fnote:retire-flows} what might still be avoided.
+
+\section{From Picard--Lindel\"of to a global smooth flow}\label{sec:flow}
+
+\begin{theorem}[Global flow]\label{thm:global-flow}
+\uses{conv:ambient}
+Let $X:\R^n\to\R^n$ be $C^k$, $1\le k\le\infty$, globally Lipschitz with
+constant $L$ and bounded by $M$.  Then there is a unique
+$\Phi:\R\times\R^n\to\R^n$ with
+\begin{equation}\label{eq:flow-integral}
+  \Phi_t(x)=x+\int_0^tX(\Phi_s(x))\,ds .
+\end{equation}
+In particular a compactly supported $C^k$ field satisfies these hypotheses,
+with $M=\|X\|_\infty$ and $L=\|DX\|_\infty$.
+\end{theorem}
+
+\begin{proof}
+The local Picard--Lindel\"of family \ref{base:ode} applies on every closed
+ball: continuity supplies $M$, the mean value theorem supplies the spatial
+Lipschitz hypothesis with constant $L$.  Its remaining hypothesis is the
+interval condition
+$M\cdot\max(t_{\max}-t_0,\,t_0-t_{\min})\le a-r$ relating the time interval to
+the ball radii $r<a$ on which the family is posed.  It holds on an
+arbitrarily long interval: given $T>0$, take $r=a/2$ with $a\ge2MT$, so that
+$a-r=a/2\ge MT$.  \emph{This is the only place global boundedness is used, and
+it is what upgrades a local statement to a flow defined for all time.}
+
+A local solution obeys $|\Phi_t(x)-x|\le M|t|$, so on a prescribed bounded
+time interval its graph stays in a fixed compact ball.  The quantitative local
+theorem supplies a time step depending only on the bounds of $X$ on that ball;
+finitely many consecutive steps cover the interval, and uniqueness makes
+consecutive solutions agree and extensions from different intervals
+compatible.
+\end{proof}
+
+\begin{lemma}[Group law]\label{lem:flow-group}
+\uses{thm:global-flow}
+$\Phi_0=\Id$, $\Phi_{t+s}=\Phi_t\circ\Phi_s$, $\Phi_t^{-1}=\Phi_{-t}$.
+\end{lemma}
+
+\begin{proof}\uses{thm:global-flow}
+Uniqueness in \eqref{eq:flow-integral} after a time translation.
+\end{proof}
+
+\begin{lemma}[Gr\"onwall and bi-Lipschitz dependence]\label{lem:flow-gronwall}
+\uses{thm:global-flow}
+$|\Phi_t(x)-\Phi_t(y)|\le e^{L|t|}|x-y|$; hence each $\Phi_t$ is a
+bi-Lipschitz homeomorphism.
+\end{lemma}
+
+\begin{proof}\uses{thm:global-flow,lem:flow-group}
+Subtract \eqref{eq:flow-integral} at $x$ and $y$ and apply the elementary
+Gr\"onwall inequality, proved by differentiating
+$e^{-Lt}\int_0^tL|\Phi_s(x)-\Phi_s(y)|\,ds$, first for $t\ge0$ and then
+backwards in time.
+\end{proof}
+
+\begin{lemma}[The variational equation]\label{lem:flow-variational}
+\uses{thm:global-flow}
+For fixed $x$ the linear matrix integral equation
+\begin{equation}\label{eq:flow-variational}
+  A(t,x)=I+\int_0^tDX(\Phi_s(x))A(s,x)\,ds
+\end{equation}
+has a unique solution, and $(t,x)\mapsto A(t,x)$ is continuous.
+\end{lemma}
+
+\begin{proof}\uses{thm:global-flow}
+Picard iteration in the finite-dimensional matrix space converges uniformly on
+compact time intervals: the difference of the $m$-th and $(m+1)$-st iterates is
+bounded by $C(L|t|)^m/m!$.  The same estimate and continuity of
+$DX\circ\Phi$ give joint continuity.
+\end{proof}
+
+\begin{theorem}[$C^k$ dependence on the initial point]\label{thm:flow-Ck}
+\uses{thm:global-flow,lem:flow-variational}
+$D_x\Phi_t(x)=A(t,x)$, continuously in $(t,x)$; each $\Phi_t$ is a $C^1$
+diffeomorphism with $(D\Phi_t)^{-1}=D\Phi_{-t}(\Phi_t(x))$; and if
+$X\in C^k$ then $(t,x)\mapsto\Phi_t(x)$ is $C^k$.  In particular a smooth
+vector field has a smooth flow.
+\end{theorem}
+
+\begin{proof}\uses{lem:flow-variational,lem:flow-gronwall,lem:flow-group}
+For an increment $z$, subtract \eqref{eq:flow-integral} at $x+z$ and $x$, then
+subtract \eqref{eq:flow-variational} applied to $z$.  By
+Lemma~\ref{lem:flow-gronwall} all points lie in one compact set and
+$|X(p+w)-X(p)-DX(p)w|\le\omega(|w|)|w|$ with $\omega(r)\downarrow0$ a modulus
+of continuity for $DX$ there.  A second Gr\"onwall estimate gives, uniformly
+for $t$ in a fixed compact interval,
+\begin{equation}\label{eq:flow-differentiable}
+  \frac{|\Phi_t(x+z)-\Phi_t(x)-A(t,x)z|}{|z|}
+  \le C_t\,\omega\bigl(e^{L|t|}|z|\bigr)\longrightarrow0 .
+\end{equation}
+Invertibility follows from Lemma~\ref{lem:flow-group} and the chain rule.  For
+$X\in C^k$, differentiate \eqref{eq:flow-variational} inductively: at order
+$j$ the highest derivative of $\Phi$ occurs linearly with coefficient
+$DX(\Phi)$, while the forcing contains only derivatives of $X$ of order
+$\le j$ and already-constructed lower-order derivatives of $\Phi$.  The same
+integral-equation and Gr\"onwall argument gives $C^j$ dependence; induct to
+$j=k$.  The ODE $\partial_t\Phi=X\circ\Phi$ supplies the time and mixed
+derivatives.
+\end{proof}
+
+\begin{theorem}[Flow box]\label{thm:flow-box}
+\uses{thm:flow-Ck}
+Let $X\in C^k$ with $X(p)\ne0$.  Choose an affine $(n-1)$-disk $S$ through $p$
+whose tangent space is complementary to $\R X(p)$, and set
+\begin{equation}\label{eq:flow-box}
+  \Psi:S\times(-\varepsilon,\varepsilon)\to\R^n,\qquad\Psi(y,t):=\Phi_t(y).
+\end{equation}
+After shrinking the domain, $\Psi$ is a $C^k$ coordinate chart, and in these
+coordinates $X$ becomes $\partial_t$.
+\end{theorem}
+
+\begin{proof}\uses{thm:flow-Ck}
+At $(p,0)$, $D\Psi(v,s)=v+sX(p)$, an isomorphism; apply the inverse function
+theorem \ref{base:calculus}, and differentiate in $t$.
+\end{proof}
+
+\begin{corollary}[Flows on a manifold]\label{cor:flow-manifold}
+\uses{thm:flow-Ck,thm:flow-box}
+Let $M$ be a smooth manifold without boundary, let $U\subset M$ be open, and
+let $X$ be a $C^k$ vector field on $U$, $1\le k\le\infty$.  Through every
+$p\in U$ there is a unique maximal integral curve, the resulting local flow
+is $C^k$ and satisfies the group law wherever both sides are defined, and the
+flow-box conclusion holds wherever $X\ne0$.  A maximal curve cannot have a
+finite endpoint while remaining in a compact subset of $U$.  Consequently a
+$C^k$ vector field on a compact manifold is complete.
+\end{corollary}
+
+\begin{proof}\uses{thm:global-flow,thm:flow-Ck,thm:flow-box}
+Perform the Euclidean local construction in charts.  Coordinate
+representatives agree on overlaps by ODE uniqueness, so they glue; the
+difference-quotient proof of Theorem~\ref{thm:flow-Ck} is invariant under
+smooth coordinate changes and gives $C^k$ dependence.  The group law follows
+from uniqueness, and Theorem~\ref{thm:flow-box} applies in a chart.
+If a curve is confined to a compact subset of $U$, finitely many relatively
+compact existence charts cover that set and furnish a common positive
+continuation time after taking the minimum of their local times.  Thus a
+finite maximal endpoint would admit an extension, a contradiction.  Take
+$U=M$ when $M$ is compact.
+\end{proof}
+
+\begin{fnote}[Cost]\label{fnote:flow-cost}
+\S\ref{sec:flow} is a mathlib-scale contribution on its own: global flow from
+Picard--Lindel\"of, group law, Gr\"onwall, the variational equation solved by
+Picard iteration in matrix space, $C^k$ by induction, and straightening.
+Budget accordingly.  It is the single largest item in this chapter, and
+Formalisation note~\ref{fnote:retire-flows}(a) records the one route that
+might remove it.
+\end{fnote}
+
+\section{Relative transversality}\label{sec:transversality}
+
+\begin{theorem}[Relative transversality for paths and disks]
+\label{thm:transversality}
+\uses{cor:sard-charts,thm:sard-4to3}
+Let $N$ be a compact path (a $1$-manifold with boundary) or a compact disk,
+let $\Sigma\subset\R^3$ be a compact smooth embedded surface, and let
+$f:N\to\R^3$ be smooth, already transverse to $\Sigma$ on a neighbourhood
+of $\partial N$, and with $f|_{\partial N}$ transverse to $\Sigma$ (for a path
+this means $f(\partial N)\cap\Sigma=\emptyset$).  Then for every $\epsilon>0$
+there is a smooth $g:N\to\R^3$ with $\|g-f\|_{C^1}<\epsilon$, $g=f$ on a
+neighbourhood of $\partial N$, $g$ transverse to $\Sigma$, and $g|_{\partial N}$
+transverse to $\Sigma$.
+\end{theorem}
+
+\begin{proof}\uses{cor:sard-charts,thm:sard-4to3}
+Choose boundary collars $U_0\Subset U_1$ whose closures lie in the
+neighbourhood where $f$ is transverse, and a smooth $\chi:N\to[0,1]$ vanishing
+on $\overline{U_0}$ and positive on $N\setminus\overline{U_0}$ (obtained from a
+smooth collar coordinate by a cutoff flat at the inner edge of $U_0$).  For
+$v\in\R^3$ set
+\begin{equation}\label{eq:transv-family}
+  f_v(p):=f(p)+\chi(p)v .
+\end{equation}
+On $\{\chi>0\}$ the evaluation map $\mathcal F(p,v):=f_v(p)$ is a submersion,
+since its $v$-derivative is $\chi(p)I$.  Hence
+$Z:=\mathcal F^{-1}(\Sigma)\cap(\{\chi>0\}\times\R^3)$ is a smooth manifold of
+dimension $\dim N+2$.  Let $\pi:Z\to\R^3$ be the parameter projection.
+Directly from the tangent-space equation
+\begin{equation}\label{eq:transv-tangent}
+  D_pf_v(\xi)+\chi(p)w\in T_{f_v(p)}\Sigma
+\end{equation}
+one sees that $D\pi$ is onto at $(p,v)$ exactly when
+$D_pf_v(T_pN)+T_{f_v(p)}\Sigma=\R^3$.  So a regular value $v$ of $\pi$ makes
+$f_v$ transverse wherever $\chi>0$.
+
+For a path $\pi$ has dimensions $3\to3$ and
+Corollary~\ref{cor:sard-charts} makes its critical values null; for a disk it
+has dimensions $4\to3$ and Theorem~\ref{thm:sard-4to3} does the same.  So every
+ball about $0$ contains a regular $v$.  On $\overline{U_0}$ the map is
+unchanged; elsewhere transversality follows from regularity of $v$.
+\end{proof}
+
+\begin{corollary}[Preimage structure]\label{cor:transv-preimage}
+\uses{thm:transversality}
+Let $g:N\to\R^3$ be transverse to $\Sigma$ with $g|_{\partial N}$ transverse
+to $\Sigma$, as produced by Theorem~\ref{thm:transversality}.  A transverse
+path has a compact zero-dimensional inverse image of $\Sigma$, hence finitely
+many intersections.  A transverse disk has a compact one-dimensional inverse
+image, a compact $1$-manifold with boundary whose boundary is exactly its
+intersections on $\partial N$.  (Without transversality of $g|_{\partial N}$
+the disk statement fails: the inclusion of the unit disk into $\{z=0\}$ is
+transverse to the unit sphere centred at $(2,0,0)$, yet the preimage is the
+single boundary point $(1,0)$.)
+\end{corollary}
+
+\begin{proof}\uses{thm:transversality}
+The preimage theorem, i.e.\ the implicit function theorem \ref{base:calculus}
+in a defining-function chart for $\Sigma$.
+\end{proof}
+
+\begin{lemma}[Even cardinality of a compact $1$-manifold boundary]
+\label{lem:handshake}
+The boundary of a compact one-dimensional manifold with boundary has even
+cardinality.
+\end{lemma}
+
+\begin{proof}
+Choose a finite cover by interval and half-interval charts and subdivide at
+the finitely many chart endpoints.  The resulting finite graph has degree two
+at every interior vertex and degree one exactly at the manifold boundary
+points; the handshake identity $\sum_v\deg v=2\#\{\text{edges}\}$ makes the
+number of degree-one vertices even.
+\end{proof}
+
+\section{Uniform tubular coordinates}\label{sec:tubular}
+
+\begin{theorem}[Tubular neighbourhood]\label{thm:tubular}
+\uses{conv:ambient}
+Let $\Sigma\subset\R^3$ be a compact smooth embedded surface with a smooth
+unit normal $n$.  Then
+there is $\varepsilon>0$ such that
+\begin{equation}\label{eq:tubular}
+  \Theta:\Sigma\times(-\varepsilon,\varepsilon)\to\R^3,
+  \qquad
+  \Theta(p,t):=p+t\,n(p)
+\end{equation}
+is a diffeomorphism onto an open neighbourhood of $\Sigma$.
+\end{theorem}
+
+\begin{proof}
+$D\Theta$ is invertible at every $(p,0)$, so the inverse function theorem
+gives injective normal coordinates near each such point; compactness gives
+finitely many neighbourhoods and a uniform local radius.  If no smaller
+uniform radius made $\Theta$ globally injective, there would be
+$p_j+t_jn(p_j)=q_j+s_jn(q_j)$ with $(p_j,t_j)\ne(q_j,s_j)$ and
+$|t_j|+|s_j|\to0$; after taking limits $p_j,q_j\to p$, and for large $j$ both
+pairs lie in the same injective normal chart at $p$, a contradiction.
+\end{proof}
+
+\section{Orientation by parity}
+
+\begin{proposition}[Parity, orientation and component count]
+\label{prop:orientation-parity}
+\uses{thm:transversality,lem:handshake,thm:tubular}
+Let $\Sigma\subset\R^3$ be a compact connected smooth embedded closed
+surface.  Then:
+\begin{enumerate}[label=(\roman*)]
+\item\label{it:parity-well} the parity $I(x)\in\Z/2$ of the number of
+  transverse intersections with $\Sigma$ of a path from a fixed far base point
+  $z$ to $x\notin\Sigma$ is independent of the path;
+\item\label{it:parity-normal} the two parity classes select compatible local
+  sides, hence a continuous --- and by smoothness of $\Sigma$, smooth ---
+  global unit normal $n$; in particular $\Sigma$ is orientable;
+\item\label{it:parity-two} $\R^3\setminus\Sigma$ has exactly two connected
+  components.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\uses{thm:transversality,cor:transv-preimage,lem:handshake,thm:tubular}
+\ref{it:parity-well}: A piecewise smooth path can be perturbed with endpoints
+fixed, by Theorem~\ref{thm:transversality}, to meet $\Sigma$ transversely in
+finitely many points.  Concatenating two paths gives a closed loop $\gamma$;
+smooth its finitely many corners in small balls disjoint from the other
+intersection points.  Choose $a\in\R^3$ and smooth
+$\rho:[0,1]\to[0,1]$ zero near $0$ and one near $1$; the explicit map
+\begin{equation}\label{eq:spanning-disk}
+  F(re^{i\theta}):=(1-\rho(r))a+\rho(r)\gamma(e^{i\theta})
+\end{equation}
+is a smooth disk spanning $\gamma$, constant near the centre and agreeing with
+$\gamma$ on a boundary collar.  Apply Theorem~\ref{thm:transversality} in its
+disk case to perturb the interior while fixing that collar.  By
+Corollary~\ref{cor:transv-preimage} the inverse image of $\Sigma$ is a compact
+$1$-manifold whose boundary is exactly the intersections of $\gamma$ with
+$\Sigma$, and Lemma~\ref{lem:handshake} makes that set even.
+
+\ref{it:parity-normal}: $I$ is locally constant on the complement.  In a
+defining-function chart around a point of $\Sigma$ the two local sides have
+opposite parity, so both values occur; two local positive sides with the same
+parity agree on their common connected collar.  Only after this gluing may
+Theorem~\ref{thm:tubular} be invoked.
+
+\ref{it:parity-two}: Let $x,y$ have the same parity and take a transverse path
+between them, with an even number of intersections.  Pair consecutive
+intersections; between the points of one pair the path lies on one local side
+of $\Sigma$.  Since a connected smooth surface is path connected and remains
+so after deleting finitely many points --- cover a connecting path by
+coordinate disks and, whenever it passes through a forbidden point, replace
+the corresponding diameter segment by a small semicircle in that disk --- join
+the two intersection points by a path on $\Sigma$ avoiding the other
+intersections.  Push it a small distance into the same globally labelled side
+inside the tubular neighbourhood and join it to the old path by two small
+collars.  This removes exactly two intersections and stays in the complement;
+repeat.
+\end{proof}
+
+\begin{theorem}[Component count for a disjoint union of surfaces]
+\label{thm:component-count}
+\uses{prop:orientation-parity}
+Let $\Sigma=\Sigma_1\mathbin{\dot\cup}\cdots\mathbin{\dot\cup}\Sigma_k\subset\R^3$
+be a finite disjoint union of compact connected smooth embedded closed
+surfaces.  Then $\R^3\setminus\Sigma$ has exactly $k+1$ connected components.
+\end{theorem}
+
+\begin{proof}\uses{prop:orientation-parity,thm:tubular}
+Induct on $k$; the case $k=1$ is
+Proposition~\ref{prop:orientation-parity}\ref{it:parity-two}.  Suppose the
+result for $\Sigma_1,\dots,\Sigma_{k-1}$.  The connected surface $\Sigma_k$
+lies in one connected component $U$ of their complement; $U$ is open and
+connected in Euclidean space, hence path connected, and its tubular
+neighbourhood about $\Sigma_k$ has positive distance from the other surfaces.
+Apply the parity and path-surgery argument of
+Proposition~\ref{prop:orientation-parity} to paths lying in $U$.  The spanning
+disk used only to prove parity independence may cross the other surfaces; that
+is irrelevant, since transversality is taken only with respect to $\Sigma_k$,
+and the path surgery itself takes place in $U$.  Thus $U\setminus\Sigma_k$ has
+exactly two components and all others are unchanged.
+\end{proof}
+
+\section{The shape operator and height functions}\label{sec:shape}
+
+Everything in this section is pointwise linear algebra on a smooth surface.
+No Morse theory, no flow, and no moving frame is used.
+
+\begin{definition}[Shape operator]\label{def:frame-free}
+\uses{conv:curvature}
+For a smooth embedded surface $\Sigma\subset\R^3$ with unit normal $n$, the
+\emph{shape operator} at $p$ is $A_pX:=D_Xn$ for $X\in T_p\Sigma$, the second
+fundamental form is $\mathrm{II}_p(X,Y):=\langle A_pX,Y\rangle$, and
+\[
+  H(p):=\operatorname{tr}A_p,\qquad \kappa(p):=\det A_p ,
+\]
+consistently with Convention~\ref{conv:curvature}.  $A_p$ is symmetric, so
+$\mathrm{II}_p$ is a symmetric bilinear form on the two-dimensional space
+$T_p\Sigma$.
+\end{definition}
+
+\begin{lemma}[Hessian of a height function]\label{lem:hess-height}
+\uses{def:frame-free}
+Let $\Sigma\subset\R^3$ be a smooth embedded surface with unit normal $n$,
+$v\in\Sph^2$, and $h_v:=\langle\cdot,v\rangle$.  Then $p$ is a critical point
+of $h_v|_\Sigma$ if and only if $n(p)=\pm v$, and at such a point
+\begin{equation}\label{eq:hess-height}
+  \operatorname{Hess}_p(h_v|_\Sigma)
+  =-\langle n(p),v\rangle\,\mathrm{II}_p
+  =\mp\,\mathrm{II}_p ,
+\end{equation}
+where the upper displayed sign corresponds to
+$\langle n(p),v\rangle=+1$.
+\end{lemma}
+
+\begin{proof}\uses{def:frame-free}
+$d_ph_v(X)=\langle X,v\rangle$, which vanishes for all $X\in T_p\Sigma$ iff
+$v\perp T_p\Sigma$ iff $n(p)=\pm v$.  At such a $p$, for $X,Y$ tangent,
+\[
+  \operatorname{Hess}_ph_v(X,Y)=\langle D_XY,v\rangle
+  =\langle n(p),v\rangle\,\langle D_XY,n(p)\rangle
+  =-\langle n(p),v\rangle\,\mathrm{II}_p(X,Y),
+\]
+where the middle step uses $v=\langle n(p),v\rangle\,n(p)$ (valid because
+$v=\pm n(p)$), while the last follows by differentiating
+$\langle Y,n\rangle=0$ and using Definition~\ref{def:frame-free}.
+\end{proof}
+
+\begin{lemma}[The Gauss map Jacobian is the Gauss curvature]\label{lem:gauss-jacobian}
+\uses{def:frame-free,def:jacobian}
+Let $\Sigma\subset\R^3$ be a smooth embedded surface with unit normal $n$.
+Then $T_{n(p)}\Sph^2=T_p\Sigma$, the differential
+$d_pn:T_p\Sigma\to T_{n(p)}\Sph^2$ equals $A_p$, and
+\begin{equation}\label{eq:gauss-jacobian}
+  \det(d_pn)=\det A_p=\kappa(p),
+  \qquad
+  J_2(d_pn)=|\kappa(p)| .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{def:frame-free,def:jacobian}
+$T_{n(p)}\Sph^2=n(p)^\perp=T_p\Sigma$ because $n(p)\perp T_p\Sigma$.  Then
+$d_pn(X)=D_Xn=A_pX$ by Definition~\ref{def:frame-free}.  For a linear map
+between two-dimensional inner-product spaces
+Definition~\ref{def:jacobian} gives $J_2=|\det|$.
+\end{proof}
+
+\begin{convention}[Orientations for the Gauss map]\label{conv:gauss-orientation}
+\uses{lem:gauss-jacobian,prop:orientation-parity}
+Orient $\Sigma$ by the unit normal $n$ of
+Proposition~\ref{prop:orientation-parity}\ref{it:parity-normal} and orient
+$\Sph^2$ by its outward normal, which at the point $n(p)$ \emph{is} $n(p)$.
+Under the canonical identification $T_p\Sigma=T_{n(p)}\Sph^2$ of
+Lemma~\ref{lem:gauss-jacobian} these two orientations agree, so
+\begin{equation}\label{eq:gauss-orientation}
+  \varepsilon_n(p):=\operatorname{sign}\det\bigl(d_pn\bigr)
+  =\operatorname{sign}\kappa(p)
+\end{equation}
+with no further sign.  \emph{This is the one place where a stray sign would
+invert the conclusion of \S\ref{sec:total-curvature}}; it is recorded as a
+convention so that it is fixed once.
+\end{convention}
+
+\begin{lemma}[Nondegeneracy and the sign of the curvature]
+\label{lem:sign-kappa-index}
+\uses{lem:hess-height,lem:gauss-jacobian}
+Let $v\in\Sph^2$ and let $p$ be a critical point of $h_v|_\Sigma$.  Then $p$
+is nondegenerate if and only if $\kappa(p)\ne0$, and in that case
+\begin{equation}\label{eq:sign-kappa-index}
+  \operatorname{sign}\kappa(p)=(-1)^{\mathrm{ind}_p(h_v)} .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:hess-height,lem:gauss-jacobian}
+By \eqref{eq:hess-height},
+$\det\operatorname{Hess}_ph_v=\det(\pm\mathrm{II}_p)=\det\mathrm{II}_p=\kappa(p)$,
+the sign disappearing because the form is two-dimensional.  So $p$ is
+nondegenerate iff $\kappa(p)\ne0$.  For a nondegenerate critical point of a
+function on a surface, $\operatorname{sign}\det\operatorname{Hess}
+=(-1)^{\mathrm{ind}}$: indices $0$ and $2$ give two eigenvalues of the same
+sign, index $1$ two of opposite signs.
+\end{proof}
+
+\begin{lemma}[Critical points split by normal direction]\label{lem:critical-normal}
+\uses{lem:hess-height,lem:gauss-jacobian}
+Let $\Sigma\subset\R^3$ be closed and embedded with unit normal $n$ and let
+$v\in\Sph^2$.  Then
+\begin{equation}\label{eq:crit-split}
+  \mathrm{Crit}(h_v|_\Sigma)=n^{-1}(v)\ \sqcup\ n^{-1}(-v),
+\end{equation}
+and $h_v|_\Sigma$ is a Morse function if and only if both $v$ and $-v$ are
+regular values of $n$.
+\end{lemma}
+
+\begin{proof}\uses{lem:hess-height,lem:gauss-jacobian,lem:sign-kappa-index}
+\eqref{eq:crit-split} is the first assertion of
+Lemma~\ref{lem:hess-height}, the union being disjoint since $v\ne-v$.  By
+Lemma~\ref{lem:gauss-jacobian}, $y$ is a regular value of $n$ iff
+$\kappa\ne0$ on $n^{-1}(y)$, and by
+Lemma~\ref{lem:sign-kappa-index} that is exactly nondegeneracy of the
+corresponding critical points.
+\end{proof}
+
+\section{Morse functions and regular bands}\label{sec:morse}
+
+\begin{lemma}[A Morse height function exists]\label{lem:morse-height}
+\uses{cor:sard-charts,prop:orientation-parity,lem:critical-normal}
+Let $\Sigma$ be a compact connected smooth embedded closed surface with the
+unit normal $n$ supplied by
+Proposition~\ref{prop:orientation-parity}\ref{it:parity-normal}.  Then for
+almost every $v\in\Sph^2$ both $v$ and $-v$ are regular values of $n$, and for
+every such $v$ the height function $h_v$ is Morse with finitely many critical
+points, all lying in $n^{-1}(\{v,-v\})$.
+\end{lemma}
+
+\begin{proof}\uses{cor:sard-charts,lem:critical-normal}
+Corollary~\ref{cor:sard-charts} applied to $n$, a $C^1$ map between
+two-surfaces, makes the set of critical values $\Hs^2$-null; the union of that
+set with its antipodal image is still null.  For $v$ outside it,
+Lemma~\ref{lem:critical-normal} makes $h_v$ Morse, and its critical set is
+then discrete and compact, hence finite.
+\end{proof}
+
+\begin{lemma}[Distinct critical values]\label{lem:morse-distinct}
+\uses{lem:morse-height}
+Let $h$ be Morse on the compact surface $\Sigma$.  There is a Morse function
+$\widetilde h$ on $\Sigma$ with the same critical points, the same Hessians
+there --- hence the same index counts $c_0,c_1,c_2$ --- and with pairwise
+distinct critical values.
+\end{lemma}
+
+\begin{proof}\uses{lem:morse-height}
+Write the critical points as $p_1,\dots,p_k$, choose disjoint neighbourhoods
+$W_i\Subset V_i$ and smooth $b_i$ supported in $V_i$ with $b_i\equiv1$ on
+$W_i$, and shrink the $W_i$ so that
+$m:=\min_{\Sigma\setminus\bigcup_iW_i}|\nabla_\Sigma h|>0$.  Choose
+arbitrarily small $c=(c_1,\dots,c_k)$ avoiding the finitely many affine
+hyperplanes $h(p_i)+c_i=h(p_j)+c_j$ and small enough that
+\begin{equation}\label{eq:morse-perturb}
+  \sum_i|c_i|\,\|\nabla_\Sigma b_i\|_\infty<m/2 .
+\end{equation}
+Put $\widetilde h:=h+\sum_ic_ib_i$.  On each $W_i$ it differs from $h$ by the
+additive constant $c_i$, so its critical points and Hessians there are those
+of $h$; \eqref{eq:morse-perturb} prevents a critical point on
+$\Sigma\setminus\bigcup_iW_i$, so none is created; and the critical values
+$h(p_i)+c_i$ are distinct.
+\end{proof}
+
+\begin{fnote}[Why ``same Hessians'' is in the statement]\label{fnote:morse-hessian}
+Proposition~\ref{prop:index-sum-antipodal} reads the index counts
+$c_0,c_1,c_2$ off $h_v$ itself, while
+Proposition~\ref{prop:morse-count} needs distinct critical values.  The bridge
+is that Lemma~\ref{lem:morse-distinct} changes neither the critical points nor
+their Hessians, hence neither the indices.  That is automatic from the
+construction, but it has to be part of the statement rather than left inside
+the proof.
+\end{fnote}
+
+\begin{lemma}[Local Morse coordinates]\label{lem:morse-coords}
+Let $g$ be smooth near $0\in\R^2$ with $g(0)=0$, $Dg(0)=0$ and $D^2g(0)$
+nonsingular of index $\lambda$.  There are smooth local coordinates in which
+\begin{equation}\label{eq:morse-normal-form}
+  g=\begin{cases}
+    x_1^2+x_2^2,&\lambda=0,\\
+    x_1^2-x_2^2,&\lambda=1,\\
+    -x_1^2-x_2^2,&\lambda=2 .
+  \end{cases}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Taylor's integral formula writes
+\begin{equation}\label{eq:morse-B}
+  g(x)=\tfrac12x^{\mathsf T}B(x)x,
+  \qquad
+  B(x)=2\int_0^1(1-t)D^2g(tx)\,dt ,
+\end{equation}
+with $B(0)=D^2g(0)$.  After a fixed linear change a diagonal entry of $B(0)$
+is nonzero; complete its square, use the resulting coordinate change (whose
+Jacobian at zero is invertible), and repeat on the Schur complement.
+\end{proof}
+
+\begin{lemma}[Classification of a one-manifold with a tangent field]
+\label{lem:one-manifold}
+\uses{conv:ambient}
+Let $M$ be a connected Hausdorff, second-countable smooth one-manifold without
+boundary and suppose a smooth nowhere-zero tangent vector field on $M$ is
+specified.  Then $M$ is
+diffeomorphic to $S^1$ or to $\R$.  Consequently a noncompact such $M$ has
+exactly two ends.  In particular this conclusion applies to every connected
+component of a regular level set of a smooth function on an oriented
+surface.
+\end{lemma}
+
+\begin{proof}\uses{thm:global-flow,cor:flow-manifold}
+Normalize the specified field to unit length and use
+Corollary~\ref{cor:flow-manifold} to take its maximal integral curve through a
+base point.  Every orbit is open by the flow-box theorem, so the chosen orbit
+and the union of all other orbits are disjoint open sets; connectedness makes
+the chosen orbit all of $M$.  If its orbit map is injective, it is a bijective
+local diffeomorphism from its maximal open interval onto $M$, hence a
+diffeomorphism; every open interval is diffeomorphic to $\R$.  Otherwise the
+curve returns to its base point.  ODE uniqueness then makes it periodic and
+extends it for all time.  Its period group is closed and, by a flow box,
+contains no nonzero sequence tending to zero; it is therefore $\tau\Z$ for a
+least $\tau>0$, and the orbit map descends to a diffeomorphism
+$\R/\tau\Z\simeq S^1\to M$.  For a regular level set on an oriented surface,
+rotation by $\pi/2$ of the nonzero tangential gradient supplies the required
+nowhere-zero tangent field.
+\end{proof}
+
+\begin{lemma}[Regular bands are smooth products]\label{lem:morse-band}
+\uses{thm:global-flow,cor:flow-manifold}
+Let $h$ be smooth on the compact surface $\Sigma$ and let $a<b$ be such that
+$h^{-1}([a,b])$ contains no critical point.  Then
+\begin{equation}\label{eq:band-product}
+  \Theta:h^{-1}(a)\times[0,b-a]\to h^{-1}([a,b]),
+  \qquad
+  \Theta(p,t):=\Phi_t(p)
+\end{equation}
+is a diffeomorphism, where $\Phi$ is the flow of
+\begin{equation}\label{eq:band-field}
+  X:=\frac{\nabla_\Sigma h}{|\nabla_\Sigma h|^2}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{thm:global-flow,cor:flow-manifold,thm:flow-Ck}
+$X$ is smooth on an open neighbourhood of the band, and
+\begin{equation}\label{eq:band-derivative}
+  \tfrac{d}{dt}h(\Phi_t(p))=dh(X)=1 .
+\end{equation}
+A trajectory starting on $h^{-1}(a)$ and run for $0\le t\le b-a$ remains in
+the compact band, so the finite-step continuation of
+Theorem~\ref{thm:global-flow} rules out a shorter maximal interval.  Hence
+\eqref{eq:band-product} is a smooth bijection, with explicit smooth inverse
+\begin{equation}\label{eq:band-inverse}
+  q\longmapsto\bigl(\Phi_{a-h(q)}(q),\,h(q)-a\bigr).
+\end{equation}
+\end{proof}
+
+\begin{corollary}[Sublevel retraction across a critical-value-free interval]
+\label{cor:sublevel-stable}
+\uses{lem:morse-band}
+Let $h$ be Morse on the compact surface $\Sigma$ and let $a<b$.
+\begin{enumerate}[label=(\roman*)]
+\item\label{it:retract-closed} If $h$ has no critical value in $(a,b]$, then
+  $\{h\le a\}$ is a deformation retract of $\{h\le b\}$.
+\item\label{it:retract-open} If $h$ has no critical value in $[a,b)$, then
+  $\{h\le a\}$ is a deformation retract of $\{h<b\}$.
+\end{enumerate}
+In either case the two sets have the same number of connected components.
+\end{corollary}
+
+\begin{proof}\uses{lem:morse-band,lem:morse-coords}
+In case \ref{it:retract-closed}, $h^{-1}((a,b])$ contains no critical point, so
+the flow $\Phi$ of \eqref{eq:band-field} is defined there and, by
+\eqref{eq:band-derivative}, a trajectory started at $q$ with
+$a<h(q)\le b$ exists backwards until its height tends to $a$.  If its limiting
+point is regular, the ordinary local flow extends it to time $a-h(q)$.  Near a
+critical point $p$ of level $a$, Morse coordinates and equivalence of the
+coordinate and Riemannian norms give, on a sufficiently small coordinate ball,
+\begin{equation}\label{eq:morse-flow-bounds}
+ |\nabla_\Sigma h(x)|\ge c|x|,
+ \qquad |h(x)-a|\le C|x|^2,
+ \qquad
+ |X(x)|\le \frac{C'}{\sqrt{h(x)-a}}\quad(h(x)>a).
+\end{equation}
+Along a descending trajectory, height itself is the time variable.  Thus a
+segment descending from height $a+\delta$ has length at most
+\begin{equation}\label{eq:morse-flow-length}
+ \int_0^\delta \frac{C'}{\sqrt{\tau}}\,d\tau=2C'\sqrt\delta.
+\end{equation}
+A bootstrap with two concentric coordinate balls shows that a trajectory
+starting sufficiently near $p$ cannot leave the larger ball before reaching
+height $a$: otherwise its length would have a fixed positive lower bound,
+contrary to \eqref{eq:morse-flow-length}.  The same estimate makes it Cauchy at
+the finite terminal time and makes its endpoint tend to $p$ as $q\to p$.
+Consequently every trajectory has a well-defined endpoint on level $a$, and
+\begin{equation}\label{eq:retraction}
+  r(q):=\begin{cases}q,&h(q)\le a,\\ \Phi_{a-h(q)}(q),&a<h(q)\le b\end{cases}
+\end{equation}
+is a well-defined retraction of $\{h\le b\}$ onto $\{h\le a\}$.  It is
+continuous at regular points of $h^{-1}(a)$ because $\Phi_0=\Id$, and
+\eqref{eq:morse-flow-length} proves continuity at a critical point of that
+level.  The identical length estimate, applied to partial trajectory segments,
+shows jointly in $(q,s)$ that
+\[
+ H_s(q):=\begin{cases}
+ q,&h(q)\le a,\\
+ \Phi_{s(a-h(q))}(q),&a<h(q)\le b,
+ \end{cases}
+ \qquad 0\le s\le1,
+\]
+is continuous and stays in $\{h\le b\}$; it is a deformation from the
+identity to $r$.  Thus every component meets $\{h\le a\}$ and two such
+components cannot be joined upstairs without being joined after applying
+$r$, so the component counts agree.  Case \ref{it:retract-open} uses the
+same formulas with $h(q)<b$.
+\end{proof}
+
+\begin{lemma}[Local structure at a critical point]\label{lem:local-sectors}
+\uses{lem:morse-coords}
+Let $h$ be Morse on the surface $\Sigma$, let $p$ be a critical point of index
+$\lambda$ and $c:=h(p)$, and let $D$ be a Morse coordinate ball about $p$ as
+in Lemma~\ref{lem:morse-coords}.  Put $L:=h^{-1}(c)$.
+\begin{enumerate}[label=(\roman*)]
+\item\label{it:sect-0} $\lambda=0$: $\{h<c\}\cap D=\varnothing$ and
+  $\{h>c\}\cap D=D\setminus\{p\}$, and $L\cap D=\{p\}$.
+\item\label{it:sect-2} $\lambda=2$: $\{h>c\}\cap D=\varnothing$ and
+  $\{h<c\}\cap D=D\setminus\{p\}$, and $L\cap D=\{p\}$.
+\item\label{it:sect-1} $\lambda=1$: $L\cap D$ is the union of four smooth arcs
+  (\emph{rays}) $r_1,r_2,r_3,r_4$ from $p$ to $\partial D$, meeting only at
+  $p$; $\{h<c\}\cap D$ and $\{h>c\}\cap D$ each have exactly two connected
+  components (\emph{sectors}); and in cyclic order around $p$ the rays and
+  sectors alternate as
+  \[
+    r_1,\ S^-_{12},\ r_2,\ S^+_{23},\ r_3,\ S^-_{34},\ r_4,\ S^+_{41},
+  \]
+  where $S^-_{\bullet}\subset\{h<c\}$ and $S^+_{\bullet}\subset\{h>c\}$.  In
+  particular the two sectors flanking $r_1$ are $S^+_{41}$ and $S^-_{12}$,
+  those flanking $r_2$ are $S^-_{12}$ and $S^+_{23}$, those flanking $r_3$ are
+  $S^+_{23}$ and $S^-_{34}$, and those flanking $r_4$ are $S^-_{34}$ and
+  $S^+_{41}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\uses{lem:morse-coords}
+Read \eqref{eq:morse-normal-form} off in the chart.  For $\lambda=1$ the set
+$\{x_1^2=x_2^2\}$ is the union of the four rays
+$x_2=\pm x_1$, $\pm x_1>0$; $\{x_1^2<x_2^2\}$ is the pair of vertical sectors
+and $\{x_1^2>x_2^2\}$ the pair of horizontal ones; and the cyclic alternation
+is immediate.
+\end{proof}
+
+\begin{fnote}[No handle attachment is used]\label{fnote:no-handles}
+Lemma~\ref{lem:local-sectors} is purely local: it says nothing relating
+$h^{-1}(c-\varepsilon)$ to $h^{-1}(c+\varepsilon)$.  An earlier draft of this
+section asserted such a relation --- that the level set is obtained by deleting
+two arcs and inserting two others --- and used it to run a surgery argument.
+That assertion is true but its proof is the handle-attachment theorem, which
+requires constructing a modified function with a bump near $p$ and is a
+substantial development in its own right.  \S\ref{sec:morse-count} is written
+so that it is never needed: every comparison there is between $\{h<c\}$,
+$\{h\le c\}$ and a sublevel set at a nearby regular value, all handled by
+Lemma~\ref{lem:local-sectors} and
+Corollary~\ref{cor:sublevel-stable}.
+\end{fnote}
+
+\section{The Morse count is at most two}\label{sec:morse-count}
+
+\begin{definition}[Merging saddle]\label{def:merging-saddle}
+\uses{lem:local-sectors}
+Let $h$ be Morse on the compact connected surface $\Sigma$ and let $p$ be a
+critical point of index $1$ with $c:=h(p)$.  With the notation of
+Lemma~\ref{lem:local-sectors}\ref{it:sect-1}, write $A(S)$ for the connected
+component of $\{h<c\}$ containing a sector $S$, and $B(S)$ for the component
+of $\{h>c\}$ containing $S$.  Say $p$ is
+\begin{itemize}[nosep]
+\item \emph{sub-merging} if $A(S^-_{12})\ne A(S^-_{34})$;
+\item \emph{super-merging} if $B(S^+_{23})\ne B(S^+_{41})$.
+\end{itemize}
+\end{definition}
+
+\begin{lemma}[Adjacent components are constant along a regular level arc]
+\label{lem:level-adjacency}
+\uses{conv:ambient}
+Let $h$ be smooth on $\Sigma$, $c\in\R$, $L:=h^{-1}(c)$, and let $q\in L$ be a
+regular point of $h$.  Then $q$ has a neighbourhood $U$ with
+$U\cap\{h<c\}$ and $U\cap\{h>c\}$ both connected and nonempty; writing
+$\phi^-(q)$ and $\phi^+(q)$ for the components of $\{h<c\}$ and $\{h>c\}$
+containing them, the maps $\phi^\pm$ are locally constant on the set of
+regular points of $L$, hence constant on each connected subset of it.
+\end{lemma}
+
+\begin{proof}
+By the implicit function theorem \ref{base:calculus}, in suitable coordinates
+$h-c$ is the first coordinate on a ball $U$; then $U\cap\{h<c\}$ and
+$U\cap\{h>c\}$ are the two open half-balls, each connected and nonempty.  For
+$q'\in U\cap L$ the same half-balls witness
+$\phi^\pm(q')=\phi^\pm(q)$.
+\end{proof}
+
+\begin{lemma}[Closing up a sublevel set]\label{lem:sublevel-closure}
+\uses{def:merging-saddle,lem:local-sectors,lem:level-adjacency}
+Let $h$ be Morse with distinct critical values on the compact connected
+surface $\Sigma$, let $c$ be a critical value with unique critical point $p$,
+and let $\lambda$ be its index.  Then
+\[
+  \#\mathrm{comp}\{h\le c\}-\#\mathrm{comp}\{h<c\}
+  =\begin{cases}
+    +1,&\lambda=0,\\
+    -1,&\lambda=1\text{ and }p\text{ sub-merging},\\
+    0,&\text{otherwise}.
+  \end{cases}
+\]
+\end{lemma}
+
+\begin{proof}\uses{lem:local-sectors,lem:level-adjacency,def:merging-saddle}
+Write $L:=h^{-1}(c)$, so $\{h\le c\}=\{h<c\}\sqcup L$.  A component of
+$\{h\le c\}$ is a union of components of $\{h<c\}$ together with part of $L$,
+so it suffices to determine which components of $\{h<c\}$ get identified and
+whether any part of $L$ forms a component by itself.
+
+Away from a smaller Morse coordinate ball around $p$, the compact regular
+level set is a compact one-manifold with boundary and therefore has finitely
+many components.  Inside the ball it consists of the pieces listed in
+Lemma~\ref{lem:local-sectors}.  Thus $L$ is a finite graph whose only possible
+nonmanifold vertex is $p$.  By Lemma~\ref{lem:level-adjacency}, $\phi^-$ is
+constant on each edge in the regular part $L\setminus\{p\}$.  Consequently the
+closure of an edge attaches along all of its regular points to one and the
+same component of $\{h<c\}$; distinct such components can be identified by
+adjoining $L$ only at the vertex $p$.  A closed regular-level component not
+meeting $p$ likewise attaches to exactly one sublevel component and identifies
+nothing.
+
+At $p$: if $\lambda=0$ then by
+Lemma~\ref{lem:local-sectors}\ref{it:sect-0} a neighbourhood of $p$ meets
+$\{h<c\}$ not at all and meets $L$ only in $\{p\}$, so $\{p\}$ is an isolated
+point of $\{h\le c\}$ and contributes one new component.  If $\lambda=2$ then
+by \ref{it:sect-2} the punctured ball lies in $\{h<c\}$, so $p$ is adjacent to
+exactly one component and nothing changes.  If $\lambda=1$ then by
+\ref{it:sect-1} $p$ is adjacent to exactly the two sectors $S^-_{12}$ and
+$S^-_{34}$, so it identifies $A(S^-_{12})$ with $A(S^-_{34})$: the count drops
+by one precisely when these differ, i.e.\ precisely when $p$ is sub-merging.
+No component of $\{h<c\}$ is created or destroyed otherwise.
+\end{proof}
+
+\begin{lemma}[Counting merging saddles]\label{lem:count-submerging}
+\uses{lem:sublevel-closure,cor:sublevel-stable,def:merging-saddle}
+Let $h$ be Morse with distinct critical values on the compact connected
+surface $\Sigma$, with $c_0$ minima and $c_2$ maxima.  Then the number of
+sub-merging saddles is exactly $c_0-1$, and the number of super-merging
+saddles is exactly $c_2-1$.
+\end{lemma}
+
+\begin{proof}\uses{lem:sublevel-closure,cor:sublevel-stable}
+List the critical values $c^{(1)}<\cdots<c^{(k)}$ and pick regular values
+$a_0<c^{(1)}<a_1<c^{(2)}<\cdots<c^{(k)}<a_k$.  Put
+$N_j:=\#\mathrm{comp}\{h\le a_j\}$.  Then $N_0=0$ since
+$\{h\le a_0\}=\varnothing$, and $N_k=1$ since $\{h\le a_k\}=\Sigma$ is
+connected.
+
+Fix $j$ and write $c:=c^{(j)}$.  Corollary~\ref{cor:sublevel-stable}\ref{it:retract-open}
+applied on $[a_{j-1},c)$ gives
+$\#\mathrm{comp}\{h<c\}=N_{j-1}$, and
+Corollary~\ref{cor:sublevel-stable}\ref{it:retract-closed} applied on
+$(c,a_j]$ gives $N_j=\#\mathrm{comp}\{h\le c\}$.  So
+Lemma~\ref{lem:sublevel-closure} computes $N_j-N_{j-1}$ as $+1$ at a minimum,
+$-1$ at a sub-merging saddle, and $0$ otherwise.
+
+Summing over $j$, $1-0=c_0-\#\{\text{sub-merging}\}$.  Apply the same argument
+to $-h$: its minima are the maxima of $h$, its index-$1$ points are those of
+$h$ because $\mathrm{ind}_p(-h)=2-\mathrm{ind}_p(h)$, and sub-merging for $-h$
+is super-merging for $h$ because $\{-h<-c\}=\{h>c\}$.
+\end{proof}
+
+\begin{lemma}[No saddle merges on both sides]\label{lem:merge-disjoint}
+\uses{def:merging-saddle,lem:local-sectors,lem:level-adjacency,lem:one-manifold}
+Let $h$ be Morse with pairwise distinct critical values on the compact
+connected surface $\Sigma$.  Then no saddle of $h$ is both sub-merging and
+super-merging.
+\end{lemma}
+
+\begin{proof}\uses{lem:local-sectors,lem:level-adjacency,lem:one-manifold,
+                    prop:orientation-parity}
+Let $p$ be a saddle, $c:=h(p)$, $L:=h^{-1}(c)$, and adopt the notation of
+Lemma~\ref{lem:local-sectors}\ref{it:sect-1}.  The distinct-critical-value
+hypothesis makes $p$ the only critical point at level $c$; hence
+$L\setminus\{p\}$ is a smooth one-manifold without boundary, by the
+implicit function theorem \ref{base:calculus}.
+
+Let $\sigma$ be the connected component of $L\setminus\{p\}$ containing
+$r_1\setminus\{p\}$.  It is not compact, since $r_1$ accumulates at $p\notin\sigma$,
+and it carries the nowhere-zero tangent field obtained by rotating
+$\nabla_\Sigma h$ by $\pi/2$ using the orientation of $\Sigma$.  Hence
+Lemma~\ref{lem:one-manifold} makes it diffeomorphic to $\R$ with exactly two
+ends.  Both ends accumulate only at $p$: $L$ is compact and
+$L\setminus\{p\}$ is a manifold, so any limit point of $\sigma$ outside
+$\sigma$ lies in $L$ and is not a manifold point, hence equals $p$.  Near $p$
+the set $L$ is the union of the four rays
+(Lemma~\ref{lem:local-sectors}\ref{it:sect-1}), and each ray accounts for
+exactly one end; the two ends of $\sigma$ therefore lie along two
+\emph{distinct} rays, one of which is $r_1$.  Write $r_j$ for the other,
+$j\in\{2,3,4\}$.
+
+By Lemma~\ref{lem:level-adjacency}, $\phi^-$ and $\phi^+$ are constant on the
+connected set $\sigma$.  Along the $r_1$ end, the flanking sectors are
+$S^+_{41}$ and $S^-_{12}$, so
+$\phi^-(\sigma)=A(S^-_{12})$ and $\phi^+(\sigma)=B(S^+_{41})$.  Reading the
+flanking sectors of $r_j$ off Lemma~\ref{lem:local-sectors}\ref{it:sect-1}:
+\begin{itemize}[nosep]
+\item $j=2$: flanking sectors $S^-_{12}$, $S^+_{23}$, so
+  $B(S^+_{41})=\phi^+(\sigma)=B(S^+_{23})$ and $p$ is not super-merging.
+\item $j=4$: flanking sectors $S^-_{34}$, $S^+_{41}$, so
+  $A(S^-_{12})=\phi^-(\sigma)=A(S^-_{34})$ and $p$ is not sub-merging.
+\item $j=3$: flanking sectors $S^+_{23}$, $S^-_{34}$, so both equalities hold
+  and $p$ is neither.
+\end{itemize}
+In every case at least one of the two merging properties fails.
+\end{proof}
+
+\medskip\noindent\emph{Formalisation note.} The formal proof follows the integral curve of $n\times\nabla_\Sigma h$ through a point of $r_1$ directly: it is injective, stays in $L\setminus\{p\}$, and tends to $p$ at both ends along two distinct rays, which gives the two-ends statement used above without invoking Lemma~\ref{lem:one-manifold}. That lemma is formalised independently, in its abstract form (second countability is not needed) and in the embedded form for level components.
+
+\begin{proposition}[The Morse count is at most two]\label{prop:morse-count}
+\uses{lem:count-submerging,lem:merge-disjoint}
+Let $h$ be Morse on a compact connected surface $\Sigma$, with $c_\lambda$
+critical points of index $\lambda$.  Then
+\begin{equation}\label{eq:morse-count}
+  c_0-c_1+c_2\le2 .
+\end{equation}
+\end{proposition}
+
+\begin{proof}\uses{lem:count-submerging,lem:merge-disjoint,lem:morse-distinct}
+By Lemma~\ref{lem:morse-distinct} we may assume the critical values are
+distinct, since the perturbation changes no $c_\lambda$.  Then
+Lemma~\ref{lem:count-submerging} produces $c_0-1$ sub-merging and $c_2-1$
+super-merging saddles, and Lemma~\ref{lem:merge-disjoint} makes these two sets
+disjoint, so $c_1\ge(c_0-1)+(c_2-1)$.
+\end{proof}
+
+\begin{remark}[What is \emph{not} claimed]\label{rem:no-euler}
+Proposition~\ref{prop:morse-count} is an inequality, and that is all this
+development needs.  No Euler characteristic is defined, no homology is
+computed, no cell structure is built, no handle is attached, and the
+classification of compact surfaces is not used.  In particular the identity
+$c_0-c_1+c_2=2-2g$ is deliberately \emph{not} proved, and neither is
+independence of $h$.
+\end{remark}
+
+\section{The total curvature bound}\label{sec:total-curvature}
+
+\begin{lemma}[Regular fibres are finite]\label{lem:regular-fiber-finite}
+\uses{conv:ambient}
+Let $f:\Sigma\to\Sigma'$ be a $C^1$ map between compact surfaces, $\Sigma$
+without boundary, and let $y$ be a regular value.  Then $f^{-1}(y)$ is finite.
+\end{lemma}
+
+\begin{proof}
+The inverse function theorem \ref{base:calculus} makes $f^{-1}(y)$ discrete;
+it is closed in the compact $\Sigma$, hence finite.
+\end{proof}
+
+\begin{definition}[Local index sum]\label{def:index-sum}
+\uses{lem:regular-fiber-finite,prop:orientation-parity}
+Let $\Sigma,\Sigma'$ be smooth surfaces with $\Sigma$ compact, without
+boundary and oriented, $\Sigma'$ oriented, and let $f:\Sigma\to\Sigma'$ be
+$C^1$.  For a regular value $y\in\Sigma'$ put
+$\varepsilon_f(p):=\operatorname{sign}\det d_pf$ using the orientations, and
+\begin{equation}\label{eq:index-sum}
+  \iota_y(f):=\sum_{p\in f^{-1}(y)}\varepsilon_f(p)\ \in\Z ,
+\end{equation}
+a finite sum by Lemma~\ref{lem:regular-fiber-finite}.  At a nonregular value
+define $\iota_y(f):=0$.  Thus $y\mapsto\iota_y(f)$ is an everywhere-defined
+integer-valued function.
+\end{definition}
+
+\begin{proof}\uses{lem:regular-fiber-finite}
+The critical set is closed in the compact source, so its image is compact;
+hence the regular-value set is open.  At a regular value the fibre is finite.
+Choose pairwise disjoint inverse-function neighbourhoods of its points; by
+compactness, after shrinking the common target neighbourhood, its full
+preimage lies in their union.  The signs of the local Jacobians are constant
+there, so $\iota_y(f)$ is locally constant on the regular-value set.  Its
+extension by zero over the closed critical-value set is therefore Borel.
+\end{proof}
+
+\begin{fnote}[This is not a degree]\label{fnote:not-a-degree}
+$\iota_y(f)$ is \emph{not} asserted to be independent of $y$, and no such
+statement is proved or used.  Proving independence would require a
+transversality statement for a path in $\Sigma'$ against $f$, which
+Theorem~\ref{thm:transversality} does \emph{not} supply --- it is about maps
+into $\R^3$ transverse to a surface in $\R^3$.  The antipodal averaging in
+Theorem~\ref{thm:total-curvature-bound} is what makes independence
+unnecessary; see Formalisation note~\ref{fnote:why-averaging}.
+\end{fnote}
+
+\begin{lemma}[The Gauss map extends]\label{lem:gauss-map-extension}
+\uses{thm:tubular}
+Let $\Sigma\subset\R^3$ be a compact smooth embedded closed surface with unit
+normal $n$.  There is a Lipschitz $N:\R^3\to\R^3$ with $N|_\Sigma=n$ and
+$D N(p)|_{T_p\Sigma}=d_pn$ for every $p\in\Sigma$.
+\end{lemma}
+
+\begin{proof}\uses{thm:tubular}
+Theorem~\ref{thm:tubular} gives a tubular neighbourhood
+$\Theta(p,t)=p+tn(p)$ and hence a smooth nearest-point projection
+$\pi$ onto $\Sigma$ there.  Put $N:=\chi\cdot(n\circ\pi)$ with $\chi$ a smooth
+cutoff equal to one near $\Sigma$ and supported in the tubular neighbourhood.
+Then $N|_\Sigma=n$, and since $\pi|_\Sigma=\mathrm{id}$ and
+$d_p\pi|_{T_p\Sigma}=\mathrm{id}$, the tangential differential is $d_pn$.
+\end{proof}
+
+\begin{theorem}[Total curvature as an integral of index sums]
+\label{thm:total-curvature-index}
+\uses{lem:gauss-jacobian,def:index-sum,thm:area-formula-rect,
+      prop:orientation-parity}
+Let $\Sigma\subset\R^3$ be a compact connected smooth embedded closed surface
+with the unit normal $n$ of
+Proposition~\ref{prop:orientation-parity}\ref{it:parity-normal}.  Then
+\begin{equation}\label{eq:total-curvature-index}
+  \int_\Sigma\kappa\,d\Hs^2=\int_{\Sph^2}\iota_y(n)\,d\Hs^2(y),
+\end{equation}
+both sides being finite.
+\end{theorem}
+
+\begin{proof}
+\uses{lem:gauss-jacobian,def:index-sum,thm:area-formula-rect,
+      cor:sard-charts,lem:gauss-map-extension,
+      lem:smooth-surface-rectifiable,conv:gauss-orientation,lem:sphere-area}
+By Lemma~\ref{lem:smooth-surface-rectifiable} and
+Lemma~\ref{lem:gauss-map-extension} the area formula
+\eqref{eq:area-formula-rect} applies to $n$ on the rectifiable set $\Sigma$,
+with $J_2(d_pn)=|\kappa(p)|$ by \eqref{eq:gauss-jacobian}.  Apply it twice,
+with the nonnegative Borel weights
+\[
+  q_\pm:=\max\{\pm\operatorname{sign}\kappa,0\},
+\]
+and subtract; both integrals are finite because $\kappa$ is continuous on the
+compact $\Sigma$.  Since $q_\pm J_2(dn)=\kappa^\pm$, the left side becomes
+$\int_\Sigma\kappa$, and the right side becomes
+\[
+  \int_{\Sph^2}\Bigl(\sum_{p\in n^{-1}(y),\ \kappa(p)>0}1
+    -\sum_{p\in n^{-1}(y),\ \kappa(p)<0}1\Bigr)d\Hs^2(y).
+\]
+By Corollary~\ref{cor:sard-charts} almost every $y$ is a regular value of $n$,
+and at a regular value every $p\in n^{-1}(y)$ has $\kappa(p)\ne0$ with
+$\varepsilon_n(p)=\operatorname{sign}\kappa(p)$ by
+\eqref{eq:gauss-orientation}; so for almost every $y$ the bracket is
+$\iota_y(n)$.  The right-hand integral is supported on $\Sph^2$, whose total
+$\Hs^2$-measure is $4\pi$ by Lemma~\ref{lem:sphere-area}.  At the exceptional
+critical values no pointwise identification with $\iota_y(n)$ is needed,
+because that target set is $\Hs^2$-null.
+\end{proof}
+
+\medskip\noindent\emph{Formalisation note.} The identity is formalised for every compact smooth embedded surface and every unit normal field; connectedness and the particular normal of Proposition~\ref{prop:orientation-parity} are not needed.
+
+\begin{proposition}[Antipodal index sums add up to the Morse count]
+\label{prop:index-sum-antipodal}
+\uses{def:index-sum,lem:sign-kappa-index,lem:critical-normal,lem:morse-height,
+      prop:orientation-parity}
+Let $\Sigma\subset\R^3$ be a compact connected smooth embedded closed
+surface, let $n$ be the unit normal supplied by
+Proposition~\ref{prop:orientation-parity}, and let $v\in\Sph^2$ be such that
+both $v$ and $-v$ are regular values of $n$ --- almost every $v$, by
+Lemma~\ref{lem:morse-height}.  Let $c_\lambda$ be the number of critical
+points of $h_v$ of index $\lambda$.  Then
+\begin{equation}\label{eq:index-sum-antipodal}
+  \iota_v(n)+\iota_{-v}(n)=c_0-c_1+c_2 .
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+\uses{def:index-sum,lem:sign-kappa-index,lem:critical-normal,
+      conv:gauss-orientation}
+By \eqref{eq:gauss-orientation},
+$\varepsilon_n(p)=\operatorname{sign}\kappa(p)$, and by
+Lemma~\ref{lem:sign-kappa-index} this equals $(-1)^{\mathrm{ind}_p(h_v)}$ at
+every critical point of $h_v$.  Hence
+\[
+  \iota_v(n)=\!\!\sum_{p\in n^{-1}(v)}\!\!(-1)^{\mathrm{ind}_p(h_v)},
+  \qquad
+  \iota_{-v}(n)=\!\!\sum_{p\in n^{-1}(-v)}\!\!(-1)^{\mathrm{ind}_p(h_v)} .
+\]
+Adding these and using the disjoint splitting \eqref{eq:crit-split} of
+Lemma~\ref{lem:critical-normal} gives \eqref{eq:index-sum-antipodal}.
+\end{proof}
+
+\begin{theorem}[Total curvature bound]\label{thm:total-curvature-bound}
+\uses{thm:total-curvature-index,prop:index-sum-antipodal,prop:morse-count}
+Let $\Sigma\subset\R^3$ be a compact connected smooth embedded closed
+surface.  Then
+\begin{equation}\label{eq:total-curvature-bound}
+  \int_\Sigma\kappa\,d\Hs^2\le4\pi .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\uses{thm:total-curvature-index,prop:index-sum-antipodal,prop:morse-count,
+      lem:morse-height,prop:orientation-parity,lem:sphere-area}
+Orient $\Sigma$ and fix $n$ by
+Proposition~\ref{prop:orientation-parity}\ref{it:parity-normal}.  The
+antipodal map is an isometry of $\Sph^2$, so it preserves $\Hs^2$ and
+\[
+  \int_{\Sph^2}\iota_y(n)\,d\Hs^2(y)
+  =\frac12\int_{\Sph^2}\bigl(\iota_y(n)+\iota_{-y}(n)\bigr)\,d\Hs^2(y).
+\]
+For almost every $y$ both $y$ and $-y$ are regular values of $n$
+(Lemma~\ref{lem:morse-height}), and for such $y$
+Proposition~\ref{prop:index-sum-antipodal} and
+Proposition~\ref{prop:morse-count} applied to the Morse function $h_y$ give
+\[
+  \iota_y(n)+\iota_{-y}(n)=c_0-c_1+c_2\le2 .
+\]
+Hence, with \eqref{eq:total-curvature-index} and
+$\Hs^2(\Sph^2)=4\pi$,
+\[
+  \int_\Sigma\kappa\,d\Hs^2
+  =\int_{\Sph^2}\iota_y(n)\,d\Hs^2(y)
+  \le\tfrac12\cdot2\cdot4\pi=4\pi .
+\]
+\end{proof}
+
+\begin{fnote}[Why averaging replaces degree theory]\label{fnote:why-averaging}
+The classical route asserts $\iota_y(n)=\deg(n)$ for every regular $y$ and
+then bounds $\deg(n)\le1$.  Establishing $y$-independence costs a
+transversality statement this document does not have
+(Formalisation note~\ref{fnote:not-a-degree}).  It is also unnecessary: the
+quantity actually needed is the \emph{average} of $\iota_y(n)$ over
+$\Sph^2$, and the pointwise bound
+$\iota_y(n)+\iota_{-y}(n)\le2$ from
+Proposition~\ref{prop:index-sum-antipodal} bounds that average by one
+directly.  This removes an entire section from the chapter and, with it, the
+only place where orientations of one-manifold cobordisms would have had to be
+tracked.
+\end{fnote}
+
+\begin{fnote}[Why this route]\label{fnote:why-degree}
+An earlier design proved \eqref{eq:total-curvature-bound} from a finite smooth
+triangulation, a local Gauss--Bonnet formula on curved triangles, and
+$\chi=b_0-b_1+b_2\le2$ via the cellular chain complex.  That route required,
+in addition to everything above: abstract simplicial complexes with geometric
+realisation, a four-part simplicial gluing lemma with a quotient-complex
+argument, a moving-frame connection and structure equation, Stokes on a curved
+triangle with corners, the turning-number calculation (polar decomposition and
+angle lifting over the disk), and the $b_2=1$ dual-graph argument.  The pinned
+mathlib supplies none of it: \code{AlgebraicTopology/Simplicial*} is
+category-theoretic simplicial sets and
+\code{Analysis/Convex/SimplicialComplex} is convex geometry, so all of it
+would have been built from zero.
+
+What replaces it is \S\ref{sec:shape} (pointwise linear algebra),
+\S\ref{sec:morse-count} (component counting plus
+Lemma~\ref{lem:merge-disjoint}) and \S\ref{sec:total-curvature} (the area
+formula plus antipodal averaging).  The exchange is not free: the sharp
+\emph{identity} $\int\kappa=2\pi\chi$ is lost, and only the inequality
+\eqref{eq:total-curvature-bound} survives
+(Remark~\ref{rem:no-euler}).  Since
+Lemma~\ref{lem:K-gauss-bonnet-input} is the sole consumer and needs only the
+inequality, that costs nothing here.  It would matter if this development were
+reused as a general-purpose surface-theory library, which it is not intended
+to be.
+\end{fnote}
+
+\begin{fnote}[The remaining cost centre]\label{fnote:retire-flows}
+After the exchange described in Formalisation note~\ref{fnote:why-degree}, the
+dominant cost of this chapter is \S\ref{sec:flow} together with
+\S\ref{sec:morse}: the global flow is needed only for
+Lemma~\ref{lem:morse-band} and Lemma~\ref{lem:one-manifold}, which feed only
+Corollary~\ref{cor:sublevel-stable} and Lemma~\ref{lem:merge-disjoint}, which
+in turn feed \S\ref{sec:morse-count}.  The shape-operator calculations and
+the index-integral formula can be proved independently of that flow
+construction.  The final total-curvature bound uses
+Proposition~\ref{prop:morse-count}, so the complete
+\code{Surface/TotalCurvature.lean} file depends transitively on
+\texttt{Flow/}.  Two observations for anyone trying to reduce that dependency
+further.
+\begin{enumerate}[label=(\alph*)]
+\item Corollary~\ref{cor:sublevel-stable} is used only for the \emph{count} of
+  connected components, never for the retraction itself.  Its
+  \ref{it:retract-open} half already has a flow-free proof of surjectivity ---
+  a component $V$ of $\{h<b\}$ has $\min_{\overline V}h$ attained at an
+  interior point, hence at a critical point of value $<b$ --- and only
+  injectivity uses the flow.  If injectivity can be obtained without it,
+  \S\ref{sec:flow} would be needed only for
+  Lemma~\ref{lem:one-manifold}, whose sole use is to know that a connected
+  one-manifold has two ends.  I have verified neither step.
+\item On a level set $\Sigma_t=\{u=t\}$ of the capacitary potential the Gauss
+  map \emph{is} $-\nabla u/|\nabla u|$, which extends to the whole exterior
+  region, and by \eqref{eq:grad-u-expansion} it has degree one on a large
+  sphere.  A degree comparison between $\Sigma_t$ and that sphere would give
+  $\deg(n)\le1$ directly, retiring \S\ref{sec:morse} \emph{and}
+  \S\ref{sec:flow}.  The obstruction is that the critical set of a harmonic
+  function need not be discrete --- precisely the difficulty
+  Chapter~\ref{ch:appK} is designed to route around --- so the comparison
+  would have to be run with that set excised.  Whether that can be done is
+  open; do not plan on it.
+\end{enumerate}
+\S\ref{sec:transversality}, \S\ref{sec:tubular} and
+Theorem~\ref{thm:component-count} cannot be retired under any of these
+variants: Lemma~\ref{lem:hull-properties} and
+Lemma~\ref{lem:level-connected} use them independently of this chapter.
+\end{fnote}
+

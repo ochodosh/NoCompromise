@@ -1,0 +1,55 @@
+\chapter{The isoperimetric equality case}\label{ch:rigidity}
+\module{NoCompromise.Isoperimetric.Rigidity}
+
+\begin{theorem}[Isoperimetric rigidity]\label{thm:isoperimetric-rigidity}
+\uses{thm:sharp-isoperimetric,prop:no-singular-points}
+Let $E\subset\R^3$ have $0<|E|<\infty$, finite perimeter, and
+$\Per(E)=c_I|E|^{2/3}$.  Then $E$ is, up to a null set, a translate of a ball
+of volume $|E|$.  Conversely balls give equality.
+\end{theorem}
+
+\begin{proof}
+\uses{lem:penalization,lem:quasiminimal,prop:no-singular-points,
+      cor:iso-smooth-components,lem:concavity-23,lem:abp-neumann,
+      lem:abp-contact,thm:boundary-neumann,prop:iso-smooth,
+      lem:ball-perimeter}
+\emph{Step 1: $E$ is $\omega$-minimal.}  Equality makes $E$ a perimeter
+minimiser among sets of its volume.  Apply the proof of
+Lemma~\ref{lem:penalization} with the Coulomb term deleted --- i.e.\ with
+$\Ec$ replaced by $\Per$ --- which gives a finite volume-penalty constant, and
+then the proof of Lemma~\ref{lem:quasiminimal} with the Coulomb Lipschitz term
+deleted.  Thus the generic $\omega$-minimal regularity theory applies with no
+liquid-drop term built into it.
+
+\emph{Step 2: a bounded smooth representative.}
+Chapters~\ref{ch:density}--\ref{ch:no-singular} apply verbatim and give a
+bounded representative $\Omega$ with compact $C^{1,1/2}$ boundary; the
+bootstrap of \S\ref{sec:bootstrap} with $v_\Omega$ replaced by $0$ makes it
+$C^{3,\beta}$, which is all that Steps 3--5 need: the ABP chain of
+Proposition~\ref{prop:iso-smooth} and Corollary~\ref{cor:iso-smooth-components}
+uses only a $C^3$ boundary (see the formalisation note after
+Proposition~\ref{prop:iso-smooth}).  \emph{These chapters use only the inequality
+\eqref{eq:sharp-isoperimetric}, never this theorem.}
+
+\emph{Step 3: one component.}  Apply
+Corollary~\ref{cor:iso-smooth-components}; by
+Lemma~\ref{lem:concavity-23} equality leaves exactly one component.
+
+\emph{Step 4: equality in the ABP chain.}  In the chain of
+Proposition~\ref{prop:iso-smooth} every integrand inequality is nonnegative,
+so equality of the endpoints implies
+\begin{itemize}[nosep]
+\item $|\nabla z(\Gamma)\setminus B_1|=0$;
+\item $|G\setminus\Gamma|=0$, because $\Delta z/3>0$;
+\item $D^2z=(\Delta z/3)I$ a.e.\ on $G$, by equality in the
+  arithmetic--geometric mean inequality for a positive semidefinite matrix.
+\end{itemize}
+
+\emph{Step 5: conclude.}  Smoothness extends the Hessian identity everywhere,
+so $\nabla z(x)=\alpha x+b$ with $\alpha=\Per(E)/(3|E|)>0$.  The affine image
+$\nabla z(G)$ is open, contains $B_1$, and has the same volume as $B_1$; an
+open proper superset would have strictly larger volume, so
+$\nabla z(G)=B_1$ and $G=\alpha^{-1}(B_1-b)$ is a ball.  The converse is
+Lemma~\ref{lem:ball-perimeter} and a direct computation.
+\end{proof}
+

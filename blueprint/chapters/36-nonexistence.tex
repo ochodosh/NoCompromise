@@ -1,0 +1,191 @@
+\chapter{Nonexistence above the threshold}\label{ch:nonexistence}
+\module{NoCompromise.Nonexistence.Sharp,
+        NoCompromise.Nonexistence.Slicing}
+
+\section{The elementary bound $V\le8$}
+
+\begin{lemma}[Slicing inequality]\label{lem:slicing-inequality}
+\uses{def:minimizer,prop:cut-identities,cor:minimizer-stationary}
+Let $\Omega$ be a fixed-volume minimiser at volume $V>0$ with the bounded
+representative of Corollary~\ref{cor:minimizer-stationary}.  For
+$\nu\in\Sph^2$ and $\ell\in\R$ put
+\[
+  \Omega^\pm_{\nu,\ell}:=\Omega\cap\{x:\pm(\nu\cdot x-\ell)>0\} .
+\]
+Then for a.e.\ $\ell$,
+\begin{equation}\label{eq:slice-perimeter}
+  \Per(\Omega^+_{\nu,\ell})+\Per(\Omega^-_{\nu,\ell})-\Per(\Omega)
+  =2\Hs^2\bigl(\Omega\cap\{\nu\cdot x=\ell\}\bigr)
+\end{equation}
+and
+\begin{equation}\label{eq:slice-coulomb}
+  \iint_{\Omega^+_{\nu,\ell}\times\Omega^-_{\nu,\ell}}\frac{dx\,dy}{|x-y|}
+  \le2\Hs^2\bigl(\Omega\cap\{\nu\cdot x=\ell\}\bigr).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\uses{prop:cut-identities,lem:coulomb-disjoint,lem:cross-decay,def:minimizer,
+      cor:minimizer-stationary}
+For a.e.\ $\ell$ the plane is transverse to $\partial\Omega$, the two pieces
+have finite perimeter, the omitted planar slice has volume zero, and
+\eqref{eq:slice-perimeter} is the planar case of
+Proposition~\ref{prop:cut-identities}.
+
+Translate the two pieces far apart.  Their perimeters and self-interactions are
+unchanged, while their mutual interaction tends to zero
+(Lemma~\ref{lem:cross-decay}).  Minimality and passage to the translation limit
+give
+$\Ec(\Omega)\le\Ec(\Omega^+_{\nu,\ell})+\Ec(\Omega^-_{\nu,\ell})$; combining
+with \eqref{eq:slice-perimeter} and \eqref{eq:coulomb-disjoint} gives
+\eqref{eq:slice-coulomb}.
+\end{proof}
+
+\begin{lemma}[The two integral identities]\label{lem:slicing-integrals}
+For $x,y\in\R^3$ and $\nu\in\Sph^2$,
+\begin{equation}\label{eq:slice-ell-integral}
+  \int_\R\ind{\{\nu\cdot x>\ell>\nu\cdot y\}}\,d\ell=(\nu\cdot(x-y))_+ ,
+\end{equation}
+and for $a\ne0$,
+\begin{equation}\label{eq:slice-sphere-average}
+  \frac1{4\pi}\int_{\Sph^2}\frac{(\nu\cdot a)_+}{|a|}\,d\nu
+  =\frac1{4\pi}\int_0^{2\pi}\!\!\int_0^{\pi/2}\cos\theta\sin\theta\,d\theta\,d\varphi
+  =\frac14 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\eqref{eq:slice-ell-integral} is direct.  For
+\eqref{eq:slice-sphere-average} use rotational invariance to take
+$a=|a|e_3$ and compute in spherical coordinates.
+\end{proof}
+
+\begin{proposition}[The bound $V\le8$]\label{prop:V-le-8}
+\uses{lem:slicing-inequality,lem:slicing-integrals}
+If the fixed-volume problem has a minimiser at volume $V>0$, then $V\le8$.  In
+particular no minimiser exists for $V>8$.
+\end{proposition}
+
+\begin{proof}\uses{lem:slicing-inequality,lem:slicing-integrals}
+Integrate \eqref{eq:slice-coulomb} in $\ell$.  Tonelli applies because all
+integrands are nonnegative, and the value on the diagonal $x=y$ may be defined
+to be zero.  By \eqref{eq:slice-ell-integral} on the left and Cavalieri on the
+right,
+\begin{equation}\label{eq:slice-after-ell}
+  2V\ge\iint_{\Omega\times\Omega}\frac{(\nu\cdot(x-y))_+}{|x-y|}\,dx\,dy .
+\end{equation}
+Average over $\nu\in\Sph^2$ with normalised surface measure; a second
+application of Tonelli and \eqref{eq:slice-sphere-average} give
+$2V\ge\tfrac14|\Omega|^2=\tfrac14V^2$.  Since $V>0$, $V\le8$.
+\end{proof}
+
+\section{Sharp nonexistence for $V_*<V\le8$}
+
+\begin{notation}\label{not:L}
+\uses{def:threshold}
+$L:=q^{-2}(V+10)$, so that $2\Ec(B_{V/2})=\tfrac L5P_B(V)$ by
+Proposition~\ref{prop:two-ball}.
+\end{notation}
+
+\begin{lemma}[Two-ball comparison]\label{lem:two-ball-comparison}
+\uses{not:L,not:z-delta,prop:two-ball}
+Let $\Omega$ be a fixed-volume minimiser at volume $0<V\le8$, with $z,\delta$
+as in Notation~\ref{not:z-delta} and multiplier $\lambda$.  Then
+\begin{equation}\label{eq:two-ball-lambda}
+  \lambda\sqrt{\frac{\Per(\Omega)}{4\pi}}\le\bigl(L-3z^2\bigr)z ,
+\end{equation}
+and
+\begin{equation}\label{eq:z-small}
+  z^2\le\frac L5<q^4,
+  \qquad\text{hence}\qquad
+  z<q^2\ \text{ and }\ q^{-2}z<1 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\uses{prop:two-ball,prop:scaling-identity,lem:ledger-L5,lem:cross-decay,
+      lem:locality,def:minimizer,lem:ball-perimeter,lem:one-ball-upper}
+Place two balls of volume $V/2$ at distance tending to infinity.  Their
+cross-interaction tends to zero (Lemma~\ref{lem:cross-decay}) and their
+perimeters add (Lemma~\ref{lem:locality}), so minimality gives
+$\Ec(\Omega)\le2\Ec(B_{V/2})=\tfrac L5P_B$
+(Proposition~\ref{prop:two-ball}).  Substituting into the scaling identity
+exactly as in Lemma~\ref{lem:one-ball-upper} gives
+\eqref{eq:two-ball-lambda}.  Also
+\[
+  z^2=\frac{\Per(\Omega)}{P_B}\le\frac{\Ec(\Omega)}{P_B}\le\frac L5 ,
+\]
+and $L/5<q^4$ is Lemma~\ref{lem:ledger-L5}.
+\end{proof}
+
+\begin{proposition}[Nonexistence for $V_*<V\le6$]\label{prop:nonexistence-6}
+\uses{lem:two-ball-comparison,prop:cap-estimate}
+No fixed-volume minimiser exists at a volume $V$ with $V_*<V\le6$.
+\end{proposition}
+
+\begin{proof}
+\uses{lem:two-ball-comparison,prop:cap-estimate,lem:Vstar-identity,
+      lem:ledger-oneball,lem:Vstar-bounds,cor:minimizer-stationary}
+Suppose $\Omega$ minimises at such a $V$.  Using
+\eqref{eq:Vstar-identity} in the form $q^{-2}(V_*+10)=V_*+5$, the algebraic
+identity
+\begin{equation}\label{eq:nonexistence-identity}
+  V+2-\bigl(L-3z^2\bigr)z
+  =\delta\bigl(4-V_*+9\delta+3\delta^2\bigr)
+   +(V-V_*)\bigl(1-q^{-2}z\bigr)
+\end{equation}
+holds.  Its first term is nonnegative because $V_*<4$
+(Lemma~\ref{lem:Vstar-bounds}) and $\delta\ge0$; its second is strictly
+positive because $V>V_*$ and $q^{-2}z<1$ by \eqref{eq:z-small}.  Hence
+$(L-3z^2)z<V+2$, so \eqref{eq:two-ball-lambda} gives
+$\lambda\sqrt{\Per(\Omega)/4\pi}<V+2$.  But
+$V\le6$ and Proposition~\ref{prop:cap-estimate} give
+$\lambda\sqrt{\Per(\Omega)/4\pi}\ge V+2$, a contradiction.
+\end{proof}
+
+\begin{fnote}[Verify \eqref{eq:nonexistence-identity} symbolically]
+\label{fnote:verify-nonexistence-identity}
+\eqref{eq:nonexistence-identity} is the sharp point of the whole argument: it
+is where $V_*$ is used as the exact threshold rather than as an approximate
+one.  Expand both sides in $\delta$ and $V$, substituting
+$L=q^{-2}(V+10)$ and using $q^3=2$ only through
+\eqref{eq:Vstar-identity}.  It should be discharged by normalisation, not by a
+chain of inequalities.  Compare Lemma~\ref{lem:ledger-oneball}, which is its
+$V=V_*$ specialisation.
+\end{fnote}
+
+\begin{proposition}[Nonexistence for $6<V\le8$]\label{prop:nonexistence-8}
+\uses{lem:two-ball-comparison,prop:cap-estimate,lem:ledger-cubic,lem:ledger-h}
+No fixed-volume minimiser exists at a volume $V$ with $6<V\le8$.
+\end{proposition}
+
+\begin{proof}
+\uses{lem:two-ball-comparison,prop:cap-estimate,lem:ledger-cubic,lem:ledger-h,
+      def:threshold}
+Suppose $\Omega$ minimises at such a $V$.  By
+Lemma~\ref{lem:ledger-cubic} with $x=z$,
+$Lz-3z^3\le\tfrac29L^{3/2}$, and since $L=(V+10)/q^2$ with $q^3=2$,
+\begin{equation}\label{eq:cubic-value}
+  \frac{2L^{3/2}}9=\frac{(V+10)^{3/2}}9 .
+\end{equation}
+So \eqref{eq:two-ball-lambda} gives
+\begin{equation}\label{eq:cubic-upper}
+  \lambda\sqrt{\frac{\Per(\Omega)}{4\pi}}\le\frac{(V+10)^{3/2}}9 .
+\end{equation}
+We claim $\tfrac{(V+10)^{3/2}}9<4\sqrt{V-2}$ for $6<V\le8$.  Both sides are
+positive, so it suffices to prove $(V+10)^3/(V-2)<1296$, which is
+Lemma~\ref{lem:ledger-h}.  But Proposition~\ref{prop:cap-estimate} with
+$V\ge6$ gives the contradictory lower bound
+$\lambda\sqrt{\Per(\Omega)/4\pi}\ge4\sqrt{V-2}$.
+\end{proof}
+
+\begin{corollary}[Nonexistence above the threshold]\label{cor:nonexistence}
+\uses{prop:V-le-8,prop:nonexistence-6,prop:nonexistence-8}
+No fixed-volume minimiser exists at any volume $V>V_*$.
+\end{corollary}
+
+\begin{proof}\uses{prop:V-le-8,prop:nonexistence-6,prop:nonexistence-8}
+Propositions~\ref{prop:nonexistence-6} and \ref{prop:nonexistence-8} cover
+$V_*<V\le8$; Proposition~\ref{prop:V-le-8} covers $V>8$.
+\end{proof}
+

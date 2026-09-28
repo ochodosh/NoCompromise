@@ -1,0 +1,81 @@
+% ----------------------------------------------------------------------------
+\chapter{Smooth approximation of finite-perimeter sets}\label{ch:smooth-approx}
+\module{NoCompromise.BV.SmoothApprox}
+
+\begin{theorem}[Smooth bounded approximation with exact volume]
+\label{thm:smooth-approx}
+\uses{def:perimeter,thm:sard-3d}
+Let $E\subset\R^3$ have finite positive volume and finite perimeter.  There
+are bounded open sets $\widetilde E_j$ with smooth boundary such that
+\[
+  |\widetilde E_j|=|E|,
+  \qquad
+  \ind{\widetilde E_j}\to\ind E\ \text{in }L^1(\R^3),
+  \qquad
+  \Per(\widetilde E_j)\to\Per(E).
+\]
+\end{theorem}
+
+\begin{proof}
+\uses{lem:good-truncation,lem:strict-approx,thm:bv-coarea,thm:sard-3d,
+      lem:lsc,lem:perimeter-invariances}
+\emph{Step 1: truncate.}  Lemma~\ref{lem:good-truncation} supplies good radii
+$R_j\uparrow\infty$ with $|E\setminus B_{R_j}|\to0$ and
+$\Per(E\cap B_{R_j})\to\Per(E)$.  Put $F_j:=E\cap B_{R_j}$.
+
+\emph{Step 2: mollify and choose a level.}  Put
+$u_j:=\rho_{\varepsilon_j}*\ind{F_j}$.  For each $j$, choose
+$\varepsilon_j>0$ so small that convolution changes $\ind{F_j}$ in $L^1$ by
+at most $j^{-1}$ and changes its total variation by at most $j^{-1}$.
+The strict-approximation argument (Theorem~\ref{lem:strict-approx}), together
+with the convergence of $F_j$, then gives
+\begin{equation}\label{eq:smooth-approx-strict}
+  u_j\to\ind E\ \text{in }L^1,\qquad\int|\nabla u_j|\to\Per(E).
+\end{equation}
+For fixed $0<a<b<1$, layer cake and Fubini give
+$\int_a^b|\{u_j>t\}\triangle E|\,dt\to0$, while
+Theorem~\ref{thm:bv-coarea} gives
+$\int_a^b\Per(\{u_j>t\})\,dt\le\int|\nabla u_j|$.  Choose $a_j\downarrow0$,
+$b_j\uparrow1$ and then a common $t_j\in(a_j,b_j)$ for which the symmetric
+difference tends to zero and the perimeter $\limsup$ is at most $\Per(E)$;
+Lemma~\ref{lem:lsc} makes the perimeters converge.  By
+Theorem~\ref{thm:sard-3d}, $t_j$ may simultaneously be chosen a regular value
+of $u_j$, so $E_j:=\{u_j>t_j\}$ has smooth boundary.
+
+\emph{Step 3: correct the volume.}  Put
+$\lambda_j:=(|E|/|E_j|)^{1/3}\to1$ and
+$\widetilde E_j:=\lambda_jE_j$.  Then $|\widetilde E_j|=|E|$ and
+$\Per(\widetilde E_j)=\lambda_j^2\Per(E_j)\to\Per(E)$ by
+Lemma~\ref{lem:perimeter-invariances}\ref{it:per-dil}.  The required $L^1$
+convergence after dilation is not inferred from boundedness of the individual
+$E_j$: explicitly,
+\[
+ \|\ind{\lambda_jE_j}-\ind E\|_1
+ \le \lambda_j^3\|\ind{E_j}-\ind E\|_1
+      +\|\ind E(\,\cdot/\lambda_j)-\ind E\|_1\longrightarrow0,
+\]
+where the last term tends to zero by strong continuity of dilations on
+$L^1(\R^3)$, proved first for compactly supported continuous functions and
+then by density.
+\end{proof}
+
+\begin{corollary}[Energy convergence]\label{cor:smooth-approx-energy}
+\uses{thm:smooth-approx,lem:coulomb-lipschitz,lem:coulomb-scaling}
+With $\widetilde E_j$ as in Theorem~\ref{thm:smooth-approx},
+$D(\widetilde E_j)\to D(E)$ and hence
+$\Ec(\widetilde E_j)\to\Ec(E)$.
+\end{corollary}
+
+\begin{proof}\uses{lem:coulomb-lipschitz,lem:coulomb-scaling}
+The $L^1$-Lipschitz estimate \eqref{eq:coulomb-lipschitz} and the Coulomb
+scaling \eqref{eq:scaling}.
+\end{proof}
+
+\noindent\emph{Off the critical path:}
+Theorem~\ref{thm:sharp-isoperimetric}, the only consumer of
+Theorem~\ref{thm:smooth-approx}, needs volume and perimeter convergence only.
+The preceding corollary is recorded because it is the natural companion of
+Lemma~\ref{lem:bounded-approx}, which proves the same energy convergence for
+the bounded truncation.  A formalisation may skip it; see Formalisation
+note~\ref{fnote:off-critical-path}.
+

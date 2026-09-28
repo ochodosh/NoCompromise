@@ -1,0 +1,122 @@
+% ----------------------------------------------------------------------------
+\chapter{The value function}\label{ch:value}
+\module{NoCompromise.Value.BoundedApprox,
+        NoCompromise.Value.Continuity,
+        NoCompromise.Value.Defs}
+
+\section{Bounded approximation at fixed volume}
+
+\begin{lemma}[Bounded approximation]\label{lem:bounded-approx}
+\uses{def:energy}
+Let $E$ have finite positive volume and finite perimeter.  There are bounded
+finite-perimeter sets $E_n$ with
+\[
+  |E_n|=|E|,\qquad\Per(E_n)\to\Per(E),\qquad D(E_n)\to D(E).
+\]
+\end{lemma}
+
+\begin{proof}
+\uses{lem:good-truncation,lem:coulomb-lipschitz,lem:coulomb-scaling}
+\emph{Steps 1--2: truncate.}  Lemma~\ref{lem:good-truncation} supplies good
+radii $R_n\uparrow\infty$ with $|E\cap B_{R_n}|\to|E|$ and
+$\Per(E\cap B_{R_n})\to\Per(E)$.
+
+\emph{Step 3: Coulomb converges.}  Monotone convergence applied to the
+positive kernel, or \eqref{eq:coulomb-lipschitz}, gives
+$D(E\cap B_{R_n})\to D(E)$.
+
+\emph{Step 4: correct the volume.}  Put
+$b_n:=\bigl(|E|/|E\cap B_{R_n}|\bigr)^{1/3}\to1$ and
+$E_n:=b_n(E\cap B_{R_n})$.  Then $|E_n|=|E|$ and, by
+\eqref{eq:scaling}, $\Per(E_n)=b_n^2\Per(E\cap B_{R_n})\to\Per(E)$ and
+$D(E_n)=b_n^5D(E\cap B_{R_n})\to D(E)$.
+\end{proof}
+
+\section{The value function and its properties}
+
+\begin{definition}[Value function]\label{def:value}
+\uses{def:energy}
+For $V>0$ put $m(V):=\inf\{\Ec(E):|E|=V\}$.
+\end{definition}
+
+\begin{lemma}[$m$ is finite and positive]\label{lem:m-finite}
+\uses{def:value}
+$0<m(V)\le\Ec(B_V)<\infty$ for every $V>0$.
+\end{lemma}
+
+\begin{proof}\uses{cor:ball-energy,thm:sharp-isoperimetric}
+The ball gives the upper bound (Corollary~\ref{cor:ball-energy}); the
+isoperimetric inequality \eqref{eq:sharp-isoperimetric} gives
+$m(V)\ge c_IV^{2/3}>0$.
+\end{proof}
+
+\begin{lemma}[Subadditivity]\label{lem:subadditivity}
+\uses{def:value}
+For $V_1,V_2>0$, $m(V_1+V_2)\le m(V_1)+m(V_2)$.
+\end{lemma}
+
+\begin{proof}
+\uses{lem:bounded-approx,lem:locality,lem:coulomb-disjoint,lem:cross-decay}
+Given $\varepsilon>0$, use Lemma~\ref{lem:bounded-approx} to choose
+\emph{bounded} exact-volume competitors $E_i$ with
+$\Ec(E_i)\le m(V_i)+\varepsilon$.  Translate $E_2$ by $te$ for a unit vector
+$e$.  For large $t$ the two sets are disjoint at positive distance, so
+Lemma~\ref{lem:locality} gives $\Per(E_1\cup(E_2+te))=\Per(E_1)+\Per(E_2)$,
+while \eqref{eq:coulomb-disjoint} and \eqref{eq:cross-decay} give
+$0\le I(E_1,E_2+te)\to0$.  Hence
+$m(V_1+V_2)\le m(V_1)+m(V_2)+2\varepsilon$; let
+$\varepsilon\downarrow0$.
+\end{proof}
+
+\begin{fnote}[Off the critical path]\label{fnote:subadditivity-unused}
+Lemma~\ref{lem:subadditivity} is \emph{not used} anywhere below: continuity of
+$m$ comes from concavity (Lemma~\ref{lem:m-concave}), and existence comes from
+strict binding (Proposition~\ref{prop:strict-binding}).  It is recorded because
+it is the standard companion to Lemma~\ref{lem:m-concave}, and because its
+proof is the template for the disjoint-translation argument reused in
+Lemma~\ref{lem:two-ball-comparison} and Proposition~\ref{prop:connected}.
+
+Consequently Lemma~\ref{lem:bounded-approx}, whose only consumer is
+Lemma~\ref{lem:subadditivity}, is off the critical path as well.  This is
+\emph{not} true of the truncation step inside it: that step is needed by
+Theorem~\ref{thm:smooth-approx} and has been factored out as
+Lemma~\ref{lem:good-truncation}, which \emph{is} on the critical path.  What
+Lemma~\ref{lem:bounded-approx} adds beyond
+Lemma~\ref{lem:good-truncation} --- exact volume correction and convergence of
+the Coulomb term --- is what nothing needs.  See Formalisation
+note~\ref{fnote:off-critical-path}.
+\end{fnote}
+
+\begin{lemma}[Normalised concavity]\label{lem:m-concave}
+\uses{def:value}
+The function
+\begin{equation}\label{eq:m-normalised}
+  V\longmapsto V^{-2/3}m(V)=\inf_{|U|=1}\bigl(\Per(U)+V\,D(U)\bigr)
+\end{equation}
+is concave and finite on $(0,\infty)$.
+\end{lemma}
+
+\begin{proof}\uses{lem:coulomb-scaling,lem:m-finite}
+Rescale a set of volume $V$ to volume one using \eqref{eq:scaling}: this
+gives the displayed identity.  The right side is an infimum of affine
+functions of $V$, hence concave; it is finite by
+Lemma~\ref{lem:m-finite}.
+\end{proof}
+
+\begin{proposition}[Continuity of $m$]\label{prop:m-continuous}
+\uses{lem:m-concave}
+$m:(0,\infty)\to(0,\infty)$ is continuous.
+\end{proposition}
+
+\begin{proof}\uses{lem:m-concave}
+A concave function finite on an open interval is continuous there; multiply
+\eqref{eq:m-normalised} by $V^{2/3}$.
+\end{proof}
+
+\begin{fnote}\label{fnote:why-continuity}
+Proposition~\ref{prop:m-continuous} is what lets
+Chapter~\ref{ch:endpoint} obtain existence at $V=V_*$ without formalising the
+separate theorem that the set of admissible masses is closed.  It is also used
+in Proposition~\ref{prop:existence-subcritical}.
+\end{fnote}
+

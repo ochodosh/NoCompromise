@@ -1,0 +1,335 @@
+\chapter{The Euler--Lagrange equation and the smooth bootstrap}
+\label{ch:euler-lagrange}
+\module{NoCompromise.Energy.PotentialHolder,
+        NoCompromise.Stationary.Bootstrap,
+        NoCompromise.Stationary.Connected,
+        NoCompromise.Stationary.Defs,
+        NoCompromise.Stationary.EulerLagrange,
+        NoCompromise.Stationary.MinimizerContext,
+        NoCompromise.Stationary.ScalingIdentity,
+        NoCompromise.Variation.CoulombBoundary}
+
+\begin{notation}\label{not:minimizer-rep}
+\uses{def:minimizer,conv:representative,prop:no-singular-points}
+For the rest of Part~\ref{part:regularity}, $E$ is a fixed-volume minimiser at
+volume $V>0$ and $\Omega:=E^{(1)}$ is its bounded open representative with
+compact $C^{1,1/2}$ boundary, as produced by
+Lemmas~\ref{lem:quasiminimal}, \ref{lem:bounded-representative} and
+Proposition~\ref{prop:no-singular-points}.  $\nu$ denotes the continuous
+outward normal (Convention~\ref{conv:outward}).
+\end{notation}
+
+\section{The nonlocal first variation}
+
+\begin{lemma}[First variation of the Coulomb energy]\label{lem:coulomb-first-var}
+\uses{not:minimizer-rep,def:coulomb,def:straight}
+Let $\Omega$ be a bounded $C^1$ domain and $X\in C^\infty_c(\R^3;\R^3)$.  Then
+\begin{equation}\label{eq:coulomb-first-var}
+  \frac{d}{dt}\Big|_{t=0}D\bigl(F^X_t(\Omega)\bigr)
+  =\int_{\partial\Omega}v_\Omega\,X\cdot\nu\,d\Hs^2 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\uses{cor:W11-GG-uses,lem:straight-diffeo,def:coulomb,lem:straight-cofactor}
+Pull both integrations back to $\Omega$:
+\[
+  D\bigl(F^X_t(\Omega)\bigr)
+  =\frac12\iint_{\Omega\times\Omega}
+   \frac{JF^X_t(x)\,JF^X_t(y)}{|F^X_t(x)-F^X_t(y)|}\,dx\,dy .
+\]
+Differentiating the Jacobians and the kernel gives an integrand bounded by
+\[
+  C\Bigl(\frac1{|x-y|}+\frac{|X(x)-X(y)|}{|x-y|^2}\Bigr)
+  \le\frac{C'}{|x-y|},
+\]
+since $X$ is Lipschitz; this majorant is integrable on the bounded product
+$\Omega\times\Omega$.  Dominated convergence and exchange of $x,y$ yield
+\begin{equation}\label{eq:coulomb-first-var-steps}
+\begin{aligned}
+  \frac{d}{dt}\Big|_0D\bigl(F^X_t(\Omega)\bigr)
+  &=\iint_{\Omega\times\Omega}
+    \Bigl(\frac{\dvg X(x)}{|x-y|}-\frac{(x-y)\cdot X(x)}{|x-y|^3}\Bigr)dx\,dy\\
+  &=\iint_{\Omega\times\Omega}
+    \dvg_x\Bigl(\frac{X(x)}{|x-y|}\Bigr)dx\,dy .
+\end{aligned}
+\end{equation}
+For the last step, fix $y\in\Omega$ outside a null set and apply
+Corollary~\ref{cor:W11-GG-uses}\ref{it:W11-kernel} to
+$W_y(x):=X(x)/|x-y|$, obtaining \eqref{eq:W11-GG-application}.  Both sides of
+\eqref{eq:W11-GG-application} are integrable in $y$: the volume integrand is
+bounded by $C(|x-y|^{-1}+|x-y|^{-2})$ and the boundary kernel is integrable on
+$\partial\Omega\times\Omega$ in local graph coordinates.  Fubini gives
+\eqref{eq:coulomb-first-var}.
+\end{proof}
+
+\begin{fnote}\label{fnote:C1-suffices}
+The boundary is only $C^{1,1/2}$ at this stage, so the proof must not use a
+smooth tubular normal graph.  Straight ambient perturbations
+(Definition~\ref{def:straight}) suffice, and
+Corollary~\ref{cor:W11-GG-uses} is stated for $C^1$ domains for exactly this
+reason.
+\end{fnote}
+
+\begin{theorem}[Constrained first variation]\label{thm:constrained-first-var}
+\uses{not:minimizer-rep,lem:coulomb-first-var,cor:W11-GG-uses}
+There is $\lambda\in\R$ such that for every $X\in C^\infty_c(\R^3;\R^3)$,
+\begin{equation}\label{eq:weak-EL}
+  \int_{\partial\Omega}\dvgt X\,d\Hs^2
+  =\int_{\partial\Omega}(\lambda-v_\Omega)\,X\cdot\nu\,d\Hs^2 .
+\end{equation}
+Explicitly, with
+\[
+  A(X):=\int_{\partial\Omega}\bigl(\dvgt X+v_\Omega X\cdot\nu\bigr),
+  \qquad
+  B(X):=\int_{\partial\Omega}X\cdot\nu ,
+\]
+one has $A(X)=\lambda B(X)$ with $\lambda=A(Y)/B(Y)$ for any $Y$ as below.
+\end{theorem}
+
+\begin{proof}
+\uses{thm:first-var-perimeter,thm:first-var-volume,lem:coulomb-first-var,
+      cor:W11-GG-uses,def:minimizer,lem:straight-diffeo}
+Choose a compactly supported smooth field $Y$ equal to $x$ on a neighbourhood
+of $\overline\Omega$.  By
+Corollary~\ref{cor:W11-GG-uses}\ref{it:W11-3V},
+\begin{equation}\label{eq:BY}
+  B(Y)=\int_{\partial\Omega}Y\cdot\nu=3V\ne0 .
+\end{equation}
+For a given $X$ consider $E_{t,s}:=F^Y_s(F^X_t(\Omega))$.  By
+Theorem~\ref{thm:first-var-volume} its volume is $C^1$ in $(t,s)$ with nonzero
+$s$-derivative at the origin, so the implicit function theorem
+\ref{base:calculus} gives a $C^1$ function $s=s(t)$ with $s(0)=0$ and
+$|E_{t,s(t)}|=V$.  Differentiating minimality at $t=0$ and eliminating
+$s'(0)$ gives $A(X)-\lambda B(X)=0$ with $\lambda:=A(Y)/B(Y)$; using
+Theorems~\ref{thm:first-var-perimeter}, \ref{thm:first-var-volume} and
+Lemma~\ref{lem:coulomb-first-var} to identify $A$ and $B$ gives
+\eqref{eq:weak-EL}.
+\end{proof}
+
+\begin{remark}\label{rem:no-collar}
+In a graph chart, vertical test fields reduce \eqref{eq:weak-EL} to the weak
+prescribed-mean-curvature equation \eqref{eq:graph-PMC} below.  No smooth
+collar is required at any point.
+\end{remark}
+
+\section{Regularity of the Newtonian potential}
+
+\begin{lemma}[$C^{1,\beta}$ regularity of $v_\Omega$]\label{lem:potential-C1beta}
+\uses{def:coulomb}
+For bounded measurable $\Omega\subset\R^3$,
+\begin{equation}\label{eq:potential-C1beta}
+  v_\Omega\in C^{1,\beta}(\R^3)\qquad\text{for every }\beta<1 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{def:coulomb}
+Differentiation under the integral is valid because $|x-y|^{-2}$ is locally
+integrable:
+\[
+  \nabla v_\Omega(x)=-\int_\Omega\frac{x-y}{|x-y|^3}\,dy .
+\]
+Continuity follows by splitting the integral into a small ball and its
+complement.  For the H\"older estimate let $h:=|x-z|<1/4$.  On
+$B_{2h}(x)\cup B_{2h}(z)$ the integral of either gradient kernel is $O(h)$.
+On the complement, the mean value theorem for $K(\xi):=\xi/|\xi|^3$ gives
+$|K(x-y)-K(z-y)|\le Ch|x-y|^{-3}$, and since $\Omega$ is bounded, integrating
+over dyadic annuli gives
+\begin{equation}\label{eq:potential-log}
+  |\nabla v_\Omega(x)-\nabla v_\Omega(z)|\le Ch(1+|\log h|).
+\end{equation}
+For every $\beta<1$, $h(1+|\log h|)\le C_\beta h^\beta$.
+\end{proof}
+
+\begin{fnote}[No Calder\'on--Zygmund]\label{fnote:no-CZ}
+No second-derivative $L^p$ theorem is needed anywhere.
+Lemma~\ref{lem:potential-C1beta} is proved directly, and
+\S\ref{sec:green} uses tubular cutoffs rather than a Calder\'on--Zygmund
+estimate.  Note also the logarithm in \eqref{eq:potential-log}: $v_\Omega$ is
+\emph{not} claimed to be $C^{1,1}$, and no later step requires it.
+\end{fnote}
+
+\section{The smooth bootstrap}\label{sec:bootstrap}
+
+\begin{lemma}[The graph equation]\label{lem:graph-PMC}
+\uses{thm:constrained-first-var,not:minimizer-rep}
+In a graph chart $x_3=f(x')$ over a planar disk, \eqref{eq:weak-EL} implies
+the weak equation
+\begin{equation}\label{eq:graph-PMC}
+  \dvg\Bigl(\frac{\nabla f}{\sqrt{1+|\nabla f|^2}}\Bigr)
+  =\pm\bigl(\lambda-v_\Omega(x',f(x'))\bigr),
+\end{equation}
+where the sign depends only on which side of the chart is $\Omega$.  Only
+this direction is used later.
+\end{lemma}
+
+\begin{proof}\uses{thm:constrained-first-var,cor:graph-area}
+Use a vertical field $X=\zeta(x')\eta(x_3)e_3$ with $\eta\equiv1$ near the
+graph.  Writing $Q:=\sqrt{1+|\nabla f|^2}$, direct differentiation gives
+$\dvgt X=(\nabla f\cdot\nabla\zeta)/Q^2$, while
+$d\Hs^2=Q\,dx'$ and $X\cdot\nu\,d\Hs^2=\pm\zeta\,dx'$.  Substitution in
+\eqref{eq:weak-EL} and planar integration by parts give
+\eqref{eq:graph-PMC}.
+\end{proof}
+
+\begin{lemma}[Uniform ellipticity of the mean-curvature operator]
+\label{lem:mc-elliptic}
+For
+\[
+  a_{ij}(p):=\frac{\delta_{ij}}{\sqrt{1+|p|^2}}-\frac{p_ip_j}{(1+|p|^2)^{3/2}}
+\]
+and $|p|\le M$, the matrix $(a_{ij}(p))$ is uniformly elliptic with constants
+depending only on $M$, and $p\mapsto a_{ij}(p)$ is smooth.
+\end{lemma}
+
+\begin{proof}
+Diagonalise in the frame $\{p/|p|\}\cup p^\perp$: the eigenvalues are
+$(1+|p|^2)^{-3/2}$ and $(1+|p|^2)^{-1/2}$.
+\end{proof}
+
+\begin{proposition}[$C^{2,\beta}$ from the quasilinear Schauder lemma]
+\label{prop:bootstrap-C2}
+\uses{lem:graph-PMC,thm:quasilinear-schauder,lem:potential-C1beta}
+With $f$ as in Lemma~\ref{lem:graph-PMC} and $f\in C^{1,1/2}$, one has
+$f\in C^{2,1/2}$; and then $f\in C^{2,\beta}$ for every $\beta<1$.
+\end{proposition}
+
+\begin{proof}
+\uses{thm:quasilinear-schauder,lem:mc-elliptic,lem:potential-C1beta,
+      thm:eps-regularity}
+The $C^{1,1/2}$ regularity from Theorem~\ref{thm:eps-regularity} makes
+$a_{ij}(\nabla f)$ uniformly elliptic with $C^{0,1/2}$ coefficients
+(Lemma~\ref{lem:mc-elliptic}), and the right side of \eqref{eq:graph-PMC} is
+$C^{0,1/2}$ by Lemma~\ref{lem:potential-C1beta}.  Apply
+Theorem~\ref{thm:quasilinear-schauder} with $\alpha=1/2$ to get
+$f\in C^{2,1/2}$.  For its full-norm estimate, $\|f\|_\infty$ is finite on
+the fixed smaller graph chart; it is retained as an input, while the
+derivative estimate is independent of an additive height constant.
+Then $\nabla f$ is Lipschitz and
+$v_\Omega\in C^{1,\beta}$, so the coefficients and the right side are
+$C^{0,\beta}$ for every $\beta<1$; reapplying
+Theorem~\ref{thm:quasilinear-schauder} gives $f\in C^{2,\beta}$.
+\end{proof}
+
+\begin{proposition}[The last derivative]\label{prop:bootstrap-C3}
+\uses{prop:bootstrap-C2,thm:nondiv-schauder}
+With $f$ as in Proposition~\ref{prop:bootstrap-C2}, $f\in C^{3,\beta}$ for
+every $\beta<1$.  Consequently
+\begin{equation}\label{eq:C3-boundary}
+  \partial\Omega\in C^{3,\beta}\qquad\text{for every }\beta<1 .
+\end{equation}
+\end{proposition}
+
+\begin{proof}\uses{prop:bootstrap-C2,thm:nondiv-schauder,lem:potential-C1beta}
+One more derivative requires a separate line of argument: the divergence-form
+estimate alone does not automatically add it.  Put
+\[
+  a_{ij}(x):=D_jA_i(\nabla f(x)),
+  \qquad
+  g(x):=\pm\bigl(\lambda-v_\Omega(x,f(x))\bigr),
+\]
+where $A_i(p):=p_i/\sqrt{1+|p|^2}$.  Then $a_{ij}\in C^{1,\beta}$ and
+$g\in C^{1,\beta}$ by Propositions~\ref{prop:bootstrap-C2} and
+Lemma~\ref{lem:potential-C1beta}, and for $w_k:=\partial_kf$,
+differentiating the weak equation gives
+\begin{equation}\label{eq:bootstrap-div}
+  \partial_i\bigl(a_{ij}\partial_jw_k\bigr)=\partial_kg .
+\end{equation}
+Expanding the divergence --- legitimate now because $a\in C^{1,\beta}$ and
+$w_k\in C^{1,\beta}$ --- yields the nondivergence equation
+\begin{equation}\label{eq:bootstrap-nondiv}
+  a_{ij}\partial_{ij}w_k=\partial_kg-(\partial_ia_{ij})\partial_jw_k ,
+\end{equation}
+whose right side is $C^{0,\beta}$.  Theorem~\ref{thm:nondiv-schauder},
+including its harmless bounded first-order term, gives
+$w_k\in C^{2,\beta}$.
+\end{proof}
+
+\begin{corollary}[Pointwise Euler--Lagrange equation]\label{cor:EL-pointwise}
+\uses{prop:bootstrap-C3,conv:curvature}
+On $\partial\Omega$,
+\begin{equation}\label{eq:EL-pointwise}
+  H+v_\Omega=\lambda .
+\end{equation}
+\end{corollary}
+
+\begin{proof}\uses{prop:bootstrap-C3,lem:graph-PMC,conv:curvature}
+By \eqref{eq:C3-boundary} the weak equation \eqref{eq:graph-PMC} may be
+expanded pointwise, and the left side is $H$ in the sign convention of
+Convention~\ref{conv:curvature}.
+\end{proof}
+
+\section{Connectedness and the scaling identity}
+
+\begin{proposition}[Connectedness]\label{prop:connected}
+\uses{not:minimizer-rep,prop:no-singular-points}
+$\Omega$ is connected.
+\end{proposition}
+
+\begin{proof}
+\uses{prop:no-singular-points,lem:locality,lem:coulomb-disjoint,
+      lem:cross-decay,def:minimizer}
+The compact smooth boundary has finitely many components
+(Proposition~\ref{prop:no-singular-points}), so the bounded open set $\Omega$
+has finitely many connected components.  If $\Omega$ were disconnected, write
+$\Omega=A\mathbin{\dot\cup}B$ with $A,B$ nonempty unions of components.  Their
+closures are disjoint: a common boundary point would have a graph neighbourhood
+in which the interior side is connected, forcing the two components to
+coincide.  Compactness then gives positive separation.
+
+Translate $B$ by $te$.  For all large $t$, Lemma~\ref{lem:locality} gives
+$\Per(A\cup(B+te))=\Per(A)+\Per(B)=\Per(\Omega)$, and the two
+self-interactions are unchanged.  The original energy contains the strictly
+positive cross-term $I(A,B)$ (Lemma~\ref{lem:coulomb-disjoint}), while
+$I(A,B+te)\to0$ (Lemma~\ref{lem:cross-decay}).  A large translation is
+therefore a same-volume competitor of strictly lower energy, contradicting
+Definition~\ref{def:minimizer}.
+\end{proof}
+
+\begin{proposition}[Scaling identity for the multiplier]\label{prop:scaling-identity}
+\uses{thm:constrained-first-var,lem:coulomb-scaling}
+\begin{equation}\label{eq:scaling-identity}
+  3V\lambda=2\Per(\Omega)+5D(\Omega)
+  =5\Ec(\Omega)-3\Per(\Omega).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+\uses{thm:constrained-first-var,lem:coulomb-scaling,thm:first-var-perimeter,
+      thm:first-var-volume,lem:coulomb-first-var}
+Choose a compactly supported smooth field $X$ equal to $x$ on a neighbourhood
+of the bounded set $\overline\Omega$; the compact cutoff is needed because $x$
+itself is not compactly supported.  Its straight perturbation
+$x\mapsto x+tX(x)$ agrees there exactly with dilation by $1+t$.  By
+\eqref{eq:scaling},
+$\Per(r\Omega)=r^2\Per(\Omega)$, $D(r\Omega)=r^5D(\Omega)$ and
+$|r\Omega|=r^3V$, so stationarity of $\Ec-\lambda|\cdot|$ at $r=1$ ---
+i.e.\ \eqref{eq:weak-EL} with this $X$ --- gives
+$2\Per(\Omega)+5D(\Omega)=3V\lambda$.  The second form follows from
+$\Ec=\Per+D$.
+\end{proof}
+
+\begin{definition}[Stationary domain]\label{def:stationary}
+\uses{conv:curvature,def:coulomb}
+A \emph{stationary domain of volume $V$ with multiplier $\lambda$} is a
+bounded connected open $\Omega\subset\R^3$ with $|\Omega|=V$, boundary of
+class $C^3$, satisfying \eqref{eq:EL-pointwise} pointwise on
+$\partial\Omega$.
+\end{definition}
+
+\begin{corollary}[Minimisers are stationary]\label{cor:minimizer-stationary}
+\uses{def:stationary,prop:scaling-identity}
+Every fixed-volume minimiser at volume $V>0$ has a representative which is a
+stationary domain of volume $V$, and it satisfies
+\eqref{eq:scaling-identity}.
+\end{corollary}
+
+\begin{proof}
+\uses{prop:no-singular-points,prop:bootstrap-C3,cor:EL-pointwise,
+      prop:connected,prop:scaling-identity,lem:bounded-representative}
+Collect Lemma~\ref{lem:bounded-representative},
+Propositions~\ref{prop:no-singular-points}, \ref{prop:bootstrap-C3},
+\ref{prop:connected}, Corollary~\ref{cor:EL-pointwise} and
+Proposition~\ref{prop:scaling-identity}.
+\end{proof}
+

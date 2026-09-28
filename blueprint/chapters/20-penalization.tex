@@ -1,0 +1,114 @@
+\chapter{Penalisation and $\omega$-minimality}\label{ch:penalization}
+\module{NoCompromise.Regularity.OmegaMinimal,
+        NoCompromise.Regularity.Penalization,
+        NoCompromise.Regularity.PenalizationDilation,
+        NoCompromise.Regularity.PenalizationQuasiminimal}
+
+\section{Global volume penalisation}
+
+\begin{lemma}[Elementary dilation quotients]\label{lem:dilation-quotients}
+On a fixed neighbourhood of $\rho=1$ in $(0,\infty)$ the functions
+\[
+  \rho\longmapsto\frac{|\rho^2-1|}{|\rho^3-1|},
+  \qquad
+  \rho\longmapsto\frac{|\rho^5-1|}{|\rho^3-1|}
+\]
+are bounded, with removable values $2/3$ and $5/3$ at $\rho=1$.
+\end{lemma}
+
+\begin{proof}
+Factor $\rho^k-1=(\rho-1)(\rho^{k-1}+\cdots+1)$ and cancel $\rho-1$.
+\end{proof}
+
+\begin{lemma}[Global volume penalisation]\label{lem:penalization}
+\uses{def:minimizer}
+Let $E$ be a fixed-volume minimiser at volume $V>0$.  There is
+$\Lambda=\Lambda(V,\Ec(E))<\infty$ such that
+\begin{equation}\label{eq:penalization}
+  \Ec(E)\le\Ec(F)+\Lambda\bigl||F|-V\bigr|
+\end{equation}
+for every finite-perimeter set $F$ of finite measure.
+\end{lemma}
+
+\begin{proof}
+\uses{lem:dilation-quotients,lem:coulomb-scaling,def:minimizer}
+Correcting the volume on smooth boundary patches would be circular, because
+smooth patches are obtained only after quasiminimiser regularity.  Global
+minimality permits a direct correction by dilation.
+
+Suppose no such $\Lambda$ exists.  For every integer $h\ge1$ choose $F_h$ with
+$|F_h|\ne V$ and
+\begin{equation}\label{eq:penalization-contra}
+  \Ec(F_h)+h\bigl||F_h|-V\bigr|<\Ec(E).
+\end{equation}
+Nonnegativity of $\Ec$ gives $\bigl||F_h|-V\bigr|\le\Ec(E)/h$, so
+$V_h:=|F_h|\to V$ and in particular $V/2\le V_h\le2V$ for large $h$.  Put
+$\rho_h:=(V/V_h)^{1/3}$ and $G_h:=\rho_hF_h$, so $|G_h|=V$.  Since both terms
+of the energy are nonnegative, \eqref{eq:penalization-contra} gives uniform
+bounds for $\Per(F_h)$ and $D(F_h)$.  By \eqref{eq:scaling} and
+Lemma~\ref{lem:dilation-quotients}, with $C=C(V,\Ec(E))$,
+\[
+\begin{aligned}
+  |\Ec(G_h)-\Ec(F_h)|
+  &\le|\rho_h^2-1|\Per(F_h)+|\rho_h^5-1|D(F_h)\\
+  &\le C|\rho_h^3-1|=\frac C{V_h}|V-V_h|\le C'|V-V_h| .
+\end{aligned}
+\]
+Combining with \eqref{eq:penalization-contra},
+$\Ec(G_h)<\Ec(E)-(h-C')|V_h-V|<\Ec(E)$ for large $h$, contradicting
+fixed-volume minimality of $E$.
+\end{proof}
+
+\section{$\omega$-minimality}
+
+\begin{definition}[$\omega$-minimal set]\label{def:omega-minimal}
+\uses{def:perimeter}
+Let $n\ge2$, $\omega\in[0,\infty)$ and $r_0\in(0,\infty]$.  A set
+$E\subset\R^n$ of locally finite perimeter is \emph{$\omega$-minimal at
+scales below $r_0$} if for every $x\in\R^n$, every $0<r\le r_0$ and
+every set $F$ of locally finite perimeter with
+$F\triangle E\Subset B_r(x)$,
+\begin{equation}\label{eq:omega-minimal}
+  \Per_n\bigl(E;B_r(x)\bigr)
+  \le\Per_n\bigl(F;B_r(x)\bigr)+\omega\,|E\triangle F| .
+\end{equation}
+We say simply \emph{$\omega$-minimal} (or \emph{$\omega$-minimal at unit
+scale}) when $r_0=1$.  A set that is $0$-minimal at scales below every
+$r_0<\infty$ is called \emph{locally perimeter minimising}.  In dimension
+$n=3$ we suppress the perimeter subscript as usual, and in particular
+\begin{equation}\label{eq:omega-minimal-cube}
+  \Per\bigl(E;B_r(x)\bigr)
+  \le\Per\bigl(F;B_r(x)\bigr)+\omega\tfrac{4\pi}3r^3 ,
+\end{equation}
+since $|E\triangle F|\le|B_r|$.  A $0$-minimal set is called
+\emph{locally perimeter minimising} only when the inequality is available at
+every finite scale, as specified above; plain $0$-minimality means unit scale.
+\end{definition}
+
+\begin{lemma}[Perimeter quasiminimality of a minimiser]\label{lem:quasiminimal}
+\uses{def:minimizer,def:omega-minimal,lem:penalization}
+Let $E$ be a fixed-volume minimiser at volume $V>0$ and let $\Lambda$ be as in
+Lemma~\ref{lem:penalization}.  Then $E$ is $\omega$-minimal with
+\[
+  \omega:=C_0\bigl(V+|B_1|\bigr)^{2/3}+\Lambda<\infty .
+\]
+\end{lemma}
+
+\begin{proof}
+\uses{lem:penalization,lem:coulomb-lipschitz,lem:locality,lem:null-invariance}
+Let $F\triangle E\Subset B_r(x)$ with $0<r\le1$.  The volumes of $E$ and $F$
+are bounded by $V+|B_1|$, so \eqref{eq:coulomb-lipschitz} gives
+$|D(E)-D(F)|\le C_0(V+|B_1|)^{2/3}|E\triangle F|$.  Apply
+\eqref{eq:penalization}, move the nonlocal term to the right, and use
+$\bigl||F|-V\bigr|\le|E\triangle F|$.  Since $E=F$ in a neighbourhood of
+$\R^3\setminus B_r(x)$, Lemma~\ref{lem:locality} cancels the identical
+exterior perimeter contributions, leaving \eqref{eq:omega-minimal}.
+\end{proof}
+
+\begin{fnote}[The only variational input]\label{fnote:only-input}
+\eqref{eq:omega-minimal} is the \emph{only} variational input to
+Chapters~\ref{ch:density}--\ref{ch:no-singular}.  Nothing there may cite
+Definition~\ref{def:minimizer}, Definition~\ref{def:energy}, or any Coulomb
+estimate.
+\end{fnote}
+

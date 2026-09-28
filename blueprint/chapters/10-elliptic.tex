@@ -1,0 +1,991 @@
+% ----------------------------------------------------------------------------
+\chapter{Elliptic and potential-theoretic estimates}\label{ch:elliptic}
+\module{NoCompromise.Elliptic.Boundary,
+        NoCompromise.Elliptic.Caccioppoli,
+        NoCompromise.Elliptic.CampanatoComparison,
+        NoCompromise.Elliptic.CampanatoGrowth,
+        NoCompromise.Elliptic.CampanatoHolder,
+        NoCompromise.Elliptic.CampanatoHolderDatum,
+        NoCompromise.Elliptic.CampanatoIteration,
+        NoCompromise.Elliptic.ClassicalAdmissible,
+        NoCompromise.Elliptic.ClassicalKernelFlux,
+        NoCompromise.Elliptic.FrozenDecay,
+        NoCompromise.Elliptic.HarmonicDerivative,
+        NoCompromise.Elliptic.HarmonicMeanValue,
+        NoCompromise.Elliptic.HolderInterpolation,
+        NoCompromise.Elliptic.Hopf,
+        NoCompromise.Elliptic.HopfExterior,
+        NoCompromise.Elliptic.InteriorH2,
+        NoCompromise.Elliptic.KelvinRemovable,
+        NoCompromise.Elliptic.Newtonian,
+        NoCompromise.Elliptic.NewtonianSchauder,
+        NoCompromise.Elliptic.NondivSchauder,
+        NoCompromise.Elliptic.Quasilinear,
+        NoCompromise.Elliptic.Schauder,
+        NoCompromise.Elliptic.SobolevChain,
+        NoCompromise.Elliptic.StrongMaximumHarmonic,
+        NoCompromise.Elliptic.TraceL1,
+        NoCompromise.Elliptic.WeakDirichlet,
+        NoCompromise.Elliptic.WeakMaximum,
+        NoCompromise.Elliptic.WeakSolutions,
+        NoCompromise.Sobolev.PoincareTrace}
+
+Throughout this chapter, $0<\alpha<1$.
+
+\begin{remark}[Ordering]\label{rem:acyclic-elliptic}
+Sections~\ref{sec:classical-calculus} and \ref{sec:trace-ineq} are pure chart
+calculus and do not use De Giorgi's theorem or transport of perimeter.  They
+are therefore an independent low-cost entry point to the elliptic layer.
+Their later consumers include the mean-value formula, the Coulomb first
+variation, exterior flux identities, Appendix K, and Green's identity.  The
+machine build order is determined by the \verb|\uses| DAG, as explained in
+the opening chapter; no backward edge into Chapters~\ref{ch:degiorgi} or
+\ref{ch:transport} remains.
+\end{remark}
+
+\begin{convention}[Domain classes]\label{conv:domain-classes}
+Below, ``admissible domain'' means: a cube, a ball, a smooth annulus, or a
+bounded connected $C^1$ domain (in particular a $C^{1,1/2}$ or
+$C^{2,\alpha}$ domain).  These are exactly the classes used in
+Theorem~\ref{thm:capacitary-potential}, in \eqref{eq:neumann-abp} and in
+\eqref{eq:W11-GG-application}.
+\end{convention}
+
+\section{Trace inequalities}\label{sec:trace-ineq}
+
+\begin{proposition}[Poincar\'e and $L^2$ trace]\label{prop:poincare-trace}
+\uses{conv:domain-classes}
+Let $G$ be an admissible domain, let $z\in H^1(G)$, and put
+$z_G:=\avg_Gz$.  Then
+\begin{equation}\label{eq:poincare-L2}
+  \|z-z_G\|_{L^2(G)}\le C_G\|\nabla z\|_{L^2(G)},
+\end{equation}
+\begin{equation}\label{eq:trace-L2}
+  \|\Tr z\|_{L^2(\partial G)}
+  \le C_G\bigl(\|z\|_{L^2(G)}+\|\nabla z\|_{L^2(G)}\bigr).
+\end{equation}
+\end{proposition}
+
+\begin{proof}\uses{lem:H1-extension-disk,thm:bv-compactness,thm:bv-sobolev}
+For the trace bound, cover $\partial G$ by finitely many graph charts,
+flatten, and apply the one-dimensional fundamental theorem of calculus along
+the normal coordinate; an interior partition of unity completes the estimate.
+Lemma~\ref{lem:H1-extension-disk} gives the bounded $H^1$ extension to a
+fixed cube.  If \eqref{eq:poincare-L2} failed, normalize a mean-zero
+counterexample $z_j$ by $\|z_j\|_2=1$ and $\|\nabla z_j\|_2\to0$.
+Theorem~\ref{thm:bv-compactness}, applied to the extensions, gives strong
+$L^1$ convergence on their common compact support.  The extensions are
+uniformly bounded in $L^6$: apply \eqref{eq:bv-sobolev} to a smooth
+approximation of $|z_j|^4$ and use
+$\int|z_j|^3|\nabla z_j|\le\|z_j\|_6^3\|\nabla z_j\|_2$ (with truncation
+before cancellation if the $L^6$ norm is not yet known).  Interpolation
+$\|h\|_2\le\|h\|_1^{2/5}\|h\|_6^{3/5}$ then gives strong $L^2$ convergence.
+The limit has zero distributional gradient on $G$, so connectedness makes it
+constant and mean zero makes it zero, contradicting its $L^2$ norm one.
+Balls and annuli follow by specialization, and dilation records the scaled
+constants.
+\end{proof}
+
+\begin{proposition}[$L^1$ trace]\label{prop:trace-L1}
+\uses{conv:domain-classes}
+For $Z\in W^{1,1}(G;\R^3)$ with $G$ admissible,
+\begin{equation}\label{eq:trace-L1}
+  \|\Tr Z\|_{L^1(\partial G)}
+  \le C_G\bigl(\|Z\|_{L^1(G)}+\|\nabla Z\|_{L^1(G)}\bigr).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Cover $\partial G$ by finitely many graph charts, flatten each chart, and
+apply the one-dimensional fundamental theorem of calculus in the normal
+coordinate to each component of $Z$.  Integrating tangentially and summing a
+partition of unity gives \eqref{eq:trace-L1}; the derivatives of the cutoffs
+are absorbed by the $L^1(G)$ term.
+\end{proof}
+
+\section{The $W^{1,1}$ divergence theorem}\label{sec:classical-calculus}
+
+\begin{theorem}[$W^{1,1}$ Gauss--Green on a $C^1$ domain]\label{thm:W11-gauss-green}
+\uses{prop:trace-L1,conv:domain-classes}
+Let $G$ be an admissible domain and $Z\in W^{1,1}(G;\R^3)$.  Then
+\begin{equation}\label{eq:W11-GG}
+  \int_G\dvg Z\,dx=\int_{\partial G}\Tr Z\cdot\nu_G\,d\Hs^2 .
+\end{equation}
+\end{theorem}
+
+\begin{proof}\uses{prop:trace-L1}
+For smooth $Z$ supported in one flattened graph chart this is the
+one-dimensional fundamental theorem of calculus in the normal variable
+followed by Fubini; differentiating the graph change of variables produces
+exactly the Euclidean normal and surface Jacobian.  Summing over a partition
+of unity, the terms in which the derivative hits a cutoff cancel because the
+cutoffs sum to one.  Approximate a general $W^{1,1}$ field in each chart by
+convolution: \eqref{eq:trace-L1} makes the traces converge in
+$L^1(\partial G)$ and the volume terms converge in $L^1(G)$.
+\end{proof}
+
+\begin{corollary}[Two consequences used later]
+\phantomsection\label{cor:W11-GG-uses}
+\uses{thm:W11-gauss-green}
+\begin{enumerate}[label=(\roman*)]
+\item\label{it:W11-3V} For a bounded $C^1$ domain $\Omega$ of volume $V$,
+  $\int_{\partial\Omega}x\cdot\nu\,d\Hs^2=3V$.
+\item\label{it:W11-kernel} For $y\in\Omega$ fixed and
+  $X\in C^\infty_c(\R^3;\R^3)$, the field $W_y(x):=X(x)/|x-y|$ lies in
+  $W^{1,1}(\Omega;\R^3)$ and
+  \begin{equation}\label{eq:W11-GG-application}
+    \int_\Omega\dvg W_y\,dx
+    =\int_{\partial\Omega}\frac{X\cdot\nu}{|x-y|}\,d\Hs^2 .
+  \end{equation}
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}\uses{thm:W11-gauss-green}
+(i) is \eqref{eq:W11-GG} with $Z(x)=x$.  For (ii), $|x-y|^{-1}$ and
+$|\nabla_x|x-y|^{-1}|$ are both in $L^1_{\mathrm{loc}}(\R^3)$, so
+$W_y\in W^{1,1}$; apply \eqref{eq:W11-GG}.
+\end{proof}
+
+\begin{fnote}\label{fnote:no-small-sphere}
+Corollary~\ref{cor:W11-GG-uses}\ref{it:W11-kernel} is the correct
+justification of the last line of the nonlocal first variation
+\eqref{eq:coulomb-first-var}.  It replaces an invalid claim of a small-sphere
+estimate uniform in points $y$ approaching the boundary.
+\end{fnote}
+
+\section{Weak Dirichlet and Neumann problems}\label{sec:weak-problems}
+
+\begin{proposition}[Weak Dirichlet problem]\label{prop:weak-dirichlet}
+\uses{prop:poincare-trace}
+Let $G$ be admissible, $f\in L^2(G)$, and let $g$ admit one $H^1(G)$
+extension.  Then
+$\mathcal J_D(z):=\tfrac12\int_G|\nabla z|^2+\int_Gfz$ has a unique minimiser
+on $g+H^1_0(G)$, characterised by
+\begin{equation}\label{eq:weak-dirichlet}
+  \int_G\nabla z\cdot\nabla\phi=-\int_Gf\phi
+  \qquad(\phi\in H^1_0(G)).
+\end{equation}
+\end{proposition}
+
+\begin{proof}\uses{prop:poincare-trace}
+Poincar\'e on $H^1_0$ makes a minimising sequence bounded; \ref{base:lp},
+weak continuity of the affine constraint and lower semicontinuity give a
+minimiser; differentiating gives \eqref{eq:weak-dirichlet}; testing the
+difference of two solutions with itself gives uniqueness.
+\end{proof}
+
+\begin{proposition}[Weak Neumann problem]\label{prop:weak-neumann}
+\uses{prop:poincare-trace}
+Let $G$ be admissible, $f\in L^2(G)$, $h\in L^2(\partial G)$ with the
+compatibility condition
+\begin{equation}\label{eq:neumann-compat}
+  \int_Gf=\int_{\partial G}h .
+\end{equation}
+Then
+$\mathcal J_N(z):=\tfrac12\int_G|\nabla z|^2+\int_Gfz-\int_{\partial G}h\Tr z$
+has a minimiser on $\{z\in H^1(G):z_G=0\}$, unique modulo constants, and
+\begin{equation}\label{eq:weak-neumann}
+  \int_G\nabla z\cdot\nabla\phi=-\int_Gf\phi+\int_{\partial G}h\,\Tr\phi
+\end{equation}
+for every $\phi\in H^1(G)$.
+\end{proposition}
+
+\begin{proof}\uses{prop:poincare-trace}
+\eqref{eq:poincare-L2}--\eqref{eq:trace-L2} give coercivity; the direct
+method gives a minimiser and \eqref{eq:weak-neumann} first for mean-zero
+$\phi$, then for all $\phi$ by \eqref{eq:neumann-compat}.  Testing differences
+gives uniqueness modulo constants.
+\end{proof}
+
+\section{Caccioppoli, maximum and Hopf principles}
+
+\begin{lemma}[Caccioppoli]\label{lem:caccioppoli}
+Let $0<\lambda\le\Lambda<\infty$ and let
+$A\in L^\infty(U;\R^{n\times n})$ satisfy
+$\lambda|\xi|^2\le \xi\cdot A(x)\xi$ and $|A(x)|\le\Lambda$ a.e., and let
+$u\in H^1_{\mathrm{loc}}(U)$ solve
+$\dvg(A\nabla u)=\dvg G$ weakly with $G\in L^2_{\mathrm{loc}}(U;\R^n)$.
+For every $\eta\in C^1_c(U)$,
+\begin{equation}\label{eq:caccioppoli}
+  \int\eta^2|\nabla u|^2
+  \le C(\lambda,\Lambda)
+     \left(\int u^2|\nabla\eta|^2+\int\eta^2|G|^2\right).
+\end{equation}
+In particular this applies to weakly harmonic functions with $A=I$ and
+$G=0$.
+\end{lemma}
+
+\begin{proof}
+Test with $\eta^2u$ and use ellipticity and Young's inequality to absorb both
+terms containing $\eta|\nabla u|$ into the left side.
+\end{proof}
+
+\begin{lemma}[Weak maximum principle]\label{lem:weak-max}
+Let $G$ be an admissible domain and $u\in H^1(G)$.  If
+$\Delta u\ge0$ weakly on $G$ and $u\le0$ in the trace sense on
+$\partial G$, then $u\le0$ a.e. in $G$.
+\end{lemma}
+
+\begin{proof}
+Test with $u_+$ to get $\nabla u_+=0$.
+\end{proof}
+
+\begin{lemma}[Mean value property and smoothness]\label{lem:mean-value}
+\uses{lem:interior-H2,lem:sobolev-Ck}
+Let $n\in\{2,3\}$ and $U\subset\R^n$ be open.  A weakly harmonic function
+on $U$ is smooth and satisfies the mean value property on every ball
+$B\Subset U$.
+\end{lemma}
+
+\begin{proof}\uses{lem:interior-H2,lem:sobolev-Ck}
+On concentric compactly contained balls, apply
+Lemma~\ref{lem:interior-H2} first with right side zero and then to every weak
+derivative already obtained.  Induction gives $H^m_{\rm loc}$ for every
+$m$, and Lemma~\ref{lem:sobolev-Ck} gives a smooth representative.  For a
+smooth harmonic function $h$, differentiation under the integral and the
+divergence theorem on a Euclidean ball give
+\[
+ \frac d{dr}\avg_{\partial B_r(x)}h
+ =\frac1{|\partial B_r|}\int_{\partial B_r(x)}\partial_\nu h
+ =\frac1{|\partial B_r|}\int_{B_r(x)}\Delta h=0.
+\]
+The spherical average therefore equals its limit $h(x)$ at radius zero.
+For completeness, the smooth divergence identity used in this line is
+obtained by covering the sphere by finitely many graph patches, applying the
+one-dimensional fundamental theorem of calculus in the normal coordinate,
+and summing a partition of unity; the cutoff-derivative terms cancel because
+the partition sums to one.  This is the same chart calculation recorded in
+the earlier divergence-theorem section, with the identical argument in
+dimension two.  Thus the proof works in both dimensions used later and does
+not invoke the three-dimensional trace theorem.
+\end{proof}
+
+\begin{proposition}[Strong maximum principle]\label{prop:strong-max}
+\uses{lem:mean-value}
+A harmonic function on a connected open $G$ attaining an interior maximum is
+constant.
+\end{proposition}
+
+\begin{proof}\uses{lem:mean-value}
+Equality of the spherical average forces equality a.e.\ on a ball;
+continuity and a chain of overlapping balls propagate constancy.
+\end{proof}
+
+\begin{lemma}[Harmonic derivative estimates]\label{lem:harmonic-deriv}
+\uses{lem:mean-value}
+Let $n\in\{2,3\}$, let $h$ be harmonic on $B_R\subset\R^n$, and let $r<R$.
+For every integer $k\ge0$,
+\begin{equation}\label{eq:harmonic-deriv}
+\begin{aligned}
+  \|D^kh\|_{L^\infty(B_r)}
+  &\le C_{n,k,r,R}\|h\|_{L^\infty(B_R)},\\
+  \|D^kh\|_{L^\infty(B_r)}
+  &\le C_{n,k,r,R}\|h\|_{L^2(B_R)} .
+\end{aligned}
+\end{equation}
+If $k\ge1$, the last norm may instead be
+$\|\nabla h\|_{L^2(B_R)}$, with a possibly different constant.
+\end{lemma}
+
+\begin{proof}\uses{lem:mean-value}
+Choose $r<r_1<r_2<R$.  Differentiating the mean-value formula on balls of a
+fixed radius smaller than $r_2-r_1$ gives the first estimate.  The mean-value
+property and Cauchy--Schwarz first give
+$\|h\|_{L^\infty(B_{r_2})}\le C\|h\|_{L^2(B_R)}$, which gives the second.
+For the last assertion apply the same $L^2$-to-$L^\infty$ estimate to each
+harmonic derivative $\partial_i h$ on $B_{r_1}$, and then differentiate its
+mean-value formula $k-1$ more times.  Nested radii keep every averaging ball
+inside $B_R$.
+\end{proof}
+
+\begin{proposition}[Hopf boundary lemma with sign]\label{prop:hopf}
+\uses{prop:strong-max,lem:weak-max}
+Let $G\subset\R^3$ be open, let
+$u\in C(G\cup\{p\})$ be weakly harmonic and strictly positive in $G$, and
+let $u(p)=0$ at $p\in\partial G$.  Suppose an interior tangent ball
+$B_R(q)\subset G$ satisfies $p\in\partial B_R(q)$.  Then
+\[
+  \liminf_{s\downarrow0}
+  \frac{u\bigl(p+s(q-p)/R\bigr)-u(p)}s>0.
+\]
+If $\partial G$ is differentiable at $p$, so that its outward unit normal is
+$\nu_G(p)=(p-q)/R$, and $u$ is differentiable at $p$, this is equivalently
+\begin{equation}\label{eq:hopf}
+  \partial_{\nu_G}u(p)<0
+\end{equation}
+for the \emph{outward} normal $\nu_G$ of $G$.
+\end{proposition}
+
+\begin{proof}\uses{prop:strong-max,lem:weak-max}
+On $B_R(q)\setminus\overline{B_{R/2}(q)}$ use the harmonic barrier
+\begin{equation}\label{eq:hopf-barrier}
+  b(x):=\frac{R}{|x-q|}-1,
+\end{equation}
+zero at $|x-q|=R$ and positive inside.  Proposition~\ref{prop:strong-max}
+gives a positive lower bound for $u$ on the inner sphere, so
+Lemma~\ref{lem:weak-max} gives $u\ge\varepsilon b$ on the annulus for some
+$\varepsilon>0$.  Take the inward difference quotient at $p$.
+\end{proof}
+
+\begin{corollary}[The exterior sign]\label{cor:hopf-exterior}
+\uses{prop:hopf}
+Let $K=\overline{\operatorname{int}K}\subset\R^3$ be compact with $C^2$
+boundary, and let
+$u\in C^1\bigl(\overline{\R^3\setminus K}\bigr)$ be harmonic on
+$\R^3\setminus K$, with $u=1$ on $\partial K$ and $0<u<1$ outside $K$.
+Then
+\[
+  \partial_{\nu_K}u<0\qquad\text{on }\partial K.
+\]
+\end{corollary}
+
+\begin{proof}\uses{prop:hopf}
+At every point of the $C^2$ boundary there is an interior tangent ball for
+$G=\R^3\setminus K$.  Apply Proposition~\ref{prop:hopf} to $1-u$ on
+$G=\R^3\setminus K$.  The inner-boundary outward normal of $G$ is
+$-\nu_K$, so \eqref{eq:hopf} gives
+$\partial_{\nu_K}(1-u)>0$.
+\end{proof}
+
+\section{Interior regularity}
+
+\begin{lemma}[Interior $H^2$ estimate]\label{lem:interior-H2}
+\uses{lem:caccioppoli}
+Let $n\in\{2,3\}$ and let $\Delta u=f$ weakly on $B_R\subset\R^n$ with
+$f\in L^2(B_R)$.  Then for $r<R$
+\begin{equation}\label{eq:interior-H2}
+  \|u\|_{H^2(B_r)}\le C_{r,R}\bigl(\|u\|_{L^2(B_R)}+\|f\|_{L^2(B_R)}\bigr).
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:caccioppoli}
+The difference quotient $\delta_hu$ satisfies
+$\int\nabla(\delta_hu)\cdot\nabla\phi=-\int(\delta_hf)\phi$ on a slightly
+smaller domain.  Test with $\phi=\eta^2\delta_hu$.  Although $\delta_hf$ need
+not be uniformly bounded in $L^2$, discrete integration by parts gives
+$|\int(\delta_hf)\phi|=|\int f\,\delta_{-h}\phi|\le\|f\|_2\|\nabla\phi\|_2$.
+With \eqref{eq:caccioppoli} this gives an $H^1$ bound independent of $h$;
+weak compactness and the characterisation of weak derivatives by difference
+quotients give \eqref{eq:interior-H2}.
+\end{proof}
+
+\begin{lemma}[Sobolev chain to $C^k$]\label{lem:sobolev-Ck}
+\uses{thm:bv-sobolev,lem:interior-H2}
+For $u\in H^1(\R^3)$,
+\begin{equation}\label{eq:H1-L6}
+ \|u\|_{L^6(\R^3)}\le C\|\nabla u\|_{L^2(\R^3)}.
+\end{equation}
+More generally, for $n\in\{2,3\}$, integers $m,k\ge0$, open
+$V\Subset U\subset\R^n$, and $m>k+n/2$,
+\begin{equation}\label{eq:sobolev-Hm-Ck}
+ \|u\|_{C^k(\overline V)}\le C_{U,V,m,k}\|u\|_{H^m(U)}
+\end{equation}
+whenever the right side is finite (or, locally, after inserting a cutoff
+equal to one on $V$).
+Consequently, in either dimension, iterating \eqref{eq:interior-H2} for
+$u\in H^1_{\rm loc}(U)$ satisfying $\Delta u=f$ with
+$f\in H^k_{\rm loc}(U)$ gives $u\in H^{k+2}_{\mathrm{loc}}(U)$; in
+particular weakly harmonic functions are smooth.
+\end{lemma}
+
+\begin{proof}\uses{thm:bv-sobolev,lem:interior-H2}
+For smooth compactly supported $u$, apply \eqref{eq:bv-sobolev} to $|u|^4$
+and use H\"older:
+\[
+ \|u\|_6^4=\||u|^4\|_{3/2}
+ \le C\int|u|^3|\nabla u|
+ \le C\|u\|_6^3\|\nabla u\|_2.
+\]
+Cancel $\|u\|_6^3$ (the zero case being immediate) and use $H^1$ density to
+obtain \eqref{eq:H1-L6}; the same estimate applies after multiplying by a
+compactly supported cutoff.
+For \eqref{eq:sobolev-Hm-Ck}, multiply by a smooth cutoff equal to one near
+$\overline V$ and supported compactly in $U$, then extend by zero.  First
+perform the calculation for smooth compactly supported approximants.  They
+and their Fourier transforms are integrable, and they are continuous, so
+\code{MeasureTheory.Integrable.fourierInv\_fourier\_eq} applies at every
+point.  Use the unitary Fourier convention
+$\widehat u(\xi)=(2\pi)^{-n/2}\int e^{-ix\cdot\xi}u(x)\,dx$; it is obtained
+from Mathlib's $e^{-2\pi ix\cdot\xi}$ convention by a frequency dilation,
+with the corresponding change of variables in Plancherel.  For $|\alpha|\le k$,
+\[
+ |D^\alpha u(x)|
+ \le (2\pi)^{-n/2}\int_{\R^n}|\xi|^{|\alpha|}|\widehat u(\xi)|\,d\xi
+ \le C\|u\|_{H^m}
+ \left(\int_{\R^n}
+   \frac{|\xi|^{2|\alpha|}}{(1+|\xi|^2)^m}\,d\xi\right)^{1/2}.
+\]
+The last integral is finite exactly when $m>|\alpha|+n/2$; dominated
+convergence in the Fourier integral gives continuity of $D^\alpha u$.
+Convolution approximates the localized function in $H^m$.  Applying the
+displayed estimate to differences makes the approximants Cauchy in $C^k$;
+their $L^2$ limit identifies the resulting $C^k$ representative with $u$.
+Thus no continuity of an arbitrary $H^m$ function is assumed when invoking
+inversion.  Cutoffs and exhaustion give the local statement.  Finally apply
+Lemma~\ref{lem:interior-H2} successively to weak derivatives, using nested
+balls, to obtain the asserted elliptic bootstrap.
+\end{proof}
+
+\section{Schauder estimates}\label{sec:schauder}
+
+\begin{theorem}[Newtonian Schauder estimate]\label{thm:newtonian-schauder}
+\uses{lem:harmonic-deriv}
+Let $N(x):=-1/(4\pi|x|)$ and let $\Delta z=f$ weakly on $B_1$ with
+$f\in C^{0,\alpha}(B_1)$, $0<\alpha<1$.  Then
+\begin{equation}\label{eq:newtonian-schauder}
+  \|z\|_{C^{2,\alpha}(B_{1/2})}
+  \le C_\alpha\bigl(\|z\|_{L^\infty(B_1)}+\|f\|_{C^{0,\alpha}(B_1)}\bigr).
+\end{equation}
+\end{theorem}
+
+\begin{proof}\uses{lem:harmonic-deriv,lem:sobolev-Ck}
+Choose a cutoff $\eta\equiv1$ on $B_{3/4}$ and write
+$z=N*(\eta f)+h$ with $h$ harmonic on $B_{3/4}$.  In
+$D_{ij}(N*(\eta f))(x)$, differentiate first outside a ball of radius
+$\varepsilon$ and integrate the boundary term explicitly; the limit is a
+principal-value integral plus a fixed multiple of $\delta_{ij}f(x)$.  In the
+principal-value term subtract $f(x)$; the spherical mean of $D_{ij}N$ away
+from the origin vanishes, and
+$|f(y)-f(x)|\le[f]_{C^{0,\alpha}}|x-y|^\alpha$.  Split at $|x-y|=|x-z|$ and
+use $|D^2N(\xi)|\le C|\xi|^{-3}$, $|D^3N(\xi)|\le C|\xi|^{-4}$; near and far
+integrals each give $C|x-z|^\alpha$.  Lemma~\ref{lem:harmonic-deriv} controls
+$h$.  The calculation is first made for smooth $f$; uniform estimates and
+convolution of a H\"older $f$ pass to the limit.
+\end{proof}
+
+\begin{lemma}[H\"older interpolation]\label{lem:holder-interp}
+For $z\in C^{2,\alpha}(B_\rho)$ and $\varepsilon>0$,
+\begin{equation}\label{eq:holder-interp}
+  \|Dz\|_{C^{0,\alpha}(B_\rho)}
+  \le\varepsilon\|D^2z\|_{C^{0,\alpha}(B_\rho)}
+   +C_{\varepsilon,\rho}\|z\|_{L^\infty(B_\rho)} .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Bound the first difference quotient at scale $s$ once by $s\|D^2z\|_\infty$
+and once by $2s^{-1}\|z\|_\infty$ and optimise $s$; the H\"older seminorm
+follows from the same two-scale split.
+\end{proof}
+
+\begin{theorem}[Nondivergence Schauder estimate]\label{thm:nondiv-schauder}
+\uses{thm:newtonian-schauder,lem:holder-interp,thm:campanato,lem:Gh}
+Let $a_{ij}\in C^{1,\alpha}(B_1)$ be uniformly elliptic with constants
+$\lambda,\Lambda$, let $b_i\in C^{0,\alpha}(B_1)$, and let
+$z\in C^{1,\alpha}(B_1)$ satisfy, in the sense of distributions,
+\[
+  a_{ij}D_{ij}z+b_iD_iz=f
+\]
+with $f\in C^{0,\alpha}(B_1)$.  Then
+\begin{equation}\label{eq:nondiv-schauder}
+  \|z\|_{C^{2,\alpha}(B_{1/2})}
+  \le C\bigl(\|z\|_{C^{1,\alpha}(B_1)}
+              +\|f\|_{C^{0,\alpha}(B_1)}\bigr),
+\end{equation}
+with $C=C(\alpha,\lambda,\Lambda,\|a\|_{C^{1,\alpha}},
+\|b\|_{C^{0,\alpha}})$.
+Moreover the dependence on the a-priori $C^{1,\alpha}$ norm can be removed:
+\begin{equation}\label{eq:nondiv-schauder-sharp}
+  \|z\|_{C^{2,\alpha}(B_{1/2})}
+  \le C\bigl(\|z\|_{L^\infty(B_1)}
+              +\|f\|_{C^{0,\alpha}(B_1)}\bigr).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\uses{thm:campanato,lem:Gh,lem:caccioppoli,thm:newtonian-schauder,
+      lem:holder-interp}
+Since $a\in C^{1,\alpha}$ and $z\in C^{1,\alpha}$, the displayed equation is
+equivalent distributionally to
+\begin{equation}\label{eq:nondiv-as-div}
+  \partial_i(a_{ij}\partial_jz)
+  =g:=f+(\partial_i a_{ij}-b_j)\partial_jz,
+  \qquad g\in C^{0,\alpha}.
+\end{equation}
+For a coordinate direction $e_k$, the difference quotient
+$w_h:=\bigl(z(\cdot+he_k)-z\bigr)/h$ satisfies on a smaller ball
+\[
+ \dvg(a(\cdot+he_k)\nabla w_h)
+ =\delta_hg-\dvg\bigl((\delta_ha)\nabla z\bigr).
+\]
+Lemma~\ref{lem:Gh} writes $\delta_hg$ as the divergence of a vector field
+uniformly bounded in $C^{0,\alpha}$, while
+$\delta_ha$ and $\nabla z$ are uniformly $C^{0,\alpha}$.  Theorem
+\ref{thm:campanato}, applied on nested balls, therefore gives a uniform
+interior $C^{1,\alpha}$ bound for $w_h$: its $L^2$ gradient term is uniform
+by the Caccioppoli estimate for the displayed difference-quotient equation,
+because $\|w_h\|_{L^2}\le C\|\nabla z\|_\infty$ and its vector datum is
+uniformly $C^{0,\alpha}$.  Passing to the limit gives
+$D_kz\in C^{1,\alpha}$ for every $k$, hence $z\in C^{2,\alpha}$ and
+\eqref{eq:nondiv-schauder}.
+
+To prove \eqref{eq:nondiv-schauder-sharp}, now that $z\in C^{2,\alpha}$ is
+known, fix a ball $B_\rho(x_0)\Subset B_{3/4}$, freeze $a$ at $x_0$, and make
+a fixed linear change of coordinates which turns $a(x_0)_{ij}D_{ij}$ into
+the Laplacian.  The scaled form of Theorem~\ref{thm:newtonian-schauder}
+applied on this ball has right side
+\[
+ f-b_iD_iz-\bigl(a_{ij}-a_{ij}(x_0)\bigr)D_{ij}z.
+\]
+Choose $\rho$ so that the $C^{0,\alpha}$ coefficient-oscillation multiple of
+the top $C^{2,\alpha}$ seminorm is less than one half and absorb it.  Then
+use Lemma~\ref{lem:holder-interp}, with its parameter chosen after $\rho$, to
+absorb the $C^{0,\alpha}$ norm of the drift term $b_iD_iz$.  A finite cover of
+$B_{1/2}$ and the usual overlap comparison of the local $C^{2,\alpha}$ norms
+give \eqref{eq:nondiv-schauder-sharp}.  This argument only estimates the
+already-constructed solution and uses no boundary solvability theorem.
+\end{proof}
+
+\begin{constants}\label{const:nondiv-order}
+The order of choice in the proof is
+$\rho\rightsquigarrow\varepsilon$: the radius is fixed first from
+$[a]_{C^{0,\alpha}}$, then the interpolation parameter from $\rho$.
+Reversing the order gives a false statement.
+\end{constants}
+
+\section{The divergence-form Campanato estimate}\label{sec:campanato}
+
+\begin{lemma}[Comparison with the frozen solution]\label{lem:campanato-compare}
+\uses{prop:weak-dirichlet}
+Let $n\in\{2,3\}$, let
+$A\in C^{0,\alpha}(B_1;\R^{n\times n})$ be uniformly elliptic, let
+$G\in C^{0,\alpha}(B_1;\R^n)$, and let $w\in H^1(B_1)$ solve
+\begin{equation}\label{eq:div-form}
+  \dvg(A(x)\nabla w)=\dvg G
+\end{equation}
+weakly in $B_1$.  Fix $B_r(x_0)\Subset B_1$ and let $h$ solve
+$\dvg(A(x_0)\nabla h)=0$ with $h-w\in H^1_0(B_r(x_0))$.  Then
+\begin{equation}\label{eq:campanato-compare}
+  \int_{B_r}|\nabla(w-h)|^2
+  \le C\int_{B_r}|A-A(x_0)|^2|\nabla w|^2
+   +C\int_{B_r}|G-G(x_0)|^2 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{prop:weak-dirichlet}
+Test the difference of the two equations with $w-h$.
+\end{proof}
+
+\begin{lemma}[Oscillation decay for the frozen solution]\label{lem:frozen-decay}
+\uses{lem:harmonic-deriv,lem:campanato-compare}
+With $h$ as in Lemma~\ref{lem:campanato-compare} and $\theta\in(0,1)$,
+\begin{equation}\label{eq:frozen-decay}
+  \int_{B_{\theta r}}\bigl|\nabla h-(\nabla h)_{B_{\theta r}}\bigr|^2
+  \le C\theta^{n+2}\int_{B_r}\bigl|\nabla h-(\nabla h)_{B_r}\bigr|^2 ,
+\end{equation}
+with $n+2=5$ in dimension three and $n+2=4$ for the two-dimensional graph
+equation.  One also has the non-centred energy decay
+\begin{equation}\label{eq:frozen-energy-decay}
+  \int_{B_{\theta r}}|\nabla h|^2
+  \le C\theta^n\int_{B_r}|\nabla h|^2 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:harmonic-deriv,lem:mean-value,lem:campanato-compare}
+After a linear change of variables the derivatives of $h$ are harmonic.
+Their mean-value formula and interior $L^2$-to-$L^\infty$ estimate give
+\eqref{eq:frozen-energy-decay}; applying the derivative estimate to
+$\nabla h-(\nabla h)_{B_r}$ gives \eqref{eq:frozen-decay}.
+\end{proof}
+
+\begin{lemma}[Subcritical gradient-energy growth]
+\label{lem:campanato-energy-growth}
+\uses{lem:campanato-compare,lem:frozen-decay}
+Under the hypotheses of Lemma~\ref{lem:campanato-compare}, for every
+$\beta\in(0,n)$ there is $C_\beta$ such that, whenever
+$B_{2r}(x)\subset B_{3/4}$,
+\begin{equation}\label{eq:campanato-energy-growth}
+  \int_{B_r(x)}|\nabla w|^2\le C_\beta r^\beta .
+\end{equation}
+The constant depends only on $\beta$, $\alpha$, the ellipticity and
+$C^{0,\alpha}$ bounds of $A,G$, and $\|\nabla w\|_{L^2(B_1)}$.
+\end{lemma}
+
+\begin{proof}\uses{lem:campanato-compare,lem:frozen-decay}
+Put $\Psi(r):=\int_{B_r(x)}|\nabla w|^2$ and compare $w$ with the frozen
+solution $h$ on $B_r(x)$.  The constant-coefficient estimate for $h$
+(obtained from Lemma~\ref{lem:frozen-decay} after retaining its mean
+gradient) and \eqref{eq:campanato-compare} give
+\[
+  \Psi(\theta r)
+  \le C\bigl(\theta^n+r^{2\alpha}\bigr)\Psi(r)
+       +Cr^{n+2\alpha}.
+\]
+Given $\beta<n$, first choose $\theta$ so that
+$C\theta^n\le\tfrac14\theta^\beta$, then choose the starting radius so that
+$Cr^{2\alpha}\le\tfrac14\theta^\beta$.  Iteration on the radii
+$\theta^jr$ (the forcing exponent $n+2\alpha$ is strictly larger than
+$\beta$) proves \eqref{eq:campanato-energy-growth}; larger radii are covered
+by the original $L^2$ bound.
+\end{proof}
+
+\begin{lemma}[Campanato iteration]\label{lem:campanato-iteration}
+Let $\Phi:(0,r_0]\to[0,\infty)$ be nondecreasing and satisfy
+\begin{equation}\label{eq:campanato-recurrence}
+  \Phi(\theta r)\le\tfrac12\theta^{n+2\alpha}\Phi(r)+Cr^{n+2\alpha}
+\end{equation}
+for some fixed $\theta\in(0,1)$ and all $r\le r_0$.  Then
+$\Phi(\rho)\le C'\rho^{n+2\alpha}$ for $\rho\le r_0$.
+\end{lemma}
+
+\begin{proof}
+Induct on $j$ at $r=\theta^jr_0$, summing the geometric series with ratio
+$1/2$, then compare a general $\rho$ with the nearest such radius.
+\end{proof}
+
+\begin{theorem}[Campanato/$C^{1,\alpha}$ estimate, divergence form]
+\label{thm:campanato}
+\uses{lem:campanato-compare,lem:frozen-decay,lem:campanato-energy-growth,
+      lem:campanato-iteration}
+Under the hypotheses of Lemma~\ref{lem:campanato-compare}, $w$ has a
+representative in $C^{1,\alpha}(B_{1/2})$ with, for every
+$B_\rho(x_0)\subset B_{1/2}$ and every $x,y\in B_{1/2}$,
+\begin{equation}\label{eq:campanato}
+  \avg_{B_\rho(x_0)}\bigl|\nabla w-(\nabla w)_{B_\rho(x_0)}\bigr|^2
+  \le C\rho^{2\alpha},
+  \qquad
+  |\nabla w(x)-\nabla w(y)|\le C|x-y|^\alpha ,
+\end{equation}
+where $C$ depends on $\alpha$, the ellipticity constants,
+$[A]_{C^{0,\alpha}}$, $[G]_{C^{0,\alpha}}$ and $\|\nabla w\|_{L^2(B_1)}$.
+\end{theorem}
+
+\begin{proof}
+\uses{lem:campanato-compare,lem:frozen-decay,lem:campanato-iteration,
+      lem:campanato-energy-growth}
+Put
+$\Phi(r):=\int_{B_r}|\nabla w-(\nabla w)_{B_r}|^2$.  Comparison with the
+frozen solution gives, on balls compactly contained in $B_{3/4}$,
+\begin{equation}\label{eq:campanato-oscillation-recurrence}
+ \Phi(\theta r)
+ \le C\theta^{n+2}\Phi(r)
+    +Cr^{2\alpha}\int_{B_r}|\nabla w|^2+Cr^{n+2\alpha}.
+\end{equation}
+Choose
+$\beta\in(\max\{0,n-2\alpha\},n)$ and put
+$\gamma:=(\beta+2\alpha-n)/2\in(0,\alpha)$.  Lemma
+\ref{lem:campanato-energy-growth} changes the middle term in
+\eqref{eq:campanato-oscillation-recurrence} into $Cr^{n+2\gamma}$.
+Choosing $\theta$ and applying Lemma~\ref{lem:campanato-iteration} with
+$\gamma$ in place of $\alpha$ gives $\nabla w\in C^{0,\gamma}$ on
+$B_{2/3}$, hence $\nabla w$ is bounded there.  Consequently
+$\int_{B_r}|\nabla w|^2\le Cr^n$ on smaller balls.  Insert this sharper bound
+back into \eqref{eq:campanato-oscillation-recurrence} and apply the same
+iteration with exponent $\alpha$; this proves the first estimate in
+\eqref{eq:campanato}.  For the second, that estimate implies
+$|(\nabla w)_{B_{2^{-j}r}(x)}-(\nabla w)_{B_{2^{-j-1}r}(x)}|\le C(2^{-j}r)^\alpha$,
+so the averages converge at every Lebesgue point; comparing the two chains
+from $x$ and $y$ at the first radius larger than $|x-y|$ gives the H\"older
+estimate.
+\end{proof}
+
+\begin{lemma}[$C^{-1,\alpha}$ data from a H\"older function]\label{lem:Gh}
+Let $U\subset\R^n$ be open and $g\in C^{0,\alpha}(U)$.  For each $h\ne0$
+and coordinate direction $e_k$, on
+$U_h:=\{x\in U:x+te_k\in U\text{ for every }t\text{ between }0\text{ and }h\}$,
+\[
+  \frac{g(x+he_k)-g(x)}{h}
+  =\partial_k\Bigl(\frac1h\int_0^hg(x+te_k)\,dt\Bigr),
+\]
+so the left side equals $\dvg G_h$ for
+\[
+ G_h(x):=e_k\frac1h\int_0^hg(x+te_k)\,dt,
+ \qquad
+ \|G_h\|_{C^{0,\alpha}(U_h)}\le\|g\|_{C^{0,\alpha}(U)}.
+\]
+\end{lemma}
+
+\begin{proof}
+Direct computation.
+\end{proof}
+
+\section{The quasilinear Schauder lemma}\label{sec:quasilinear}
+
+\begin{theorem}[Quasilinear Schauder]\label{thm:quasilinear-schauder}
+\uses{thm:campanato,lem:Gh}
+Let $A\in C^2(\R^2;\R^2)$ with $DA(p)$ uniformly elliptic for $|p|\le M$, and
+suppose $\dvg A(\nabla f)=g$ weakly in $B_1^2$ with
+$f\in C^{1,\alpha}$, $g\in C^{0,\alpha}$, $\|\nabla f\|_\infty\le M$.  Then
+$f\in C^{2,\alpha}(B_{1/2}^2)$, and its derivatives satisfy
+\[
+ \|\nabla f\|_{C^{1,\alpha}(B_{1/2}^2)}\le C,
+ \qquad
+ \|f\|_{C^{2,\alpha}(B_{1/2}^2)}
+ \le \|f\|_{L^\infty(B_1^2)}+C,
+\]
+using the sum norm for the full $C^{2,\alpha}$ norm.  Here $C$ depends only on
+$\alpha$, $M$, the ellipticity constants of $DA$ on $\{|p|\le M\}$,
+$\|A\|_{C^2(\{|p|\le M\})}$, $[\nabla f]_{C^{0,\alpha}}$ and
+$\|g\|_{C^{0,\alpha}}$.  The derivative estimate is unchanged by adding a
+constant to $f$; the full norm includes the displayed zeroth-order term.
+\end{theorem}
+
+\begin{proof}\uses{thm:campanato,lem:Gh,lem:caccioppoli}
+Fix a coordinate direction and form
+$w_h(x):=\bigl(f(x+he_k)-f(x)\bigr)/h$.  Subtracting the two weak equations
+and using the fundamental theorem of calculus in the gradient variable, on
+$B_{1-|h|}$
+\begin{equation}\label{eq:quasilinear-diffquot}
+  \dvg\bigl(A_h(x)\nabla w_h\bigr)=g_h,
+  \qquad
+  A_h(x)=\int_0^1DA\bigl((1-t)\nabla f(x)+t\nabla f(x+he_k)\bigr)\,dt .
+\end{equation}
+The $A_h$ are uniformly elliptic and uniformly $C^{0,\alpha}$, and by
+Lemma~\ref{lem:Gh} the data are $g_h=\dvg G_h$ with $G_h$ uniformly
+$C^{0,\alpha}$.  Moreover $\|w_h\|_{L^2}$ is bounded by the
+$L^2$ norm of $D_kf$ on a slightly larger disk; applying
+Lemma~\ref{lem:caccioppoli} to \eqref{eq:quasilinear-diffquot} with nested
+cutoffs therefore gives a uniform interior $L^2$ bound for $\nabla w_h$.
+Theorem~\ref{thm:campanato} now gives a uniform $C^{1,\alpha}$
+bound for $w_h$ on $B_{1/2}$; letting $h\to0$ gives
+$D_kf\in C^{1,\alpha}$, hence $f\in C^{2,\alpha}$.  Summing the derivative
+bounds and adding $\|f\|_\infty$ gives the stated full-norm estimate.  Only weak equations are
+used; second derivatives are never assumed in advance.
+\end{proof}
+
+\section{Boundary estimates}\label{sec:boundary-estimates}
+
+\begin{notation}\label{not:half-ball}
+$B_r^+:=B_r\cap\{x_3>0\}$ and $\Gamma_r:=B_r\cap\{x_3=0\}$.
+\end{notation}
+
+\begin{theorem}[Boundary $C^{1,\alpha}$, Dirichlet]\label{thm:boundary-C1a}
+\uses{thm:campanato,not:half-ball}
+Let $w\in H^1(B_1^+)$ solve $\dvg(A\nabla w)=\dvg G$ weakly in $B_1^+$,
+where $A\in C^{0,\alpha}(\overline{B_1^+};\R^{3\times3})$ is uniformly
+elliptic, $G\in C^{0,\alpha}(\overline{B_1^+};\R^3)$, and $w=0$ in the
+trace sense on $\Gamma_1$.  Then
+\begin{equation}\label{eq:boundary-C1a}
+  \avg_{B_\rho^+}\bigl|\nabla w-(\nabla w)_{B_\rho^+}\bigr|^2\le C\rho^{2\alpha},
+\end{equation}
+so $w\in C^{1,\alpha}$ up to $\Gamma_{1/2}$.
+The constant depends only on $\alpha$, ellipticity, the displayed coefficient
+and datum norms, and $\|\nabla w\|_{L^2(B_1^+)}$.
+\end{theorem}
+
+\begin{proof}
+\uses{lem:campanato-compare,lem:frozen-decay,lem:campanato-iteration,
+      lem:campanato-energy-growth}
+Freeze the coefficients on a half-ball and solve the constant-coefficient
+comparison problem with the same curved boundary data and zero data on
+$\Gamma_r$.  A linear shear followed by a tangential linear change turns the
+frozen operator into the Laplacian without moving $\{x_3=0\}$; odd reflection
+of the comparison solution is harmonic, so its gradient satisfies
+\eqref{eq:frozen-decay} on half-balls.  Testing the difference with itself
+gives \eqref{eq:campanato-compare} with $B_r$ replaced by $B_r^+$, the
+flat-boundary term vanishing because the difference has zero trace.  The
+resulting non-centred recurrence is
+\[
+ \int_{B_{\theta r}^+}|\nabla w|^2
+ \le C(\theta^3+r^{2\alpha})\int_{B_r^+}|\nabla w|^2
+      +Cr^{3+2\alpha}.
+\]
+The proof of Lemma~\ref{lem:campanato-energy-growth}, unchanged for
+half-balls, first gives every subcritical growth exponent $\beta<3$.
+Insert this in the centred oscillation recurrence to obtain
+$C^{0,\gamma}$ regularity of $\nabla w$ for some $\gamma>0$, hence a local
+gradient bound; reinsert that bound and apply
+Lemma~\ref{lem:campanato-iteration} a second time to obtain the full exponent
+$\alpha$ in \eqref{eq:boundary-C1a}.
+\end{proof}
+
+\begin{theorem}[Boundary $C^{2,\alpha}$, Dirichlet, divergence form]
+\label{thm:boundary-C2a}
+\uses{thm:boundary-C1a}
+Let $w\in H^1(B_1^+)$ solve $\dvg(A\nabla w)=\dvg G$, where
+$A\in C^{1,\alpha}(\overline{B_1^+};\R^{3\times3})$ is uniformly elliptic,
+$G\in C^{1,\alpha}(\overline{B_1^+};\R^3)$, and the trace
+$w|_{\Gamma_1}$ is $C^{2,\alpha}$.  Then
+$w\in C^{2,\alpha}(\overline{B_{1/2}^+})$, with an estimate depending only on
+ellipticity, the displayed norms and $\|\nabla w\|_{L^2(B_1^+)}$ (the energy
+cannot be dropped: multiples of a solution with zero data are solutions).  For a $C^{2,\alpha}$ curved boundary
+the same holds after flattening.  Iterating with smooth coefficients, data,
+and boundary gives all higher regularity.
+\end{theorem}
+
+\begin{proof}\uses{thm:boundary-C1a}
+Subtract a $C^{2,\alpha}$ extension of the boundary value.  Tangential
+difference quotients of the resulting flattened equation have zero Dirichlet
+trace and satisfy a divergence equation whose right side consists of the
+divergence of a $C^{0,\alpha}$ vector field plus a $C^{0,\alpha}$ scalar
+$g$.  Absorb $g$ as the divergence of
+$\bigl(0,0,\int_0^{x_3}g(x_1,x_2,s)\,ds\bigr)$.  Applying
+\eqref{eq:boundary-C1a} to those quotients and passing to the limit controls
+every second derivative with at least one tangential index; the equation,
+whose $a_{33}$ is bounded below, solves algebraically for $\partial_{33}w$.
+\end{proof}
+
+\begin{theorem}[Boundary $C^{2,\alpha}$, nondivergence form]
+\label{thm:boundary-nondiv}
+\uses{thm:boundary-C1a}
+Let $a\in C^{1,\alpha}(\overline{B_1^+})$ be uniformly elliptic, let
+$f\in C^{0,\alpha}(\overline{B_1^+})$, and let
+$z\in C^{1,\alpha}(\overline{B_1^+})$ satisfy
+$a_{ij}D_{ij}z=f$ distributionally in $B_1^+$.  If the trace of $z$ on
+$\Gamma_1$ is $C^{2,\alpha}$, then
+$z\in C^{2,\alpha}(\overline{B_{1/2}^+})$, with an estimate depending on the
+displayed norms, ellipticity, and the $C^{2,\alpha}$ boundary trace.
+\end{theorem}
+
+\begin{proof}\uses{thm:boundary-C1a,lem:Gh,lem:caccioppoli}
+Subtract a $C^{2,\alpha}$ extension of the boundary trace, so that $z=0$ on
+$\Gamma_1$.  The distributional product rule rewrites the equation as
+\[
+  \dvg(a\nabla z)=g,
+  \qquad g:=f+(\partial_i a_{ij})\partial_jz\in C^{0,\alpha}.
+\]
+For a tangential direction $e_k$, the difference quotient $w_h=\delta_hz$
+still has zero trace and satisfies
+\[
+  \dvg(a(\cdot+he_k)\nabla w_h)
+  =\delta_hg-\dvg\bigl((\delta_ha)\nabla z\bigr).
+\]
+Lemma~\ref{lem:Gh} expresses the first term as a divergence with a uniform
+$C^{0,\alpha}$ coefficient, and the second vector field is uniformly
+$C^{0,\alpha}$.  The $L^2$ norms of the tangential difference quotients are
+uniformly bounded by $\|\nabla z\|_2$, and a boundary Caccioppoli estimate
+with nested half-ball cutoffs gives the uniform $L^2$ bounds for their
+gradients required by Theorem~\ref{thm:boundary-C1a}.  That theorem gives uniform
+$C^{1,\alpha}$ estimates for the tangential difference quotients.  Thus all
+second derivatives with at least one tangential index are $C^{0,\alpha}$.
+Finally uniform ellipticity gives $a_{33}\ge\lambda>0$, and the original
+equation solves algebraically for $D_{33}z$.
+\end{proof}
+
+\begin{fnote}\label{fnote:boundary-nondiv-status}
+Theorem~\ref{thm:boundary-nondiv} is a standalone boundary regularity result.
+The interior proof of Theorem~\ref{thm:nondiv-schauder} does not use boundary
+solvability or a method-of-continuity construction; this keeps the formal
+dependency graph literal and acyclic.
+\end{fnote}
+
+\begin{theorem}[Boundary regularity, Neumann, in signed-distance coordinates]
+\label{thm:boundary-neumann}
+\uses{thm:campanato,not:half-ball}
+Let $G$ be a bounded $C^{3,\alpha}$ domain, $0<\alpha<1$, and in signed-distance
+coordinates (in which the coefficient matrix $A$ has one derivative less than
+the boundary) let
+\begin{equation}\label{eq:neumann-flat}
+  \partial_i(A_{ij}\partial_jz)=f,
+  \qquad
+  A_{3\alpha}=A_{\alpha3}=0\ \text{on }\{x_3=0\},
+\end{equation}
+with conormal condition $A_{3j}\partial_jz=h$, $A\in C^{1,\alpha}$,
+$f\in C^{0,\alpha}$ and $h\in C^{1,\alpha}$.  Require constants
+$0<\lambda\le\Lambda<\infty$, uniform over the finite boundary atlas, such that
+\[
+ \xi\cdot A(x)\xi\ge\lambda|\xi|^2,
+ \qquad \|A(x)\|_{\mathrm{op}}\le\Lambda
+ \quad\text{for every }x\text{ in a chart and every }\xi\in\R^3.
+\]
+In particular $A_{33}\ge\lambda>0$ on the flat boundary, hence $A_{33}\ge\lambda/2$
+on a neighbourhood of it by continuity; the proofs use this neighbourhood form.
+More precisely, assume
+$z\in H^1(G)$ and interpret the equation and conormal datum weakly; on each
+flattened half-ball, for test functions supported away from the curved face,
+\begin{equation}\label{eq:neumann-weak-local}
+ \int_{B_1^+}A\nabla z\cdot\nabla\phi
+ =-\int_{B_1^+}f\phi-\int_{\Gamma_1}h\phi .
+\end{equation}
+Here the domain is $x_3>0$, so $h=(A\nabla z)_3$ is the
+\emph{inward-coordinate} conormal; the outward conormal on the flat face is
+$-h$.  Thus \eqref{eq:neumann-weak-local} has exactly the same sign as the
+usual formula
+$\int_GA\nabla z\cdot\nabla\phi=-\int_Gf\phi+\int_{\partial G}g\phi$
+when $g$ denotes the outward conormal.
+Then $z\in C^{1,\alpha}$ up to the boundary.  If
+$A\in C^{2,\alpha}$, $f\in C^{1,\alpha}$, and $h\in C^{2,\alpha}$ (as is the case when $G$
+is $C^{4,\alpha}$), then
+$z\in C^{2,\alpha}$ up to the boundary, with a uniform estimate over a
+finite boundary atlas.  The estimates depend on $\lambda,\Lambda$, the
+coefficient and datum norms at the stated orders, $\|z\|_{H^1(G)}$, and the
+fixed chart and cutoff bounds.  Iterating with smooth coefficients and data (still with $0<\alpha<1$ and
+$\lambda>0$) gives smoothness.
+\end{theorem}
+
+\begin{proof}\uses{thm:campanato,lem:Gh}
+For the first assertion, the explicit function
+$q(x):=\chi(x_3)\,x_3\,h(x_1,x_2)/A_{33}(x_1,x_2,0)$, where
+$\chi$ is a smooth cutoff equal to one near $0$, has conormal derivative
+$h$ on the flat boundary; put $w:=z-q$, which has homogeneous conormal data.
+The right side can be put in the precise form required for reflection.  Set
+\[
+ P(x):=e_3\int_0^{x_3}f(x_1,x_2,s)\,ds,\qquad
+ H:=P+e_3h(x_1,x_2)-A\nabla q.
+\]
+Then $H\in C^{0,\alpha}$,
+$\dvg H=f-\dvg(A\nabla q)$ distributionally, and
+$H_3=0$ on $\Gamma_1$: here $P_3=0$ and
+$(A\nabla q)_3=h$ on the flat face.  Thus \eqref{eq:neumann-weak-local} for
+$w$ is exactly
+\[
+ \int_{B_1^+}A\nabla w\cdot\nabla\phi
+ =\int_{B_1^+}H\cdot\nabla\phi.
+\]
+Reflect $w$ evenly; reflect $A_{\alpha\beta},A_{33}$ and $H_\alpha$ evenly,
+and $A_{\alpha3},A_{3\alpha}$ and $H_3$ oddly.  Vanishing of the cross
+coefficients and of $H_3$ on the boundary makes all reflected coefficients
+and data $C^{0,\alpha}$.  On the reflected side the matrix is
+$RA(x',-x_3)R$, where $R=\operatorname{diag}(1,1,-1)$ is orthogonal, so the
+same ellipticity and operator-norm bounds hold there.  The homogeneous conormal condition cancels the
+boundary term, so the reflected function solves a divergence-form equation
+on a full ball.  Theorem~\ref{thm:campanato} gives
+$w$, and hence $z=w+q$, in $C^{1,\alpha}$ up to the boundary.
+
+Under the stronger hypotheses, $q\in C^{2,\alpha}$ and
+$H\in C^{1,\alpha}$.  Tangential difference quotients of the
+homogeneous-conormal equation satisfy a divergence equation whose vector
+datum is
+$\delta_hH-(\delta_hA)\nabla w$, uniformly in $C^{0,\alpha}$; the shifted
+cross coefficients and the normal component of this datum still vanish on
+the flat face.  Indeed $\delta_hH_3=0$ and
+$\delta_hA_{3\alpha}=0$ there, while homogeneous conormal data and
+$A_{3\alpha}=0$ give $A_{33}\partial_3w=0$ and hence
+$(\delta_hA_{33})\partial_3w=0$.  Repeat the reflected gradient estimate (using
+Lemma~\ref{lem:Gh} if a scalar divergence datum is retained); this controls
+tangential--tangential and tangential--normal second derivatives.  Expanding
+\[
+  A_{33}\partial_{33}z
+  =f-\!\!\sum_{(i,j)\ne(3,3)}\!\!A_{ij}\partial_{ij}z
+   -(\partial_iA_{ij})\partial_jz
+\]
+controls the remaining normal derivative.
+\end{proof}
+
+\section{Newtonian potential and Kelvin removability}\label{sec:newtonian}
+
+\begin{proposition}[Newtonian equation for bounded densities]\label{prop:newtonian}
+For $f$ bounded, measurable and compactly supported, put
+$v(x):=\int f(y)|x-y|^{-1}\,dy$.  Then $-\Delta v=4\pi f$ distributionally.
+\end{proposition}
+
+\begin{proof}
+For a test function $\phi$, truncate the kernel at radius $\varepsilon$,
+integrate by parts away from the pole, and use
+$-\int_{\partial B_\varepsilon(y)}\partial_r|x-y|^{-1}\,dA_x=4\pi$.  The
+remaining volume and small-sphere errors tend to zero by dominated
+convergence.
+\end{proof}
+
+\begin{proposition}[Kelvin removability]\label{prop:kelvin-removable}
+\uses{lem:caccioppoli,lem:sobolev-Ck}
+Let $q$ be bounded and harmonic on a punctured ball $B_1\setminus\{0\}$.
+Then $q$ extends harmonically, hence smoothly, across the origin.
+\end{proposition}
+
+\begin{proof}\uses{lem:caccioppoli,lem:sobolev-Ck}
+Choose a radial cutoff $\eta_\varepsilon$ which is zero on $B_\varepsilon$,
+one outside $B_{2\varepsilon}$, with
+$|\nabla\eta_\varepsilon|\le C/\varepsilon$.  Caccioppoli on
+$B_{3\varepsilon}\setminus B_{\varepsilon/2}$ gives
+$\int_{B_{2\varepsilon}\setminus B_\varepsilon}|\nabla q|^2
+ \le C\varepsilon\|q\|_\infty^2$.  Summing this estimate on dyadic annuli
+first shows that $q\in H^1(B_{1/2})$ after assigning any value at the origin.
+For a test function $\phi$, use $\eta_\varepsilon\phi$ in the punctured weak
+equation; the term with
+$\nabla\eta_\varepsilon$ is bounded by Cauchy--Schwarz and
+$\int|\nabla\eta_\varepsilon|^2\le C\varepsilon$, hence tends to zero.  So
+$\int\nabla q\cdot\nabla\phi=0$ across the point, and
+Lemma~\ref{lem:sobolev-Ck} gives smoothness.
+\end{proof}
+

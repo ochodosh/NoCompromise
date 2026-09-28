@@ -1,0 +1,441 @@
+% ----------------------------------------------------------------------------
+\chapter{De Giorgi's structure theorem}\label{ch:degiorgi}
+\module{NoCompromise.DeGiorgi.Blowup,
+        NoCompromise.DeGiorgi.ConeConcentration,
+        NoCompromise.DeGiorgi.ExactDensity,
+        NoCompromise.DeGiorgi.NormalFlux,
+        NoCompromise.DeGiorgi.Rectifiability,
+        NoCompromise.DeGiorgi.Reduced,
+        NoCompromise.DeGiorgi.ReducedDensity,
+        NoCompromise.DeGiorgi.ReducedPerimeter,
+        NoCompromise.DeGiorgi.SmoothBoundary,
+        NoCompromise.DeGiorgi.Structure}
+
+No perimeter minimality is used anywhere in this chapter.  The output is
+Theorem~\ref{thm:degiorgi-structure} and its corollary
+Theorem~\ref{thm:gauss-green}, which are the interface every later chapter
+uses.
+
+\begin{notation}\label{not:degiorgi}
+\uses{def:perimeter,conv:outward}
+Throughout the chapter $E\subset\R^3$ has locally finite perimeter,
+$\mu_E:=|D\ind E|$, and $D\ind E=-\nu_E\mu_E$ per
+Convention~\ref{conv:outward}.
+\end{notation}
+
+\section{The reduced boundary}
+
+\begin{definition}[Reduced boundary]\label{def:reduced-boundary}
+\uses{not:degiorgi}
+Put
+\begin{equation}\label{eq:reduced-boundary}
+  \rbd E:=\Bigl\{x\in\spt\mu_E:
+    \lim_{r\downarrow0}\frac{D\ind E(B_r(x))}{\mu_E(B_r(x))}
+    \text{ exists and has norm }1\Bigr\},
+\end{equation}
+and at such $x$ define $\nu_E(x)$ to be the \emph{negative} of that limit,
+consistently with Convention~\ref{conv:outward}.
+The set $\rbd E$ is Borel: $x\mapsto\mu_E(B_r(x))$ and
+$x\mapsto D\ind E(B_r(x))$ are Borel for fixed $r$, the limit can be tested
+along rational radii, and $\spt\mu_E$ is closed.
+\end{definition}
+
+\begin{lemma}[Polar differentiation]\label{lem:polar-differentiation}
+\uses{not:degiorgi}
+For $\mu_E$-a.e.\ $x$,
+\begin{equation}\label{eq:polar-differentiation}
+  \lim_{r\downarrow0}\frac1{\mu_E(B_r(x))}
+    \int_{B_r(x)}|\nu_E(y)-\nu_E(x)|\,d\mu_E(y)=0 .
+\end{equation}
+Consequently
+\begin{equation}\label{eq:reduced-full-measure}
+  \mu_E\bigl(\R^3\setminus\rbd E\bigr)=0 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{def:reduced-boundary}
+Write $\nu_E=(\nu_1,\nu_2,\nu_3)$ and decompose each bounded component as
+$\nu_i=\nu_i^+-\nu_i^-$ with $\nu_i^\pm\ge0$.  Each $\nu_i^\pm\mu_E$ is a
+finite positive Radon measure on compact sets, so
+\code{Besicovitch.ae\_tendsto\_rnDeriv} (\ref{base:besicovitch}) applies to
+it against $\mu_E$ and identifies its ball averages with its density
+$\nu_i^\pm$ at $\mu_E$-a.e.\ point.  Summing the six statements and using the
+triangle inequality gives \eqref{eq:polar-differentiation}.  Discarding a
+$\mu_E$-null set puts such points in $\spt\mu_E$, whence
+\eqref{eq:reduced-full-measure}.
+\end{proof}
+
+\begin{fnote}[Which declaration to use]\label{fnote:polar-decl}
+The statement needed is a Lebesgue-point property of an $L^1(\mu_E)$ vector
+field, not a ratio of two measures.  The componentwise route above uses only
+\code{Besicovitch.ae\_tendsto\_rnDeriv}, which is in the base.  A packaged
+alternative is
+\code{VitaliFamily.ae\_tendsto\_average\_norm\_sub} at
+\texttt{Besicovitch.vitaliFamily}, converting balls to the Vitali filter by
+\code{Besicovitch.tendsto\_filterAt}; either is acceptable.
+\end{fnote}
+
+\section{Density and perimeter bounds at a reduced point}
+
+\begin{lemma}[Normal-flux comparison]\label{lem:normal-flux}
+\uses{def:reduced-boundary}
+Let $0\in\rbd E$ with $\nu_E(0)=e_3$, and write $\mu:=\mu_E$.  Then for all
+sufficiently small $r>0$,
+\begin{equation}\label{eq:normal-flux-1}
+  \mu(B_r)\le-2\,D\ind E(B_r)\cdot e_3 ,
+\end{equation}
+and for a.e.\ $r>0$,
+\begin{equation}\label{eq:normal-flux-2}
+  D\ind E(B_r)\cdot e_3
+  =\int_{E^{(1)}\cap\partial B_r}\frac{x_3}{r}\,d\Hs^2,
+  \qquad
+  |D\ind E(B_r)\cdot e_3|
+  \le\Hs^2(E^{(1)}\cap\partial B_r).
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:polar-differentiation,lem:bv-slices,cor:slicing}
+\eqref{eq:normal-flux-1} is \eqref{eq:polar-differentiation} at $x=0$.  For
+\eqref{eq:normal-flux-2}, no Gauss--Green theorem is available yet.  Instead
+test the defining distributional identity for $D\ind E$ with
+$X(x)=\psi(|x|)e_3$, where $\psi\in C_c^1((0,\infty))$.  Radial coarea gives
+\[
+ \int\psi(|x|)e_3\cdot dD\ind E(x)
+ =-\int_0^\infty\psi'(r)
+     \int_{E^{(1)}\cap\partial B_r}\frac{x_3}{r}\,d\Hs^2\,dr .
+\]
+Thus the pushforward of $e_3\cdot D\ind E$ by $x\mapsto|x|$ is the
+distributional derivative of the locally integrable inner integral.  Taking
+cumulative masses from $0$ to $r$ yields
+$D\ind E(B_r)\cdot e_3
+=\int_{E^{(1)}\cap\partial B_r}x_3/r\,d\Hs^2$ for a.e.\ $r$.
+Lemma~\ref{lem:bv-slices} also gives $D\ind E(\{0\})=0$: each coordinate
+derivative disintegrates over parallel lines, and the single transverse base
+point has measure zero.  The possible atom on $\partial B_r$ is absent for
+a.e.\ $r$, so the cumulative mass is exactly the mass of $B_r$.  The final
+inequality is immediate.
+\end{proof}
+
+\begin{lemma}[Two-sided volume density at a reduced point]\label{lem:reduced-density}
+\uses{def:reduced-boundary}
+For every $x\in\rbd E$,
+\begin{equation}\label{eq:reduced-density}
+  \liminf_{r\downarrow0}\frac{|E\cap B_r(x)|}{r^3}>0,
+  \qquad
+  \liminf_{r\downarrow0}\frac{|B_r(x)\setminus E|}{r^3}>0 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:normal-flux,thm:bv-sobolev,prop:cut-identities,
+                    cor:slicing,lem:perimeter-invariances}
+Normalise $x=0$, $\nu_E(0)=e_3$, and put $f(r):=|E\cap B_r|$, so
+$f'(r)=\Hs^2(E^{(1)}\cap\partial B_r)$ for a.e.\ $r$ by
+Corollary~\ref{cor:slicing}.  Apply Theorem~\ref{thm:bv-sobolev} to
+$E\cap B_r$, use \eqref{eq:cut-in}, and combine with
+\eqref{eq:normal-flux-1}--\eqref{eq:normal-flux-2}:
+\begin{equation}\label{eq:reduced-density-ode}
+  f(r)^{2/3}\le C\bigl(\mu(B_r)+f'(r)\bigr)\le Cf'(r).
+\end{equation}
+Since $f(r)\downarrow0$ as $r\downarrow0$, integrating
+$(f^{1/3})'\ge c$ from $0$ to $r$ gives $f(r)\ge cr^3$.  Apply the same
+argument to $\R^3\setminus E$, whose outward normal at $0$ is $-e_3$
+(Lemma~\ref{lem:perimeter-invariances}\ref{it:per-compl}).
+\end{proof}
+
+\begin{lemma}[Perimeter upper bound at a reduced point]\label{lem:reduced-perimeter}
+\uses{def:reduced-boundary}
+For $x\in\rbd E$ there is $C_x<\infty$ with $\mu_E(B_r(x))\le C_xr^2$ for all
+small $r$.
+\end{lemma}
+
+\begin{proof}\uses{lem:normal-flux}
+Combine \eqref{eq:normal-flux-1}--\eqref{eq:normal-flux-2} with
+$\Hs^2(E^{(1)}\cap\partial B_r)\le4\pi r^2$ at a.e. sufficiently small radius.
+For an arbitrary small $r$, choose such radii $r_k\downarrow r$ and use
+$\mu_E(B_r)\le\liminf_k\mu_E(B_{r_k})$.
+\end{proof}
+
+\section{Halfspace blow-up and the exact density}
+
+\begin{theorem}[Halfspace blow-up]\label{thm:halfspace-blowup}
+\uses{def:reduced-boundary,conv:outward}
+For every $x\in\rbd E$,
+\begin{equation}\label{eq:halfspace-blowup}
+  \ind{(E-x)/r}\longrightarrow\ind{\halfsp{\nu_E(x)}}
+  \quad\text{in }\Lloc(\R^3)\text{ as }r\downarrow0 .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\uses{lem:reduced-density,lem:reduced-perimeter,thm:bv-compactness,
+      thm:weak-star-compactness,lem:polar-differentiation}
+Normalise $x=0$, $\nu_E(0)=e_3$.  For any $r_j\downarrow0$ put
+$E_j:=E/r_j$.  Lemmas~\ref{lem:reduced-density} and
+\ref{lem:reduced-perimeter} plus Theorem~\ref{thm:bv-compactness} give a
+subsequence with $\ind{E_j}\to\ind F$ in $\Lloc$, $F$ nontrivial.  Introduce
+$\mu_j(A):=r_j^{-2}\mu_E(r_jA)$; by Lemma~\ref{lem:reduced-perimeter} the
+$\mu_j(B_R)$ are bounded, so Theorem~\ref{thm:weak-star-compactness} gives
+$\mu_j\rightharpoonup\lambda$ after a further subsequence.  Moreover
+\eqref{eq:polar-differentiation} and the same bound give
+\begin{equation}\label{eq:blowup-polar-error}
+\begin{aligned}
+  |D\ind{E_j}+e_3\mu_j|(B_R)
+  &\le r_j^{-2}\int_{B_{Rr_j}}|\nu_E-e_3|\,d\mu_E\\
+  &=\frac{\mu_E(B_{Rr_j})}{r_j^2}\cdot
+    \frac{\int_{B_{Rr_j}}|\nu_E-e_3|\,d\mu_E}{\mu_E(B_{Rr_j})}
+  \longrightarrow0 .
+\end{aligned}
+\end{equation}
+The distributional convergence from $\ind{E_j}\to\ind F$ therefore identifies
+\begin{equation}\label{eq:blowup-limit-polar}
+  D\ind F=-e_3\lambda,\qquad |D\ind F|=\lambda,
+\end{equation}
+so $D\ind F=-e_3|D\ind F|$.  Convolving $\ind F$: the first two derivatives
+vanish and the third is nonpositive, so every convolution depends only on
+$x_3$ and is non-increasing.  Letting the convolution scale tend to zero and
+using \eqref{eq:reduced-density} at every fixed rescaled radius --- which
+shows both phases meet every ball about the origin --- gives
+$F=\{x_3<0\}$ modulo null sets.  Every subsequence has the same limit, so
+the full limit \eqref{eq:halfspace-blowup} holds.
+\end{proof}
+
+\begin{theorem}[Exact perimeter density]\label{thm:exact-density}
+\uses{def:reduced-boundary}
+For every $x\in\rbd E$,
+\begin{equation}\label{eq:exact-density}
+  \lim_{r\downarrow0}\frac{\mu_E(B_r(x))}{\pi r^2}=1 .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\uses{thm:halfspace-blowup,lem:lsc,cor:slicing,lem:good-radius-ae,
+      lem:reduced-perimeter,lem:normal-flux}
+Lemma~\ref{lem:lsc} applied to \eqref{eq:halfspace-blowup} gives
+$\liminf r^{-2}\mu_E(B_r)\ge\pi$.  For the reverse, choose
+$r_j\downarrow0$ along which $r^{-2}\mu_E(B_r)$ approaches its limsup.
+Coarea in the radial variable
+(Corollary~\ref{cor:slicing}) and \eqref{eq:halfspace-blowup} give, after a
+subsequence, trace convergence
+\begin{equation}\label{eq:blowup-trace}
+  \ind{(E/r_j)^{(1)}}\longrightarrow\ind{\{x_3<0\}}
+  \quad\text{in }L^1(\partial B_\rho)
+\end{equation}
+for a.e.\ $\rho$ in any fixed compact interval of positive radii: the
+$\rho$-integral of the left side tends to zero, so a subsequence converges
+for a.e.\ $\rho$.  Fix such a $\rho>1$, as close to $1$ as desired, chosen
+also so that each $\rho r_j$ is a good radius
+(Lemma~\ref{lem:good-radius-ae} discards at most a null set of $\rho$).
+
+The polar error has the exact scalar form
+\begin{equation}\label{eq:polar-error-scalar}
+  \mu_E(B_{\rho r_j})+D\ind E(B_{\rho r_j})\cdot e_3
+  =\int_{B_{\rho r_j}}(1-\nu_E\cdot e_3)\,d\mu_E
+  =o\bigl(\mu_E(B_{\rho r_j})\bigr),
+\end{equation}
+and Lemma~\ref{lem:reduced-perimeter} makes its value divided by $r_j^2$ tend
+to zero.  The already proved radial flux identity
+\eqref{eq:normal-flux-2} gives
+\[
+  -D\ind E(B_{\rho r_j})\cdot e_3
+  =-\int_{E^{(1)}\cap\partial B_{\rho r_j}}
+       \frac{x_3}{\rho r_j}\,d\Hs^2 ,
+\]
+and after scaling \eqref{eq:blowup-trace} sends the right side divided by
+$r_j^2$ to
+$-\int_{\{x_3<0\}\cap\partial B_\rho}(x_3/\rho)\,d\Hs^2=\pi\rho^2$.  Hence
+$\mu_E(B_{\rho r_j})/r_j^2\to\pi\rho^2$, and $B_{r_j}\subset B_{\rho r_j}$
+gives $\limsup_j\mu_E(B_{r_j})/r_j^2\le\pi\rho^2$.  Let $\rho\downarrow1$.
+\end{proof}
+
+\begin{lemma}[Cone concentration]\label{lem:cone-concentration}
+\uses{thm:exact-density,thm:halfspace-blowup}
+Let $x\in\rbd E$, $T:=\nu_E(x)^\perp$, and
+$\mu_r(A):=r^{-2}\mu_E(x+rA)$.  For every $\varepsilon>0$, with
+\[
+  V_\varepsilon:=\{y\in B_1:\dist(y,T)>\varepsilon|y|\},
+\]
+one has $\lim_{r\downarrow0}\mu_r(V_\varepsilon)=0$.  Equivalently, writing
+$X(x,T,\varepsilon):=\{y:\dist(y-x,T)<\varepsilon|y-x|\}$,
+\begin{equation}\label{eq:cone-concentration}
+  \lim_{r\downarrow0}
+  \frac{\mu_E\bigl(B_r(x)\setminus X(x,T,\varepsilon)\bigr)}{\mu_E(B_r(x))}=0 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{thm:exact-density,thm:halfspace-blowup,lem:lsc}
+The concentration does \emph{not} follow from the scalar density limit alone;
+it follows from a mass balance.  Put
+$W:=\{y\in B_1:\dist(y,T)<(\varepsilon/2)|y|\}$, an open set containing
+$(T\cap B_1)\setminus\{0\}$, whose omitted point is $\Hs^2$-null.  Lower
+semicontinuity under \eqref{eq:halfspace-blowup} gives
+$\liminf_r\mu_r(W)\ge\Hs^2(T\cap B_1)=\pi$.  Since $V_\varepsilon$ and $W$
+are disjoint while $\mu_r(B_1)\to\pi$ by
+\eqref{eq:exact-density}, $\limsup_r\mu_r(V_\varepsilon)=0$.  Dividing by
+$\mu_r(B_1)\to\pi$ gives \eqref{eq:cone-concentration}.
+\end{proof}
+
+\section{A rectifiability criterion}
+
+\begin{lemma}[Rectifiability from density and cone concentration]
+\label{lem:rectifiability-criterion}
+\uses{def:rectifiable}
+Let $\mu$ be a Radon measure on $\R^3$ such that for $\mu$-a.e.\ $x$ there is
+a plane $T_x$ with
+\begin{equation}\label{eq:rect-hyp}
+  0<\lim_{r\downarrow0}\frac{\mu(B_r(x))}{\pi r^2}<\infty,
+  \qquad
+  \lim_{r\downarrow0}
+    \frac{\mu\bigl(B_r(x)\setminus X(x,T_x,\varepsilon)\bigr)}{\mu(B_r(x))}=0
+\end{equation}
+for every $\varepsilon>0$, where
+$X(x,T,\varepsilon)=\{y:\dist(y-x,T)<\varepsilon|y-x|\}$.  Then $\mu$ is
+carried by countably many Lipschitz graphs.
+\end{lemma}
+
+\begin{proof}\uses{def:rectifiable}
+Fix $0<\varepsilon<10^{-2}$ and a countable $\varepsilon$-net $\{T_j\}$ in
+the compact Grassmannian of two-planes.  Up to a null set, partition the good
+points into countably many sets $G$ with fixed parameters $c,C,m,j$ such that
+for $x\in G$ and $0<r<1/m$,
+\begin{equation}\label{eq:rect-piece}
+  cr^2\le\mu(B_r(x))\le Cr^2,\quad
+  \mu\bigl(B_r(x)\setminus X(x,T_x,2\varepsilon)\bigr)\le\delta r^2,\quad
+  \angle(T_x,T_j)<\varepsilon .
+\end{equation}
+Intersect with a countable grid of cubes of diameter $<1/(10m)$.  On one
+resulting piece take distinct $x,y$, put $d:=|x-y|$, and suppose
+$y-x\notin X(x,T_x,4\varepsilon)$.  With $\rho:=\varepsilon d/20$,
+elementary triangle estimates give
+\begin{equation}\label{eq:rect-inclusion}
+  B_\rho(y)\subset B_{2d}(x)\setminus X(x,T_x,2\varepsilon),
+\end{equation}
+whence $c\varepsilon^2d^2/400\le\mu(B_\rho(y))\le\delta(2d)^2$.  Choosing
+$\delta<c\varepsilon^2/1600$ is a contradiction.  Hence every difference of
+two points of $G$ lies within $5\varepsilon$ of the fixed plane $T_j$, the
+orthogonal projection $\pi_j$ onto $T_j$ is injective on $G$, and
+\begin{equation}\label{eq:rect-lip}
+  |\pi_{T_j^\perp}(x-y)|
+  \le\frac{5\varepsilon}{\sqrt{1-25\varepsilon^2}}|\pi_j(x-y)| .
+\end{equation}
+Thus $G$ lies in a Lipschitz graph after extending the height from
+$\pi_j(G)$ by the McShane formula.  All indices, and a sequence
+$\varepsilon\downarrow0$, are countable.
+\end{proof}
+
+\section{The structure theorem and Gauss--Green}
+
+\begin{theorem}[De Giorgi structure theorem]\label{thm:degiorgi-structure}
+\uses{def:reduced-boundary,def:rectifiable,conv:outward,
+      thm:halfspace-blowup,thm:exact-density}
+Let $E\subset\R^3$ have locally finite perimeter.  Then $\rbd E$ is countably
+$\Hs^2$-rectifiable and
+\begin{equation}\label{eq:degiorgi-structure}
+  D\ind E=-\nu_E\,\Hs^2\llcorner\rbd E,
+  \qquad
+  \mu_E=\Hs^2\llcorner\rbd E,
+  \qquad
+  \Per(E;A)=\Hs^2(A\cap\rbd E).
+\end{equation}
+Moreover \eqref{eq:halfspace-blowup} and \eqref{eq:exact-density} hold at
+every point of $\rbd E$, hence at $\mu_E$-a.e.\ point.
+\end{theorem}
+
+\begin{proof}
+\uses{lem:rectifiability-criterion,thm:exact-density,lem:cone-concentration,
+      lem:polar-differentiation,thm:area-formula-rect,lem:maximal,
+      cor:graph-area}
+At a reduced point, \eqref{eq:exact-density} supplies the density hypothesis
+and Lemma~\ref{lem:cone-concentration} the cone hypothesis of
+\eqref{eq:rect-hyp} with $T_x=\nu_E(x)^\perp$.  With
+\eqref{eq:reduced-full-measure}, Lemma~\ref{lem:rectifiability-criterion}
+gives countably many Lipschitz graphs whose union $G$ carries $\mu_E$.
+This is initially a statement about $\mu_E$, so one more step is required for
+rectifiability in the $\Hs^2$ sense of Definition~\ref{def:rectifiable}.
+Split $\rbd E$ into the countably many sets on which
+\[
+ \mu_E(B_r(x))\ge(\pi/2)r^2\qquad(0<r<1/m).
+\]
+They cover $\rbd E$ by \eqref{eq:exact-density}.  On each such set the
+five-covering lemma, followed by outer regularity of $\mu_E$, gives
+$\Hs^2(A)\le C\mu_E(A)$ for every Borel subset $A$.  Apply this to
+$A=\rbd E\setminus G$, whose $\mu_E$-measure is zero by
+\eqref{eq:reduced-full-measure}.  Hence
+$\Hs^2(\rbd E\setminus G)=0$, and $\rbd E$ is countably
+$\Hs^2$-rectifiable.
+
+Intersect the graph cover with $\rbd E$ and refine it into disjoint Borel
+pieces $G_k$.  On subsets where
+the density bounds for $\mu_E$ are uniform, the five-covering lemma applied
+in both directions shows $\mu_E\llcorner G_k$ and $\Hs^2\llcorner G_k$ are
+mutually absolutely continuous.  Rademacher and the graph area formula
+(Corollary~\ref{cor:graph-area}) give
+$\Hs^2(G_k\cap B_r(x))/(\pi r^2)\to1$ for $\Hs^2$-a.e.\ $x\in G_k$; here one
+also uses the planar Lebesgue-density theorem for the parameter subset of
+each graph chart.  The
+Besicovitch differentiation theorem, first applied to
+$\ind{G_k}\in L^1_{\mathrm{loc}}(\mu_E)$, also gives
+$\mu_E(B_r(x)\setminus G_k)/\mu_E(B_r(x))\to0$ for
+$\mu_E$-a.e.\ $x\in G_k$.  Thus the numerator below may equivalently be
+restricted to $G_k$.  Differentiation of one measure with respect to the
+other, followed by \eqref{eq:exact-density}, therefore gives
+\[
+  \frac{d\mu_E}{d(\Hs^2\llcorner G_k)}(x)
+  =\lim_{r\downarrow0}\frac{\mu_E(B_r(x))}{\Hs^2(G_k\cap B_r(x))}=1
+\]
+a.e.\ on each $G_k$.  Since \eqref{eq:reduced-full-measure} says $\mu_E$ has
+no mass off their union, $\mu_E=\Hs^2\llcorner\rbd E$; combining with the
+outward polar convention gives \eqref{eq:degiorgi-structure}.
+\end{proof}
+
+\begin{theorem}[Gauss--Green]\label{thm:gauss-green}
+\uses{thm:degiorgi-structure,conv:outward}
+For $E$ of locally finite perimeter and $X\in C^1_c(\R^3;\R^3)$,
+\begin{equation}\label{eq:gauss-green}
+  \int_E\dvg X\,dx=\int_{\rbd E}X\cdot\nu_E\,d\Hs^2 .
+\end{equation}
+\end{theorem}
+
+\begin{proof}\uses{thm:degiorgi-structure}
+By definition of the distributional derivative,
+$\int_E\dvg X=-\int X\cdot D\ind E$; substitute
+\eqref{eq:degiorgi-structure}.
+\end{proof}
+
+\begin{corollary}[Smooth boundaries]\label{cor:smooth-perimeter}
+\uses{thm:degiorgi-structure}
+If $E$ is a bounded domain with $C^1$ boundary then
+$\rbd E=\partial E$ up to $\Hs^2$-null sets, $\nu_E$ is the classical outward
+normal, and $\Per(E)=\Hs^2(\partial E)$.
+\end{corollary}
+
+\begin{proof}\uses{thm:degiorgi-structure,cor:graph-area}
+In a $C^1$ graph chart, Fubini and the one-dimensional fundamental theorem of
+calculus in the vertical variable give, for every compactly supported smooth
+test field in the chart,
+\[
+ \int_E\dvg X=\int_{\partial E}X\cdot\nu\,d\Hs^2;
+\]
+Corollary~\ref{cor:graph-area} supplies exactly the graph Jacobian and the
+classical outward normal in this calculation.  A partition of unity over
+finitely many charts shows
+$D\ind E=-\nu\,\Hs^2\llcorner\partial E$.  The defining ball averages then
+put every boundary point in $\rbd E$ with this normal, while points off
+$\partial E$ lie in the topological interior of $E$ or its complement and
+therefore outside $\spt|D\ind E|$.  Substitute in
+\eqref{eq:degiorgi-structure}.
+\end{proof}
+
+\begin{remark}[Dependency audit for this chapter]\label{rem:degiorgi-deps}
+Every ingredient used above --- polar differentiation
+(Lemma~\ref{lem:polar-differentiation}), BV compactness
+(Theorem~\ref{thm:bv-compactness}), slicing
+(Corollary~\ref{cor:slicing}), weighted coarea
+(Theorem~\ref{thm:weighted-coarea}), the five-covering lemma
+(Lemma~\ref{lem:maximal}), the BV Sobolev inequality
+(Theorem~\ref{thm:bv-sobolev}) and the rectifiable area formula
+(Theorem~\ref{thm:area-formula-rect}) --- is proved earlier in this Part or is
+in the declared base.  In particular the phase-preserving cylindrical
+deformation of Chapter~\ref{ch:deformation} is \emph{not} used here, so there is no
+cycle between that construction and this chapter.
+\end{remark}
+

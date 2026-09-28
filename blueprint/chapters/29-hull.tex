@@ -1,0 +1,73 @@
+\chapter{The filled hull}\label{ch:hull}
+\module{NoCompromise.Hull.Defs,
+        NoCompromise.Hull.Properties,
+        NoCompromise.Stationary.Defs}
+
+\begin{notation}\label{not:stationary}
+\uses{def:stationary}
+Throughout Part~\ref{part:capacity}, $\Omega$ is a bounded connected
+$C^{3,\beta}$ stationary domain of volume $V$ with multiplier $\lambda$
+(Definition~\ref{def:stationary}), as produced by
+Corollary~\ref{cor:minimizer-stationary}.
+\end{notation}
+
+\begin{definition}[Filled hull]\label{def:hull}
+\uses{not:stationary}
+Let $U_\infty$ be the unbounded connected component of
+$\R^3\setminus\overline\Omega$ and put
+\begin{equation}\label{eq:hull}
+  K:=\R^3\setminus U_\infty .
+\end{equation}
+Thus $K$ fills every bounded complementary component of $\Omega$.
+\end{definition}
+
+\begin{lemma}[Hull properties]\label{lem:hull-properties}
+\uses{def:hull,thm:component-count}
+$K$ is compact and regular closed, $K=\overline{\operatorname{int}K}$; the sets
+$\operatorname{int}K$ and $\R^3\setminus K$ are connected; $\partial K$ is
+connected; and
+\begin{equation}\label{eq:hull-inclusions}
+  \overline\Omega\subset K,\qquad\partial K\subset\partial\Omega .
+\end{equation}
+Moreover $\partial K$ is $C^{3,\beta}$, the outward normals and curvatures of
+$K$ and $\Omega$ agree on $\partial K$, and
+\begin{equation}\label{eq:hull-perimeter}
+  \Per(K)\le\Per(\Omega).
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{thm:component-count,prop:no-singular-points,thm:tubular,
+                    prop:connected}
+Write
+$\partial\Omega=\Sigma_1\mathbin{\dot\cup}\cdots\mathbin{\dot\cup}\Sigma_k$
+(Proposition~\ref{prop:no-singular-points}).
+Theorem~\ref{thm:component-count} says $\R^3\setminus\partial\Omega$ has
+$k+1$ components.  One of them is the connected set $\Omega$
+(Proposition~\ref{prop:connected}), so there are exactly $k$ components of
+$\R^3\setminus\overline\Omega$.  Every $\Sigma_i$ has one collar side in
+$\Omega$ and one in a complementary component
+(Theorem~\ref{thm:tubular}); every complementary component has nonempty
+boundary contained in $\partial\Omega$, so it meets at least one $\Sigma_i$.
+Hence the map sending $\Sigma_i$ to the component on its non-$\Omega$ side is
+a surjection between finite sets of size $k$, therefore a bijection.  Exactly
+one boundary component faces $U_\infty$; call it $\Sigma_\infty$.
+
+By construction $\partial K=\partial U_\infty=\Sigma_\infty$; all other
+boundary components become interior interfaces once their adjacent cavities are
+filled.  The union of $\Omega$, all bounded complementary components, and
+collars crossing their common interfaces is connected and equals
+$\operatorname{int}K$, and the outer collar gives
+$K=\overline{\operatorname{int}K}$.  Normal agreement holds because both
+outward normals point into $U_\infty$.  Finally
+$\Per(K)=\Hs^2(\Sigma_\infty)\le\sum_i\Hs^2(\Sigma_i)=\Per(\Omega)$.
+\end{proof}
+
+\begin{fnote}[Representative bookkeeping]\label{fnote:bookkeeping}
+Five distinct objects are now in play: the measurable set $E$, its density-one
+open representative $\Omega$, its closure $\overline\Omega$, the filled hull
+$K$, and the exterior $\R^3\setminus K$.  Confusing any two of them produces a
+false statement.  A Lean development should give each a distinct name and
+prove the inclusions \eqref{eq:hull-inclusions} once, as a reusable lemma,
+rather than re-deriving them in each consumer.
+\end{fnote}
+

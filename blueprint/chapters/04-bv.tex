@@ -1,0 +1,382 @@
+% ----------------------------------------------------------------------------
+\chapter{BV functions and sets of finite perimeter}\label{ch:bv}
+\module{NoCompromise.BV.Basic,
+        NoCompromise.BV.Compactness,
+        NoCompromise.BV.Defs,
+        NoCompromise.BV.Rellich,
+        NoCompromise.BV.StrictApprox,
+        NoCompromise.Sobolev.H1Extension,
+        NoCompromise.Sobolev.PlanarDomain,
+        NoCompromise.Sobolev.Rellich}
+
+\section{Density representatives}
+
+\begin{definition}[Density points and essential boundary]\label{def:density}
+For measurable $E\subset\R^n$, $n\ge1$, put
+\[
+  E^{(1)}:=\Bigl\{x:\lim_{r\downarrow0}\frac{|E\cap B_r(x)|}{|B_r|}=1\Bigr\},
+  \quad
+  E^{(0)}:=\Bigl\{x:\lim_{r\downarrow0}\frac{|E\cap B_r(x)|}{|B_r|}=0\Bigr\},
+\]
+and $\ebd E:=\R^n\setminus(E^{(0)}\cup E^{(1)})$.  These are Borel sets:
+the density limit may equivalently be tested along $r=1/k$, and for fixed
+$r>0$ the map $x\mapsto|E\cap B_r(x)|$ is continuous by local $L^1$
+continuity of translations.  This definition belongs to
+\texttt{BV/Defs.lean}; both coarea and traces import it from there.
+\end{definition}
+
+\section{The variation measure}
+
+\begin{definition}[Variation]\label{def:variation}
+\uses{conv:test-fields}
+Let $n\ge1$.  For $f\in L^1_{\mathrm{loc}}(U)$,
+$U\subset\R^n$ open, set
+\begin{equation}\label{eq:variation}
+  |Df|(U):=\sup\Bigl\{\int_Uf\,\dvg X:
+    X\in C^1_c(U;\R^n),\ |X|\le1\Bigr\}.
+\end{equation}
+Say $f\in BV(U)$ if $f\in L^1(U)$ and $|Df|(U)<\infty$, and
+$f\in BV_{\mathrm{loc}}(U)$ if $|Df|(V)<\infty$ for every $V\Subset U$.
+\end{definition}
+
+\begin{lemma}[The test class is irrelevant]\label{lem:test-class}
+\uses{def:variation}
+The supremum in \eqref{eq:variation} is unchanged if $C^1_c$ is replaced by
+$C^\infty_c$.
+\end{lemma}
+
+\begin{proof}
+$C^\infty_c\subset C^1_c$ gives one inequality.  For the other, mollify an
+admissible $X$ at a radius smaller than $\dist(\spt X,\partial U)$; the
+mollification is admissible and $\dvg$ of it converges to $\dvg X$ uniformly.
+\end{proof}
+
+\begin{definition}[Perimeter]\label{def:perimeter}
+\uses{def:variation}
+For measurable $E\subset\R^n$ and open $A\subset\R^n$, set
+$\Per_n(E;A):=|D\ind E|(A)$ and $\Per_n(E):=\Per_n(E;\R^n)$.
+In the ambient dimension $n=3$ we suppress the subscript and write $\Per$.
+Say $E\subset\R^n$ has \emph{finite perimeter} if
+$\Per_n(E)<\infty$, and \emph{locally finite perimeter} if
+$\Per_n(E;A)<\infty$ for every $A\Subset\R^n$.
+\end{definition}
+
+\begin{theorem}[Polar decomposition]\label{thm:polar}
+\uses{def:variation,conv:outward}
+Let $n\ge1$, $U\subset\R^n$ be open, and let
+$f\in BV_{\mathrm{loc}}(U)$.  There is a locally finite positive Radon
+measure $|Df|$ on $U$ --- agreeing on open sets with \eqref{eq:variation} ---
+and a Borel map $\sigma_f:U\to\R^n$ with $|\sigma_f|=1$ $|Df|$-a.e., such
+that $Df=\sigma_f|Df|$ as $\R^n$-valued measures.  For a set $E$ of locally
+finite perimeter we write, per Convention~\ref{conv:outward},
+\begin{equation}\label{eq:polar-sign}
+  D\ind E=-\nu_E\,|D\ind E| .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\uses{thm:signed-riesz,lem:riesz-exhaustion,lem:test-class,
+      def:locally-bounded}
+Apply Theorem~\ref{thm:signed-riesz} to
+$\Lambda_i(\phi)=-\int f\,\partial_i\phi$; \eqref{eq:variation} supplies
+\eqref{eq:locally-bounded} on every relatively compact subdomain where the
+variation is finite, so $D_if=\mu_i^+-\mu_i^-$ with $\mu_i^\pm$ positive.
+
+Let $\mu$ be the sum of the $2n$ measures $\mu_i^\pm$.  Positive
+Radon--Nikodym (\ref{base:measure}) gives nonnegative densities $a_i^\pm$
+with $\mu_i^\pm=a_i^\pm\mu$; the required $\sigma$-finiteness holds because
+$U$ has a compact exhaustion on whose members $\mu$ is finite.  Put
+$g_i=a_i^+-a_i^-$, $g=(g_1,\ldots,g_n)$ and $\rho:=|g|\mu$.  Then $D_if=g_i\mu$
+\emph{without} invoking signed Radon--Nikodym, and $\rho$ is locally finite
+since $\int_K|g|\,d\mu\le\sum_i\int_K(a_i^++a_i^-)\,d\mu<\infty$.
+
+For every admissible $X$,
+\begin{equation}\label{eq:polar-upper}
+  \int_Uf\,\dvg X=-\int_UX\cdot g\,d\mu\le\int_U|X|\,d\rho .
+\end{equation}
+Conversely let $O\subset U$ be open, $K\Subset O$, and put $q:=-g/|g|$ on
+$\{|g|>0\}$ and $q:=0$ elsewhere.  Regularity of $\rho$ makes
+$C_c(O;\R^n)$ dense in $L^1(\rho\llcorner O;\R^n)$, so choose continuous
+fields converging there to $q\ind K$; compose with the metric projection onto
+the closed unit ball, which does not increase the error (as $|q\ind K|\le1$)
+and preserves compact support.  Approximate uniformly by
+$Y_j\in C^1_c(O;\R^n)$ with $\|Y_j\|_\infty\le1+\varepsilon_j$ and set
+$X_j:=Y_j/(1+\varepsilon_j)$, $\varepsilon_j\downarrow0$.  Substituting in
+the identity preceding \eqref{eq:polar-upper} gives the lower bound
+$\rho(K)$ for the variation on $O$.  Taking the supremum over $K\Subset O$
+and using regularity of $\rho$ shows the supremum in \eqref{eq:variation}
+equals $\rho(O)$ for every open $O$.  Hence $|Df|=\rho$, and
+$\sigma_f:=g/|g|$ where $|g|>0$, with an arbitrary unit value on the
+$\rho$-null complement.
+\end{proof}
+
+\begin{lemma}[Elementary invariances of the perimeter]\label{lem:perimeter-invariances}
+\uses{def:perimeter}
+Let $n\ge1$, let $E,F\subset\R^n$ be measurable, let $A\subset\R^n$ be
+open, $a\in\R^n$, and $r>0$.  Then
+\begin{enumerate}[label=(\roman*)]
+\item\label{it:per-null} $|E\triangle F|=0\implies
+  \Per_n(E;A)=\Per_n(F;A)$;
+\item\label{it:per-transl}
+  $\Per_n(a+E;a+A)=\Per_n(E;A)$;
+\item\label{it:per-dil}
+  $\Per_n(rE;rA)=r^{n-1}\Per_n(E;A)$;
+\item\label{it:per-compl}
+  $\Per_n(\R^n\setminus E;A)=\Per_n(E;A)$.
+\end{enumerate}
+The corresponding global identities follow by taking $A=\R^n$.
+\end{lemma}
+
+\begin{proof}\uses{def:variation}
+(i) is immediate from \eqref{eq:variation}, which only sees $\ind E$ as an
+$L^1_{\mathrm{loc}}$ class.  For (ii), translation gives a norm-preserving
+bijection between the admissible test fields on $A$ and $a+A$.  For (iii),
+change variables $y=rx$ and use
+$\dvg(X(r\cdot))=r(\dvg X)(r\cdot)$; the Jacobian $r^n$ leaves the factor
+$r^{n-1}$.  Finally (iv) holds because
+$\int_{E^c}\dvg X=-\int_E\dvg X$ for every $X\in C^1_c(A;\R^n)$.
+\end{proof}
+
+\begin{lemma}[Lower semicontinuity]\label{lem:lsc}
+\uses{def:variation}
+Let $n\ge1$ and let $U\subset\R^n$ be open.  If $f_j\to f$ in
+$\Lloc(U)$, then
+$|Df|(U)\le\liminf_j|Df_j|(U)$.  In particular, if
+$\ind{E_j}\to\ind E$ in $\Lloc(U)$, then
+$\Per_n(E;U)\le\liminf_j\Per_n(E_j;U)$.
+\end{lemma}
+
+\begin{proof}
+For each admissible $X$, $\int f\dvg X=\lim_j\int f_j\dvg X\le\liminf_j|Df_j|(U)$;
+take the supremum over $X$.
+\end{proof}
+
+\begin{lemma}[Locality of the perimeter measure]\label{lem:locality}
+\uses{thm:polar}
+$\Per_n(E;\cdot)$ is a Borel measure for every measurable $E\subset\R^n$.
+Consequently, if $E=F$ a.e.\ on an open $A\subset\R^n$, then
+$\Per_n(E;A)=\Per_n(F;A)$; and if $E,F\subset\R^n$ have finite perimeter
+with $\dist(E,F)>0$, then
+\[
+  \Per_n(E\cup F)=\Per_n(E)+\Per_n(F).
+\]
+\end{lemma}
+
+\begin{proof}\uses{lem:perimeter-invariances}
+That $\Per_n(E;\cdot)=|D\ind E|$ is a measure is
+Theorem~\ref{thm:polar}.  Agreement a.e.\ on $A$ makes the distributional
+derivatives agree on $A$.  For the disjoint union, separate $E$ and $F$ by
+disjoint open neighbourhoods $A\supset E$, $B\supset F$ with
+$\dist(A,B)>0$; then $\ind{E\cup F}=\ind E$ on $A$ and $=\ind F$ on $B$, and
+$\ind{E\cup F}$ is a.e.\ constant on the complement of $A\cup B$, which
+therefore carries no derivative measure.  Additivity of the measure finishes.
+\end{proof}
+
+\section{Translation estimate and local compactness}
+
+\begin{lemma}[Translation estimate]\label{lem:translation-estimate}
+\uses{def:variation}
+Let $n\ge1$, let $Q\Subset U\subset\R^n$ be a cube, and let $Q_h$ be its
+enlargement by $|h|$.  For
+$f\in BV_{\mathrm{loc}}(U)$ and $|h|$ small enough that $Q_h\Subset U$,
+\begin{equation}\label{eq:translation-estimate}
+  \int_Q|f(x+h)-f(x)|\,dx\le|h|\,|Df|(Q_h).
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:strict-approx}
+For smooth $f$ this is the fundamental theorem of calculus along the segment
+from $x$ to $x+h$ followed by Fubini.  For general $f$, mollify: the
+convolution inequality $\int|\nabla(\rho_\varepsilon*f)|\le|Df|(Q_h)$ follows
+directly from \eqref{eq:variation} by translating a test field and applying
+Fubini, and the left side of \eqref{eq:translation-estimate} passes to the
+limit in $L^1$.
+\end{proof}
+
+\begin{lemma}[Piecewise-constant approximation]\label{lem:grid-approx}
+\uses{def:variation}
+Let $n\ge1$, let $Q\subset\R^n$ be a cube, $\delta>0$, and let
+$A_\delta f$ be the function equal on
+each half-open cube of the side-$\delta$ grid to the average of $f$ there.
+Then, with $C_n$ depending only on $n$,
+\begin{equation}\label{eq:grid-approx}
+  \|f-A_\delta f\|_{L^1(Q)}\le C_n\delta\,|Df|(Q_{C_n\delta}).
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:translation-estimate}
+Average $|f(x)-f(y)|$ over pairs $x,y$ in one grid cube and apply
+\eqref{eq:translation-estimate} along coordinate segments.
+\end{proof}
+
+\begin{theorem}[Local BV compactness]\label{thm:bv-compactness}
+\uses{def:variation}
+Let $n\ge1$, let $U\subset\R^n$ be open, and let
+$f_j\in BV_{\mathrm{loc}}(U)$ satisfy
+$\sup_j\bigl(\|f_j\|_{L^1(V)}+|Df_j|(V)\bigr)<\infty$ for every $V\Subset U$.
+Then a subsequence converges in $\Lloc(U)$ to some $f\in BV_{\mathrm{loc}}(U)$.
+If moreover $f_j=\ind{E_j}$ then $f=\ind E$ for a set $E$ of locally finite
+perimeter in $U$, that is, $\Per_n(E;A)<\infty$ for every $A\Subset U$.
+When $U=\R^n$ this is locally finite perimeter in the sense of
+Definition~\ref{def:perimeter}; for general $U$ the hypotheses control no
+perimeter at $\partial U$, so no global conclusion is asserted.
+\end{theorem}
+
+\begin{proof}\uses{lem:grid-approx,lem:lsc}
+Fix a cube $Q\Subset U$.  For fixed $\delta$ the functions $A_\delta f_j$ lie
+in a finite-dimensional space with coefficient vectors bounded by the uniform
+$L^1$ bound, so they have a convergent subsequence.  Diagonalise over
+$\delta=2^{-m}$; \eqref{eq:grid-approx} makes the resulting subsequence
+Cauchy in $L^1(Q)$.  A second diagonalisation over an exhaustion by cubes
+gives $\Lloc(U)$ convergence.  Lemma~\ref{lem:lsc} gives
+$f\in BV_{\mathrm{loc}}$.  Finally $L^1$ limits of $\{0,1\}$-valued functions
+are a.e.\ $\{0,1\}$-valued.
+\end{proof}
+
+\begin{fnote}\label{fnote:no-frechet-kolmogorov}
+No Fr\'echet--Kolmogorov theorem is used; \eqref{eq:grid-approx} plus
+finite-dimensionality \emph{is} the compactness argument.  This matters
+because the base contains no such theorem.
+\end{fnote}
+
+\section{A two-dimensional Rellich lemma}\label{sec:rellich}
+
+The harmonic blow-up of \S\ref{sec:harmonic-blowup} needs strong $L^2$
+compactness of an $H^1$-bounded sequence on a planar disk, and nothing more.
+
+\begin{lemma}[Planar Gagliardo--Nirenberg]\label{lem:planar-GN}
+Let $B\subset\R^2$ be a bounded disk.  Then, with $C_B$ depending only on
+$B$,
+\begin{equation}\label{eq:planar-GN}
+  \|g\|_{L^4(B)}\le C_B\bigl(\|g\|_{L^2(B)}+\|\nabla g\|_{L^2(B)}\bigr)
+  \qquad(g\in H^1(B)).
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:planar-sobolev-L2,lem:H1-extension-disk}
+Apply the one-dimensional fundamental theorem of calculus in each of the two
+coordinate directions to $|g|^2$ and then Cauchy--Schwarz; this is
+\eqref{eq:planar-sobolev-L2} applied to $|g|^2$.  Flattening and reflection in
+finitely many boundary charts (Lemma~\ref{lem:H1-extension-disk}) supplies the
+compactly supported extension the calculation requires.
+\end{proof}
+
+\begin{lemma}[$H^1$ extension from a Lipschitz domain]
+\label{lem:H1-extension-disk}
+Let $D\subset\R^n$, $n\in\{2,3\}$, be a bounded Lipschitz domain.  There is
+a bounded linear extension $H^1(D)\to H^1(\R^n)$ whose image is supported in
+a fixed bounded neighbourhood of $\overline D$.
+\end{lemma}
+
+\begin{proof}\uses{lem:bv-extension}
+This is the $H^1$ case of the construction in Lemma~\ref{lem:bv-extension}:
+finitely many Lipschitz graph charts, flatten, reflect evenly across the
+graph, multiply by a partition of unity, extend the interior piece by zero.
+\end{proof}
+
+\begin{lemma}[$L^2$ interpolation]\label{lem:L2-interp}
+$\|h\|_{L^2}\le\|h\|_{L^1}^{1/3}\|h\|_{L^4}^{2/3}$.
+\end{lemma}
+
+\begin{proof}
+H\"older with exponents $1/2=\tfrac13\cdot1+\tfrac23\cdot\tfrac14$ applied to
+$|h|^2=|h|^{2/3}|h|^{4/3}$.
+\end{proof}
+
+\begin{theorem}[Rellich--Kondrachov on a planar disk]\label{thm:rellich}
+\uses{lem:planar-GN}
+Let $B\subset\R^2$ be a bounded disk and let $g_j$ be bounded in $H^1(B)$.
+Then a subsequence converges weakly in $H^1(B)$ and strongly in $L^2(B)$.
+\end{theorem}
+
+\begin{proof}
+\uses{thm:bv-compactness,lem:planar-GN,lem:L2-interp,lem:H1-extension-disk}
+Weak $H^1$ convergence along a subsequence is \ref{base:lp}.  A bounded
+sequence in $H^1(B)$ is bounded in $BV(B)$ by Cauchy--Schwarz, so after the
+extension of Lemma~\ref{lem:H1-extension-disk} the compactness argument of
+Theorem~\ref{thm:bv-compactness} gives a subsequence converging in $L^1(B)$.
+The differences are uniformly bounded in $L^4(B)$ by
+Lemma~\ref{lem:planar-GN}; Lemma~\ref{lem:L2-interp} upgrades $L^1$
+convergence to $L^2$ convergence.
+\end{proof}
+
+\section{Strict smooth approximation}\label{sec:strict-approx}
+
+\begin{lemma}[BV product rule with a smooth factor]\label{lem:bv-product-smooth}
+\uses{def:variation}
+For $n\ge1$, $U\subset\R^n$ open, $f\in BV_{\mathrm{loc}}(U)$ and
+$\zeta\in C^\infty_c(U)$,
+\[
+  D(\zeta f)=\zeta\,Df+f\,\nabla\zeta\,dx .
+\]
+\end{lemma}
+
+\begin{proof}
+Immediate for smooth $f$; pass to the limit along a mollification, using
+$\Lloc$ convergence for the second term and weak-$*$ convergence of $Df$ for
+the first.
+\end{proof}
+
+\begin{theorem}[Strict approximation]\label{lem:strict-approx}
+\uses{def:variation}
+Let $n\ge1$, let $U\subset\R^n$ be open, and let
+$f\in BV_{\mathrm{loc}}(U)$.  There are $f_j\in C^\infty(U)$ with
+\begin{equation}\label{eq:strict-approx}
+  f_j\to f\ \text{in}\ \Lloc(U),
+  \qquad
+  \int_U|\nabla f_j|\longrightarrow|Df|(U)
+\end{equation}
+whenever the right-hand limit is finite.
+If, moreover, $U=\R^n$ and $f\in BV(\R^n)$, the sequence may be chosen in
+$C^infty_c(\R^n)$ with $f_j\to f$ in $L^1(\R^n)$.
+\end{theorem}
+
+\begin{proof}\uses{lem:bv-product-smooth,lem:lsc}
+Let $U_k\Subset U_{k+1}$ exhaust $U$, take a partition of unity $\zeta_k$
+subordinate to the annuli $U_{k+1}\setminus\overline{U_{k-1}}$, and convolve
+$\zeta_kf$ at a radius
+$\varepsilon_{j,k}<\dist(\spt\zeta_k,\partial U)$.  Extend each summand by
+zero before convolution and set
+\[
+  f_j:=\sum_k\rho_{\varepsilon_{j,k}}*(\zeta_kf).
+\]
+The sum is locally finite and smooth.  Choose the radii, one $k$ at a time,
+so small that
+\[
+ \|f_j-f\|_{L^1(U_j)}<j^{-1},\qquad
+ \sum_k\bigl\|\rho_{\varepsilon_{j,k}}*(f\nabla\zeta_k)
+                    -f\nabla\zeta_k\bigr\|_{L^1(U)}<j^{-1};
+\]
+this is possible because each summand is compactly supported and the error
+budgets may be chosen summable.  Lemma~\ref{lem:bv-product-smooth} gives
+\[
+ Df_j=\sum_k\rho_{\varepsilon_{j,k}}*(\zeta_kDf)
+       +\sum_k\rho_{\varepsilon_{j,k}}*(f\nabla\zeta_k)\,dx .
+\]
+For the measure term, convolution and the triangle inequality give
+$\int|\sum_k\rho_{\varepsilon_{j,k}}*(\zeta_kDf)|
+ \le\sum_k\int\zeta_k\,d|Df|$.  For the absolutely continuous term, insert
+$\sum_kf\nabla\zeta_k=0$ and use the chosen summable commutator errors.
+Consequently
+\[
+  \int_U|\nabla f_j|
+  \le\sum_k\int_U\zeta_k\,d|Df|+j^{-1}
+  =|Df|(U)+j^{-1}.
+\]
+Lemma~\ref{lem:lsc} supplies the reverse liminf and proves
+\eqref{eq:strict-approx} whenever $|Df|(U)<\infty$.
+
+For the final whole-space assertion, start instead with
+$h_j:=\rho_{\varepsilon_j}*f$, choosing $\varepsilon_j\downarrow0$ so that
+$h_j\to f$ in $L^1(\R^n)$.  Let $\chi_R$ be one on $B_R$, supported in
+$B_{2R}$, and satisfy $|\nabla\chi_R|\le C/R$.  Choose $R_j\uparrow\infty$
+so that $\chi_{R_j}h_j\to f$ in $L^1$ and put
+$f_j:=\chi_{R_j}h_j$.  Then
+\[
+ \int|\nabla f_j|
+ \le |Df|(\R^n)+\frac C{R_j}\|f\|_{L^1(\R^n)},
+\]
+because convolution does not increase the variation and
+$\|h_j\|_1\le\|f\|_1$.  Lower semicontinuity again supplies the reverse
+liminf.
+\end{proof}

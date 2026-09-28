@@ -1,0 +1,193 @@
+% ============================================================================
+\chapter{Complete blueprint-to-module map}\label{ch:lean-files}
+% ============================================================================
+\module{(this chapter is the answer)}
+
+This chapter records the complete assignment of all 378 target and context
+items to 124 planned Lean modules in the existing \texttt{no\_compromise}
+project.  The module root is \texttt{NoCompromise}; mathematical declarations
+retain the \texttt{LiquidDrop} namespace.  All 302 mathematical results have
+an owner, and all 59 remarks and formalisation notes are attached separately
+as guidance.  No range or wildcard stands for an unassigned item.
+
+The tree below lists each module with the items it owns.  The assignment
+was checked mechanically for coverage and acyclicity using every declared
+\verb|\uses| edge, shared conventions, and documented context prerequisites
+(including the regression tests' references).  This is a plan for Lean
+files, not an assertion that their statements or proofs have been elaborated.
+Additional supporting lemmas may be needed during formalisation.
+
+\section{Design rules used}
+
+\begin{enumerate}[label=(R\arabic*),leftmargin=*]
+\item\label{r:one-concept} One mathematical concept per file.  A file that
+  needs a section heading to be navigable should be split.
+\item\label{r:leaf-imports} Planned imports form a DAG.  Build in a
+  topological order of the module imports; the thematic layers of
+  Chapter~\ref{ch:dependencies} are only an overview.
+\item\label{r:interface} Each layer has a single \texttt{...Basic} or
+  \texttt{...Defs} file holding its definitions, so that downstream files
+  import definitions without importing proofs.
+\item\label{r:generic} The regularity theory is stated for
+  \texttt{OmegaMinimal} (Definition~\ref{def:omega-minimal}) and never for the
+  liquid-drop energy, per Remark~\ref{rem:generic-discipline}.  The energy
+  appears only in \texttt{Energy/}, \code{Regularity/Penalization.lean}, and
+  \texttt{Nonexistence/}, \texttt{Classification/}, \texttt{Binding/}.
+\item\label{r:conventions} Each convention has one owner at the layer where
+  its objects are available.  \texttt{Conventions.lean} holds the primitive
+  ambient setting, null-set convention, test classes and constant discipline.
+  The polar sign belongs to \texttt{BV/Basic.lean}; curvature belongs to
+  \texttt{Surface/Geometry.lean}; the first-variation sign belongs with its
+  theorems; the density representative belongs to the regularity layer.
+  Mathematical claims inside a convention must still be proved.
+\item\label{r:constants} Every quantitative statement takes its constants as
+  explicit hypotheses or returns them existentially in the declared order of
+  Convention~\ref{conv:constants}.  Constants are never section variables.
+\item\label{r:no-heavy-defs} Files in the \texttt{Sard/}, \texttt{Flow/},
+  \texttt{Topology/} and \texttt{Surface/} trees import nothing from
+  \texttt{BV/} in the planned graph, so they can be built independently of the whole
+  measure-theoretic half.  \texttt{Surface/} does import \texttt{Area/}
+  (for \texttt{thm:area-formula-rect}, \texttt{lem:sphere-area} and
+  \code{lem:smooth-surface-rectifiable}), which itself depends only on the
+  base.
+\end{enumerate}
+
+\section{The tree}
+
+\input{module-tree.tex}
+
+\section{Notes on the tree}
+
+\begin{enumerate}[leftmargin=*]
+
+\item \textbf{\code{Elliptic/ClassicalCalculus.lean} must be built early.}
+  Despite living under \texttt{Elliptic/}, it is imported by
+  \texttt{DeGiorgi/Structure.lean} (for
+  Corollary~\ref{cor:smooth-perimeter}).  It depends only on
+  \texttt{BV/Rellich.lean} and chart calculus.  See
+  Remark~\ref{rem:acyclic-elliptic}.  If a strict layering is preferred, move
+  it to \code{Calculus/ChartGaussGreen.lean} at the top of the tree; the
+  labels are unchanged.
+
+\item \textbf{\code{Isoperimetric/Rigidity.lean} is deliberately far from
+  \texttt{Isoperimetric/ABP.lean}.}  \texttt{ABP.lean} depends on
+  \texttt{Elliptic/} only; \texttt{Rigidity.lean} depends on the whole
+  \texttt{Regularity/} tree.  Keeping them in one file would create a false
+  impression of a cycle and would force the whole regularity development to be
+  imported by every consumer of \eqref{eq:sharp-isoperimetric}.  See
+  Remark~\ref{rem:acyclic-isoperimetric}.
+
+\item \textbf{\code{Regularity/OmegaMinimal.lean} holds only the
+  definition.}  This lets \code{Isoperimetric/Rigidity.lean} and
+  \code{Regularity/Penalization.lean} both supply instances without either
+  importing the other, per (R\ref{r:generic}).
+
+\item \textbf{The threshold algebra is the first pilot.}  Start with
+  \texttt{Conventions.lean} and \texttt{Threshold/Defs.lean}, then
+  \texttt{Threshold/Algebra.lean} and \texttt{Threshold/Ledger.lean}.
+  The ledger is pure algebra, and its statements
+  (Lemmas~\ref{lem:ledger-Fprime}--\ref{lem:ledger-h},
+  \ref{lem:ledger-L5}) are exactly the ones a normalisation tactic can
+  discharge.  Doing it first de-risks the sharp constants and gives an early
+  win.  Note that $q=2^{1/3}$ should be introduced once, as a real cube root
+  with $q^3=2$ and $q>1$, and never as a \texttt{Real.rpow} expression to be
+  re-derived.  Prove agreement with the showcase's
+  \texttt{LiquidDrop.criticalVolume}.  The two-ball comparison is assigned
+  to \code{Threshold/Comparison.lean}, so the pilot does not import ball
+  energy or its geometric prerequisites.
+
+\item \textbf{\texttt{Flow/} plus \texttt{Surface/Morse.lean} is the
+  optional-cost centre.}  \texttt{Flow/} exists only for
+  \texttt{lem:morse-band} and \texttt{lem:one-manifold}, which exist only for
+  \texttt{Surface/MorseCount.lean}.  Formalisation
+  note~\ref{fnote:retire-flows} gives the two ways this block might shrink,
+  neither of them verified.  \texttt{Surface/Shape.lean} and the proof of the
+  index-integral formula are independent of \texttt{Flow/}.  The complete
+  \code{Surface/TotalCurvature.lean} file, however, contains
+  Theorem~\ref{thm:total-curvature-bound}, which imports
+  Proposition~\ref{prop:morse-count} from \texttt{Surface/MorseCount.lean}
+  and therefore depends transitively on \texttt{Flow/}.  Build the complete
+  file after the Morse count; deferring Flow would require a further file
+  split or an explicit conditional interface for that count.
+
+\item \textbf{Four files were deleted relative to the first draft of this
+  document}: \code{Topology/Triangulation.lean},
+  \texttt{Surface/Frame.lean}, \texttt{Surface/Stokes.lean} and
+  \texttt{Surface/GaussBonnet.lean}, replaced by
+  \texttt{Surface/Shape.lean}, \texttt{Surface/Morse.lean},
+  \texttt{Surface/MorseCount.lean} and
+  \code{Surface/TotalCurvature.lean}.  The reason is Formalisation
+  note~\ref{fnote:why-degree}: the deleted route needed abstract simplicial
+  complexes with geometric realisation, which the pinned mathlib does not
+  provide in any usable form (\code{AlgebraicTopology/Simplicial*} is
+  category-theoretic simplicial sets;
+  \code{Analysis/Convex/SimplicialComplex} is convex geometry).  Note that
+  no \texttt{Topology/Degree.lean} is needed either: Formalisation
+  note~\ref{fnote:not-a-degree} explains why the index sum is never shown to
+  be a degree.
+
+\item \textbf{\texttt{Regularity/} has seventeen planned files.}  The
+  $\varepsilon$-regularity argument is where a monolithic file would be least
+  maintainable: the smallness constants of
+  Constants~\ref{const:height}, \ref{const:graph} and \ref{const:tilt} are
+  chosen in three different files and must be threaded in the declared order.
+  Making each choice a separate file's \emph{output} --- an existential
+  statement, per (R\ref{r:constants}) --- is what keeps the order honest.
+
+\item \textbf{\texttt{Tests/} should be built incrementally, not at the end.}
+  Add each test once its actual prerequisites are available.  The completed
+  map records these dependencies explicitly: for example,
+  \texttt{test:constants} also checks the optimal ball volume and binding
+  energy, so its complete implementation comes after those results.  Its
+  elementary threshold checks may be extracted earlier during the pilot.
+
+\item \textbf{Thematic overview of the build.}  Following
+  Chapter~\ref{ch:dependencies}:
+  \texttt{Conventions} $\to$ \texttt{Threshold/Ledger} $\to$
+  \texttt{Measure} $\to$ \texttt{BV} $\to$ \texttt{Area} $\to$
+  \code{Elliptic/ClassicalCalculus} $\to$ \texttt{Sobolev} $\to$
+  \texttt{DeGiorgi} $\to$ \texttt{Variation} $\to$ \texttt{Elliptic} (rest)
+  $\to$ \texttt{Sard} $\to$ \texttt{BV/SmoothApprox} $\to$
+  \texttt{Isoperimetric/ABP} $\to$ \texttt{Energy}, \texttt{Ball},
+  \texttt{Threshold} $\to$ \texttt{Value}, \texttt{Binding/Splitting} $\to$
+  \texttt{Compactness}, \texttt{Existence} $\to$ \texttt{Regularity} $\to$
+  \texttt{Cones} $\to$ \texttt{Isoperimetric/Rigidity} $\to$
+  \texttt{Stationary} $\to$ \texttt{Flow}, \texttt{Topology},
+  \texttt{Surface} $\to$ \texttt{Hull}, \texttt{Capacity} $\to$
+  \texttt{CapacitaryK} $\to$ \texttt{Green} $\to$
+  \code{Stationary/CapacitaryEstimate} $\to$ \texttt{Classification},
+  \texttt{Nonexistence} $\to$ \texttt{Main} $\to$ \texttt{Binding/Main}.
+
+  The \texttt{Flow}/\texttt{Topology}/\texttt{Surface} block is placed late
+  because nothing before \texttt{Hull} needs the complete block; its
+  elementary surface definitions are available earlier.  For actual
+  scheduling, use a topological order of the module imports, which
+  interleaves these thematic groups as required.
+
+\item \textbf{Blueprint node names.}  The \LaTeX{} labels in this document are
+  intended to be the blueprint node names verbatim.  When a Lean declaration
+  is written for an item, add \verb|\lean{Decl.Name}| to that item and
+  \verb|\leanok| when it compiles without \texttt{sorry}.  Do not rename
+  labels: Chapter~\ref{ch:dependencies} and this chapter both reference them.
+
+\item \textbf{What may never appear.}  No \texttt{axiom}, no
+  \texttt{constant}, no \texttt{sorry} in a finished file, and no
+  \texttt{theorem} whose statement cites a published paper.  If an item cannot
+  be proved from its declared \verb|\uses| set plus
+  Chapter~\ref{ch:base}, that is a defect in this document and should be
+  reported rather than patched with a hypothesis.
+\end{enumerate}
+
+\section{Provenance}
+
+The mathematical target is O.~Chodosh and M.~Gianocca, \emph{No compromise in
+the liquid drop model}, arXiv:2608.11517.  The source paper uses
+Bonacini--Cristoferi for regularity and Agostiniani--Mazzieri for capacitary
+monotonicity; \emph{neither is assumed here} --- they are replaced by
+Chapters~\ref{ch:penalization}--\ref{ch:no-singular} and
+Chapter~\ref{ch:appK} respectively, and are used only as provenance and as
+checks on constants.  The slicing idea of Chapter~\ref{ch:nonexistence}
+originates with Frank--Killip--Nam; the compactness and existence context of
+Chapters~\ref{ch:existence} and \ref{ch:binding} is related to work of
+Frank--Lieb and Frank--Nam.  The arguments needed here are written out in
+full.

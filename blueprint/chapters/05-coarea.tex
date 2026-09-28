@@ -1,0 +1,395 @@
+% ----------------------------------------------------------------------------
+\chapter{Coarea, slicing and traces}\label{ch:coarea}
+\module{NoCompromise.BV.AnnularGluingFull,
+        NoCompromise.BV.BoundaryTraces,
+        NoCompromise.BV.Coarea,
+        NoCompromise.BV.CoareaCritical,
+        NoCompromise.BV.CoareaL1Lebesgue,
+        NoCompromise.BV.CoareaRegular,
+        NoCompromise.BV.ExactCuts,
+        NoCompromise.BV.Gluing,
+        NoCompromise.BV.GoodRadii,
+        NoCompromise.BV.GoodTruncation,
+        NoCompromise.BV.JumpDisintegration,
+        NoCompromise.BV.Slicing,
+        NoCompromise.BV.WeightedCoarea}
+
+\section{Coarea for BV}\label{sec:coarea}
+
+\begin{theorem}[Weighted $C^1$ coarea]\label{thm:weighted-coarea}
+Let $n\ge2$, let $u\in C^1(U)$ with $U\subset\R^n$ open, and let
+$g:U\to[0,\infty]$ be Borel.
+Then
+\begin{equation}\label{eq:weighted-coarea}
+  \int_Ug(x)\,|\nabla u(x)|\,dx
+  =\int_\R\int_{U\cap\{u=t\}}g\,d\Hs^{n-1}\,dt .
+\end{equation}
+No Sard theorem is used; critical levels are permitted.
+\end{theorem}
+
+\begin{proof}\uses{lem:coarea-regular-part,lem:coarea-critical-part}
+Combine Lemmas~\ref{lem:coarea-regular-part} and
+\ref{lem:coarea-critical-part}: the first proves
+\eqref{eq:weighted-coarea} with $U\setminus Z$ in place of $U$, where
+$Z:=\{\nabla u=0\}$; the second shows $Z$ contributes zero to both sides.
+\end{proof}
+
+\begin{lemma}[The regular part]\label{lem:coarea-regular-part}
+Let $n\ge2$, let $u\in C^1(U)$ with $U\subset\R^n$ open, let
+$g:U\to[0,\infty]$ be Borel, and put $Z:=\{\nabla u=0\}$.  Then
+\[
+  \int_{U\setminus Z}g\,|\nabla u|\,dx
+  =\int_\R\int_{(U\setminus Z)\cap\{u=t\}}g\,d\Hs^{n-1}\,dt .
+\]
+\end{lemma}
+
+\begin{proof}
+Cover $U\setminus Z$ by countably many relatively compact boxes $V$ on each
+of which one fixed derivative, after permuting coordinates say
+$\partial_nu$, has constant nonzero sign, subdividing so that each line
+parallel to $e_n$ meets $V$ in an interval on which $u$ is strictly
+monotone.  Writing $x'=(x_1,\ldots,x_{n-1})$, on such a box
+$\Psi(x',x_n):=(x',u(x))$ is a $C^1$ diffeomorphism onto its image with
+Jacobian $|\partial_nu|$, and \ref{base:calculus} gives
+\begin{equation}\label{eq:coarea-cov}
+  \int_Vg|\nabla u|
+  =\int_{\Psi(V)}g(\Psi^{-1}(y',t))
+     \frac{|\nabla u|}{|\partial_nu|}(\Psi^{-1}(y',t))\,dy'\,dt .
+\end{equation}
+For fixed $t$ the inverse graph $x_n=\gamma_t(x')$ satisfies
+\begin{equation}\label{eq:coarea-graph}
+  \nabla\gamma_t=-\frac{(\partial_1u,\ldots,\partial_{n-1}u)}{\partial_nu},
+  \qquad
+  \sqrt{1+|\nabla\gamma_t|^2}=\frac{|\nabla u|}{|\partial_nu|},
+\end{equation}
+so the inner integral in \eqref{eq:coarea-cov} is the graph definition of
+$\int_{V\cap\{u=t\}}g\,d\Hs^{n-1}$.  Disjointify the cover, apply the identity
+first to simple $g$, and use monotone convergence.
+\end{proof}
+
+\begin{lemma}[The critical set contributes nothing]\label{lem:coarea-critical-part}
+Let $n\ge2$, let $u\in C^1(U)$ with $U\subset\R^n$ open, and put
+$Z:=\{\nabla u=0\}$.  Then
+\[
+  \Hs^{n-1}\bigl(Z\cap\{u=t\}\bigr)=0
+  \qquad\text{for a.e.\ }t\in\R .
+\]
+\end{lemma}
+
+\begin{proof}
+Fix $K\Subset U$; if $K\cap Z=\varnothing$ there is nothing to prove.
+Consider the grid cubes of side $\delta$ meeting $K\cap Z$, with $\delta$
+small enough that these lie in $U$, and put
+\[
+  \omega_K(\delta):=\sup\{|\nabla u(x)|:\dist(x,K\cap Z)\le\sqrt n\,\delta\}.
+\]
+Uniform continuity of $\nabla u$ near $K$ and $\nabla u=0$ on $Z$ give
+$\omega_K(\delta)\to0$.  The $u$-image of each selected cube has length at
+most $\sqrt n\,\delta\,\omega_K(\delta)$.  For fixed $t$, the selected cubes
+whose images contain $t$ cover $K\cap Z\cap\{u=t\}$, so their
+$(n-1)$-st powers of the diameters bound its $(n-1)$-dimensional Hausdorff
+content at scale $\sqrt n\delta$.  Integrating in $t$,
+\begin{equation}\label{eq:coarea-content}
+  \int_\R\Hs^{n-1}_{\sqrt n\delta}
+       \bigl(K\cap Z\cap\{u=t\}\bigr)\,dt
+  \le C_n\omega_K(\delta)
+       \!\!\sum_{Q\cap K\cap Z\ne\varnothing}\!\!\delta^n
+  \le C_K\,\omega_K(\delta).
+\end{equation}
+As $\delta\downarrow0$ Hausdorff contents increase to $\Hs^{n-1}$ while the
+right side tends to zero; monotone convergence and an exhaustion of $Z$
+finish.
+\end{proof}
+
+\begin{corollary}[Coarea with an $L^1$ weight]\label{cor:coarea-L1}
+\uses{thm:weighted-coarea}
+Let $n\ge2$, let $u\in C^1(U)$ with $U\subset\R^n$ open, let $A\subset U$
+be measurable, and let $G\in L^1(A)$.  Then
+\begin{equation}\label{eq:coarea-L1}
+  \int_{A\cap\{|\nabla u|>0\}}G\,dx
+  =\int_\R\int_{A\cap\{u=t\}\cap\{|\nabla u|>0\}}
+     \frac{G}{|\nabla u|}\,d\Hs^{n-1}\,dt .
+\end{equation}
+If $|\nabla u|>0$ throughout $A$ both restrictions may be omitted.  This is
+the form used in Chapter~\ref{ch:appK}.
+\end{corollary}
+
+\begin{proof}\uses{thm:weighted-coarea}
+Extend $G$ by zero off $A$ and apply Theorem~\ref{thm:weighted-coarea} to
+$g:=|G|/|\nabla u|$ on $A\cap\{|\nabla u|>0\}$ and $g:=0$ elsewhere; then
+split $G$ into positive and negative parts.
+\end{proof}
+
+\begin{theorem}[Coarea for BV]\label{thm:bv-coarea}
+\uses{def:variation,def:perimeter}
+Let $n\ge2$, let $U\subset\R^n$ be open, and let
+$f\in BV_{\mathrm{loc}}(U)$.  Then
+\begin{equation}\label{eq:bv-coarea}
+  |Df|(U)=\int_\R\Per_n(\{f>t\};U)\,dt .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\uses{lem:strict-approx,lem:lsc,thm:weighted-coarea}
+\emph{Smooth case.} Theorem~\ref{thm:weighted-coarea} with $g=1$ gives
+\eqref{eq:bv-coarea} for $f\in C^1$.
+
+\emph{$\le$ for BV.} If $|Df|(U)=\infty$, the asserted upper bound for the
+level-set integral is automatic.  Otherwise take $f_j$ as in
+Theorem~\ref{lem:strict-approx}.  On each member of a countable relatively
+compact exhaustion, layer cake and Fubini turn $f_j\to f$ in $L^1$ there
+into, after one diagonal subsequence,
+$\ind{\{f_j>t\}}\to\ind{\{f>t\}}$ in $\Lloc$ for a.e.\ $t$.  Lemma~\ref{lem:lsc},
+Fatou and \eqref{eq:strict-approx} give
+$\int_\R\Per_n(\{f>t\};U)\,dt\le|Df|(U)$.
+
+\emph{$\ge$ for BV.} First let $0\le f\le M$.  For $X\in C^1_c(U;\R^n)$,
+Fubini and the layer-cake formula give
+\[
+  \int_Uf\,\dvg X=\int_0^M\!\!\int_{\{f>t\}}\dvg X\,dx\,dt
+  \le\|X\|_\infty\int_0^M\Per_n(\{f>t\};U)\,dt ;
+\]
+take the supremum over $\|X\|_\infty\le1$.  A bounded signed function is
+reduced to this case by adding a constant, whose integral against
+$\dvg X$ is zero, and shifting the level parameter.
+
+For a general $f$, put $T_M(f):=\max\{-M,\min\{f,M\}\}$.  The truncation
+chain rule
+\begin{equation}\label{eq:bv-truncation-chain}
+  |D(T_Mf)|(A)\le |Df|(A)\qquad(A\subset U\text{ open})
+\end{equation}
+follows first on every $V\Subset A$ by applying smooth $1$-Lipschitz
+approximations of $T_M$ to a local strict smooth approximation of $f$, using
+the ordinary chain rule and Lemma~\ref{lem:lsc}, and then by exhausting $A$.
+Since $T_Mf\to f$ in $L^1_{\rm loc}$,
+Lemma~\ref{lem:lsc} and \eqref{eq:bv-truncation-chain} give
+$|D(T_Mf)|(U)\to|Df|(U)$ (with extended values allowed).  Apply the bounded
+case to $T_Mf$ and let $M\to\infty$; Tonelli and monotone convergence in the
+level variable give the reverse inequality for $f$.
+\end{proof}
+
+\begin{corollary}[Spherical and planar slicing]\label{cor:slicing}
+\uses{thm:weighted-coarea,def:density}
+Let $E$ have locally finite perimeter.  For $x_0\in\R^3$ and
+$0\le a<b<\infty$,
+\[
+  \int_a^b\Hs^2\bigl(E^{(1)}\cap\partial B_r(x_0)\bigr)\,dr
+  =\bigl|E\cap(B_b(x_0)\setminus B_a(x_0))\bigr| ,
+\]
+and, for $\nu\in\Sph^2$ and $a<b$ in $\R$,
+\[
+ \int_a^b\Hs^2\bigl(E^{(1)}\cap\{x:x\cdot\nu=t\}\bigr)\,dt
+ =\bigl|E\cap\{x:a<x\cdot\nu<b\}\bigr|.
+\]
+\end{corollary}
+
+\begin{proof}\uses{thm:weighted-coarea,def:density}
+The sets $E$ and $E^{(1)}$ agree up to a Lebesgue-null set.  Apply
+Theorem~\ref{thm:weighted-coarea} with weight $g=\ind{E^{(1)}}$, first with
+$u(x)=|x-x_0|$ off the null point $x_0$ and then with $u(x)=x\cdot\nu$.
+In both cases $|\nabla u|=1$ on the relevant set, and restriction to the
+indicated interval gives the two identities.
+\end{proof}
+
+\begin{lemma}[One-dimensional BV slices]\label{lem:bv-slices}
+\uses{def:variation}
+Let $E\subset\R^n$ have locally finite perimeter, $n\ge2$.  For a.e.\ line $\ell$
+parallel to a fixed direction, $t\mapsto\ind E(x'+t e)$ is a
+one-dimensional BV function; the number of its jumps is finite on compact
+intervals for a.e.\ $\ell$, and
+$D_e\ind E$ disintegrates as the one-dimensional jump measures over $\ell$.
+\end{lemma}
+
+\begin{proof}\uses{thm:polar,lem:strict-approx}
+Apply Fubini to \eqref{eq:variation} with test fields of the form
+$\phi(x')\psi(t)e$; strict approximation
+(Theorem~\ref{lem:strict-approx}) identifies the resulting slice variations
+with the disintegration of $|D_e\ind E|$.
+\end{proof}
+
+\section{Traces, cut identities and gluing}\label{sec:traces}
+
+\begin{theorem}[Traces on a $C^1$ domain]\label{thm:traces}
+\uses{def:variation,def:density}
+Let $A\subset\R^3$ be a bounded $C^1$ domain and
+$f\in BV_{\mathrm{loc}}(\R^3)$.  Then $f$ has interior and exterior traces
+$\Tr_Af,\Tr_{A^c}f\in L^1(\partial A)$, and
+\begin{equation}\label{eq:trace-product}
+  D(\ind Af)=\ind A\,Df-\Tr_Af\,\nu_A\,\Hs^2\llcorner\partial A .
+\end{equation}
+It also satisfies the exterior formula
+\begin{equation}\label{eq:trace-product-exterior}
+  D(\ind{\R^3\setminus\overline A}f)
+  =\ind{\R^3\setminus\overline A}\,Df
+    +\Tr_{A^c}f\,\nu_A\,\Hs^2\llcorner\partial A .
+\end{equation}
+\end{theorem}
+
+\begin{proof}\uses{lem:bv-slices,lem:strict-approx,lem:bilip-chain}
+The bi-Lipschitz BV chain rule (Lemma~\ref{lem:bilip-chain}, whose proof uses
+only strict approximation and change of variables) puts $f$ in $BV$ after
+flattening a $C^1$ boundary chart.  Fubini and one-dimensional BV slicing
+(Lemma~\ref{lem:bv-slices}) then give one-sided limits on a.e.\ normal line;
+changing between overlapping charts preserves these limits by the same chain
+rule and \ref{base:calculus}.
+For \eqref{eq:trace-product} and \eqref{eq:trace-product-exterior}, integrate
+by parts first for smooth $f$ on the two sides and then along a strict
+approximation (Theorem~\ref{lem:strict-approx}).  There is no missing boundary
+term in the limit: in a graph chart it is exactly the endpoint term in the
+one-dimensional fundamental theorem of calculus, and
+$L^1(\partial A)$ convergence of the one-sided traces follows by integrating
+that one-dimensional identity.
+\end{proof}
+
+\begin{definition}[Good radius]\label{def:good-radius}
+\uses{def:density,def:perimeter}
+Let $E$ have locally finite perimeter and $x_0\in\R^3$.  Call $r>0$ a
+\emph{good radius} for $E$ at $x_0$ if
+\[
+  |D\ind E|(\partial B_r(x_0))=0
+  \quad\text{and}\quad
+  \Tr_{B_r(x_0)}\ind E=\ind{E^{(1)}}\ \ \Hs^2\text{-a.e.\ on }\partial B_r(x_0).
+\]
+\end{definition}
+
+\begin{lemma}[Almost every radius is good]\label{lem:good-radius-ae}
+\uses{def:good-radius}
+For $E$ of locally finite perimeter and any $x_0$, a.e.\ $r>0$ is a good
+radius for $E$ at $x_0$.
+\end{lemma}
+
+\begin{proof}\uses{cor:slicing,thm:traces}
+The set of $r$ with $|D\ind E|(\partial B_r(x_0))>0$ is countable, since
+$|D\ind E|$ is locally finite.  The trace identity holds for a.e.\ $r$ by
+Corollary~\ref{cor:slicing} together with Theorem~\ref{thm:traces} and
+Lebesgue's density theorem.
+\end{proof}
+
+\begin{proposition}[Exact cut identities]\label{prop:cut-identities}
+\uses{def:good-radius}
+Let $E$ have locally finite perimeter and let $r$ be a good radius for $E$ at
+$x_0$.  Then
+\begin{align}
+  \Per(E\cap B_r(x_0))
+    &=\Per(E;B_r(x_0))+\Hs^2\bigl(E^{(1)}\cap\partial B_r(x_0)\bigr),
+      \label{eq:cut-in}\\
+  \Per(E\setminus B_r(x_0))
+    &=\Per\bigl(E;\R^3\setminus\overline{B_r(x_0)}\bigr)
+      +\Hs^2\bigl(E^{(1)}\cap\partial B_r(x_0)\bigr).
+      \label{eq:cut-out}
+\end{align}
+The corresponding identities hold for halfspaces $\{x\cdot\nu<\ell\}$ at
+a.e.\ $\ell$.
+\end{proposition}
+
+\begin{proof}\uses{thm:traces,lem:good-radius-ae}
+Apply \eqref{eq:trace-product} with $A=B_r(x_0)$.  At a good radius the two
+measures on its right side are mutually singular, since
+$|D\ind E|(\partial B_r)=0$; taking total variations gives \eqref{eq:cut-in},
+and \eqref{eq:trace-product-exterior} gives \eqref{eq:cut-out}; no
+boundedness of the exterior domain is being assumed.  For halfspaces use
+$x\mapsto x\cdot\nu$ in place of
+$x\mapsto|x-x_0|$.
+\end{proof}
+
+\begin{fnote}[Why exactness matters]\label{fnote:exact-cut}
+Only the \emph{equalities} \eqref{eq:cut-in}--\eqref{eq:cut-out}, not
+inequalities, make the perimeter error of a cut equal to twice the section
+area.  Weakening them to inequalities loses a sign in
+Theorem~\ref{thm:decomposition} and in Lemma~\ref{lem:two-sided-density}.
+\end{fnote}
+
+\begin{lemma}[Good truncation]\label{lem:good-truncation}
+\uses{def:good-radius,def:perimeter}
+Let $E\subset\R^3$ have finite measure and finite perimeter.  There are radii
+$R_n\uparrow\infty$, each a good radius for $E$ at the origin, such that
+\begin{equation}\label{eq:good-truncation}
+  a_n:=\Hs^2\bigl(E^{(1)}\cap\partial B_{R_n}\bigr)\longrightarrow0,
+  \qquad
+  |E\setminus B_{R_n}|\longrightarrow0,
+  \qquad
+  \Per(E\cap B_{R_n})\longrightarrow\Per(E).
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{cor:slicing,lem:good-radius-ae,prop:cut-identities,lem:lsc}
+Corollary~\ref{cor:slicing} gives
+\[
+  \int_n^{n+1}\Hs^2\bigl(E^{(1)}\cap\partial B_r\bigr)\,dr
+  =\bigl|E\cap(B_{n+1}\setminus B_n)\bigr|\longrightarrow0 ,
+\]
+so by Lemma~\ref{lem:good-radius-ae} choose $R_n\in(n,n+1)$ among the good
+radii with $a_n\to0$; then $|E\setminus B_{R_n}|\to0$ because $|E|<\infty$.
+Since $R_n$ is strictly increasing, $\ind{E\cap B_{R_n}}\uparrow\ind E$ a.e.
+The trace identity \eqref{eq:cut-in} gives
+$\Per(E\cap B_{R_n})=\Per(E;B_{R_n})+a_n$, hence
+$\limsup_n\Per(E\cap B_{R_n})\le\Per(E)$, while global $L^1$ convergence and
+Lemma~\ref{lem:lsc} give the reverse $\liminf$.
+\end{proof}
+
+\begin{fnote}[Shared by two consumers]\label{fnote:good-truncation-shared}
+Lemma~\ref{lem:good-truncation} is the common first step of
+Lemma~\ref{lem:bounded-approx} and Theorem~\ref{thm:smooth-approx}.  It is
+extracted here so that neither proof re-derives it, and so that the
+truncation step carries no dependence on the Coulomb energy.
+\end{fnote}
+
+\begin{proposition}[Gluing formula]\label{prop:gluing}
+\uses{thm:traces}
+Let $U\subset\R^3$ be open, let $A\Subset U$ be a bounded $C^1$ domain, and
+let $E,F$ have locally finite perimeter in $U$.  Put
+$H:=(F\cap A)\cup(E\cap(U\setminus A))$.  Then
+\begin{equation}\label{eq:gluing}
+\begin{aligned}
+  \Per(H;U)
+  \le{}&\Per(F;A)+\Per\bigl(E;U\setminus\overline A\bigr)\\
+  &+\int_{\partial A}|\Tr_AF-\Tr_{A^c}E|\,d\Hs^2 .
+\end{aligned}
+\end{equation}
+For globally finite-perimeter $E,F$, taking $U=\R^3$ gives the global
+formula.
+\end{proposition}
+
+\begin{proof}\uses{thm:traces}
+Apply \eqref{eq:trace-product} on both sides of $\partial A$ and add the
+distributional derivatives; the boundary measures combine into the trace
+mismatch term.
+\end{proof}
+
+\begin{proposition}[Annular gluing at a good radius]\label{prop:annular-gluing}
+\uses{prop:gluing,def:good-radius}
+Let $A_{a,b}:=B_b\setminus\overline{B_a}$, suppose $E_j\to E$ in
+$L^1(A_{a,b})$, suppose $E_j,E,F$ have locally finite perimeter, and for
+a.e.\ $r\in(a,b)$ put
+$H_{j,r}:=(F\cap B_r)\cup(E_j\setminus B_r)$.  Then
+for every open $W$ with $\overline{B_b}\Subset W$,
+\begin{equation}\label{eq:annular-gluing}
+  \Per(H_{j,r};W)\le\Per(F;B_r)
+   +\Per\bigl(E_j;W\setminus\overline{B_r}\bigr)
+   +\Hs^2\bigl((F^{(1)}\triangle E_j^{(1)})\cap\partial B_r\bigr),
+\end{equation}
+and
+\begin{equation}\label{eq:annular-coarea}
+  \int_a^b\Hs^2\bigl((F^{(1)}\triangle E_j^{(1)})\cap\partial B_r\bigr)\,dr
+  =\bigl|(F\triangle E_j)\cap A_{a,b}\bigr| .
+\end{equation}
+Consequently, if $F=E$ a.e. on the annulus, there are radii
+$r_j\in(a,b)$ for which the last term of
+\eqref{eq:annular-gluing} tends to zero; a diagonal choice handles expanding
+annuli.  If all three sets have globally finite perimeter, exhaustion by
+$W\uparrow\R^3$ gives the same formula with global perimeters.
+\end{proposition}
+
+\begin{proof}\uses{prop:gluing,cor:slicing,lem:good-radius-ae}
+\eqref{eq:annular-gluing} is \eqref{eq:gluing} with $A=B_r$; the coarea
+identity \eqref{eq:annular-coarea} is Corollary~\ref{cor:slicing} applied to
+$F\triangle E_j$.  The averaging conclusion is Chebyshev in $r$.
+\end{proof}
+
+\begin{fnote}\label{fnote:no-gluing-theorem}
+Proposition~\ref{prop:annular-gluing} is the precise content of every
+``interpolate across a slicing annulus'' step in this document
+(Lemma~\ref{lem:tangent-cone-minimizing}, Theorem~\ref{thm:decomposition},
+Lemma~\ref{lem:height-bound}).  No separate gluing theorem may be invoked.
+\end{fnote}
+

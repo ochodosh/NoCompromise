@@ -1,0 +1,137 @@
+\chapter{The minimal binding energy}\label{ch:binding}
+\module{NoCompromise.Binding.BallRatio,
+        NoCompromise.Binding.Main,
+        NoCompromise.Binding.Ratio}
+
+\section{Relaxed ratio minimisation}
+
+\begin{definition}[Relaxed ratio infimum]\label{def:relaxed-ratio}
+\uses{def:energy}
+For $A>0$ put
+\begin{equation}\label{eq:relaxed-ratio}
+  e_\le(A):=\inf\Bigl\{\frac{\Ec(E)}{|E|}:0<|E|\le A\Bigr\}.
+\end{equation}
+\end{definition}
+
+\begin{lemma}[The relaxed infimum is attained]\label{lem:relaxed-attained}
+\uses{def:relaxed-ratio,thm:compactness,thm:decomposition}
+For every $A>0$ the infimum \eqref{eq:relaxed-ratio} is attained.
+\end{lemma}
+
+\begin{proof}
+\uses{thm:sharp-isoperimetric,thm:compactness,thm:decomposition,
+      def:relaxed-ratio}
+Let $E_n$ be a minimising sequence, $V_n:=|E_n|$, $e:=e_\le(A)$, so
+$\Ec(E_n)/V_n\to e$.  The isoperimetric inequality gives
+$\Ec(E_n)/V_n\ge c_IV_n^{-1/3}$, so $V_n\ge c_A>0$; since $V_n\le A$ and the
+ratios are bounded, $\Per(E_n)\le\Ec(E_n)\le C_A$.  Hence
+\eqref{eq:compactness-hyp} holds; apply
+Theorems~\ref{thm:compactness} and \ref{thm:decomposition} after translations,
+obtaining a nonzero local limit $E$, a tight part $F_n\to E$ globally, and a
+remainder $G_n$.  Local convergence and exhaustion give
+$0<|E|\le\liminf_nV_n\le A$.
+
+If $|G_n|>0$ then $\Ec(G_n)\ge e|G_n|$ by
+Definition~\ref{def:relaxed-ratio} (note $|G_n|\le A$); if $|G_n|=0$ the same
+inequality is trivial.  Energy splitting
+\eqref{eq:decomp-perimeter}--\eqref{eq:decomp-coulomb} yields
+\[
+  \Ec(E_n)\ge\Ec(E)+e|G_n|+o(1).
+\]
+Because the ratios converge and $V_n\le A$, $\Ec(E_n)=eV_n+o(1)$.  Also
+$V_n=|F_n|+|G_n|$ with $|F_n|\to|E|$.  Subtracting $e|G_n|$ and passing to the
+limit gives $e|E|\ge\Ec(E)$, and the reverse inequality follows from the
+definition of $e$ since $0<|E|\le A$.  Hence $\Ec(E)=e|E|$.
+\end{proof}
+
+\begin{fnote}[No convergence of $V_n$ is needed]\label{fnote:no-Vn-convergence}
+Boundedness by $A$ is enough to turn ratio convergence into the additive error
+$o(1)$.  Do not add a hypothesis that $V_n$ converges.
+\end{fnote}
+
+\begin{lemma}[A ratio optimiser is a fixed-volume minimiser]\label{lem:ratio-is-fixed}
+\uses{def:relaxed-ratio,def:minimizer}
+Any minimiser of \eqref{eq:relaxed-ratio}, of volume $M$, is a fixed-volume
+minimiser at volume $M$.
+\end{lemma}
+
+\begin{proof}\uses{def:relaxed-ratio,def:minimizer}
+A same-volume competitor of lower energy would have a lower ratio.
+\end{proof}
+
+\section{Stabilisation and reduction to balls}
+
+\begin{lemma}[Stabilisation after volume eight]\label{lem:stabilization}
+\uses{lem:relaxed-attained,prop:V-le-8}
+$A\mapsto e_\le(A)$ is nonincreasing, and
+\begin{equation}\label{eq:stabilization}
+  e_\le(A)=e_\le(8)\qquad\text{for every }A\ge8 .
+\end{equation}
+Consequently
+\begin{equation}\label{eq:global-inf}
+  \inf_{0<|E|<\infty}\frac{\Ec(E)}{|E|}=e_\le(8),
+\end{equation}
+and the global infimum is attained.
+\end{lemma}
+
+\begin{proof}\uses{lem:relaxed-attained,lem:ratio-is-fixed,prop:V-le-8,
+                    def:relaxed-ratio}
+Monotonicity is clear from \eqref{eq:relaxed-ratio}.  Let $A\ge8$ and let
+$E_A$ attain $e_\le(A)$ (Lemma~\ref{lem:relaxed-attained}).  Its volume
+$M_A$ is the volume of a fixed-volume minimiser
+(Lemma~\ref{lem:ratio-is-fixed}), so $M_A\le8$ by
+Proposition~\ref{prop:V-le-8}.  Therefore
+$e_\le(A)=\Ec(E_A)/M_A\ge e_\le(8)$, and monotonicity gives the reverse.
+\end{proof}
+
+\begin{lemma}[Optimal ball volume]\label{lem:optimal-ball-volume}
+\uses{cor:ball-energy,lem:ledger-binding}
+For $V>0$,
+\begin{equation}\label{eq:ball-ratio}
+  \frac{\Ec(B_V)}{V}
+  =(36\pi)^{1/3}\Bigl(V^{-1/3}+\tfrac15V^{2/3}\Bigr),
+\end{equation}
+this is minimised exactly at $V=5/2$, and
+\begin{equation}\label{eq:e-star-value}
+  \frac{\Ec(B_{5/2})}{5/2}
+  =(36\pi)^{1/3}\frac{3}{2(5/2)^{1/3}}
+  =3\Bigl(\frac{9\pi}{5}\Bigr)^{1/3}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{cor:ball-energy,lem:ledger-binding}
+\eqref{eq:ball-ratio} is \eqref{eq:ball-energy} divided by $V$.  Put
+$x:=V^{1/3}>0$ and $a:=(5/2)^{1/3}$; Lemma~\ref{lem:ledger-binding} gives
+\[
+  \frac1x+\frac{x^2}{5}-\frac{3}{2a}
+  =\frac{(x-a)^2(x+2a)}{2a^3x}\ge0 ,
+\]
+with equality exactly at $x=a$, i.e.\ $V=5/2$.  Evaluating at $V=5/2$ gives
+\eqref{eq:e-star-value}.
+\end{proof}
+
+\begin{theorem}[Binding-energy corollary]\label{thm:main-binding}
+\uses{def:energy}
+The infimum
+\[
+  e_*:=\inf\Bigl\{\frac{\Ec(E)}{|E|}: E\subset\R^3\text{ measurable},\
+    0<|E|<\infty\Bigr\}
+\]
+equals $3(9\pi/5)^{1/3}$, is attained, and every optimiser is a translate of a
+ball of volume $5/2$, up to a Lebesgue-null set.
+\end{theorem}
+
+\begin{proof}
+\uses{lem:stabilization,lem:ratio-is-fixed,thm:main,lem:optimal-ball-volume,
+      lem:Vstar-bounds}
+By Lemma~\ref{lem:stabilization} the global infimum $e_*$ is attained; let
+$E_*$ be an optimiser and $M:=|E_*|$.  By
+Lemma~\ref{lem:ratio-is-fixed} it is a fixed-volume minimiser at volume $M$, so
+Theorem~\ref{thm:main} gives $M\le V_*$ and makes $E_*$ a ball up to
+translation and a null set.  Among balls,
+Lemma~\ref{lem:optimal-ball-volume} makes $M=5/2$ the unique optimal volume,
+and $5/2<V_*$ by Lemma~\ref{lem:Vstar-bounds}, so this volume lies in the
+existence range.  Finally \eqref{eq:e-star-value} evaluates
+$e_*=3(9\pi/5)^{1/3}$.
+\end{proof}
+

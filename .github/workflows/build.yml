@@ -1,0 +1,15 @@
+name: Build
+
+# Manual for now (private repository). Switch to `push` and `pull_request` once public.
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v5
+      # Fetches the Mathlib cache and runs `lake build` on the default targets
+      # (the library, `Challenge` and `Solution`).
+      - uses: leanprover/lean-action@v1

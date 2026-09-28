@@ -1,0 +1,33 @@
+\chapter{Existence and uniqueness at the endpoint}\label{ch:endpoint}
+\module{NoCompromise.Classification.Endpoint}
+
+\begin{proposition}[Endpoint existence and uniqueness]\label{prop:endpoint}
+\uses{prop:existence-subcritical,prop:classification,prop:m-continuous}
+$m(V_*)=\Ec(B_{V_*})$, the ball $B_{V_*}$ is a fixed-volume minimiser at
+volume $V_*$, and it is the unique one up to translation and null sets.
+\end{proposition}
+
+\begin{proof}
+\uses{prop:existence-subcritical,prop:classification,prop:m-continuous,
+      cor:ball-energy}
+Proposition~\ref{prop:existence-subcritical} gives existence for
+$V<V_*$ and Proposition~\ref{prop:classification} then gives
+$m(V)=\Ec(B_V)$ for $0<V<V_*$.  Choose $V_n\uparrow V_*$.  Continuity of $m$
+(Proposition~\ref{prop:m-continuous}) and continuity of the ball-energy
+formula \eqref{eq:ball-energy} give
+\[
+  m(V_*)=\lim_nm(V_n)=\lim_n\Ec(B_{V_n})=\Ec(B_{V_*}),
+\]
+so $B_{V_*}$ is a minimiser.  Uniqueness is
+Proposition~\ref{prop:classification} at $V=V_*$.
+\end{proof}
+
+\begin{remark}[Why this route]\label{rem:endpoint-route}
+This avoids formalising the separate theorem that the set of masses admitting
+minimisers is closed.  It is logically valid because classification
+\emph{below} the endpoint (Proposition~\ref{prop:classification} for
+$V<V_*$) is established before endpoint existence is invoked.  Note the order:
+Proposition~\ref{prop:classification} is stated for $V\le V_*$ but its proof
+does not use existence at any volume, so there is no circularity.
+\end{remark}
+

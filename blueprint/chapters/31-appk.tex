@@ -1,0 +1,415 @@
+\chapter{Euclidean closure of the capacitary level-set argument}\label{ch:appK}
+\module{NoCompromise.CapacitaryK.Asymptotics,
+        NoCompromise.CapacitaryK.Inequality,
+        NoCompromise.CapacitaryK.PositiveMeasure,
+        NoCompromise.CapacitaryK.Representatives,
+        NoCompromise.CapacitaryK.SlabIdentities}
+
+This chapter replaces any informal instruction to ``pass through the critical
+levels''.  The argument is entirely Euclidean: it uses the positive measure
+$\Delta|\nabla u|$, the weighted coarea formula
+\eqref{eq:coarea-L1}, and a scalar measure inequality, and it retains every
+critical-level contribution as a nonnegative singular measure.  \emph{No
+Riemannian or conformal geometry appears anywhere.}
+
+\begin{convention}[Level-set orientation]\label{conv:level-orientation}
+\uses{conv:curvature,not:w}
+The outward unit normal of the superlevel set $\{u\ge t\}$ is
+$\nu:=-\nabla u/|\nabla u|$, and $H:=\dvg_{\Sigma_t}\nu$, so a round sphere has
+$H>0$.  This is consistent with Convention~\ref{conv:curvature}.
+\end{convention}
+
+\section{Far-field normalisation}
+
+\begin{lemma}[Normalised expansion at infinity]\label{lem:K-normalization}
+\uses{lem:kelvin}
+After translating the origin by $a/\mathsf C$ (with $a$ from
+Lemma~\ref{lem:kelvin}), one has
+\begin{equation}\label{eq:K-expansion}
+  u(r,\theta)=\frac{\mathsf C}{r}+\frac{Q(\theta)}{r^3}+O(r^{-4}),
+  \qquad
+  \int_{\Sph^2}Q\,d\theta=0 ,
+\end{equation}
+where $Q$ is the restriction to $\Sph^2$ of a homogeneous harmonic polynomial
+of degree two.
+\end{lemma}
+
+\begin{proof}\uses{lem:kelvin}
+Expand the Kelvin transform in its convergent Taylor series; harmonicity makes
+every homogeneous Taylor term harmonic, and a homogeneous harmonic polynomial
+of positive degree has zero spherical mean.  Translating the origin removes the
+degree-one term, which is the only term that could produce a relative
+correction of order $t$.
+\end{proof}
+
+\begin{lemma}[Level asymptotics from \eqref{eq:K-expansion}]\label{lem:K-level-asymptotics}
+\uses{lem:K-normalization}
+For small $t>0$ the level $\{u=t\}$ is the radial graph
+\begin{equation}\label{eq:K-rt}
+  r_t(\theta)=\frac{\mathsf C}{t}\Bigl(1+\frac{Q(\theta)}{\mathsf C^3}t^2+O(t^3)\Bigr),
+\end{equation}
+and uniformly in $\theta$,
+\begin{align}
+  |\nabla u|&=\frac{t^2}{\mathsf C}
+     \Bigl(1+\frac{Q(\theta)}{\mathsf C^3}t^2+O(t^3)\Bigr),
+     \label{eq:K-gradu}\\
+  d\Hs^2_t&=\frac{\mathsf C^2}{t^2}
+     \Bigl(1+2\frac{Q(\theta)}{\mathsf C^3}t^2+O(t^3)\Bigr)d\theta .
+     \label{eq:K-dA}
+\end{align}
+The remainders $O(t^3)$ are uniform in $\theta$ together with their first and
+second $\theta$-derivatives.  Consequently, with $H$ the mean curvature of the
+level and $p(t):=\int_{\{u=t\}}H\,|\nabla u|\,d\Hs^2$,
+\begin{equation}\label{eq:K-p-expansion}
+  p(t)=8\pi t+O(t^4)\qquad(t\downarrow0),
+\end{equation}
+obtained by integrating the expansions; the curvature of the radial graph
+involves only $\theta$-derivatives of $r_t$ at fixed $t$.
+\end{lemma}
+
+\begin{proof}\uses{lem:K-normalization}
+The implicit function theorem for large $r$ gives \eqref{eq:K-rt};
+differentiating \eqref{eq:K-expansion}, substituting \eqref{eq:K-rt}, and using
+that tangential derivatives first enter quadratically give
+\eqref{eq:K-gradu}--\eqref{eq:K-dA}.
+\end{proof}
+
+\begin{definition}[The level functionals]\label{def:K-F}
+\uses{not:w,thm:sard-3d}
+For a regular value $t\in(0,1)$ put
+\[
+  F(t):=\int_{\{u=t\}}w^2\,d\Hs^2 .
+\]
+(Definition~\ref{def:K-Fhat} extends $F$ to all $t$.)
+\end{definition}
+
+\begin{lemma}[Far-field normalisation of $F$]\label{lem:K-far-field}
+\uses{lem:K-level-asymptotics,def:K-F}
+$F(t)=4\pi t^2+O(t^5)$ and $F'(t)=8\pi t+O(t^4)$ for small $t$; in particular
+\begin{equation}\label{eq:K-far-field-limits}
+  \lim_{t\downarrow0}\frac{F(t)-4\pi t^2}{t^4}=0,
+  \qquad
+  \lim_{t\downarrow0}\Bigl(F'(t)-\frac{4F(t)}{t}+8\pi t\Bigr)=0 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:K-level-asymptotics,lem:K-normalization}
+Multiply \eqref{eq:K-gradu} squared by \eqref{eq:K-dA} and integrate: the
+first correction has zero spherical mean by \eqref{eq:K-expansion}, so it
+cancels.  All sufficiently small levels are regular, so $F'=p$ there by the
+slab identity, and the derivative estimate is \eqref{eq:K-p-expansion}; the
+$O(t^5)$ bound on $F-4\pi t^2$ alone would not control the derivative.
+\end{proof}
+
+\medskip\noindent\emph{Formalisation note.} The formalisation establishes \eqref{eq:K-p-expansion} by the volume route $p(t)=\mu\{0<u\le t\}=\int_{\{0<u\le t\}}\Delta|\nabla u|\,dx$, with Bochner's identity $\Delta|\nabla u|=(|D^2u|^2-|\nabla|\nabla u||^2)/|\nabla u|$ for harmonic $u$, the second-order expansion \eqref{eq:K-expansion} with its gradient and Hessian remainders, and the zero spherical mean of $Q$; the level expansions of Lemma~\ref{lem:K-level-asymptotics} are proved as stated but are not needed for it.
+
+\section{The positive measure $\Delta|\nabla u|$}
+
+\begin{lemma}[Bochner and positivity]\label{lem:K-bochner}
+\uses{not:w}
+Let $w_\varepsilon:=(w^2+\varepsilon^2)^{1/2}$.  Then, where $u$ is harmonic,
+\begin{equation}\label{eq:K-bochner}
+  \Delta w_\varepsilon
+  =\frac{|D^2u|^2}{w_\varepsilon}-\frac{|D^2u\,\nabla u|^2}{w_\varepsilon^3}
+  \ge\frac{\varepsilon^2|D^2u|^2}{w_\varepsilon^3}\ge0 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Direct computation using $\Delta u=0$ and Cauchy--Schwarz
+$|D^2u\,\nabla u|^2\le|D^2u|^2|\nabla u|^2$.
+\end{proof}
+
+\begin{proposition}[$\mu:=\Delta w$ is a positive Radon measure]\label{prop:K-mu}
+\uses{lem:K-bochner,thm:signed-riesz}
+$\Delta w$ is a positive distribution on $\R^3\setminus K$ and hence a positive
+Radon measure $\mu$ there.
+\end{proposition}
+
+\begin{proof}\uses{lem:K-bochner,thm:signed-riesz}
+$w_\varepsilon\to w$ locally uniformly, so \eqref{eq:K-bochner} makes
+$\Delta w$ a positive distribution.  A positive distribution has order zero:
+if $\phi$ is supported in a fixed compact set with $|\phi|\le1$, choose a
+cutoff $\eta\ge1$ there and use $-\eta\le\phi\le\eta$ to bound
+$|\langle\Delta w,\phi\rangle|$ by $\langle\Delta w,\eta\rangle$.  Then
+Theorem~\ref{thm:signed-riesz} (in its positive case) produces $\mu$.
+\end{proof}
+
+\begin{lemma}[Level-set identities on the regular set]\label{lem:K-level-identities}
+\uses{conv:level-orientation,not:w}
+At a point where $w>0$, choose an orthonormal frame $e_1,e_2,\nu$ tangent-normal
+to the level surface.  Since $\nabla u=-w\nu$ and $\Delta u=0$,
+\begin{equation}\label{eq:K-frame-identities}
+  D^2u(e_i,e_j)=-wA_{ij},\quad
+  D^2u(e_i,\nu)=-e_iw,\quad
+  D^2u(\nu,\nu)=Hw,\quad
+  \partial_\nu w=-Hw ,
+\end{equation}
+where $A$ is the second fundamental form of the level set.  Consequently the
+absolutely continuous density of $\mu$ on the regular set is
+\begin{equation}\label{eq:K-density}
+  \Delta w=\frac{|D^2u|^2-|\nabla w|^2}{w}
+  =w|A|^2+\frac{|\nabla_\Sigma w|^2}{w}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{conv:level-orientation}
+Differentiate $\nabla u=-w\nu$ and use $\Delta u=0$ to eliminate the trace.
+\end{proof}
+
+\section{Two exact slab identities}
+
+\begin{lemma}[Curvature slab identity]\label{lem:K-slab-H}
+\uses{prop:K-mu,lem:K-level-identities}
+Let $0<a<b<1$ be regular values.  Then
+\begin{equation}\label{eq:K-slab-H}
+  \mu\bigl(\{a<u<b\}\bigr)
+  =\int_{\{u=b\}}Hw\,d\Hs^2-\int_{\{u=a\}}Hw\,d\Hs^2 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{thm:W11-gauss-green,lem:K-level-identities,prop:K-mu}
+Approximate $w$ by $w_\varepsilon$ in the smooth slab $\{a<u<b\}$, apply
+\eqref{eq:W11-GG}, and let $\varepsilon\downarrow0$; formula
+\eqref{eq:K-frame-identities} fixes the boundary signs via
+$\partial_\nu w=-Hw$.  No mass is lost in the limit: the left side converges
+weakly as measures; because $w$ is bounded away from zero in neighbourhoods
+of both regular boundary levels, $w$ and $\mu=\Delta w$ are smooth there, so
+$\mu$ gives those two surfaces zero mass.  The slab is therefore a continuity
+set for the limiting measure, while the boundary fluxes converge smoothly.
+\end{proof}
+
+\begin{lemma}[Flux slab identity]\label{lem:K-slab-F}
+\uses{def:K-F,cor:coarea-L1,lem:K-level-identities}
+Let $0<a<b<1$ be regular values.  Then
+\begin{equation}\label{eq:K-slab-F}
+  F(b)-F(a)
+  =\int_{\{a<u<b\}}\nabla w\cdot\nabla u\,dx
+  =\int_a^b\int_{\{u=t\}}Hw\,d\Hs^2\,dt .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\uses{thm:W11-gauss-green,cor:coarea-L1,lem:K-level-identities,
+      lem:gradient-vanishes-on-zero-set}
+Apply \eqref{eq:W11-GG} to $w\nabla u$: its normal flux is $w^2$ on the upper
+level and $-w^2$ on the lower level, and $\Delta u=0$, giving the first
+equality.  For the second use \eqref{eq:coarea-L1} on $\{w>0\}$ together with
+$\partial_\nu w=-Hw$ from \eqref{eq:K-frame-identities}, and
+Lemma~\ref{lem:gradient-vanishes-on-zero-set} to discard $\{w=0\}$.
+\end{proof}
+
+\begin{lemma}[The gradient vanishes a.e.\ on the zero set]
+\label{lem:gradient-vanishes-on-zero-set}
+Let $g\ge0$ be locally Lipschitz on an open subset of $\R^n$.  Then
+$\nabla g=0$ a.e.\ on $\{g=0\}$.
+\end{lemma}
+
+\begin{proof}
+Restrict to almost every coordinate line and apply the one-dimensional
+statement that a differentiable nonnegative function has derivative zero at
+a.e.\ one of its zeros.
+\end{proof}
+
+\section{Canonical BV representatives through critical values}
+
+\begin{definition}[The BV representative $p$]\label{def:K-p}
+\uses{prop:K-mu,lem:K-slab-H,thm:sard-3d}
+Fix a small regular value $t_0$.  Define the right-continuous BV function
+\begin{equation}\label{eq:K-p}
+  p(t):=p(t_0)+
+  \begin{cases}
+    \mu\bigl(\{t_0<u\le t\}\bigr),&t\ge t_0,\\
+   -\mu\bigl(\{t<u\le t_0\}\bigr),&t<t_0,
+  \end{cases}
+  \qquad
+  p(t_0):=\int_{\{u=t_0\}}Hw\,d\Hs^2 .
+\end{equation}
+\end{definition}
+
+\begin{lemma}[$p$ agrees with the geometric integral]\label{lem:K-p-geometric}
+\uses{def:K-p,lem:K-slab-H}
+At every regular value $t$,
+\begin{equation}\label{eq:K-p-geometric}
+  p(t)=\int_{\{u=t\}}Hw\,d\Hs^2 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:K-slab-H,def:K-p}
+\eqref{eq:K-slab-H}.
+\end{proof}
+
+\begin{definition}[The canonical $F$]\label{def:K-Fhat}
+\uses{def:K-p,def:K-F,lem:K-slab-F}
+Put
+\begin{equation}\label{eq:K-Fhat}
+  \widehat F(t):=F(t_0)+\int_{t_0}^tp(s)\,ds .
+\end{equation}
+By Lemma~\ref{lem:K-slab-F}, $\widehat F(t)=\int_{\{u=t\}}w^2$ at every
+regular value.  We henceforth write $F$ for $\widehat F$, thereby
+\emph{defining} $F$ at critical values.
+\end{definition}
+
+\begin{proposition}[Distributional structure]\label{prop:K-structure}
+\uses{def:K-Fhat,def:K-p,prop:K-mu}
+\begin{equation}\label{eq:K-structure}
+  F\in W^{1,1}_{\mathrm{loc}}(0,1),
+  \qquad
+  F'=p\ \text{a.e.},
+  \qquad
+  Dp=u_\#\mu ,
+\end{equation}
+where $u_\#\mu$ is the pushforward of $\mu$ under $u$.
+\end{proposition}
+
+\begin{proof}\uses{lem:K-slab-H,def:K-p,def:K-Fhat,thm:sard-3d}
+The first two assertions are \eqref{eq:K-Fhat}.  For $Dp=u_\#\mu$: the
+identity holds on intervals with regular endpoints by
+\eqref{eq:K-slab-H}, and such intervals generate the Borel sets because
+regular values are dense (Theorem~\ref{thm:sard-3d}); monotone convergence
+gives it for all Borel sets.
+\end{proof}
+
+\begin{lemma}[Density of $u_\#\mu$ on the regular set]\label{lem:K-pushforward-density}
+\uses{prop:K-structure,lem:K-level-identities,cor:coarea-L1}
+On the open set of regular values,
+\begin{equation}\label{eq:K-pushforward-density}
+  \frac{d(u_\#\mu)}{dt}
+  =\int_{\{u=t\}}\bigl(|A|^2+|\nabla_\Sigma\log w|^2\bigr)d\Hs^2 ,
+\end{equation}
+and the part of $u_\#\mu$ carried by critical values is a nonnegative singular
+measure.
+\end{lemma}
+
+\begin{proof}\uses{cor:coarea-L1,lem:K-level-identities,prop:K-mu,
+                    thm:sard-3d}
+Apply \eqref{eq:coarea-L1} to the density \eqref{eq:K-density}, dividing by
+$|\nabla u|=w$.  The remaining measure is positive by
+Proposition~\ref{prop:K-mu} and is carried by the critical values; those values
+are Lebesgue-null by Theorem~\ref{thm:sard-3d}, so this remainder is singular.
+\end{proof}
+
+\section{The differential inequality as a measure inequality}
+
+\begin{lemma}[The total-curvature input]\label{lem:K-gauss-bonnet-input}
+\uses{lem:level-connected,thm:total-curvature-bound}
+For every regular value $t\in(0,1)$,
+\begin{equation}\label{eq:K-gauss-bonnet-input}
+  \int_{\{u=t\}}\kappa\,d\Hs^2\le4\pi ,
+\end{equation}
+where $\kappa$ is the Gauss curvature of the level surface.
+\end{lemma}
+
+\begin{proof}\uses{lem:level-connected,thm:total-curvature-bound}
+Every regular level is a compact connected smooth embedded closed surface by
+Lemma~\ref{lem:level-connected}; apply
+Theorem~\ref{thm:total-curvature-bound}.
+\end{proof}
+
+\begin{proposition}[Measure differential inequality]\label{prop:K-measure-inequality}
+\uses{lem:K-pushforward-density,lem:K-gauss-bonnet-input,prop:K-structure}
+For a.e.\ regular $t$,
+\begin{equation}\label{eq:K-measure-ineq-pointwise}
+  \frac{d(u_\#\mu)}{dt}
+  \ge\int_{\{u=t\}}H^2-8\pi
+  \ge\frac{\bigl(\int_{\{u=t\}}Hw\bigr)^2}{\int_{\{u=t\}}w^2}-8\pi
+  =\frac{p(t)^2}{F(t)}-8\pi ,
+\end{equation}
+and consequently, as distributions on $(0,1)$,
+\begin{equation}\label{eq:K-measure-ineq}
+  Dp\ \ge\ \Bigl(\frac{p^2}{F}-8\pi\Bigr)dt .
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+\uses{lem:K-pushforward-density,lem:K-gauss-bonnet-input,conv:curvature,
+      prop:K-structure,lem:K-p-geometric}
+By Convention~\ref{conv:curvature}, $|A|^2=H^2-2\kappa$, so
+\eqref{eq:K-pushforward-density} and \eqref{eq:K-gauss-bonnet-input} give
+$\frac{d(u_\#\mu)}{dt}\ge\int H^2-8\pi$.  Cauchy--Schwarz with weight $w$ and
+$F=\int w^2$ give the middle inequality, and
+Lemma~\ref{lem:K-p-geometric} identifies the numerator.  At a regular value
+$F(t)>0$.  The first inequality also shows that $p^2/F$ is locally integrable:
+its positive part is bounded by the locally finite absolutely continuous
+density of $u_\#\mu$ plus $8\pi$.  Define the quotient arbitrarily on the null
+set of critical values.  Since the singular
+part of $u_\#\mu$ is nonnegative, \eqref{eq:K-measure-ineq-pointwise} upgrades
+to the distributional inequality \eqref{eq:K-measure-ineq} via
+$Dp=u_\#\mu$.
+\end{proof}
+
+\begin{lemma}[The monotone quantity]\label{lem:K-h-monotone}
+\uses{prop:K-measure-inequality,prop:K-structure}
+Put
+\begin{equation}\label{eq:K-h}
+  h(t):=p(t)-\frac{4F(t)}{t}+8\pi t .
+\end{equation}
+Then, using $DF=p\,dt$ and \eqref{eq:K-measure-ineq},
+\begin{equation}\label{eq:K-Dh}
+  Dh\ \ge\ \Bigl(\frac{p}{\sqrt F}-\frac{2\sqrt F}{t}\Bigr)^2dt\ \ge\ 0 ,
+\end{equation}
+so the right-continuous representative of $h$ is nondecreasing.
+\end{lemma}
+
+\begin{proof}\uses{prop:K-measure-inequality,prop:K-structure}
+$D\bigl(-4F/t\bigr)=\bigl(-4p/t+4F/t^2\bigr)dt$, and adding
+\eqref{eq:K-measure-ineq} and $8\pi\,dt$ gives
+$Dh\ge\bigl(p^2/F-4p/t+4F/t^2\bigr)dt$, which is the displayed square.
+\end{proof}
+
+\begin{proposition}[The two Euclidean inequalities on levels]\label{prop:K-two-ineq}
+\uses{lem:K-h-monotone,lem:K-far-field}
+For every $t\in(0,1)$,
+\begin{equation}\label{eq:K-p-bound}
+  p(t)\ge\frac{4F(t)}{t}-8\pi t ,
+\end{equation}
+and
+\begin{equation}\label{eq:K-F-bound}
+  F(t)\ge4\pi t^2 .
+\end{equation}
+\end{proposition}
+
+\begin{proof}\uses{lem:K-h-monotone,lem:K-far-field}
+By \eqref{eq:K-far-field-limits}, $\lim_{t\downarrow0}h(t)=0$; monotonicity
+(Lemma~\ref{lem:K-h-monotone}) gives $h\ge0$, which is
+\eqref{eq:K-p-bound}.  Put $z(t):=F(t)-4\pi t^2$; \eqref{eq:K-p-bound} gives
+\begin{equation}\label{eq:K-z-ode}
+  z'(t)\ge\frac{4z(t)}{t}\ \text{a.e.},
+  \qquad\text{equivalently}\qquad
+  \Bigl(\frac{z(t)}{t^4}\Bigr)'\ge0 .
+\end{equation}
+The first limit in \eqref{eq:K-far-field-limits} says $z(t)/t^4\to0$ as
+$t\downarrow0$, so $z\ge0$, which is \eqref{eq:K-F-bound}.
+\end{proof}
+
+\begin{theorem}[Euclidean capacitary inequalities]\label{thm:capacitary-inequalities}
+\uses{prop:K-two-ineq,thm:capacitary-potential,not:w}
+\begin{equation}\label{eq:capacitary-inequalities}
+  \int_{\partial K}|\nabla u|^2\,d\Hs^2\ge4\pi,
+  \qquad
+  \int_{\partial K}H|\nabla u|\,d\Hs^2
+  \ge4\int_{\partial K}|\nabla u|^2\,d\Hs^2-8\pi .
+\end{equation}
+\end{theorem}
+
+\begin{proof}\uses{prop:K-two-ineq,thm:capacitary-potential}
+The boundary level $t=1$ is regular by the Hopf sign
+\eqref{eq:capacitary-signs}.  Taking the left limit in
+\eqref{eq:K-p-bound} and \eqref{eq:K-F-bound}, and using smooth convergence of
+the levels to $\partial K$, defines the endpoint values
+$F(1):=\lim_{t\uparrow1}F(t)$ and $p(1):=\lim_{t\uparrow1}p(t)$ and gives
+\[
+  \int_{\partial K}|\nabla u|^2=F(1)\ge4\pi,
+  \qquad
+  \int_{\partial K}H|\nabla u|=p(1)\ge4F(1)-8\pi .
+\]
+\end{proof}
+
+\begin{remark}[What was retained]\label{rem:K-retained}
+All possible critical-level contributions have been retained as the
+nonnegative singular part of $u_\#\mu$
+(Lemma~\ref{lem:K-pushforward-density}).  Nothing was discarded at a critical
+value, and no Sard theorem stronger than
+Theorem~\ref{thm:sard-3d} was used.
+\end{remark}
+

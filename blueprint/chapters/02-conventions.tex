@@ -1,0 +1,114 @@
+% ----------------------------------------------------------------------------
+\chapter{Global conventions}\label{ch:conventions}
+\module{NoCompromise.BV.Basic,
+        NoCompromise.Conventions,
+        NoCompromise.Surface.Geometry,
+        NoCompromise.Variation.Straight}
+
+Every item in this chapter is referenced by label from the places that depend
+on it.  A convention silently changed in one place and not another is the
+most likely way to produce a false theorem in this development, so the
+conventions are stated once, here, and nowhere else.
+
+\section{Ambient setting and identification of sets}
+
+\begin{convention}[Ambient space]\label{conv:ambient}
+Work in $\R^3$ with Lebesgue measure.  Write $|E|$ for the Lebesgue measure
+of a measurable $E\subset\R^3$, $B_r(x)$ for the open Euclidean ball, and
+$B_r:=B_r(0)$.  $B_r^2$ denotes the open planar disk of radius $r$ in $\R^2$,
+$\Sph^2$ the unit sphere in $\R^3$.  All measurability is Lebesgue
+measurability unless stated otherwise.
+\end{convention}
+
+\begin{convention}[Sets modulo null sets]\label{conv:null}
+Two measurable sets are identified for variational purposes when their
+symmetric difference is Lebesgue-null.  Every functional in
+Chapter~\ref{ch:functional} is invariant under this identification
+(Lemma~\ref{lem:null-invariance}).  Uniqueness statements always mean
+uniqueness modulo translations and null sets.  From
+Chapter~\ref{ch:density} onwards a specific representative is fixed;
+Convention~\ref{conv:representative} records which.
+\end{convention}
+
+\begin{convention}[Outward normal and the polar sign]\label{conv:outward}
+For a set $E$ of finite perimeter in $\R^n$ (with $n=3$ unless a planar
+auxiliary result is being stated) the measure-theoretic normal $\nu_E$ is
+always the \emph{outward} one, fixed by the polar decomposition
+\[
+  D\ind E=-\nu_E\,|D\ind E| .
+\]
+For a smooth bounded domain $\nu$ is the outward unit normal.  This single
+sign choice propagates into the Gauss--Green formula
+(Theorem~\ref{thm:gauss-green}), the first-variation formulas
+(\S\ref{sec:first-variation-formulas}), De Giorgi's structure theorem
+(Theorem~\ref{thm:degiorgi-structure}), Green's second identity
+(\S\ref{sec:green}) and the level-set geometry of Chapter~\ref{ch:appK}.
+\end{convention}
+
+\begin{convention}[Curvature signs]\label{conv:curvature}
+For a smooth bounded domain $E$ with outward normal $\nu$, let
+$\mathrm{II}$ be the second fundamental form, $\kappa_1,\kappa_2$ the
+principal curvatures, and
+\[
+  H:=\kappa_1+\kappa_2,\qquad \kappa:=\kappa_1\kappa_2 ,
+\]
+normalised so that \emph{a round sphere of radius $R$ has $H=2/R>0$}.  Then
+$|\mathrm{II}|^2=H^2-2\kappa$.  In Chapter~\ref{ch:appK} the surface is a
+superlevel set $\{u\ge t\}$ with outward normal $\nu=-\nabla u/|\nabla u|$
+and $H=\dvg_{\Sigma_t}\nu$, which is consistent: a round sphere again has
+$H>0$.
+\end{convention}
+
+\begin{convention}[Sign of the first variation]\label{conv:first-variation}
+For a normal variation with scalar speed $f$,
+\[
+  \frac{d}{dt}\Big|_{t=0}\Per(E_t)=\int_{\partial E}Hf,
+  \qquad
+  \frac{d}{dt}\Big|_{t=0}|E_t|=\int_{\partial E}f .
+\]
+This determines every later sign; it must be fixed before
+\S\ref{sec:first-variation-formulas}.
+\end{convention}
+
+\begin{convention}[Test-field classes]\label{conv:test-fields}
+$C^1_c(U;\R^n)$ denotes continuously differentiable compactly supported
+vector fields on an open set $U\subset\R^n$; the unmarked ambient dimension
+is $n=3$.  All suprema defining variation measures are over this class with
+$|X|\le1$ pointwise.  Replacing $C^1_c$ by
+$C^\infty_c$ changes none of these suprema, by mollification; this is used
+without comment and is recorded as Lemma~\ref{lem:test-class}.
+\end{convention}
+
+\section{Constant discipline}
+
+\begin{convention}[Constants]\label{conv:constants}
+Every quantitative item must state the allowed dependence of its constants;
+the six multi-parameter arguments where quantifier order matters also carry a
+numbered \texttt{Constants} annotation.  The rules are:
+\begin{enumerate}[label=(\alph*)]
+\item ``Absolute'' means: depends on nothing.  Since the ambient dimension is
+  fixed at $3$ throughout, what other treatments call a dimensional constant
+  is absolute here.
+\item A constant written $C(a,b)$ depends only on $a$ and $b$, monotonically
+  where that is asserted.
+\item When several smallness parameters occur, the annotation gives the
+  \emph{order of choice}, written as a chain
+  $\gamma\rightsquigarrow\eta\rightsquigarrow\varepsilon$, meaning: $\gamma$
+  is chosen first and freely, then $\eta=\eta(\gamma)$, then
+  $\varepsilon=\varepsilon(\gamma,\eta)$.  No item may be used with a choice
+  order different from the one it declares.
+\item Constants are never tracked numerically except in
+  Chapter~\ref{ch:algebra}, where exact values are the point.
+\end{enumerate}
+\end{convention}
+
+\begin{fnote}[Why the order of choice is written down]\label{fnote:order}
+An informal proof can defer the smallness ordering of an
+$\varepsilon$-regularity argument to a sentence at the end of the proof.  In
+Lean the order \emph{is} the statement:
+$\forall\gamma\,\exists\eta\,\forall\dots$ and
+$\exists\eta\,\forall\gamma\dots$ are different theorems, and only one of
+them is true.  Every such chain in this document is therefore explicit at the
+point of use.
+\end{fnote}
+

@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this formalization, please cite it and the paper it formalizes."
+title: "NoCompromise: a Lean formalization of \"No compromise in the liquid drop model\""
+type: software
+authors:
+  - family-names: Chodosh
+    given-names: Otis
+license: Apache-2.0
+repository-code: "https://github.com/ochodosh/NoCompromise"
+keywords:
+  - Lean
+  - Mathlib
+  - formalization
+  - liquid drop model
+  - isoperimetric problem
+preferred-citation:
+  type: article
+  title: "No compromise in the liquid drop model"
+  authors:
+    - family-names: Chodosh
+      given-names: Otis
+    - family-names: Gianocca
+      given-names: Matilde
+  year: 2026
+  url: "https://arxiv.org/abs/2608.11517"
+  identifiers:
+    - type: doi
+      value: "10.48550/arXiv.2608.11517"
+    - type: other
+      value: "arXiv:2608.11517"

@@ -1,0 +1,164 @@
+% ----------------------------------------------------------------------------
+\chapter{Sard-type theorems}\label{ch:sard}
+\module{NoCompromise.Sard.Equidimensional,
+        NoCompromise.Sard.FourToThree,
+        NoCompromise.Sard.OneDimensional,
+        NoCompromise.Sard.Scalar,
+        NoCompromise.Sard.ThreeDimensional}
+
+Exactly three Sard statements are used in this development, and each is proved
+from one-dimensional calculus.  No general Sard theorem is needed or
+permitted.
+
+\begin{lemma}[Equidimensional critical values]\label{lem:sard-equidim}
+Let $n\in\{2,3\}$ and $F:U\subset\R^n\to\R^n$ be $C^1$.  Then
+\[
+  \bigl|F(\{x:\det DF(x)=0\})\bigr|=0 .
+\]
+\end{lemma}
+
+\begin{proof}
+Work on a compact cube $Q\Subset U$ where $\|DF\|\le M$.  Given
+$\varepsilon\in(0,1)$, uniform continuity of $DF$ gives $r_0>0$ with
+\begin{equation}\label{eq:sard-unif}
+  \|DF(x)-DF(y)\|<\varepsilon
+  \quad\text{whenever }x,y\in Q,\ |x-y|<2\sqrt n\,r_0 .
+\end{equation}
+Partition $Q$ into cubes of side $r<r_0$.  If a cube meets the critical set,
+choose a critical point $x_0$ in it; Taylor's formula along line segments
+gives
+\begin{equation}\label{eq:sard-taylor}
+  F(x)=F(x_0)+DF(x_0)(x-x_0)+R(x),\qquad|R(x)|\le C_n\varepsilon r .
+\end{equation}
+The linear image in \eqref{eq:sard-taylor} lies in a parallelepiped of rank at
+most $n-1$ and diameter $\le C_nMr$; its $C_n\varepsilon r$-neighbourhood is
+covered by at most $C_n(1+M/\varepsilon)^{n-1}$ cubes of side
+$C_n\varepsilon r$, hence has $n$-volume at most $C_{n,M}\varepsilon r^n$.
+There are $O(r^{-n})$ source cubes, so the critical image in $Q$ has outer
+measure $\le C_{n,M,Q}\varepsilon$.  Let $\varepsilon\downarrow0$ and exhaust
+$U$ by compact cubes.
+\end{proof}
+
+\begin{corollary}[Chart version]\label{cor:sard-charts}
+\uses{lem:sard-equidim}
+Let $M,N$ be second-countable $C^1$ manifolds of the same dimension
+$n\in\{2,3\}$ and let $F:M\to N$ be $C^1$.  The image under $F$ of its
+critical set has measure zero in every target chart.  In particular it is
+null for any smooth volume measure on $N$.
+\end{corollary}
+
+\begin{proof}\uses{lem:sard-equidim}
+Cover $M$ by countably many relatively compact coordinate charts.  On each
+chart Lemma~\ref{lem:sard-equidim} makes the coordinate image of the critical
+set Lebesgue-null.  Target coordinate changes are locally $C^1$, hence locally
+Lipschitz on compact subsets, and so preserve null sets.  A countable union is
+null.  A smooth volume measure has a locally bounded density with respect to
+Lebesgue measure in every target chart.
+\end{proof}
+
+\begin{lemma}[One-dimensional critical values]\label{lem:sard-1d}
+Let $g\in C^1([a,b])$ and $Z:=\{x:g'(x)=0\}$.  Then $|g(Z)|=0$.  The same
+holds on an open interval by exhaustion.
+\end{lemma}
+
+\begin{proof}
+Given $\varepsilon>0$, continuity of $g'$ gives an open $O\supset Z$ on which
+$|g'|<\varepsilon$; write $O=\bigsqcup_jI_j$.  The mean value theorem gives
+$\operatorname{diam}g(I_j)\le\varepsilon|I_j|$, so
+$|g(Z)|\le\varepsilon\sum_j|I_j|\le\varepsilon(b-a)$.
+\end{proof}
+
+\begin{lemma}[Two-dimensional scalar Sard]\label{lem:sard-2d}
+Let $U\subset\R^2$ be open, $g\in C^2(U)$, $C(g):=\{Dg=0\}$.  Then
+$|g(C(g))|=0$.
+\end{lemma}
+
+\begin{proof}\uses{lem:sard-1d}
+Work on a compact square $Q\Subset U$ and put $C_1:=\{Dg=0\}$,
+$C_2:=\{Dg=0,D^2g=0\}$.
+
+For $x\in C_1\setminus C_2$ some $h:=\partial_ig$ has $Dh(x)\ne0$; the
+elementary implicit-function argument (contraction mapping in one coordinate)
+gives a neighbourhood $W_x$ in which $\{h=0\}$ is a $C^1$ curve containing
+$C_1\cap W_x$.  Parametrise each compact subarc by a $C^1$ map $\gamma$; at a
+parameter whose image lies in $C_1$, $(g\circ\gamma)'=Dg(\gamma)\cdot\gamma'=0$,
+so Lemma~\ref{lem:sard-1d} makes $g(C_1\cap W_x)$ null.  Second countability
+gives a countable such family.
+
+For $C_2\cap Q$, subdivide into squares of side $r$; Taylor with integral
+remainder and uniform continuity of $D^2g$ give
+$\operatorname{osc}_{Q_r}g\le\omega(r)r^2$ with $\omega(r)\to0$.  There are
+$O(r^{-2})$ squares, so the total image length is $O(\omega(r))\to0$.
+\end{proof}
+
+\begin{theorem}[Three-dimensional scalar Sard]\label{thm:sard-3d}
+Let $U\subset\R^3$ be open and $f\in C^3(U)$.  Then $f(\{Df=0\})$ has
+one-dimensional Lebesgue measure zero.  In particular, almost every
+$t\in\R$ is a regular value of $f$.
+\end{theorem}
+
+\begin{proof}\uses{lem:sard-2d,lem:sard-1d}
+Work on a compact cube $Q\Subset U$ and put
+$C_1:=\{Df=0\}$, $C_2:=C_1\cap\{D^2f=0\}$, $C_3:=C_2\cap\{D^3f=0\}$.
+
+For $x\in C_1\setminus C_2$, some $h:=\partial_if$ has $Dh(x)\ne0$; near $x$
+the zero set of $h$ is a $C^2$ surface, parametrised by $\Phi:W\subset\R^2\to U$.
+Then $f\circ\Phi$ is $C^2$ and every preimage of a point of $C_1$ is a
+critical point of it, so Lemma~\ref{lem:sard-2d} makes
+$f(C_1\cap\Phi(W))$ null; a countable chart cover finishes.
+
+For $x\in C_2\setminus C_3$, some $h:=\partial_{ij}f$ has $Dh(x)\ne0$, so
+$C_2$ lies locally on a $C^1$ surface.  On a compact surface patch, the graph
+description and a square grid give a cover by $O(r^{-2})$ balls of radius
+$r$; if such a ball meets $C_2$, Taylor at a point of $C_2$ gives
+$\operatorname{osc}f\le Cr^3$, so the image intervals have total length
+$O(r)\to0$.
+
+Finally cover $C_3\cap Q$ by the $O(r^{-3})$ grid cubes of side $r$; at a
+point of $C_3$ all Taylor coefficients through order three vanish, and
+uniform continuity of $D^3f$ gives
+$\operatorname{osc}_{Q_r}f\le\omega(r)r^3$ with $\omega(r)\to0$.  The total
+image length is $O(\omega(r))$.
+\end{proof}
+
+\begin{theorem}[The $4\to3$ statement]\label{thm:sard-4to3}
+Let $F:U\subset\R^4\to\R^3$ be $C^2$ and
+$C(F):=\{x\in U:\operatorname{rank}DF(x)<3\}$.  Then $|F(C(F))|_3=0$.
+\end{theorem}
+
+\begin{proof}\uses{lem:sard-2d}
+Exhaust $U$ by compact cubes and split $C(F)$ by rank.
+
+\emph{Rank two.}  Some $2\times2$ minor is nonzero, so the inverse function
+theorem in source and target coordinates puts $F$ locally in the form
+\begin{equation}\label{eq:sard-rank2}
+  F(s,t,y_1,y_2)=(s,t,h(s,t,y_1,y_2)),
+\end{equation}
+in which the critical points are exactly those with $D_yh=0$.  For fixed
+$(s,t)$, Lemma~\ref{lem:sard-2d} makes
+$|\{h(s,t,y):D_yh(s,t,y)=0\}|_1=0$; Fubini makes the three-dimensional
+measure of the critical image zero.  The coordinate changes are locally
+bi-Lipschitz, hence preserve null sets; a countable chart cover finishes.
+
+\emph{Rank one.}  A nonzero first derivative gives local coordinates
+\begin{equation}\label{eq:sard-rank1}
+  F(s,y)=(s,H(s,y)),\qquad y\in\R^3,\ H\in\R^2,
+\end{equation}
+in which every point of the stratum satisfies $D_yH=0$.  Fix $s$, cover a
+compact $y$-cube by $O(r^{-3})$ cubes of side $r$; if a cube meets
+$\{D_yH=0\}$, Taylor about such a point puts its $H(s,\cdot)$-image in a disk
+of radius $Cr^2$.  The total area is $O(r^{-3})O(r^4)=O(r)\to0$.  Fubini in
+$s$ and a countable chart cover finish.
+
+\emph{Rank zero.}  Cover by $O(r^{-4})$ four-dimensional grid cubes; Taylor
+about a point with $DF=0$ puts the image in a ball of radius $Cr^2$, total
+volume $O(r^{-4})O(r^6)=O(r^2)\to0$.
+\end{proof}
+
+\begin{remark}\label{rem:sard-usage}
+Corollary~\ref{cor:sard-charts} is used for path transversality and for
+choosing a regular value of a Gauss map; Theorem~\ref{thm:sard-3d} for regular
+level values of a scalar function; Theorem~\ref{thm:sard-4to3} for disk
+transversality.  These are the only three uses.
+\end{remark}
+

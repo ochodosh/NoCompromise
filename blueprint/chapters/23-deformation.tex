@@ -1,0 +1,213 @@
+\chapter{The phase-preserving cylindrical deformation}\label{ch:deformation}
+\module{NoCompromise.Regularity.CompressionJacobian,
+        NoCompromise.Regularity.CompressionProfileTheorem,
+        NoCompromise.Regularity.Cylinders,
+        NoCompromise.Regularity.Deformation,
+        NoCompromise.Regularity.SlabCap}
+
+\begin{remark}[Placement]\label{rem:deformation-placement}
+This construction depends only on Part~\ref{part:functional}'s predecessors in
+Part~1 --- specifically on Theorem~\ref{thm:transport-perimeter},
+Proposition~\ref{prop:gluing} and Theorem~\ref{thm:bv-compactness} --- and is
+used only by Lemma~\ref{lem:reverse-poincare}.  It is placed here, next to its
+consumer, rather than in the foundations.  Remark~\ref{rem:degiorgi-deps}
+records that Chapter~\ref{ch:degiorgi} does not use it, so there is no cycle.
+\end{remark}
+
+\begin{notation}[Cylinders]\label{not:cylinders}
+$C_r:=B_r^2\times(-r,r)$, and $C_r^\nu(x)$ denotes its rotation with axis
+$\nu$ centred at $x$; $C_r^\nu:=C_r^\nu(0)$ and $C_r:=C_r^{e_3}$.
+\end{notation}
+
+\begin{definition}[Slab-and-cap configuration]\label{def:slab-cap}
+\uses{not:cylinders,def:density}
+Let $E$ have locally finite perimeter, $0<\eta_0<1$, $c\in\R$, $\rho>0$.
+Say $E$ is in
+\emph{slab-and-cap configuration $(\rho,c,\eta_0)$} if
+\begin{equation}\label{eq:slab-clearance}
+  |c|+\eta_0\rho<\rho,
+\end{equation}
+and
+\begin{equation}\label{eq:slab}
+  \rbd E\cap C_\rho\subset\{|x_3-c|<\eta_0\rho\}
+\end{equation}
+and the two caps carry the opposite constant phases:
+\begin{equation}\label{eq:caps}
+  B_\rho^2\times\{-\rho\}\subset E^{(1)},
+  \qquad
+  B_\rho^2\times\{\rho\}\subset E^{(0)}
+\end{equation}
+up to $\Hs^2$-null sets.  The \emph{reversed} configuration exchanges the two
+inclusions in \eqref{eq:caps}.
+\end{definition}
+
+\begin{lemma}[The compression profile]\label{lem:compression-profile}
+Let $\tfrac12<\sigma<\tau<1$ and $d:=\tau-\sigma$.  The radial profile
+\begin{equation}\label{eq:alpha-profile}
+  \alpha(x'):=
+  \begin{cases}
+    0,&|x'|\le\sigma,\\[1mm]
+    \sin^2\!\Bigl(\dfrac{\pi(|x'|-\sigma)}{2d}\Bigr),&\sigma<|x'|<\tau,\\[2mm]
+    1,&|x'|\ge\tau
+  \end{cases}
+\end{equation}
+is $C^1$ and Lipschitz on $\R^2$ and satisfies, a.e.,
+\begin{equation}\label{eq:alpha-estimate}
+  |\nabla\alpha|^2\le\frac{\pi^2}{d^2}\alpha(1-\alpha)
+  \le\frac{\pi^2}{d^2}(1-\alpha^2).
+\end{equation}
+For $0<\varepsilon<1/2$ put
+$\beta_\varepsilon:=\varepsilon+(1-\varepsilon)\alpha$.  Then
+$\varepsilon\le\beta_\varepsilon\le1$, $\beta_\varepsilon=1$ at
+$|x'|=\tau$, and
+\begin{equation}\label{eq:beta-estimate}
+  |\nabla\beta_\varepsilon|^2\le\frac{C}{d^2}\bigl(1-\beta_\varepsilon^2\bigr).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\eqref{eq:alpha-estimate} is a direct computation from
+$\alpha'=\tfrac{\pi}{d}\sin\theta\cos\theta$ with
+$\theta=\pi(|x'|-\sigma)/(2d)$, using $\alpha=\sin^2\theta$.  For
+\eqref{eq:beta-estimate}, note
+$1-\beta_\varepsilon^2=(1-\varepsilon)(1-\alpha)(1+\beta_\varepsilon)$ while
+$(1-\varepsilon)^2(1-\alpha^2)\le2(1-\varepsilon)(1-\alpha)(1+\beta_\varepsilon)$.
+\end{proof}
+
+\begin{lemma}[Jacobian of the compression]\label{lem:compression-jacobian}
+\uses{lem:compression-profile,lem:cofactor}
+Let $T_\varepsilon(x',x_3):=\bigl(x',c+\beta_\varepsilon(x')(x_3-c)\bigr)$.
+For a two-plane $S=\nu^\perp$ with $\nu=(\nu',\nu_3)$,
+\begin{equation}\label{eq:compression-cofactor}
+  J_2\bigl(DT_\varepsilon|_S\bigr)^2
+  =\bigl|\bigl(\beta_\varepsilon\nu'
+    -(x_3-c)\nu_3\nabla\beta_\varepsilon,\ \nu_3\bigr)\bigr|^2 ,
+\end{equation}
+and consequently
+\begin{equation}\label{eq:compression-jacobian}
+  J_2\bigl(DT_\varepsilon|_S\bigr)\le1+\frac{C(x_3-c)^2}{d^2}.
+\end{equation}
+$T_\varepsilon$ is bi-Lipschitz on the transition annulus, with inverse
+$T_\varepsilon^{-1}(x',z)=\bigl(x',c+(z-c)/\beta_\varepsilon(x')\bigr)$.
+\end{lemma}
+
+\begin{proof}\uses{lem:cofactor,lem:compression-profile}
+\eqref{eq:compression-cofactor} is \eqref{eq:cofactor} applied to
+$DT_\varepsilon$.  For \eqref{eq:compression-jacobian}, Young's inequality on
+the mixed term gives, for $0<\beta_\varepsilon<1$,
+\[
+\begin{aligned}
+  2\beta_\varepsilon|x_3-c|\,|\nu'|\,|\nu_3|\,|\nabla\beta_\varepsilon|
+  \le{}&\bigl(1-\beta_\varepsilon^2\bigr)|\nu'|^2\\
+  &+\frac{\beta_\varepsilon^2(x_3-c)^2\nu_3^2|\nabla\beta_\varepsilon|^2}
+        {1-\beta_\varepsilon^2} ,
+\end{aligned}
+\]
+with the endpoint cases by continuity.  Using \eqref{eq:beta-estimate} and
+$|\nu'|^2+\nu_3^2=1$ absorbs the mixed term into
+$(1-\beta_\varepsilon^2)|\nu'|^2$ and gives
+\eqref{eq:compression-jacobian}.
+\end{proof}
+
+\begin{theorem}[Phase-preserving cylindrical deformation]\label{thm:deformation}
+\uses{def:slab-cap,lem:compression-jacobian,not:cylinders}
+Let $E$ be in slab-and-cap configuration $(1,c,\eta_0)$ with
+$\eta_0<1/2$.  Fix radii
+\[
+  \tfrac12<\sigma<\tfrac58<\tfrac78<\tau<1 .
+\]
+Assume that both are cylindrically regular for $E$, meaning
+\begin{equation}\label{eq:cylindrical-regular-radii}
+ |D\ind E|\bigl((\partial B_s^2)\times(-1,1)\bigr)=0
+ \qquad(s=\sigma,\tau).
+\end{equation}
+Such pairs have full measure in the displayed product of intervals: the
+pushforward of the finite measure $|D\ind E|\llcorner C_1$ by
+$x\mapsto|x'|$ has at most countably many atoms.
+Then there is a set $F$ of locally finite perimeter which
+\begin{itemize}[nosep]
+\item agrees with $E$ outside $B_\tau^2\times(-1,1)$,
+\item agrees with $\{x_3<c\}$ in $B_\sigma^2\times(-1,1)$,
+\item has the same upper and lower cap traces as $E$,
+\end{itemize}
+and satisfies
+\begin{equation}\label{eq:deformation-estimate}
+\begin{aligned}
+  \Per\bigl(F;B_\tau^2\times(-1,1)\bigr)
+  \le{}&\Per\bigl(E;(B_\tau^2\setminus\overline{B_\sigma^2})\times(-1,1)\bigr)
+        +\pi\sigma^2\\
+  &+\frac{C}{(\tau-\sigma)^2}
+    \int_{\rbd E\cap C_1}(x_3-c)^2\,d\Hs^2 .
+\end{aligned}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\uses{lem:compression-profile,lem:compression-jacobian,
+      thm:transport-perimeter,prop:gluing,thm:bv-compactness,lem:lsc,
+      lem:bv-slices,thm:degiorgi-structure,thm:traces}
+Condition~\eqref{eq:cylindrical-regular-radii} and the local trace theorem on
+the smooth part of each vertical wall imply that the traces from its two
+sides agree $\Hs^2$-a.e.; the circular edges are $\Hs^2$-null.  Thus cutting
+at either radius creates only the trace jump explicitly counted below.
+
+\emph{Step 1: extend the slices.}  For $\sigma<|x'|<\tau$, extend the vertical
+slice of $E$ from $(-1,1)$ to all of $\R$ by the value one below $-1$ and zero
+above $1$.  By \eqref{eq:caps} and the gluing formula \eqref{eq:gluing} this
+extension creates no derivative measure on the planes $x_3=\pm1$.
+
+\emph{Step 2: define the competitor.}  Let $F_\varepsilon$ equal the image of
+the extended $E$ under $T_\varepsilon$ in the transition annulus, equal $E$
+outside $B_\tau^2\times(-1,1)$, and equal $\{x_3<c\}$ in
+$B_\sigma^2\times(-1,1)$.  At the outer wall
+$\beta_\varepsilon=1$, so the traces match exactly.  Clearance
+\eqref{eq:slab-clearance} ensures that both the original and compressed
+interfaces stay strictly between the caps, so the transformed cap traces are
+still one below and zero above.
+
+\emph{Step 3: inner-wall error.}  By Theorem~\ref{thm:degiorgi-structure},
+\eqref{eq:slab} makes $D\ind E$ vanish in each of the connected lower and
+upper subcylinders outside the slab.  A BV function with zero distributional
+derivative on a connected open set is a.e.\ constant (mollify on compact
+subsets), and \eqref{eq:caps} identifies these constants as one below and
+zero above.  Lemma~\ref{lem:bv-slices} therefore says that almost every
+original vertical slice is one below $c-\eta_0$ and zero above
+$c+\eta_0$.  Its $\varepsilon$-compressed trace can differ from
+$\ind{\{x_3<c\}}$ only on $(c-\varepsilon\eta_0,c+\varepsilon\eta_0)$.  So
+\eqref{eq:gluing} adds inner-wall perimeter at most
+\begin{equation}\label{eq:inner-wall}
+  (2\pi\sigma)(2\varepsilon\eta_0).
+\end{equation}
+
+\emph{Step 4: transformed interface.}  The bi-Lipschitz perimeter transport
+formula \eqref{eq:transport-perimeter} applies to $T_\varepsilon$; combining
+\eqref{eq:compression-jacobian}, the horizontal disk in the core, and
+\eqref{eq:inner-wall} gives
+\begin{equation}\label{eq:deformation-eps}
+\begin{aligned}
+  \Per\bigl(F_\varepsilon;B_\tau^2\times(-1,1)\bigr)
+  \le{}&\Per\bigl(E;(B_\tau^2\setminus\overline{B_\sigma^2})\times(-1,1)\bigr)
+       +\pi\sigma^2\\
+  &+\frac C{d^2}\int_{\rbd E\cap C_1}(x_3-c)^2\,d\Hs^2+C\varepsilon .
+\end{aligned}
+\end{equation}
+
+\emph{Step 5: remove $\varepsilon$.}  The right side of
+\eqref{eq:deformation-eps} is uniform in $\varepsilon$, so
+Theorem~\ref{thm:bv-compactness} gives an $L^1$ limit $F$ along a sequence
+$\varepsilon\downarrow0$.  The definitions on the core and exterior pass
+directly to the limit.  More strongly than trace convergence, clearance
+\eqref{eq:slab-clearance} leaves fixed collars of both caps on which every
+$F_\varepsilon$ is identically one below and zero above; local $L^1$
+convergence preserves those collars and hence the asserted cap traces.
+Lemma~\ref{lem:lsc} removes the $C\varepsilon$ term.
+\end{proof}
+
+\begin{fnote}[What is \emph{not} assumed]\label{fnote:deformation-honest}
+The proof does not assume that transformed affine sheets remain affine, and it
+uses no collision, current, or cancellation theorem.  Every trace, gluing,
+Jacobian and limiting assertion is one of
+Propositions~\ref{prop:gluing}, Theorem~\ref{thm:transport-perimeter},
+Lemma~\ref{lem:compression-jacobian} or Theorem~\ref{thm:bv-compactness}.
+\end{fnote}
+

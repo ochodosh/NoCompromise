@@ -1,0 +1,283 @@
+% ----------------------------------------------------------------------------
+\chapter{Transport of perimeter and first-variation formulas}\label{ch:transport}
+\module{NoCompromise.Variation.ConstantTranslation,
+        NoCompromise.Variation.FieldStability,
+        NoCompromise.Variation.OneDimensionalTranslation,
+        NoCompromise.Variation.Perimeter,
+        NoCompromise.Variation.Piola,
+        NoCompromise.Variation.StraightCofactor,
+        NoCompromise.Variation.StraightDiffeo,
+        NoCompromise.Variation.SymmetricDifferenceFull,
+        NoCompromise.Variation.TransportC1,
+        NoCompromise.Variation.VolumeBoundary}
+
+\section{Bi-Lipschitz transport}
+
+\begin{theorem}[Transport of perimeter]\label{thm:transport-perimeter}
+\uses{thm:degiorgi-structure,lem:cofactor}
+Let $\Phi:U\to V$ be a $C^1$ diffeomorphism with
+$\Phi,\Phi^{-1}$ locally Lipschitz, and let $E\subset U$ have locally finite
+perimeter in $U$.  Then $\Phi(E)$ has locally finite perimeter in $V$, at
+$\Hs^2$-a.e.\ $x\in\rbd E\cap U$
+\begin{equation}\label{eq:transport-normal}
+  \nu_{\Phi(E)}(\Phi(x))
+  =\operatorname{sign}(\det D\Phi(x))
+   \frac{\cof D\Phi(x)\,\nu_E(x)}{|\cof D\Phi(x)\,\nu_E(x)|},
+\end{equation}
+and for every Borel $A\subset U$
+\begin{equation}\label{eq:transport-perimeter}
+  \Per\bigl(\Phi(E);\Phi(A)\bigr)
+  =\int_{\rbd E\cap A}|\cof D\Phi\,\nu_E|\,d\Hs^2 .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\uses{thm:gauss-green,thm:area-formula-rect,lem:cofactor,lem:piola}
+First work on a connected component of $U$, on which
+$s:=\operatorname{sign}(\det D\Phi)\in\{-1,1\}$ is constant.
+\emph{$C^2$ case.} For $X\in C^1_c(V;\R^3)$, change variables and use the
+Piola identity (Lemma~\ref{lem:piola}):
+\begin{equation}\label{eq:transport-piola}
+  \int_{\Phi(E)}\dvg X
+  =\int_E(\dvg X)(\Phi)|\det D\Phi|
+  =s\int_E\dvg\bigl((\cof D\Phi)^{\mathsf T}X(\Phi)\bigr).
+\end{equation}
+Insert Gauss--Green \eqref{eq:gauss-green} and then the rectifiable area
+formula \eqref{eq:area-formula-rect} with $\Phi$; the cofactor formula
+\eqref{eq:cofactor} identifies the resulting Jacobian, giving
+\eqref{eq:transport-normal}--\eqref{eq:transport-perimeter}.
+
+\emph{$C^1$ case.} Convolve the coordinate functions of $\Phi$ on compact
+subsets.  The cofactor fields converge uniformly, so the $C^2$ Piola
+identities pass to the distributional Piola identity for $\Phi$, and
+\ref{base:calculus} gives \eqref{eq:transport-piola} directly.  An exhaustion
+gives the local statement.  Apply the argument on each connected component
+of $U$ and combine the resulting locally finite measures.
+\end{proof}
+
+\begin{lemma}[Piola identity]\label{lem:piola}
+For $\Phi\in C^2(U;\R^3)$, each row of $\cof D\Phi$ is divergence-free,
+$\sum_j\partial_j(\cof D\Phi)_{ij}=0$ for every $i$ (equivalently, the columns of
+$(\cof D\Phi)^{\mathsf T}$ are divergence-free), and
+$D\Phi\,(\cof D\Phi)^{\mathsf T}=(\det D\Phi)I$.
+\end{lemma}
+
+\begin{proof}
+Expand the $3\times3$ cofactors: all terms containing a second derivative
+cancel in pairs.  The second identity is the cofactor expansion of the
+determinant.
+\end{proof}
+
+\begin{fnote}[Piecewise-chart proof schema]\label{fnote:transport-piecewise}
+There is no separate ``piecewise transport theorem'' in the formal target.
+Whenever finitely many $C^1$ charts are used, apply
+Theorem~\ref{thm:transport-perimeter} on each explicitly specified open
+piece and then apply Proposition~\ref{prop:gluing} one interface at a time.
+Each interface contributes the $L^1$ difference of its two BV traces in
+\eqref{eq:gluing}; an orientation-reversing chart uses the factor
+$\operatorname{sign}(\det D\Phi)$ in \eqref{eq:transport-normal}.  Thus a
+consumer must name its pieces, charts and traces instead of invoking an
+unquantified piecewise result.
+\end{fnote}
+
+\section{Straight perturbations}\label{sec:first-variation-formulas}
+
+\begin{definition}[Straight perturbation]\label{def:straight}
+For $X\in C^1_c(\R^3;\R^3)$ and $t\in\R$ put $F^X_t(x):=x+tX(x)$.
+\end{definition}
+
+\begin{lemma}[$F^X_t$ is a global $C^1$ diffeomorphism]\label{lem:straight-diffeo}
+\uses{def:straight}
+Let $L:=\|DX\|_\infty$ and $|t|L<1$.  Then
+\begin{equation}\label{eq:straight-injective}
+  |F^X_t(x)-F^X_t(y)|\ge(1-|t|L)|x-y| ,
+\end{equation}
+$F^X_t$ is a bijection of $\R^3$, and it is a $C^1$ diffeomorphism with
+$DF^X_t=I+tDX$ invertible.
+\end{lemma}
+
+\begin{proof}
+\eqref{eq:straight-injective} follows from the mean value theorem, giving
+injectivity; $I+tDX$ is invertible for $|t|L<1$, so $F^X_t$ is a local $C^1$
+diffeomorphism.  It equals the identity off a compact set, hence is proper,
+so its image is open and closed in $\R^3$ and therefore all of $\R^3$.  The
+inverse function theorem gives a global $C^1$ inverse.
+\end{proof}
+
+\begin{lemma}[Cofactor expansion of a straight perturbation]\label{lem:straight-cofactor}
+\uses{def:straight}
+Uniformly on $\spt X$, as $t\to0$,
+\[
+  \cof DF^X_t
+  =I+t\bigl((\dvg X)I-DX^{\mathsf T}\bigr)+O(t^2),
+  \qquad
+  \det DF^X_t=1+t\,\dvg X+O(t^2).
+\]
+Consequently, for a two-plane $T=\nu^\perp$,
+\begin{equation}\label{eq:straight-jacobian}
+  J_2\bigl(DF^X_t|_T\bigr)
+  =1+t\bigl(\dvg X-\nu\cdot DX\,\nu\bigr)+o(t)
+  =1+t\,\dvg_TX+o(t),
+\end{equation}
+with the error uniform in $x$ and $\nu$.
+\end{lemma}
+
+\begin{proof}\uses{lem:cofactor}
+Polynomial expansion of the cofactor matrix, then \eqref{eq:cofactor}.
+\end{proof}
+
+\begin{theorem}[First variation of perimeter]\label{thm:first-var-perimeter}
+\uses{def:straight,thm:degiorgi-structure}
+Let $E$ have locally finite perimeter and $X\in C^1_c(\R^3;\R^3)$.  If
+$A\subset\R^3$ is bounded and open with $\spt X\Subset A$, then, for all
+sufficiently small $|t|$, $F_t^X(A)=A$ and
+\begin{equation}\label{eq:first-var-perimeter}
+  \frac{d}{dt}\Big|_{t=0}\Per\bigl(F^X_t(E);A\bigr)
+  =\int_{\rbd E\cap A}\dvgt X\,d\Hs^2
+  =\int_{\rbd E}\dvgt X\,d\Hs^2 .
+\end{equation}
+If $E$ has finite perimeter globally, the same identity holds with
+$\Per(F_t^X(E))$ on the left.
+\end{theorem}
+
+\begin{proof}
+\uses{thm:transport-perimeter,lem:straight-cofactor,thm:area-formula-rect,
+      lem:straight-diffeo}
+For small $|t|$, the distance from $\spt X$ to $\partial A$ and
+\eqref{eq:straight-injective} give $F_t^X(A)=A$.  Theorems
+\ref{thm:transport-perimeter} and \ref{thm:area-formula-rect} therefore give
+\[
+ \Per(F^X_t(E);A)
+ =\int_{\rbd E\cap A}J_2(DF^X_t|_{T_x\rbd E})\,d\Hs^2.
+\]
+Subtract $\Per(E;A)$ and insert \eqref{eq:straight-jacobian}.  The integrand
+vanishes off the compact support of $X$, the error there is uniform, and
+local finite perimeter makes its $\Hs^2$ measure finite, so dominated
+convergence applies.  If $E$ has global finite perimeter, the identical
+exterior contributions give the global assertion.
+\end{proof}
+
+\begin{theorem}[First variation of volume]\label{thm:first-var-volume}
+\uses{def:straight,thm:gauss-green}
+Let $E\subset\R^3$ have locally finite perimeter and finite measure, and let
+$X\in C^1_c(\R^3;\R^3)$.  Then
+\begin{equation}\label{eq:first-var-volume}
+  \frac{d}{dt}\Big|_{t=0}\bigl|F^X_t(E)\bigr|
+  =\int_E\dvg X
+  =\int_{\rbd E}X\cdot\nu_E\,d\Hs^2 .
+\end{equation}
+\end{theorem}
+
+\begin{proof}\uses{lem:straight-cofactor,thm:gauss-green}
+Change variables using $\det DF^X_t=1+t\dvg X+O(t^2)$, then apply
+\eqref{eq:gauss-green}.
+\end{proof}
+
+\section{The symmetric-difference formula}
+
+The following is proved without any flow or straightening theorem, so that it
+is available before Chapter~\ref{ch:flows}.
+
+\begin{lemma}[Weighted one-dimensional translation identity]
+\label{lem:1d-translation}
+Let $q\in BV_{\mathrm{loc}}(\R;\{0,1\})$ and
+$\zeta\in C_c(\R;[0,\infty))$.  Then
+\begin{equation}\label{eq:1d-translation}
+  \lim_{t\to0}\frac1{|t|}
+  \int_\R\zeta(s)|q(s+t)-q(s)|\,ds
+  =\int_\R\zeta\,d|Dq|.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+On every compact interval containing $\spt\zeta$ and its sufficiently small
+translates, a $\{0,1\}$-valued BV function has only finitely many essential
+jumps: each alternation contributes one unit of variation, so infinitely
+many would contradict local finite variation.  After changing $q$ on a null
+set it is therefore the indicator of a finite union of intervals there.
+For $|t|$ smaller than the separation of the finitely many jump points, the
+symmetric difference consists of disjoint intervals of length $|t|$, one at
+each jump.  Uniform continuity of $\zeta$ makes the contribution of the
+interval at a jump $s_j$, divided by $|t|$, tend to $\zeta(s_j)$.  Summing
+gives $\sum_j\zeta(s_j)=\int\zeta\,d|Dq|$.
+\end{proof}
+
+\begin{lemma}[Constant fields]\label{lem:sym-diff-constant}
+\uses{lem:1d-translation,lem:bv-slices}
+For a constant vector $a$, $E$ of locally finite perimeter, and
+$\zeta\in C_c(U;[0,\infty))$,
+\begin{equation}\label{eq:sym-diff-constant}
+  \lim_{t\to0}\frac1{|t|}\int_U\zeta(x)\,|\ind E(x-ta)-\ind E(x)|\,dx
+  =\int_{\rbd E}\zeta\,|a\cdot\nu_E|\,d\Hs^2 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:1d-translation,lem:bv-slices,thm:degiorgi-structure}
+The assertion is immediate if $a=0$.  Otherwise write $e:=a/|a|$ and slice
+along the lines $x'+\R e$.  On each slice apply
+\eqref{eq:1d-translation} with shift $t|a|$ and weight
+$s\mapsto\zeta(x'+se)$.  Integrate using Fubini and BV slicing
+(Lemma~\ref{lem:bv-slices}).  The passage of the limit through the transverse
+integral is dominated by the one-dimensional BV estimate
+\[
+ \frac1{|\tau|}\int_K|q(s+\tau)-q(s)|\,ds
+ \le |Dq|(K_{|\tau|}),
+\]
+obtained by integrating the variation of $q$ over the intervals between
+$s$ and $s+\tau$.  The factor $|a|$ from the shift and the sliced variation
+combine to $|a\cdot\nu_E|$, and
+Theorem~\ref{thm:degiorgi-structure} identifies the resulting measure.
+\end{proof}
+
+\begin{lemma}[Stability in the field]\label{lem:sym-diff-stability}
+\uses{def:straight}
+Let $X,Y\in C^1_c(\R^3;\R^3)$ be supported in a fixed compact set with
+$|t|\max(\|DX\|_\infty,\|DY\|_\infty)<1/2$, let $K\Subset U$ and let
+$K_0\Subset K'\Subset U$ be fixed open neighbourhoods such that $K_0$
+contains all intermediate inverse images of $K$.  Then for $u\in BV(U)$,
+\begin{equation}\label{eq:sym-diff-stability}
+  \int_K\bigl|u\bigl((F^X_t)^{-1}z\bigr)-u\bigl((F^Y_t)^{-1}z\bigr)\bigr|\,dz
+  \le C|t|\,\|X-Y\|_{L^\infty(K')}\,|Du|(K').
+\end{equation}
+\end{lemma}
+
+\begin{proof}\uses{lem:straight-diffeo}
+First take $u$ smooth.  Join $F^X_t$ to $F^Y_t$ by $F^{Y+s(X-Y)}_t$,
+differentiate $u((F^{Y+s(X-Y)}_t)^{-1}z)$ in $s$, use the inverse-derivative
+bound from \eqref{eq:straight-injective}, integrate in $s$ and $z$, and change
+variables; only $\int_{K_0}|\nabla u|$ occurs.  For general $u$, mollify on a
+neighbourhood of $K'$ at radii smaller than
+$\dist(\overline{K_0},\R^3\setminus K')$.  The convolution estimate gives
+$\int_{K_0}|\nabla u_\varepsilon|\le |Du|(K')$, while local $L^1$
+convergence and the uniform bi-Lipschitz change of variables make both
+composed functions converge in $L^1(K)$.  Let $\varepsilon\downarrow0$.
+\end{proof}
+
+\begin{theorem}[Symmetric-difference formula]\label{thm:sym-diff}
+\uses{def:straight,thm:degiorgi-structure}
+For $E$ of locally finite perimeter and $X\in C^1_c(\R^3;\R^3)$,
+\begin{equation}\label{eq:sym-diff}
+  \lim_{t\to0}\frac{\bigl|E\triangle F^X_t(E)\bigr|}{|t|}
+  =\int_{\rbd E}|X\cdot\nu_E|\,d\Hs^2 .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\uses{lem:sym-diff-constant,lem:sym-diff-stability,lem:straight-diffeo}
+Take a finite partition of unity $\{\zeta_j\}$ on a fixed compact
+neighbourhood containing $E\triangle F_t^X(E)$ for every sufficiently small
+$|t|$, by functions
+supported in cubes of diameter $\delta$, with slightly larger cubes of
+diameter at most $3\delta$.  Choose $a_j:=X(x_j)$ in each cube and a
+compactly supported field $Y_j$ equal to $a_j$ on the larger cube.  For
+sufficiently small $t$ the integrand weighted by $\zeta_j$ only sees the
+constant part of $Y_j$, so \eqref{eq:sym-diff-constant} applies.  On the
+larger cube $\|X-Y_j\|_\infty\le\omega_X(3\delta)$, so
+\eqref{eq:sym-diff-stability} bounds the sum of all replacement errors by
+$C\omega_X(3\delta)\,|D\ind E|(K')$, and the same replacement on the boundary
+integral has error at most $\omega_X(3\delta)|D\ind E|(K')$.  The finite cover
+may be chosen with dimension-dependent overlap, so $C$ does not depend on
+$\delta$.  Let $t\to0$ first, then $\delta\to0$; outside the chosen fixed
+neighbourhood both sides vanish.
+\end{proof}
+
