@@ -15,7 +15,7 @@ project:
     attained, and every optimiser is a ball of volume 5/2 up to a null set. The development is
     self-contained over Mathlib, including the required BV, geometric measure theory,
     regularity and elliptic PDE theory.
-  authors: ["Otis Chodosh"]                # TODO(Otis): list everyone you consider an author.
+  authors: ["Otis Chodosh"]
   responsible_maintainers: ["Otis Chodosh"]
   license: "Apache-2.0"
 
@@ -25,15 +25,16 @@ sources:
     contributors: []
     id: "arXiv:2608.11517"
     type: "article"
-    location: "Main theorem and binding-energy corollary"   # TODO(Otis): theorem numbers in the paper.
+    location: "Theorem 1.1 and Corollary 1.2"
     relationship: "formalizes"
     # TODO(Otis): confirm the note below.
     note: >-
       The formalization follows a Lean-oriented blueprint of the paper's proof (blueprint/ in this
       repository), in which every step is a separately numbered item. Some internal proof routes
-      differ from the paper; the theorems formalized are the paper's.
-    license: ""                           # TODO(Otis): the arXiv licence of the paper, if relevant.
-    author_endorsement: "participated"
+      differ from the paper; the theorems formalized are the paper's. The formalization is by
+      Otis Chodosh, an author of the paper; the coauthor, Matilde Gianocca, has not been contacted.
+    license: "CC-BY-4.0"
+    author_endorsement: "not-contacted"
 
 related_formalizations: []
 
@@ -71,67 +72,104 @@ status:
 automation:
   methods:
     - method: "agent"
-      # TODO(Otis): check this list, and add the models used by the Codex orchestrator before
-      # 2026-09-23 and to write the blueprint.
-      models:
-        - "claude-opus-5-5"
-        - "claude-fable-5-1"
-        - "claude-opus-5"
-        - "claude-sonnet-5"
-        - "gpt-6-astra"
-        - "gpt-6-sol"
-        - "gpt-6-luna"
-        - "labs-leanstral-1-5"
-      framework: "Codex CLI, Claude Code, Mistral Vibe"
+      models: ["gpt-5.6-sol", "gpt-6-astra", "claude-opus-5"]
+      framework: "Codex CLI, Claude Code"
       tool_setup: >-
-        An orchestrating agent (Codex until 2026-09-23, then Claude Code) worked from the blueprint.
-        It split the work into bounded Lean tasks for worker agents (Claude, GPT-6 through the Codex
-        CLI, and Leanstral through Mistral Vibe), each running in an isolated git worktree. The
-        orchestrator reviewed each patch, rebuilt the project, and audited axioms before committing.
+        Blueprint. GPT-5.6 Sol and GPT-6 Astra wrote the LaTeX blueprint of the paper's proof
+        (revisions v1 to v4). Claude Opus 5, in Claude Code, audited the v1 and v2 drafts for
+        self-containedness over Mathlib (2026-08-25 to 2026-08-27). The human author approved
+        every change to a blueprint statement.
       cost:
-        wall_time: "About one month (2026-08-25 to 2026-09-24)."
-        spend_usd: ""                     # TODO(Otis)
-        hardware: "API-only; orchestrated from a 16 GB laptop."
+        wall_time: "About one month (2026-08-16 to 2026-09-16)."
+        spend_usd: "subscription-based usage"
+        hardware: "API-only."
+      prompting_notes: ""
+    - method: "agent"
+      models: ["gpt-5.6-sol", "gpt-5.6-terra", "gpt-6-astra"]
+      framework: "Codex CLI"
+      tool_setup: >-
+        Lean development, first phase. A Codex agent (GPT-5.6 Sol until early September, then
+        GPT-6 Astra) formalized the blueprint, reaching about 118,000 lines of Lean by
+        2026-09-23.
+      cost:
+        wall_time: "About four weeks (2026-08-25 to 2026-09-23)."
+        spend_usd: "subscription-based usage"
+        hardware: "API-only; run from a 16 GB laptop."
+      prompting_notes: ""
+    - method: "agent"
+      models: ["claude-fable-5-1", "claude-opus-5-5", "claude-sonnet-5", "gpt-6-astra",
+        "labs-leanstral-1-5"]
+      framework: "Claude Code, Codex CLI, Mistral Vibe"
+      tool_setup: >-
+        Lean development, second phase. Claude Fable 5.1 orchestrated in Claude Code. It split
+        the remaining blueprint into chapters for Claude Opus 5.5 leads, which delegated bounded
+        tasks to Claude Sonnet 5 sub-agents, GPT-6 Astra workers (through the Codex CLI) and
+        Leanstral 1.5 (through Mistral Vibe), each in an isolated git worktree. The orchestrator
+        reviewed each patch, rebuilt the project, and audited axioms before committing. The
+        formalization was completed on 2026-09-24, at about 216,000 lines.
+      cost:
+        wall_time: "About two days (2026-09-23 to 2026-09-24)."
+        spend_usd: "subscription-based usage"
+        hardware: "API-only; run from a 16 GB laptop."
       prompting_notes: >-
-        Workers received exact hypotheses, a limited set of files, and explicit checks. Mathematical
-        doubts were returned to the human author rather than resolved by the agents.
+        Workers received exact hypotheses, a limited set of files, and explicit checks.
+        Mathematical doubts were returned to the human author rather than resolved by the agents.
+    - method: "agent"
+      models: ["claude-opus-5-5"]
+      framework: "Claude Code"
+      tool_setup: >-
+        Release preparation (2026-09-27 to 2026-09-28). Claude Opus 5.5 wrote Challenge.lean,
+        Solution.lean and this metadata, and upgraded the project from Lean/Mathlib v4.34.0-rc2
+        to v4.35.0-rc3. The upgrade changed proofs only, except that three internal helper
+        lemmas gained measurability hypotheses required by Mathlib's new definition of eLpNorm.
+      cost:
+        wall_time: "Two days."
+        spend_usd: "subscription-based usage"
+        hardware: "API-only; run from a 16 GB laptop."
+      prompting_notes: ""
     - method: "manual"
       models: []
       framework: ""
       tool_setup: >-
         The human author reviewed the formal statements, approved every change to a blueprint
         statement, and decided the questions of mathematical convention raised during the work.
-  spend_usd: ""                           # TODO(Otis)
-  # TODO(Otis): confirm the notes below, and say how Challenge.lean was reviewed.
+  spend_usd: "subscription-based usage"
   notes: >-
-    The Lean proofs were written by AI agents. The statements in Challenge.lean were reviewed
-    by the human author.
+    The Lean proofs were written by AI agents and are checked by the Lean kernel and comparator;
+    the human author reviewed the statements in Challenge.lean against the paper.
 
 fidelity:
   divergences: ""                         # TODO(Otis): see the suggested text in the handoff notes.
 
 review:
-  status: "author-verified"               # TODO(Otis): or self-assessed / agent-reviewed.
+  status: "author-verified"
   reviewers: ["Otis Chodosh"]
-  notes: ""                               # TODO(Otis)
+  notes: >-
+    Otis Chodosh, an author of the paper, read Challenge.lean line by line against Theorem 1.1
+    and Corollary 1.2 on 2026-09-28, with Claude Opus 5.5 explaining the Lean notation. The
+    proofs are checked by the Lean kernel and comparator rather than by human review.
 
 alignment:
   namespace: "NoCompromise"
   statements:
-    - source: "Main theorem"              # TODO(Otis): paper numbering.
+    - source: "Theorem 1.1"
       lean: "NoCompromise.main"
       module: "Challenge"
       status: "proved"
-      note: "Borel-measurable sets and competitors."
-    - source: "Main theorem"
+      note: >-
+        Borel-measurable sets and competitors. Uniqueness is stated up to translation and null
+        sets, and V > 0 is an explicit hypothesis.
+    - source: "Theorem 1.1"
       lean: "NoCompromise.main_lebesgue"
       module: "Challenge"
       status: "proved"
-      note: "Lebesgue-measurable sets and competitors."
-    - source: "Binding-energy corollary"  # TODO(Otis): paper numbering.
+      note: "The same statement for Lebesgue-measurable sets and competitors."
+    - source: "Corollary 1.2"
       lean: "NoCompromise.main_binding"
       module: "Challenge"
       status: "proved"
-      note: ""
+      note: >-
+        Also proves that every set attaining the infimum agrees with a ball of volume 5/2 up to
+        a null set, which Corollary 1.2 does not state.
 
 acknowledgements: ""
