@@ -7,8 +7,10 @@ A Lean 4 / Mathlib formalization of the main results of
 
 ## Statement
 
-[`Challenge.lean`](Challenge.lean) states the results using only Mathlib, in about 150 lines.
-It is the file to read to see what is proved. For example:
+[`Challenge.lean`](Challenge.lean) states the results using only Mathlib, in about 180 lines.
+It is the file to read to see what is proved. It ends with sanity checks on the definitions: the
+perimeter and Coulomb energy of a ball, `3.51 < V_* < 3.52`, and existence of minimisers for
+`0 < V ≤ V_*`. The main theorem reads:
 
 ```lean
 theorem main (V : ℝ) (hV : 0 < V) :

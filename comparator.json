@@ -4,7 +4,11 @@
   "theorem_names": [
     "NoCompromise.main",
     "NoCompromise.main_lebesgue",
-    "NoCompromise.main_binding"
+    "NoCompromise.main_binding",
+    "NoCompromise.perimeter_ball",
+    "NoCompromise.coulombEnergy_ball",
+    "NoCompromise.criticalVolume_bounds",
+    "NoCompromise.exists_minimizer"
   ],
   "definition_names": [],
   "permitted_axioms": [

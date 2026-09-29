@@ -34,6 +34,10 @@ means Borel measurable, and `NullMeasurableSet · volume` means Lebesgue measura
 * `main_binding`: the infimum of `𝓔(E) / |E|` over Lebesgue-measurable sets with
   `0 < |E| < ∞` equals `3 (9π/5)^{1/3}`. It is attained, and every set attaining it agrees
   with a ball of volume `5/2` up to a null set.
+
+The file ends with sanity checks on the definitions: the perimeter and Coulomb energy of a ball,
+numerical bounds on `V_*`, and existence of minimizers below the threshold (so that `main` is
+not vacuous).
 -/
 
 noncomputable section
@@ -150,6 +154,27 @@ theorem main_binding :
     globalEnergyRatio = ENNReal.ofReal (3 * (9 * Real.pi / 5) ^ (1 / (3 : ℝ))) ∧
       (∃ E : Set AmbientSpace, IsGlobalRatioOptimizer E) ∧
       ∀ E : Set AmbientSpace, IsGlobalRatioOptimizer E → IsLebesgueBallUpToNull (5 / 2) E := by
+  sorry
+
+/-! ## Sanity checks on the definitions -/
+
+/-- The perimeter of a ball of radius `R` is `4πR²`. -/
+theorem perimeter_ball (c : AmbientSpace) {R : ℝ} (hR : 0 < R) :
+    perimeter (ball c R) = ENNReal.ofReal (4 * Real.pi * R ^ 2) := by
+  sorry
+
+/-- The Coulomb energy of a ball of radius `R` is `(16π²/15) R⁵`. -/
+theorem coulombEnergy_ball (c : AmbientSpace) {R : ℝ} (hR : 0 < R) :
+    coulombEnergy (ball c R) = ENNReal.ofReal (16 * Real.pi ^ 2 / 15 * R ^ 5) := by
+  sorry
+
+/-- The critical volume is `V_* ≈ 3.512`. -/
+theorem criticalVolume_bounds : 3.51 < criticalVolume ∧ criticalVolume < 3.52 := by
+  sorry
+
+/-- Minimizers exist for `0 < V ≤ V_*`, so the first part of `main` is not vacuous. -/
+theorem exists_minimizer {V : ℝ} (hV : 0 < V) (hVc : V ≤ criticalVolume) :
+    ∃ Ω : Set AmbientSpace, IsFixedVolumeMinimizer V Ω := by
   sorry
 
 end NoCompromise

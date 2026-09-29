@@ -6,6 +6,8 @@ import Solution.Defs
 import NoCompromise.Showcase
 import NoCompromise.Main
 import NoCompromise.Classification.MainUnconditional
+import NoCompromise.Ball.Perimeter
+import NoCompromise.Ball.Potential
 
 /-!
 # Proofs of the challenge statements
@@ -17,6 +19,9 @@ Each challenge definition agrees with the definition of the same name in the `Li
 namespace of this library by `rfl`. The three theorems then follow from `LiquidDrop.main`,
 `LiquidDrop.main_statement_iff_lebesgue` and `LiquidDrop.main_binding_unconditional`.
 -/
+
+open MeasureTheory Metric
+open scoped ENNReal symmDiff
 
 namespace NoCompromise
 
@@ -76,5 +81,47 @@ theorem main_binding :
       ∀ E : Set AmbientSpace, IsGlobalRatioOptimizer E → IsLebesgueBallUpToNull (5 / 2) E := by
   rw [globalEnergyRatio_eq, isGlobalRatioOptimizer_eq, isLebesgueBallUpToNull_eq]
   exact LiquidDrop.main_binding_unconditional
+
+/-! ## Sanity checks -/
+
+theorem perimeter_ball (c : AmbientSpace) {R : ℝ} (hR : 0 < R) :
+    perimeter (ball c R) = ENNReal.ofReal (4 * Real.pi * R ^ 2) := by
+  rw [perimeter_eq]
+  exact LiquidDrop.perimeter_ball c hR
+
+theorem coulombEnergy_ball (c : AmbientSpace) {R : ℝ} (hR : 0 < R) :
+    coulombEnergy (ball c R) = ENNReal.ofReal (16 * Real.pi ^ 2 / 15 * R ^ 5) := by
+  rw [coulombEnergy_eq]
+  exact LiquidDrop.coulombEnergy_ball c hR
+
+theorem criticalVolume_bounds : 3.51 < criticalVolume ∧ criticalVolume < 3.52 := by
+  have h3 : ((2 : ℝ) ^ ((2 : ℝ) / 3)) ^ 3 = 4 := by
+    rw [← Real.rpow_natCast, ← Real.rpow_mul (by norm_num)]
+    norm_num
+  unfold criticalVolume
+  set a := (2 : ℝ) ^ ((2 : ℝ) / 3)
+  have ha : 0 < a := by positivity
+  have hlo : 1.587 < a := by
+    by_contra h
+    have : a ^ 3 ≤ 1.587 ^ 3 := pow_le_pow_left₀ ha.le (not_lt.mp h) 3
+    norm_num at this
+    linarith
+  have hhi : a < 1.5875 := by
+    by_contra h
+    have : 1.5875 ^ 3 ≤ a ^ 3 := pow_le_pow_left₀ (by norm_num) (not_lt.mp h) 3
+    norm_num at this
+    linarith
+  have hd : 0 < a - 1 := by linarith
+  constructor
+  · rw [lt_div_iff₀ hd]
+    linarith
+  · rw [div_lt_iff₀ hd]
+    linarith
+
+theorem exists_minimizer {V : ℝ} (hV : 0 < V) (hVc : V ≤ criticalVolume) :
+    ∃ Ω : Set AmbientSpace, IsFixedVolumeMinimizer V Ω := by
+  refine ⟨ball 0 (LiquidDrop.ballRadius V), ((main V hV).1 hVc _).mpr ?_⟩
+  exact ⟨measurableSet_ball, 0, LiquidDrop.ballRadius V, LiquidDrop.ballRadius_pos hV,
+    LiquidDrop.volume_ballByVolume hV, by simp⟩
 
 end NoCompromise

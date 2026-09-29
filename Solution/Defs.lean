@@ -37,6 +37,10 @@ means Borel measurable, and `NullMeasurableSet · volume` means Lebesgue measura
 * `main_binding`: the infimum of `𝓔(E) / |E|` over Lebesgue-measurable sets with
   `0 < |E| < ∞` equals `3 (9π/5)^{1/3}`. It is attained, and every set attaining it agrees
   with a ball of volume `5/2` up to a null set.
+
+The file ends with sanity checks on the definitions: the perimeter and Coulomb energy of a ball,
+numerical bounds on `V_*`, and existence of minimizers below the threshold (so that `main` is
+not vacuous).
 -/
 
 noncomputable section

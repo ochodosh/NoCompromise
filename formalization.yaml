@@ -44,7 +44,9 @@ classification:
 status:
   scope: >-
     Complete. The main theorem (for Borel and for Lebesgue-measurable sets) and the binding-energy
-    corollary are proved with no sorry and no axioms beyond Lean's standard three.
+    corollary are proved with no sorry and no axioms beyond Lean's standard three. Challenge.lean
+    also states four sanity checks on its definitions (the perimeter and Coulomb energy of a ball,
+    3.51 < V_* < 3.52, and existence of minimizers for 0 < V <= V_*), checked by comparator.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: ["propext", "Classical.choice", "Quot.sound"]
