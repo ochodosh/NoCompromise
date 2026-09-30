@@ -1,4 +1,8 @@
-import NoCompromise.Isoperimetric.RigiditySmooth
+module
+
+public import NoCompromise.Isoperimetric.RigiditySmooth
+
+@[expose] public section
 
 /-!
 # Isoperimetric rigidity

@@ -1,4 +1,8 @@
-import NoCompromise.Topology.Transversality
+module
+
+public import NoCompromise.Topology.Transversality
+
+@[expose] public section
 
 /-!
 # Evenness of the boundary of a compact one-manifold

@@ -1,5 +1,9 @@
-import NoCompromise.Surface.Morse
-import NoCompromise.Surface.TangentFlow
+module
+
+public import NoCompromise.Surface.Morse
+public import NoCompromise.Surface.TangentFlow
+
+@[expose] public section
 
 /-!
 # Integral curves of the rotated gradient `levelTangentField`

@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.GraphAffineHeightArea
+module
+
+public import NoCompromise.Regularity.GraphAffineHeightArea
+
+@[expose] public section
 
 /-! # Full boundary height from a graph piece and its actual omitted area -/
 

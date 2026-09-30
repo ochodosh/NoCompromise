@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.Cylinders
-import NoCompromise.DeGiorgi.Structure
+module
+
+public import NoCompromise.Regularity.Cylinders
+public import NoCompromise.DeGiorgi.Structure
+
+@[expose] public section
 
 /-! # Spherical and cylindrical normal excess -/
 

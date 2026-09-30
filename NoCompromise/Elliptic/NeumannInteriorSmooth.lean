@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NeumannInterior
+module
+
+public import NoCompromise.Elliptic.NeumannInterior
+
+@[expose] public section
 
 /-!
 # Smooth interior representatives and their agreement on overlaps

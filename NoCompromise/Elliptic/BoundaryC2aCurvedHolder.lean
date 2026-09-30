@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryC2aCurved
-import NoCompromise.Elliptic.BoundaryNeumannC2HolderAlgebra
+module
+
+public import NoCompromise.Elliptic.BoundaryC2aCurved
+public import NoCompromise.Elliptic.BoundaryNeumannC2HolderAlgebra
+
+@[expose] public section
 
 /-!
 # `thm:boundary-C2a` for a curved boundary with the TeX regularity

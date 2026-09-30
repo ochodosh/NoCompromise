@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.Excess
-import NoCompromise.Regularity.OmegaMinimal
+module
+
+public import NoCompromise.Regularity.Excess
+public import NoCompromise.Regularity.OmegaMinimal
+
+@[expose] public section
 
 /-! # The zero-excess case of tilt improvement -/
 

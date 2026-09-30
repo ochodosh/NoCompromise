@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.HarmonicBlowupTests
-import NoCompromise.Elliptic.HarmonicMeanValue
+module
+
+public import NoCompromise.Regularity.HarmonicBlowupTests
+public import NoCompromise.Elliptic.HarmonicMeanValue
+
+@[expose] public section
 
 /-!
 # Harmonic compactness of bounded planar H¹ sequences

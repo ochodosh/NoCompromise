@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.C1Domain
-import Mathlib.Analysis.Normed.Module.Connected
+module
+
+public import NoCompromise.Sobolev.C1Domain
+public import Mathlib.Analysis.Normed.Module.Connected
+
+@[expose] public section
 
 /-!
 # Round annuli as admissible Sobolev domains

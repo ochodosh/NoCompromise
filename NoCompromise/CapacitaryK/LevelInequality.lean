@@ -1,7 +1,11 @@
-import NoCompromise.CapacitaryK.GaussEquation
-import NoCompromise.CapacitaryK.PGeometric
-import NoCompromise.CapacitaryK.DensityInput
-import NoCompromise.CapacitaryK.MeasureInequality
+module
+
+public import NoCompromise.CapacitaryK.GaussEquation
+public import NoCompromise.CapacitaryK.PGeometric
+public import NoCompromise.CapacitaryK.DensityInput
+public import NoCompromise.CapacitaryK.MeasureInequality
+
+@[expose] public section
 
 /-!
 # The pointwise measure inequality on a regular level (chapter 31, `prop:K-measure-inequality`)

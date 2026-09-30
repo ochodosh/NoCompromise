@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.ClassicalKernelW11
-import NoCompromise.Elliptic.ClassicalBoundaryMeasure
+module
+
+public import NoCompromise.Elliptic.ClassicalKernelW11
+public import NoCompromise.Elliptic.ClassicalBoundaryMeasure
+
+@[expose] public section
 
 /-! # Actual volume and boundary limits for the reciprocal-kernel flux -/
 

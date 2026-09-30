@@ -1,5 +1,9 @@
-import NoCompromise.BV.TraceApproximation
-import NoCompromise.BV.CoareaSmooth
+module
+
+public import NoCompromise.BV.TraceApproximation
+public import NoCompromise.BV.CoareaSmooth
+
+@[expose] public section
 
 /-!
 # One-sided kernel recovery of BV traces

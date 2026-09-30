@@ -1,4 +1,8 @@
-import NoCompromise.BV.Compactness
+module
+
+public import NoCompromise.BV.Compactness
+
+@[expose] public section
 
 /-!
 # Indicator clause of local BV compactness on an arbitrary open domain

@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderTraceAlgebra
-import NoCompromise.Elliptic.BoundaryHolderVariance
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderTraceAlgebra
+public import NoCompromise.Elliptic.BoundaryHolderVariance
+
+@[expose] public section
 
 /-!
 # Normal affine subtraction for boundary decay

@@ -1,5 +1,9 @@
-import NoCompromise.Threshold.Defs
-import Mathlib.Tactic
+module
+
+public import NoCompromise.Threshold.Defs
+public import Mathlib.Tactic
+
+@[expose] public section
 
 /-! # Exact threshold algebra
 

@@ -1,6 +1,10 @@
-import NoCompromise.Energy.Scaling
-import NoCompromise.Ball.Potential
-import NoCompromise.Isoperimetric.ABP
+module
+
+public import NoCompromise.Energy.Scaling
+public import NoCompromise.Ball.Potential
+public import NoCompromise.Isoperimetric.ABP
+
+@[expose] public section
 
 /-!
 # The value function

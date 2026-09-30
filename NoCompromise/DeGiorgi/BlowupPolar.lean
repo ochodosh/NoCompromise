@@ -1,8 +1,12 @@
-import NoCompromise.DeGiorgi.HalfspaceRigidity
-import NoCompromise.DeGiorgi.ReducedPerimeter
-import NoCompromise.DeGiorgi.BlowupCompactness
-import NoCompromise.Measure.PositiveWeakStar
-import Mathlib.Analysis.Convex.Integral
+module
+
+public import NoCompromise.DeGiorgi.HalfspaceRigidity
+public import NoCompromise.DeGiorgi.ReducedPerimeter
+public import NoCompromise.DeGiorgi.BlowupCompactness
+public import NoCompromise.Measure.PositiveWeakStar
+public import Mathlib.Analysis.Convex.Integral
+
+@[expose] public section
 
 /-!
 # Constant polar direction in blow-up limits

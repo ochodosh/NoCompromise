@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.SpatialDomain
-import NoCompromise.Sobolev.H1Algebra
+module
+
+public import NoCompromise.Sobolev.SpatialDomain
+public import NoCompromise.Sobolev.H1Algebra
+
+@[expose] public section
 
 /-!
 # The L² Poincaré inequality

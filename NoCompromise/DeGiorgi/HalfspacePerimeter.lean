@@ -1,5 +1,9 @@
-import NoCompromise.DeGiorgi.HalfspacePairing
-import NoCompromise.DeGiorgi.ConstantPolarMeasure
+module
+
+public import NoCompromise.DeGiorgi.HalfspacePairing
+public import NoCompromise.DeGiorgi.ConstantPolarMeasure
+
+@[expose] public section
 
 /-!
 # Halfspace perimeter and its complete boundary measure

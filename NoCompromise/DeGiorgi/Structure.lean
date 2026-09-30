@@ -1,8 +1,12 @@
-import NoCompromise.DeGiorgi.Rectifiability
-import NoCompromise.DeGiorgi.DensityComparison
-import NoCompromise.DeGiorgi.UpperDensity
-import NoCompromise.Area.Rectifiable
-import NoCompromise.Area.GraphCoverDensity
+module
+
+public import NoCompromise.DeGiorgi.Rectifiability
+public import NoCompromise.DeGiorgi.DensityComparison
+public import NoCompromise.DeGiorgi.UpperDensity
+public import NoCompromise.Area.Rectifiable
+public import NoCompromise.Area.GraphCoverDensity
+
+@[expose] public section
 
 /-!
 # De Giorgi structure and Gauss--Green

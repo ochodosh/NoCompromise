@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.NeumannChartC1Flat
-import NoCompromise.Elliptic.NeumannChartC1Geometry
-import NoCompromise.BV.SmoothApproxBoundary
+module
+
+public import NoCompromise.Elliptic.NeumannChartC1Flat
+public import NoCompromise.Elliptic.NeumannChartC1Geometry
+public import NoCompromise.BV.SmoothApproxBoundary
+
+@[expose] public section
 
 /-!
 # Ambient C¹ regularity and the classical outward Neumann condition

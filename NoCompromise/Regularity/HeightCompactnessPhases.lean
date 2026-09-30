@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.HeightCompactnessDensity
+module
+
+public import NoCompromise.Regularity.HeightCompactnessDensity
+
+@[expose] public section
 
 /-! # Both phases survive at limits of quasiminimal boundary points -/
 

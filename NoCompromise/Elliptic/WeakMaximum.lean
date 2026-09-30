@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.WeakMaximumCore
-import NoCompromise.Sobolev.H1TraceKernel
+module
+
+public import NoCompromise.Elliptic.WeakMaximumCore
+public import NoCompromise.Sobolev.H1TraceKernel
+
+@[expose] public section
 
 /-!
 # Weak maximum principle with the actual boundary trace

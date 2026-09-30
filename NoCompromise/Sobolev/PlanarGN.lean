@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1Approximation
-import NoCompromise.Sobolev.BV
+module
+
+public import NoCompromise.Sobolev.H1Approximation
+public import NoCompromise.Sobolev.BV
+
+@[expose] public section
 
 /-!
 # Whole-space planar H¹ to L⁴ estimate

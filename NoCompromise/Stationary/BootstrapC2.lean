@@ -1,5 +1,9 @@
-import NoCompromise.Stationary.Bootstrap
-import NoCompromise.Elliptic.Quasilinear
+module
+
+public import NoCompromise.Stationary.Bootstrap
+public import NoCompromise.Elliptic.Quasilinear
+
+@[expose] public section
 
 /-! The minimal-surface flux: smoothness, its quadratic form, and uniform derivative bounds. -/
 

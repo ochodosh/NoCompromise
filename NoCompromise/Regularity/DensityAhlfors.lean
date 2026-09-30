@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.DensityEstimates
+module
+
+public import NoCompromise.Regularity.DensityEstimates
+
+@[expose] public section
 
 /-!
 # Two-sided perimeter density for quasiminimizers

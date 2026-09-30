@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryC2aPullback
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomFinite
-import NoCompromise.Sobolev.H1Chain
+module
+
+public import NoCompromise.Elliptic.BoundaryC2aPullback
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomFinite
+public import NoCompromise.Sobolev.H1Chain
+
+@[expose] public section
 
 /-!
 # Pullback of a general divergence-form equation under a C¹ diffeomorphism

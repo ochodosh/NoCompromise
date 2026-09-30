@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.SlabCap
-import NoCompromise.DeGiorgi.HalfspacePairing
+module
+
+public import NoCompromise.Regularity.SlabCap
+public import NoCompromise.DeGiorgi.HalfspacePairing
+
+@[expose] public section
 
 /-! # Cap area and genuine phase points on the caps -/
 

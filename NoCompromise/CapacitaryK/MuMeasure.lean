@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.MuPositive
-import NoCompromise.Measure.PositiveWeakStar
+module
+
+public import NoCompromise.CapacitaryK.MuPositive
+public import NoCompromise.Measure.PositiveWeakStar
+
+@[expose] public section
 
 /-!
 # The positive measure associated to the gradient length

@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.W11TraceFlat
+module
+
+public import NoCompromise.Sobolev.W11TraceFlat
+
+@[expose] public section
 
 /-!
 # Closure of the weak-gradient graph in L¹

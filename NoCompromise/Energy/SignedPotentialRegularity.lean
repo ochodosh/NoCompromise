@@ -1,5 +1,9 @@
-import NoCompromise.Energy.PotentialRegularity
-import NoCompromise.Elliptic.Newtonian
+module
+
+public import NoCompromise.Energy.PotentialRegularity
+public import NoCompromise.Elliptic.Newtonian
+
+@[expose] public section
 
 /-!
 # C¹ regularity of Newtonian potentials of bounded signed densities

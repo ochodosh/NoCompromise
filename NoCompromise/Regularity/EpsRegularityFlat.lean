@@ -1,7 +1,11 @@
-import NoCompromise.Regularity.Excess
-import NoCompromise.Regularity.OmegaMinimal
-import NoCompromise.BV.CoareaCoordinates
-import Mathlib.Analysis.SpecificLimits.Basic
+module
+
+public import NoCompromise.Regularity.Excess
+public import NoCompromise.Regularity.OmegaMinimal
+public import NoCompromise.BV.CoareaCoordinates
+public import Mathlib.Analysis.SpecificLimits.Basic
+
+@[expose] public section
 
 /-! # Boundary flatness and differentiability of Lipschitz graphs -/
 

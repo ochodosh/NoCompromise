@@ -1,5 +1,9 @@
-import NoCompromise.Area.Rectifiable
-import NoCompromise.Area.TangentAlgebra
+module
+
+public import NoCompromise.Area.Rectifiable
+public import NoCompromise.Area.TangentAlgebra
+
+@[expose] public section
 
 /-!
 # The area formula on countably rectifiable sets, chartwise

@@ -1,5 +1,9 @@
-import NoCompromise.Capacity.Kelvin
-import Mathlib.Analysis.Calculus.FDeriv.Symmetric
+module
+
+public import NoCompromise.Capacity.Kelvin
+public import Mathlib.Analysis.Calculus.FDeriv.Symmetric
+
+@[expose] public section
 
 /-!
 # Second-order Kelvin expansion

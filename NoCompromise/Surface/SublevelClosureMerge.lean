@@ -1,5 +1,9 @@
-import NoCompromise.Surface.SublevelClosureZero
-import NoCompromise.Surface.SublevelClosureCount
+module
+
+public import NoCompromise.Surface.SublevelClosureZero
+public import NoCompromise.Surface.SublevelClosureCount
+
+@[expose] public section
 
 /-!
 # `lem:sublevel-closure`, case `λ = 1`, `p` sub-merging

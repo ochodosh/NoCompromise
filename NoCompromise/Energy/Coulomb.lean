@@ -1,9 +1,13 @@
-import NoCompromise.Energy.CoulombDefs
-import Mathlib.MeasureTheory.Constructions.HaarToSphere
-import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
-import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
-import Mathlib.MeasureTheory.Group.Integral
-import Mathlib.Tactic
+module
+
+public import NoCompromise.Energy.CoulombDefs
+public import Mathlib.MeasureTheory.Constructions.HaarToSphere
+public import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+public import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
+public import Mathlib.MeasureTheory.Group.Integral
+public import Mathlib.Tactic
+
+@[expose] public section
 
 /-!
 # Coulomb bounds and integral representations

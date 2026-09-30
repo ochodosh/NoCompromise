@@ -1,6 +1,11 @@
-import NoCompromise.Topology.OneManifoldCircle
-import NoCompromise.Topology.OneManifoldMaximal
-import Mathlib.Analysis.Calculus.Deriv.MeanValue
+module
+
+public import NoCompromise.Topology.OneManifoldCircle
+public import NoCompromise.Topology.OneManifoldMaximal
+public import Mathlib.Analysis.Calculus.Deriv.MeanValue
+import all Mathlib.Geometry.Manifold.LocalDiffeomorph
+
+@[expose] public section
 
 /-!
 # Smooth classification of one-manifolds with a nonvanishing tangent field

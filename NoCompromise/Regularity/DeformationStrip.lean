@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.DeformationExtension
+module
+
+public import NoCompromise.Regularity.DeformationExtension
+
+@[expose] public section
 
 /-! # Replacing a vertical strip by a locally finite-perimeter set -/
 

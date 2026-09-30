@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.FrozenDecayChange
-import NoCompromise.Elliptic.HarmonicDerivative
+module
+
+public import NoCompromise.Elliptic.FrozenDecayChange
+public import NoCompromise.Elliptic.HarmonicDerivative
+
+@[expose] public section
 
 /-! Smooth representatives and quantitative gradient pullback for frozen
 solutions. The representative is obtained from the genuine transformed weak

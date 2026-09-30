@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.BoundaryNeumannIterateC3
-import NoCompromise.Elliptic.BoundaryNeumannReflectC2Interface
-import Mathlib.Topology.ExtendFrom
-import Mathlib.LinearAlgebra.Vandermonde
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannIterateC3
+public import NoCompromise.Elliptic.BoundaryNeumannReflectC2Interface
+public import Mathlib.Topology.ExtendFrom
+public import Mathlib.LinearAlgebra.Vandermonde
+
+@[expose] public section
 
 /-!
 # Cᵏ extension across the flat face by Hestenes reflection

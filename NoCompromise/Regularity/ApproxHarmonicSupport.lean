@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.FluxDefectTests
+module
+
+public import NoCompromise.Regularity.FluxDefectTests
+
+@[expose] public section
 
 /-! # Compact support of the vertical graph variation -/
 

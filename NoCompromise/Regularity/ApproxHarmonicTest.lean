@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.FluxDefectTests
-import NoCompromise.Regularity.FirstVariation
-import NoCompromise.Area.Graph
+module
+
+public import NoCompromise.Regularity.FluxDefectTests
+public import NoCompromise.Regularity.FirstVariation
+public import NoCompromise.Area.Graph
+
+@[expose] public section
 
 /-! # Vertical test fields for the graph first variation -/
 

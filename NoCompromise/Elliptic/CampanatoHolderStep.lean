@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.CampanatoHolderOscillation
-import NoCompromise.Elliptic.CampanatoHolderIteration
+module
+
+public import NoCompromise.Elliptic.CampanatoHolderOscillation
+public import NoCompromise.Elliptic.CampanatoHolderIteration
+
+@[expose] public section
 
 /-! The actual weak elliptic equation upgrades a local energy power bound to
 an oscillation power bound, with constants uniform over all centers and solutions. -/

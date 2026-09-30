@@ -123,6 +123,7 @@ automation:
         Solution.lean and this metadata, and upgraded the project from Lean/Mathlib v4.34.0-rc2
         to v4.35.0-rc3. The upgrade changed proofs only, except that three internal helper
         lemmas gained measurability hypotheses required by Mathlib's new definition of eLpNorm.
+        It then ported every file to the Lean module system, which Palomar requires.
       cost:
         wall_time: "Two days."
         spend_usd: "subscription-based usage"

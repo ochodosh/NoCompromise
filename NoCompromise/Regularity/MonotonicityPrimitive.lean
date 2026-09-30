@@ -1,6 +1,10 @@
-import NoCompromise.Measure.CumulativeDerivative
-import Mathlib.Analysis.SpecialFunctions.SmoothTransition
-import Mathlib.Analysis.Calculus.ContDiff.Deriv
+module
+
+public import NoCompromise.Measure.CumulativeDerivative
+public import Mathlib.Analysis.SpecialFunctions.SmoothTransition
+public import Mathlib.Analysis.Calculus.ContDiff.Deriv
+
+@[expose] public section
 
 /-!
 # Compact radial primitives

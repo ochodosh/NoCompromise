@@ -1,6 +1,10 @@
-import NoCompromise.Measure.LevelSetCover
-import NoCompromise.BV.Compactness
-import Mathlib.Analysis.Calculus.ContDiff.RCLike
+module
+
+public import NoCompromise.Measure.LevelSetCover
+public import NoCompromise.BV.Compactness
+public import Mathlib.Analysis.Calculus.ContDiff.RCLike
+
+@[expose] public section
 
 /-!
 # Critical level sets have zero codimension-one area almost everywhere

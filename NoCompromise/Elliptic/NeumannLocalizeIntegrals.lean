@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.NeumannLocalizePullback
-import NoCompromise.Elliptic.FrozenDecayScaling
-import NoCompromise.Area.Graph
+module
+
+public import NoCompromise.Elliptic.NeumannLocalizePullback
+public import NoCompromise.Elliptic.FrozenDecayScaling
+public import NoCompromise.Area.Graph
+
+@[expose] public section
 
 /-!
 # Localization of volume and surface integrals

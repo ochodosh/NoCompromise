@@ -1,5 +1,10 @@
-import NoCompromise.Flow.FlowBox
-import NoCompromise.Surface.Geometry
+module
+
+public import NoCompromise.Flow.FlowBox
+public import NoCompromise.Surface.Geometry
+import all Mathlib.Analysis.Calculus.Implicit
+
+@[expose] public section
 
 /-!
 # Integral curves tangent to an embedded surface

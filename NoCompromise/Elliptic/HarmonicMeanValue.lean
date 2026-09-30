@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.HarmonicMeanValueLocal
+module
+
+public import NoCompromise.Elliptic.HarmonicMeanValueLocal
+
+@[expose] public section
 
 /-!
 # Smooth representatives and harmonic mean values

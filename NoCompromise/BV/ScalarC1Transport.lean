@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.Extension
-import Mathlib.Analysis.Calculus.ContDiff.RCLike
+module
+
+public import NoCompromise.Sobolev.Extension
+public import Mathlib.Analysis.Calculus.ContDiff.RCLike
+
+@[expose] public section
 
 /-!
 # Scalar locally BV functions under C¹ diffeomorphisms

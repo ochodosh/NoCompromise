@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.FluxDefectTests
+module
+
+public import NoCompromise.Regularity.FluxDefectTests
+
+@[expose] public section
 
 /-! # The signed vertical flux against compact horizontal test functions -/
 

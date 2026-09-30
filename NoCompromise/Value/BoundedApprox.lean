@@ -1,5 +1,9 @@
-import NoCompromise.Energy.Scaling
-import NoCompromise.BV.GoodTruncation
+module
+
+public import NoCompromise.Energy.Scaling
+public import NoCompromise.BV.GoodTruncation
+
+@[expose] public section
 
 /-!
 # Bounded approximation at fixed volume

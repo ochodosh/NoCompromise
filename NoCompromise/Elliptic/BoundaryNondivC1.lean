@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNondivHolder
-import NoCompromise.Elliptic.BoundaryC1
+module
+
+public import NoCompromise.Elliptic.BoundaryNondivHolder
+public import NoCompromise.Elliptic.BoundaryC1
+
+@[expose] public section
 
 /-!
 # Boundary C¹,α estimates for tangential quotients

@@ -1,6 +1,10 @@
-import NoCompromise.Stationary.Defs
-import NoCompromise.Capacity.Translate
-import NoCompromise.Energy.Scaling
+module
+
+public import NoCompromise.Stationary.Defs
+public import NoCompromise.Capacity.Translate
+public import NoCompromise.Energy.Scaling
+
+@[expose] public section
 
 /-!
 # Stationary domains are translation invariant

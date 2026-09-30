@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.LipschitzDomains
+module
+
+public import NoCompromise.Sobolev.LipschitzDomains
+
+@[expose] public section
 
 /-!
 # Lipschitz graph charts at polyhedral corners

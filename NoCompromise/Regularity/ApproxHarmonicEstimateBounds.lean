@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.ApproxHarmonicEstimate
+module
+
+public import NoCompromise.Regularity.ApproxHarmonicEstimate
+
+@[expose] public section
 
 /-! # Quantitative residual for every furnished actual graph -/
 

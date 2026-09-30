@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NondivSchauderNorm
-import NoCompromise.Elliptic.BoundaryNeumannInhomC1Conormal
+module
+
+public import NoCompromise.Elliptic.NondivSchauderNorm
+public import NoCompromise.Elliptic.BoundaryNeumannInhomC1Conormal
+
+@[expose] public section
 
 /-!
 # Compact Hölder bounds for smooth inhomogeneous Neumann data

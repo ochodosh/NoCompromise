@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.CampanatoHolderAverages
+module
+
+public import NoCompromise.Elliptic.CampanatoHolderAverages
+
+@[expose] public section
 
 /-! Dyadic limits of genuine volume-ball averages agree almost everywhere
 with the original locally integrable function. -/

@@ -1,5 +1,9 @@
-import NoCompromise.BV.Basic
-import NoCompromise.Measure.PositiveWeakStar
+module
+
+public import NoCompromise.BV.Basic
+public import NoCompromise.Measure.PositiveWeakStar
+
+@[expose] public section
 
 /-!
 # Genuine relative perimeter measures and their positive weak compactness

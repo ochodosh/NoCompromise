@@ -1,7 +1,11 @@
-import NoCompromise.Measure.BallAverages
-import NoCompromise.Measure.BallDifferentiation
-import NoCompromise.DeGiorgi.PolarDifferentiation
-import Mathlib.MeasureTheory.Constructions.Polish.StronglyMeasurable
+module
+
+public import NoCompromise.Measure.BallAverages
+public import NoCompromise.Measure.BallDifferentiation
+public import NoCompromise.DeGiorgi.PolarDifferentiation
+public import Mathlib.MeasureTheory.Constructions.Polish.StronglyMeasurable
+
+@[expose] public section
 
 /-!
 # Reduced boundary of a polar derivative

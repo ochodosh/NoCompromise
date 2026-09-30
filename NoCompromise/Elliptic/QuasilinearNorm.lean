@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NondivSchauderNorm
+module
+
+public import NoCompromise.Elliptic.NondivSchauderNorm
+
+@[expose] public section
 
 /-! The quasilinear derivative estimate and full sum norm use genuine operator
 norms. The only zeroth-order contribution is the original essential uniform

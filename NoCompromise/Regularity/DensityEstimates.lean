@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.DensityCutComparison
-import NoCompromise.DeGiorgi.DensityODE
-import NoCompromise.Sobolev.BV
+module
+
+public import NoCompromise.Regularity.DensityCutComparison
+public import NoCompromise.DeGiorgi.DensityODE
+public import NoCompromise.Sobolev.BV
+
+@[expose] public section
 
 /-!
 # Two-sided phase density for perimeter quasiminimizers

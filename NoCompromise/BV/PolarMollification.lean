@@ -1,6 +1,10 @@
-import NoCompromise.DeGiorgi.PolarDifferentiation
-import NoCompromise.BV.StrictApprox
-import NoCompromise.Measure.ConvolutionPairing
+module
+
+public import NoCompromise.DeGiorgi.PolarDifferentiation
+public import NoCompromise.BV.StrictApprox
+public import NoCompromise.Measure.ConvolutionPairing
+
+@[expose] public section
 
 /-!
 # Mollification of the actual ambient perimeter derivative

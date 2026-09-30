@@ -1,6 +1,10 @@
-import NoCompromise.Area.Linear
-import Mathlib.Analysis.Calculus.Gradient.Basic
-import Mathlib.LinearAlgebra.Matrix.SchurComplement
+module
+
+public import NoCompromise.Area.Linear
+public import Mathlib.Analysis.Calculus.Gradient.Basic
+public import Mathlib.LinearAlgebra.Matrix.SchurComplement
+
+@[expose] public section
 
 /-!
 # Graph Jacobians in arbitrary dimension

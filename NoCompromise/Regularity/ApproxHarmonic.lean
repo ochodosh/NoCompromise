@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.ApproxHarmonicEstimateBounds
-import NoCompromise.Regularity.GraphApproxHeight
+module
+
+public import NoCompromise.Regularity.ApproxHarmonicEstimateBounds
+public import NoCompromise.Regularity.GraphApproxHeight
+
+@[expose] public section
 
 /-!
 # Genuine graph approximation with approximate harmonicity

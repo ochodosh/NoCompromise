@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomReduction
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomReduction
+
+@[expose] public section
 
 /-!
 # Flat boundary C² regularity for smooth inhomogeneous conormal data

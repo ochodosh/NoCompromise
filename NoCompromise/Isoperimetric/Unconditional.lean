@@ -1,6 +1,10 @@
-import NoCompromise.Isoperimetric.ABPNeumannC1
-import NoCompromise.Isoperimetric.ABPNeumannC3Local
-import NoCompromise.Isoperimetric.RigidityC3
+module
+
+public import NoCompromise.Isoperimetric.ABPNeumannC1
+public import NoCompromise.Isoperimetric.ABPNeumannC3Local
+public import NoCompromise.Isoperimetric.RigidityC3
+
+@[expose] public section
 
 /-!
 # The isoperimetric chapter without hypotheses

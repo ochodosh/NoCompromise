@@ -1,6 +1,10 @@
-import NoCompromise.BV.JumpMeasure
-import NoCompromise.BV.LineSlicing
-import Mathlib.MeasureTheory.Integral.Average
+module
+
+public import NoCompromise.BV.JumpMeasure
+public import NoCompromise.BV.LineSlicing
+public import Mathlib.MeasureTheory.Integral.Average
+
+@[expose] public section
 
 /-!
 # One-sided BV traces

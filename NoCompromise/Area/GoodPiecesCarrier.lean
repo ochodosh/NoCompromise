@@ -1,4 +1,8 @@
-import NoCompromise.Area.UniformDerivative
+module
+
+public import NoCompromise.Area.UniformDerivative
+
+@[expose] public section
 
 /-!
 # Packaging compact uniform differentiability carriers

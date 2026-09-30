@@ -1,8 +1,12 @@
-import NoCompromise.DeGiorgi.PolarDifferentiation
-import NoCompromise.BV.StrictApprox
-import Mathlib.Analysis.Calculus.BumpFunction.Convolution
-import Mathlib.Analysis.Calculus.Deriv.MeanValue
-import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+module
+
+public import NoCompromise.DeGiorgi.PolarDifferentiation
+public import NoCompromise.BV.StrictApprox
+public import Mathlib.Analysis.Calculus.BumpFunction.Convolution
+public import Mathlib.Analysis.Calculus.Deriv.MeanValue
+public import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+
+@[expose] public section
 
 /-!
 # Rigidity of a constant distributional normal

@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.SobolevChainLocal
-import Mathlib.MeasureTheory.Measure.OpenPos
+module
+
+public import NoCompromise.Elliptic.SobolevChainLocal
+public import Mathlib.MeasureTheory.Measure.OpenPos
+
+@[expose] public section
 
 /-!
 # Smooth representatives of distributionally harmonic functions

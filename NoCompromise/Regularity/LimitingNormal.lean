@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.UniformCenters
-import NoCompromise.Regularity.RepresentativeBoundary
+module
+
+public import NoCompromise.Regularity.UniformCenters
+public import NoCompromise.Regularity.RepresentativeBoundary
+
+@[expose] public section
 
 /-!
 # The limiting normal of the excess iteration at reduced-boundary points

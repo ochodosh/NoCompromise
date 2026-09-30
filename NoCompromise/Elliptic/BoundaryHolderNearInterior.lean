@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryHolderGeometry
-import NoCompromise.Elliptic.BoundaryHolderInteriorBound
-import NoCompromise.Elliptic.BoundaryHolderUniformIteration
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderGeometry
+public import NoCompromise.Elliptic.BoundaryHolderInteriorBound
+public import NoCompromise.Elliptic.BoundaryHolderUniformIteration
+
+@[expose] public section
 
 /-! Sharp oscillation on interior balls close to the flat boundary. The source
 energy and initial excess come from the proved boundary estimates, and the

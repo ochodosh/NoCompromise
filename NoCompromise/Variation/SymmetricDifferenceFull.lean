@@ -1,7 +1,11 @@
-import NoCompromise.Variation.WeightedFieldStability
-import NoCompromise.Variation.ConstantTranslation
-import NoCompromise.Variation.Volume
-import NoCompromise.Variation.FreezingFlux
+module
+
+public import NoCompromise.Variation.WeightedFieldStability
+public import NoCompromise.Variation.ConstantTranslation
+public import NoCompromise.Variation.Volume
+public import NoCompromise.Variation.FreezingFlux
+
+@[expose] public section
 
 /-!
 # Full symmetric-difference variation

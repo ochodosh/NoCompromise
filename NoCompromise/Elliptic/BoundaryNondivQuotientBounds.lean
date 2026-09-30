@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNondivEnergy
-import NoCompromise.Elliptic.NondivSchauderQuotientBounds
+module
+
+public import NoCompromise.Elliptic.BoundaryNondivEnergy
+public import NoCompromise.Elliptic.NondivSchauderQuotientBounds
+
+@[expose] public section
 
 /-!
 # Uniform H¹ bounds for the actual tangential quotients

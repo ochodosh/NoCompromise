@@ -1,6 +1,10 @@
-import NoCompromise.Variation.TransportLocalExtension
-import Mathlib.Analysis.Calculus.BumpFunction.InnerProduct
-import Mathlib.Analysis.Calculus.ContDiff.RCLike
+module
+
+public import NoCompromise.Variation.TransportLocalExtension
+public import Mathlib.Analysis.Calculus.BumpFunction.InnerProduct
+public import Mathlib.Analysis.Calculus.ContDiff.RCLike
+
+@[expose] public section
 
 /-!
 # Global C¹ diffeomorphisms agreeing locally with a C¹ diffeomorphism between open sets

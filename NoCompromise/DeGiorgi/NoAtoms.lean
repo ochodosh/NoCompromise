@@ -1,5 +1,9 @@
-import NoCompromise.DeGiorgi.Reduced
-import NoCompromise.BV.StrictApprox
+module
+
+public import NoCompromise.DeGiorgi.Reduced
+public import NoCompromise.BV.StrictApprox
+
+@[expose] public section
 
 /-!
 # The perimeter measure has no point atoms

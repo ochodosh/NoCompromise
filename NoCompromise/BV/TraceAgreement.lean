@@ -1,4 +1,8 @@
-import NoCompromise.BV.ChartTraces
+module
+
+public import NoCompromise.BV.ChartTraces
+
+@[expose] public section
 
 /-!
 # Agreement of actual BV traces on C¹ chart overlaps

@@ -1,4 +1,8 @@
-import NoCompromise.Surface.MorseDischarged
+module
+
+public import NoCompromise.Surface.MorseDischarged
+
+@[expose] public section
 
 /-!
 # A Morse chart at a saddle, in ambient terms (`lem:local-sectors` (iii))

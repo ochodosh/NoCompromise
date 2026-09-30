@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.LevelSandwich
-import NoCompromise.CapacitaryK.PolarMass
+module
+
+public import NoCompromise.CapacitaryK.LevelSandwich
+public import NoCompromise.CapacitaryK.PolarMass
+
+@[expose] public section
 
 /-!
 # `lem:K-level-asymptotics`, `eq:K-rt`: small levels are radial graphs

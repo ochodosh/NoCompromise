@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.DeformationDensity
-import NoCompromise.Regularity.DeformationClearance
+module
+
+public import NoCompromise.Regularity.DeformationDensity
+public import NoCompromise.Regularity.DeformationClearance
+
+@[expose] public section
 
 /-! # The actual density representatives on both caps are preserved -/
 

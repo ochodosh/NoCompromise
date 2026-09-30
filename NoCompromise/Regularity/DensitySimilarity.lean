@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.TangentRepresentative
+module
+
+public import NoCompromise.Regularity.TangentRepresentative
+
+@[expose] public section
 
 /-!
 # Exact density representatives under positive similarities

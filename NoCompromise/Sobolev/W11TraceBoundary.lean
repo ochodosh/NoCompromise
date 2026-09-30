@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.W11TraceChart
-import NoCompromise.Sobolev.W11Extension
-import NoCompromise.Sobolev.H1TraceBoundaryGeometry
+module
+
+public import NoCompromise.Sobolev.W11TraceChart
+public import NoCompromise.Sobolev.W11Extension
+public import NoCompromise.Sobolev.H1TraceBoundaryGeometry
+
+@[expose] public section
 
 /-!
 # Boundary L¹ restriction on a bounded Lipschitz domain

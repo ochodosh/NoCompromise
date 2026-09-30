@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.ReversePoincareEstimate
-import NoCompromise.Regularity.ReversePoincareComplement
+module
+
+public import NoCompromise.Regularity.ReversePoincareEstimate
+public import NoCompromise.Regularity.ReversePoincareComplement
+
+@[expose] public section
 
 /-! # Reverse Poincaré for both signed slab-and-cap configurations -/
 

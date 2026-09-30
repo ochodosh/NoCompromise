@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.LipschitzCubes
-import NoCompromise.Area.Linear
+module
+
+public import NoCompromise.Sobolev.LipschitzCubes
+public import NoCompromise.Area.Linear
+
+@[expose] public section
 
 /-!
 # Classical faces and boundary area of a coordinate cube

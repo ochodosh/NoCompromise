@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.ClassicalGaussGreenW11
-import NoCompromise.Elliptic.ClassicalNormal
-import NoCompromise.Sobolev.W11Classical
+module
+
+public import NoCompromise.Elliptic.ClassicalGaussGreenW11
+public import NoCompromise.Elliptic.ClassicalNormal
+public import NoCompromise.Sobolev.W11Classical
+
+@[expose] public section
 
 /-!
 # W¹,¹ Gauss–Green with the classical outward normal

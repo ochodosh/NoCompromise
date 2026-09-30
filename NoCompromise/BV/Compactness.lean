@@ -1,11 +1,15 @@
-import NoCompromise.BV.StrictApprox
-import Mathlib.MeasureTheory.Integral.IntervalIntegral.ContDiff
-import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
-import Mathlib.MeasureTheory.Function.Floor
-import Mathlib.MeasureTheory.Integral.Average
-import Mathlib.Topology.MetricSpace.Sequences
-import Mathlib.MeasureTheory.Function.LpSpace.Complete
-import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
+module
+
+public import NoCompromise.BV.StrictApprox
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.ContDiff
+public import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+public import Mathlib.MeasureTheory.Function.Floor
+public import Mathlib.MeasureTheory.Integral.Average
+public import Mathlib.Topology.MetricSpace.Sequences
+public import Mathlib.MeasureTheory.Function.LpSpace.Complete
+public import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
+
+@[expose] public section
 
 /-!
 # Translation estimates and local BV compactness

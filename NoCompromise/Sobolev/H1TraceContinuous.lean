@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.H1Trace
-import Mathlib.Analysis.Calculus.BumpFunction.Convolution
-import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
+module
+
+public import NoCompromise.Sobolev.H1Trace
+public import Mathlib.Analysis.Calculus.BumpFunction.Convolution
+public import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
+
+@[expose] public section
 
 /-!
 # Continuous realization of the flat H¹ trace

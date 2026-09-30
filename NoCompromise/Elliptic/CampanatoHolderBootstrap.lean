@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.CampanatoHolderStep
-import NoCompromise.Elliptic.CampanatoHolderPowers
+module
+
+public import NoCompromise.Elliptic.CampanatoHolderStep
+public import NoCompromise.Elliptic.CampanatoHolderPowers
+
+@[expose] public section
 
 /-! The two genuine elliptic bootstrap steps: subcritical energy growth first
 produces a bounded continuous weak gradient, and the bounded gradient then yields

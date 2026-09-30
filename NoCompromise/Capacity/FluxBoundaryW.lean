@@ -1,5 +1,9 @@
-import NoCompromise.Capacity.FluxIdentity
-import NoCompromise.Capacity.LowerBarrier
+module
+
+public import NoCompromise.Capacity.FluxIdentity
+public import NoCompromise.Capacity.LowerBarrier
+
+@[expose] public section
 
 /-!
 # Boundary gradient and the positive boundary flux

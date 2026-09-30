@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryC2aSmoothChain
-import NoCompromise.Elliptic.BoundaryC2aCurvedHolder
+module
+
+public import NoCompromise.Elliptic.BoundaryC2aSmoothChain
+public import NoCompromise.Elliptic.BoundaryC2aCurvedHolder
+
+@[expose] public section
 
 /-!
 # `thm:boundary-C2a`: all higher regularity for a curved boundary

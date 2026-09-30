@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2
+
+@[expose] public section
 
 /-!
 # Tangential differentiation of the weak conormal flux

@@ -1,6 +1,10 @@
-import NoCompromise.Ball.Perimeter
-import Mathlib.Analysis.Calculus.MeanValue
-import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+module
+
+public import NoCompromise.Ball.Perimeter
+public import Mathlib.Analysis.Calculus.MeanValue
+public import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+
+@[expose] public section
 
 /-!
 # Rigidity: a homothetic gradient map onto the unit ball forces a ball

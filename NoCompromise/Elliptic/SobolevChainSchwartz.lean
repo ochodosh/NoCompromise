@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.SobolevChainFourier
-import NoCompromise.Elliptic.InteriorH2
-import Mathlib.Analysis.Distribution.FourierMultiplier
-import Mathlib.Analysis.Real.Pi.Bounds
+module
+
+public import NoCompromise.Elliptic.SobolevChainFourier
+public import NoCompromise.Elliptic.InteriorH2
+public import Mathlib.Analysis.Distribution.FourierMultiplier
+public import Mathlib.Analysis.Real.Pi.Bounds
+
+@[expose] public section
 
 /-!
 # The H² uniform estimate on Schwartz functions

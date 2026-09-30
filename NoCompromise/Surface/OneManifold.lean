@@ -1,5 +1,9 @@
-import NoCompromise.Surface.LevelOneManifold
-import NoCompromise.Topology.Ends
+module
+
+public import NoCompromise.Surface.LevelOneManifold
+public import NoCompromise.Topology.Ends
+
+@[expose] public section
 
 /-!
 # `lem:one-manifold`, embedded form: the two ends of a noncompact level component

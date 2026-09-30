@@ -1,6 +1,10 @@
-import NoCompromise.Capacity.HullPotentialBoundaryC2
-import NoCompromise.Classification.CapEstimateFinal
-import NoCompromise.Surface.TotalCurvatureBoundMain
+module
+
+public import NoCompromise.Capacity.HullPotentialBoundaryC2
+public import NoCompromise.Classification.CapEstimateFinal
+public import NoCompromise.Surface.TotalCurvatureBoundMain
+
+@[expose] public section
 
 /-!
 # `lem:integrate-EL` and `lem:two-bounds-I` for stationary domains, unconditionally

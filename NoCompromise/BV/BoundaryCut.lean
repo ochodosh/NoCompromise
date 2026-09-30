@@ -1,6 +1,10 @@
-import NoCompromise.BV.BoundaryTraceAtlas
-import NoCompromise.BV.LocalToGlobal
-import NoCompromise.BV.ScalarDistributionGluing
+module
+
+public import NoCompromise.BV.BoundaryTraceAtlas
+public import NoCompromise.BV.LocalToGlobal
+public import NoCompromise.BV.ScalarDistributionGluing
+
+@[expose] public section
 
 /-!
 # Cutting a locally BV function along a C¹ boundary

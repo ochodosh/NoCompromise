@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderTranslate
-import NoCompromise.Elliptic.BoundaryHolderHolderData
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderTranslate
+public import NoCompromise.Elliptic.BoundaryHolderHolderData
+
+@[expose] public section
 
 /-! Uniform transfer of the actual boundary data to tangential centers safely
 inside the original half-ball. -/

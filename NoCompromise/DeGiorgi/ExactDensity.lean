@@ -1,6 +1,10 @@
-import NoCompromise.DeGiorgi.Blowup
-import NoCompromise.DeGiorgi.HalfspacePerimeter
-import NoCompromise.Measure.WeakStarBalls
+module
+
+public import NoCompromise.DeGiorgi.Blowup
+public import NoCompromise.DeGiorgi.HalfspacePerimeter
+public import NoCompromise.Measure.WeakStarBalls
+
+@[expose] public section
 
 /-!
 # Exact perimeter density at every reduced point

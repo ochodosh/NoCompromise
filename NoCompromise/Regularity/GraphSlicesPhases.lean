@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.GraphSlicesOneDimensional
+module
+
+public import NoCompromise.Regularity.GraphSlicesOneDimensional
+
+@[expose] public section
 
 /-! # Actual phase bands and the almost-everywhere oriented vertical jump count -/
 

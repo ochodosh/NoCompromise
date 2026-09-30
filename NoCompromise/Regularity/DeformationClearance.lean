@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.DeformationCore
+module
+
+public import NoCompromise.Regularity.DeformationCore
+
+@[expose] public section
 
 /-! # The compressed competitors preserve fixed neighborhoods of both caps -/
 

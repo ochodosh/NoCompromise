@@ -1,4 +1,8 @@
-import NoCompromise.CapacitaryK.SlabGaussGreen
+module
+
+public import NoCompromise.CapacitaryK.SlabGaussGreen
+
+@[expose] public section
 
 /-!
 # Area of regular levels (chapter 31, inputs to `prop:K-measure-inequality`)

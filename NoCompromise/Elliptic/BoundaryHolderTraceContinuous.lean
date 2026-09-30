@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderTraceAlgebra
-import NoCompromise.Elliptic.InteriorH2H1
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderTraceAlgebra
+public import NoCompromise.Elliptic.InteriorH2H1
+
+@[expose] public section
 
 /-!
 # Continuity of the actual localized trace

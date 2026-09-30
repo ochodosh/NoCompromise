@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.MonotonicityWeighted
+module
+
+public import NoCompromise.Regularity.MonotonicityWeighted
+
+@[expose] public section
 
 /-!
 # Finite annular tilt measures and sharp radial endpoint comparison

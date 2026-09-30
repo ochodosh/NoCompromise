@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannQuotient
-import NoCompromise.Elliptic.NondivSchauderScalingNorm
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannQuotient
+public import NoCompromise.Elliptic.NondivSchauderScalingNorm
+
+@[expose] public section
 
 /-! Uniform Hölder estimates using only the original closed-half-ball C¹,α data. -/
 

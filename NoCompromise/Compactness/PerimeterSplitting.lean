@@ -1,5 +1,9 @@
-import NoCompromise.BV.ExactCuts
-import NoCompromise.Energy.Coulomb
+module
+
+public import NoCompromise.BV.ExactCuts
+public import NoCompromise.Energy.Coulomb
+
+@[expose] public section
 
 /-!
 # Perimeter splitting at a good radius

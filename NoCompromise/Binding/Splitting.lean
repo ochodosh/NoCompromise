@@ -1,6 +1,10 @@
-import NoCompromise.Threshold.Algebra
-import NoCompromise.Threshold.Ledger
-import NoCompromise.Value.Defs
+module
+
+public import NoCompromise.Threshold.Algebra
+public import NoCompromise.Threshold.Ledger
+public import NoCompromise.Value.Defs
+
+@[expose] public section
 
 namespace LiquidDrop
 

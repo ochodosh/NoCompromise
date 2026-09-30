@@ -1,7 +1,11 @@
-import NoCompromise.Variation.TransportC1
-import NoCompromise.Variation.TransportLocalCutoff
-import NoCompromise.Variation.TransportLocalExtensionGlobal
-import NoCompromise.BV.LocalToGlobal
+module
+
+public import NoCompromise.Variation.TransportC1
+public import NoCompromise.Variation.TransportLocalCutoff
+public import NoCompromise.Variation.TransportLocalExtensionGlobal
+public import NoCompromise.BV.LocalToGlobal
+
+@[expose] public section
 
 /-!
 # Local finiteness of perimeter under a C¹ diffeomorphism between open sets

@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1TraceKernelChartMeasure
-import NoCompromise.Sobolev.H1TraceBoundaryGeometry
+module
+
+public import NoCompromise.Sobolev.H1TraceKernelChartMeasure
+public import NoCompromise.Sobolev.H1TraceBoundaryGeometry
+
+@[expose] public section
 
 /-!
 # Boundary-chart geometry for the trace kernel

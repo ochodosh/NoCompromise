@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.SlabCapArea
-import NoCompromise.Regularity.SlabGeometry
-import NoCompromise.Regularity.SlabDensity
+module
+
+public import NoCompromise.Regularity.SlabCapArea
+public import NoCompromise.Regularity.SlabGeometry
+public import NoCompromise.Regularity.SlabDensity
+
+@[expose] public section
 
 /-! # The cap hypotheses determine the actual phases outside the slab -/
 

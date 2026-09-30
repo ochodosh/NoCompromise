@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannSmoothTangential
-import NoCompromise.Elliptic.BoundaryHolderTranslate
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannSmoothTangential
+public import NoCompromise.Elliptic.BoundaryHolderTranslate
+
+@[expose] public section
 
 /-!
 # Differentiating the weak divergence equation (`thm:boundary-C2a`, iteration)

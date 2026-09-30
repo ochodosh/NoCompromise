@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.H1Zero
-import NoCompromise.Sobolev.H1TestApprox
-import NoCompromise.Sobolev.H1DifferenceQuotient
+module
+
+public import NoCompromise.Sobolev.H1Zero
+public import NoCompromise.Sobolev.H1TestApprox
+public import NoCompromise.Sobolev.H1DifferenceQuotient
+
+@[expose] public section
 
 /-!
 # Interior approximation for the zero-boundary Sobolev space

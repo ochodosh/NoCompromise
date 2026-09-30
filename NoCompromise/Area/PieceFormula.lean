@@ -1,5 +1,9 @@
-import NoCompromise.Area.PieceMeasure
-import Mathlib.MeasureTheory.Integral.Lebesgue.Map
+module
+
+public import NoCompromise.Area.PieceMeasure
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Map
+
+@[expose] public section
 
 /-!
 # The weighted area formula on a uniform piece

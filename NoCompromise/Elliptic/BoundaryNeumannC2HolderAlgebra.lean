@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NondivSchauderNorm
+module
+
+public import NoCompromise.Elliptic.NondivSchauderNorm
+
+@[expose] public section
 
 /-!
 # Hölder algebra for the boundary Neumann lift

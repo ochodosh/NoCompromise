@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderDecay
-import NoCompromise.Elliptic.QuasilinearCampanatoPullback
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderDecay
+public import NoCompromise.Elliptic.QuasilinearCampanatoPullback
+
+@[expose] public section
 
 /-! Exact half-ball integral identities and genuine weak-equation pullback under
 positive similarities preserving the flat hyperplane. -/

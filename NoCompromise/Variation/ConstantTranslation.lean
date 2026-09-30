@@ -1,6 +1,10 @@
-import NoCompromise.Variation.TranslationBound
-import NoCompromise.BV.DirectionalPolarCompatibility
-import Mathlib.MeasureTheory.Integral.DominatedConvergence
+module
+
+public import NoCompromise.Variation.TranslationBound
+public import NoCompromise.BV.DirectionalPolarCompatibility
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+
+@[expose] public section
 
 /-!
 # Weighted symmetric differences for constant translations

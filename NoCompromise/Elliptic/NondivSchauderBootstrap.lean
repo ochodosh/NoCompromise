@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.NondivSchauderDerivativeEquation
-import NoCompromise.Elliptic.NondivSchauderClassical
-import NoCompromise.Elliptic.NondivSchauderNormalize
+module
+
+public import NoCompromise.Elliptic.NondivSchauderDerivativeEquation
+public import NoCompromise.Elliptic.NondivSchauderClassical
+public import NoCompromise.Elliptic.NondivSchauderNormalize
+
+@[expose] public section
 
 /-!
 # Actual C²,α regularity for the nondivergence equation

@@ -1,4 +1,8 @@
-import NoCompromise.Stationary.BootstrapGlobal
+module
+
+public import NoCompromise.Stationary.BootstrapGlobal
+
+@[expose] public section
 
 /-!
 # Chart data for `prop:bootstrap-C3`

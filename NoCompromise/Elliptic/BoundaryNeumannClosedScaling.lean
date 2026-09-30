@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryNeumannQuotientScaling
-import NoCompromise.Elliptic.BoundaryNeumannQuotientHolder
-import NoCompromise.Elliptic.NondivSchauderScalingNorm
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannQuotientScaling
+public import NoCompromise.Elliptic.BoundaryNeumannQuotientHolder
+public import NoCompromise.Elliptic.NondivSchauderScalingNorm
+
+@[expose] public section
 
 /-!
 # Rescaling closed conormal data to the unit half ball

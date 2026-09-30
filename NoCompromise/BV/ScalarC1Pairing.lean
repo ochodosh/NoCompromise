@@ -1,6 +1,10 @@
-import NoCompromise.BV.ScalarMollification
-import NoCompromise.BV.ScalarC1Transport
-import NoCompromise.Variation.TransportPairing
+module
+
+public import NoCompromise.BV.ScalarMollification
+public import NoCompromise.BV.ScalarC1Transport
+public import NoCompromise.Variation.TransportPairing
+
+@[expose] public section
 
 /-!
 # Scalar distributional transport through C¹ coordinates

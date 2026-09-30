@@ -1,5 +1,9 @@
-import Mathlib.Geometry.Euclidean.Volume.Measure
-import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+module
+
+public import Mathlib.Geometry.Euclidean.Volume.Measure
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+
+@[expose] public section
 
 /-!
 # Hausdorff-null level sets from finite covers
@@ -120,6 +124,6 @@ lemma ae_euclideanHausdorffMeasure_fiber_eq_zero_of_covers
     ∀ᵐ t ∂volume, Measure.euclideanHausdorffMeasure d (S ∩ u ⁻¹' {t}) = 0 := by
   filter_upwards [ae_hausdorffMeasure_fiber_eq_zero_of_covers d (by exact_mod_cast hd)
     u S C I hI r hr hdiam hcover himage hmass] with t ht
-  simp [Measure.euclideanHausdorffMeasure, Measure.smul_apply, ht]
+  simp [Measure.euclideanHausdorffMeasure_def, Measure.smul_apply, ht]
 
 end LiquidDrop

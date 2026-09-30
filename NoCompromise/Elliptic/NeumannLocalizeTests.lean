@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.WeakSolutions
-import NoCompromise.Elliptic.NondivSchauderTests
+module
+
+public import NoCompromise.Elliptic.WeakSolutions
+public import NoCompromise.Elliptic.NondivSchauderTests
+
+@[expose] public section
 
 /-!
 # Ambient tests for the weak Neumann equation

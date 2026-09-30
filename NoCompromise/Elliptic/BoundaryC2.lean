@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryC1
-import NoCompromise.Elliptic.BoundaryHolderSharp
+module
+
+public import NoCompromise.Elliptic.BoundaryC1
+public import NoCompromise.Elliptic.BoundaryHolderSharp
+
+@[expose] public section
 
 /-!
 # Ingredients for boundary `C^{2,α}` regularity (divergence form)

@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderHalfScaling
-import NoCompromise.Elliptic.CampanatoHolderAverages
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderHalfScaling
+public import NoCompromise.Elliptic.CampanatoHolderAverages
+
+@[expose] public section
 
 /-! Positive half-ball volume and quantitative comparison of actual half-ball
 averages. No pointwise representative or boundary Lebesgue-point premise is used. -/

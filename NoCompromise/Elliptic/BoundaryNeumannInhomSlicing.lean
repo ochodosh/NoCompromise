@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryNeumann
-import NoCompromise.DeGiorgi.SmoothGraph
-import NoCompromise.Area.Graph
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumann
+public import NoCompromise.DeGiorgi.SmoothGraph
+public import NoCompromise.Area.Graph
+
+@[expose] public section
 
 /-!
 # Vertical integration for the inhomogeneous conormal equation

@@ -1,4 +1,8 @@
-import NoCompromise.BV.Density
+module
+
+public import NoCompromise.BV.Density
+
+@[expose] public section
 
 /-! # Cap density is unchanged by almost-everywhere local agreement -/
 

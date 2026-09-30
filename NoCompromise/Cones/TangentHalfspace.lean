@@ -1,8 +1,12 @@
-import NoCompromise.Cones.Smooth
-import NoCompromise.Cones.DescentMain
-import NoCompromise.Regularity.IsometryMinimal
-import NoCompromise.Regularity.IsometryDensity
-import NoCompromise.Cones.Halfspace
+module
+
+public import NoCompromise.Cones.Smooth
+public import NoCompromise.Cones.DescentMain
+public import NoCompromise.Regularity.IsometryMinimal
+public import NoCompromise.Regularity.IsometryDensity
+public import NoCompromise.Cones.Halfspace
+
+@[expose] public section
 
 /-!
 # Halfspace tangents at nonzero boundary points of minimizing cones

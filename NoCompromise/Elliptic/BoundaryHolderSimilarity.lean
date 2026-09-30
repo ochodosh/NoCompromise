@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryHolderOddWeak
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderOddWeak
+
+@[expose] public section
 
 /-! The common raw odd representative and exact similarity transport used to
 glue local boundary representatives. All comparisons preserve almost-everywhere

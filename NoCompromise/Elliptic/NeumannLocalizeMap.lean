@@ -1,8 +1,12 @@
-import NoCompromise.Elliptic.NeumannLocalizeBoundary
-import NoCompromise.Elliptic.NeumannLocalizeExtension
-import NoCompromise.Elliptic.BoundaryNormalChartChangeVariables
-import NoCompromise.Elliptic.BoundaryHolderDecayIntegrals
-import NoCompromise.BV.ExteriorGeometry
+module
+
+public import NoCompromise.Elliptic.NeumannLocalizeBoundary
+public import NoCompromise.Elliptic.NeumannLocalizeExtension
+public import NoCompromise.Elliptic.BoundaryNormalChartChangeVariables
+public import NoCompromise.Elliptic.BoundaryHolderDecayIntegrals
+public import NoCompromise.BV.ExteriorGeometry
+
+@[expose] public section
 
 /-!
 # A normal coordinate map on a fixed ball

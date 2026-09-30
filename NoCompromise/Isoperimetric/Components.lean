@@ -1,9 +1,13 @@
-import NoCompromise.Isoperimetric.Sharp
-import NoCompromise.Isoperimetric.ABP
-import NoCompromise.BV.SmoothApproxBoundary
-import NoCompromise.Sobolev.C1Domain
-import Mathlib.Analysis.MeanInequalitiesPow
-import Mathlib.Topology.Connected.LocallyConnected
+module
+
+public import NoCompromise.Isoperimetric.Sharp
+public import NoCompromise.Isoperimetric.ABP
+public import NoCompromise.BV.SmoothApproxBoundary
+public import NoCompromise.Sobolev.C1Domain
+public import Mathlib.Analysis.MeanInequalitiesPow
+public import Mathlib.Topology.Connected.LocallyConnected
+
+@[expose] public section
 
 noncomputable section
 open MeasureTheory Set Filter

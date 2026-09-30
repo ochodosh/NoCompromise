@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.W11Algebra
+module
+
+public import NoCompromise.Sobolev.W11Algebra
+
+@[expose] public section
 
 /-!
 # The normed space of W¹,¹ classes

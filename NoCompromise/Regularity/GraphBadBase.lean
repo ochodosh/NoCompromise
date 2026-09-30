@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.GraphBadBaseFlux
-import NoCompromise.Regularity.GraphPhaseCaps
+module
+
+public import NoCompromise.Regularity.GraphBadBaseFlux
+public import NoCompromise.Regularity.GraphPhaseCaps
+
+@[expose] public section
 
 /-! # Localized bad-base area from actual signed slicing and normal excess -/
 

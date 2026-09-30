@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.GraphAffineHeightComparison
-import NoCompromise.Regularity.GraphAffineHeightErrors
+module
+
+public import NoCompromise.Regularity.GraphAffineHeightComparison
+public import NoCompromise.Regularity.GraphAffineHeightErrors
+
+@[expose] public section
 
 /-! # Radius-independent affine-height estimate for the tilt argument -/
 

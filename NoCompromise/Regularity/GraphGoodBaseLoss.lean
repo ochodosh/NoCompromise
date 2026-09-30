@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.GraphGoodSet
-import NoCompromise.Regularity.GraphGoodBase
+module
+
+public import NoCompromise.Regularity.GraphGoodSet
+public import NoCompromise.Regularity.GraphGoodBase
+
+@[expose] public section
 
 /-! # Passing the maximal-function bound to the actual projected good graph -/
 

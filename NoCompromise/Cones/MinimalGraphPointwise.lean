@@ -1,5 +1,9 @@
-import NoCompromise.Stationary.BootstrapC2
-import NoCompromise.Stationary.PointwiseEL
+module
+
+public import NoCompromise.Stationary.BootstrapC2
+public import NoCompromise.Stationary.PointwiseEL
+
+@[expose] public section
 
 /-! The classical minimal-surface equation for a locally `C²` weak solution. -/
 

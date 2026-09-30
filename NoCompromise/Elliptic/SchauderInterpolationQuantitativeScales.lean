@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.HolderInterpolationSplit
+module
+
+public import NoCompromise.Elliptic.HolderInterpolationSplit
+
+@[expose] public section
 
 /-! Explicit polynomial scales for same-ball Hölder interpolation. A single
 natural exponent is chosen from α before the radius and small parameter. -/

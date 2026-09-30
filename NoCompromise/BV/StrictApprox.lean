@@ -1,6 +1,11 @@
-import NoCompromise.BV.Basic
-import Mathlib.Analysis.Calculus.Gradient.Basic
-import Mathlib.MeasureTheory.Function.LpSpace.ContinuousCompMeasurePreserving
+module
+
+public import NoCompromise.BV.Basic
+public import Mathlib.Analysis.Calculus.Gradient.Basic
+public import Mathlib.MeasureTheory.Function.LpSpace.ContinuousCompMeasurePreserving
+public import Mathlib.Algebra.FiniteSupport.Basic
+
+@[expose] public section
 
 /-!
 # BV products and strict smooth approximation

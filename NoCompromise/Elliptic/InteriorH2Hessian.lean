@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.InteriorH2Energy
-import Mathlib.Analysis.Calculus.FDeriv.Symmetric
+module
+
+public import NoCompromise.Elliptic.InteriorH2Energy
+public import Mathlib.Analysis.Calculus.FDeriv.Symmetric
+
+@[expose] public section
 
 /-!
 # The compact smooth Hessian identity

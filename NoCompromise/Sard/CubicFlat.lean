@@ -1,4 +1,8 @@
-import NoCompromise.Sard.Flat
+module
+
+public import NoCompromise.Sard.Flat
+
+@[expose] public section
 
 /-!
 # Cubic flatness and twice-flat values on C¹ surfaces

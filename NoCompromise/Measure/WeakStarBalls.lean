@@ -1,9 +1,13 @@
-import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
-import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
-import Mathlib.MeasureTheory.Integral.DominatedConvergence
-import Mathlib.MeasureTheory.Integral.Bochner.Set
-import Mathlib.MeasureTheory.Function.LocallyIntegrable
-import Mathlib.Topology.ContinuousMap.CompactlySupported
+module
+
+public import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
+public import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import Mathlib.Topology.ContinuousMap.CompactlySupported
+
+@[expose] public section
 
 /-!
 # Ball masses under local weak-star convergence

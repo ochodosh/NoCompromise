@@ -1,6 +1,10 @@
-import Mathlib.Analysis.Calculus.ContDiff.Deriv
-import Mathlib.Analysis.Calculus.Deriv.Slope
-import Mathlib.Topology.Piecewise
+module
+
+public import Mathlib.Analysis.Calculus.ContDiff.Deriv
+public import Mathlib.Analysis.Calculus.Deriv.Slope
+public import Mathlib.Topology.Piecewise
+
+@[expose] public section
 
 /-! # Joining C¹ scalar profiles at a common first jet -/
 

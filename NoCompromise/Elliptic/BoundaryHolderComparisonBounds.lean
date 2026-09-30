@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryHolderComparison
-import NoCompromise.Elliptic.BoundaryHolderDecayIntegrals
-import NoCompromise.Elliptic.CampanatoGrowthComparison
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderComparison
+public import NoCompromise.Elliptic.BoundaryHolderDecayIntegrals
+public import NoCompromise.Elliptic.CampanatoGrowthComparison
+
+@[expose] public section
 
 /-! Oscillation bounds for the actual frozen half-ball comparison. -/
 

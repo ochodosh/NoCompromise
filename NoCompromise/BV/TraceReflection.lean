@@ -1,4 +1,8 @@
-import NoCompromise.BV.GraphTraces
+module
+
+public import NoCompromise.BV.GraphTraces
+
+@[expose] public section
 
 /-!
 # Reflection of genuine BV traces

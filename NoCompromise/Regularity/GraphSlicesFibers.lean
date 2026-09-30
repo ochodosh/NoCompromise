@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.GraphSlicesPolar
-import NoCompromise.Regularity.GraphSlicesPhases
+module
+
+public import NoCompromise.Regularity.GraphSlicesPolar
+public import NoCompromise.Regularity.GraphSlicesPhases
+
+@[expose] public section
 
 /-! # Actual reduced-boundary points on almost every oriented vertical slice -/
 

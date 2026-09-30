@@ -1,7 +1,11 @@
-import NoCompromise.Area.Cofactor
-import NoCompromise.Area.Formula
-import Mathlib.Analysis.SpecialFunctions.PolarCoord
-import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
+module
+
+public import NoCompromise.Area.Cofactor
+public import NoCompromise.Area.Formula
+public import Mathlib.Analysis.SpecialFunctions.PolarCoord
+public import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
+
+@[expose] public section
 
 /-!
 # Area of Euclidean spheres

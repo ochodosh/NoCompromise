@@ -1,7 +1,11 @@
-import NoCompromise.Stationary.BootstrapC2
-import NoCompromise.Elliptic.NondivSchauderScalingInverse
-import Mathlib.Analysis.Calculus.FDeriv.Equiv
-import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+module
+
+public import NoCompromise.Stationary.BootstrapC2
+public import NoCompromise.Elliptic.NondivSchauderScalingInverse
+public import Mathlib.Analysis.Calculus.FDeriv.Equiv
+public import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+
+@[expose] public section
 
 /-! Interior C²,½ regularity for weak minimal graphs on disks of arbitrary radius. -/
 

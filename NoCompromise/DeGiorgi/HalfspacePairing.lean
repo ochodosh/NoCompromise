@@ -1,7 +1,11 @@
-import NoCompromise.BV.LineDistribution
-import NoCompromise.DeGiorgi.HalfspaceRigidity
-import NoCompromise.Area.PlaneSections
-import Mathlib.MeasureTheory.Integral.IntegralEqImproper
+module
+
+public import NoCompromise.BV.LineDistribution
+public import NoCompromise.DeGiorgi.HalfspaceRigidity
+public import NoCompromise.Area.PlaneSections
+public import Mathlib.MeasureTheory.Integral.IntegralEqImproper
+
+@[expose] public section
 
 /-!
 # The actual distributional derivative of a halfspace indicator

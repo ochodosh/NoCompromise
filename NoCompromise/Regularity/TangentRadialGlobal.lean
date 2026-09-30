@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.TangentRadial
+module
+
+public import NoCompromise.Regularity.TangentRadial
+
+@[expose] public section
 
 /-!
 # Global radial distributional stationarity of a tangent limit

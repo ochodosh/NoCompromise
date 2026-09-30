@@ -1,6 +1,10 @@
-import NoCompromise.Sard.Flat
-import Mathlib.Topology.MetricSpace.HausdorffDimension
-import Mathlib.Geometry.Euclidean.Volume.Measure
+module
+
+public import NoCompromise.Sard.Flat
+public import Mathlib.Topology.MetricSpace.HausdorffDimension
+public import Mathlib.Geometry.Euclidean.Volume.Measure
+
+@[expose] public section
 
 /-!
 # Null vector images of the rank-zero C² stratum

@@ -1,6 +1,10 @@
-import NoCompromise.Flow.FlowBoxCk
-import NoCompromise.Flow.FlowMaximal
-import NoCompromise.Surface.TangentFlow
+module
+
+public import NoCompromise.Flow.FlowBoxCk
+public import NoCompromise.Flow.FlowMaximal
+public import NoCompromise.Surface.TangentFlow
+
+@[expose] public section
 
 /-!
 # `C^k` flows: flow boxes of the maximal flow, and flows on compact surfaces

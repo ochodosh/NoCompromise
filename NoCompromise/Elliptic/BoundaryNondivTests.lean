@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryNondivTrace
-import NoCompromise.Elliptic.BoundaryHolderHalfScaling
-import NoCompromise.Elliptic.NondivSchauderTests
+module
+
+public import NoCompromise.Elliptic.BoundaryNondivTrace
+public import NoCompromise.Elliptic.BoundaryHolderHalfScaling
+public import NoCompromise.Elliptic.NondivSchauderTests
+
+@[expose] public section
 
 /-!
 # Boundary energy tests on arbitrary half balls

@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.PerimeterConvergenceL1
-import NoCompromise.Regularity.RepresentativeBoundary
+module
+
+public import NoCompromise.Regularity.PerimeterConvergenceL1
+public import NoCompromise.Regularity.RepresentativeBoundary
+
+@[expose] public section
 
 /-! # Uniform phase density and local L1 limits
 

@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.Bochner
-import NoCompromise.Elliptic.InteriorH2Energy
+module
+
+public import NoCompromise.CapacitaryK.Bochner
+public import NoCompromise.Elliptic.InteriorH2Energy
+
+@[expose] public section
 
 /-!
 # Positivity of the distributional Laplacian of the gradient length

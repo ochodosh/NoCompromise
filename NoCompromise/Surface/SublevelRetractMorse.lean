@@ -1,4 +1,8 @@
-import NoCompromise.Surface.SublevelRetract
+module
+
+public import NoCompromise.Surface.SublevelRetract
+
+@[expose] public section
 
 /-!
 # Closed sublevel retractions for Morse functions

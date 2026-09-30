@@ -1,4 +1,8 @@
-import NoCompromise.CapacitaryK.OneDim
+module
+
+public import NoCompromise.CapacitaryK.OneDim
+
+@[expose] public section
 
 /-!
 # Canonical BV representatives through critical values (chapter 31)

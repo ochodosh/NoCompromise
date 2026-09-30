@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.GraphSlicesUniqueness
-import NoCompromise.BV.JumpDisintegration
-import NoCompromise.DeGiorgi.Structure
+module
+
+public import NoCompromise.Regularity.GraphSlicesUniqueness
+public import NoCompromise.BV.JumpDisintegration
+public import NoCompromise.DeGiorgi.Structure
+
+@[expose] public section
 
 /-! # Directional slice measures and the actual reduced boundary -/
 

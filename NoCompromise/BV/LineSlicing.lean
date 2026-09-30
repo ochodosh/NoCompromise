@@ -1,7 +1,11 @@
-import NoCompromise.BV.CoareaApproximation
-import NoCompromise.BV.CoareaCoordinates
-import NoCompromise.Measure.WeakDerivativeOne
-import NoCompromise.BV.Algebra
+module
+
+public import NoCompromise.BV.CoareaApproximation
+public import NoCompromise.BV.CoareaCoordinates
+public import NoCompromise.Measure.WeakDerivativeOne
+public import NoCompromise.BV.Algebra
+
+@[expose] public section
 
 /-!
 # Distributional BV on coordinate lines

@@ -1,8 +1,12 @@
-import Mathlib.Geometry.Manifold.IntegralCurve.UniformTime
-import Mathlib.Geometry.Manifold.IntegralCurve.ExistUnique
-import Mathlib.Analysis.ODE.PicardLindelof
-import Mathlib.Analysis.ODE.ExistUnique
-import NoCompromise.Flow.FlowMaximal
+module
+
+public import Mathlib.Geometry.Manifold.IntegralCurve.UniformTime
+public import Mathlib.Geometry.Manifold.IntegralCurve.ExistUnique
+public import Mathlib.Analysis.ODE.PicardLindelof
+public import Mathlib.Analysis.ODE.ExistUnique
+public import NoCompromise.Flow.FlowMaximal
+
+@[expose] public section
 
 /-!
 # Maximal integral curves on abstract manifolds

@@ -1,4 +1,8 @@
-import NoCompromise.BV.ExteriorGeometry
+module
+
+public import NoCompromise.BV.ExteriorGeometry
+
+@[expose] public section
 
 /-!
 # Shear flattening of a rigid graph chart (`thm:boundary-C2a`, application)

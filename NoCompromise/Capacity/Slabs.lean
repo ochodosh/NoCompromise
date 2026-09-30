@@ -1,6 +1,10 @@
-import Mathlib.Analysis.InnerProductSpace.PiL2
-import Mathlib.Topology.Order.Compact
-import Mathlib.Topology.Order.IntermediateValue
+module
+
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Topology.Order.Compact
+public import Mathlib.Topology.Order.IntermediateValue
+
+@[expose] public section
 
 /-!
 # Slabs and levels of the capacitary potential have compact closure off `K`

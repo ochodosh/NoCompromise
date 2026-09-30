@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.CampanatoHolderOscillation
-import NoCompromise.Elliptic.CampanatoHolderIteration
+module
+
+public import NoCompromise.Elliptic.CampanatoHolderOscillation
+public import NoCompromise.Elliptic.CampanatoHolderIteration
+
+@[expose] public section
 
 /-! Radius-independent oscillation iteration. Initial excess with the correct
 power gives one constant for all interior balls, including balls approaching

@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.HarmonicBlowupCompactness
-import NoCompromise.Regularity.HarmonicBlowupNormalization
+module
+
+public import NoCompromise.Regularity.HarmonicBlowupCompactness
+public import NoCompromise.Regularity.HarmonicBlowupNormalization
+
+@[expose] public section
 
 /-!
 # Compactness after the actual excess normalization

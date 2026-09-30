@@ -1,9 +1,13 @@
-import Mathlib
-import NoCompromise.Ball.Defs
-import NoCompromise.Energy.Defs
-import NoCompromise.Threshold.Defs
-import NoCompromise.Classification.MainOfBoundaryC2
-import NoCompromise.Capacity.HullPotentialBoundaryC2
+module
+
+public import Mathlib
+public import NoCompromise.Ball.Defs
+public import NoCompromise.Energy.Defs
+public import NoCompromise.Threshold.Defs
+public import NoCompromise.Classification.MainOfBoundaryC2
+public import NoCompromise.Capacity.HullPotentialBoundaryC2
+
+@[expose] public section
 
 noncomputable section
 

@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryNondivCover
-import NoCompromise.Elliptic.BoundaryC2aReflection
-import NoCompromise.Elliptic.BoundaryNondivHolder
+module
+
+public import NoCompromise.Elliptic.BoundaryNondivCover
+public import NoCompromise.Elliptic.BoundaryC2aReflection
+public import NoCompromise.Elliptic.BoundaryNondivHolder
+
+@[expose] public section
 
 /-!
 # `thm:boundary-nondiv` on `B⁺_{1/2}` with C¹,α data on the open half ball

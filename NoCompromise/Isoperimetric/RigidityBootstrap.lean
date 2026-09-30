@@ -1,7 +1,11 @@
-import NoCompromise.Isoperimetric.RigidityEulerLagrange
-import NoCompromise.Stationary.MinimizerC1Holder
-import NoCompromise.Stationary.BootstrapGlobal
-import NoCompromise.Stationary.BootstrapC3Global
+module
+
+public import NoCompromise.Isoperimetric.RigidityEulerLagrange
+public import NoCompromise.Stationary.MinimizerC1Holder
+public import NoCompromise.Stationary.BootstrapGlobal
+public import NoCompromise.Stationary.BootstrapC3Global
+
+@[expose] public section
 
 /-!
 # The regularity bootstrap for a perimeter minimiser

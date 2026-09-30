@@ -1,7 +1,11 @@
-import NoCompromise.CapacitaryK.CapacitaryHarmonic
-import NoCompromise.Capacity.LevelsMain
-import NoCompromise.Capacity.LowerBarrier
-import NoCompromise.Capacity.Kelvin
+module
+
+public import NoCompromise.CapacitaryK.CapacitaryHarmonic
+public import NoCompromise.Capacity.LevelsMain
+public import NoCompromise.Capacity.LowerBarrier
+public import NoCompromise.Capacity.Kelvin
+
+@[expose] public section
 
 /-!
 # `thm:capacitary-inequalities` for the capacitary potential (chapter 31)

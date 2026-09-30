@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.SchauderInterpolationQuantitativeScales
-import NoCompromise.Elliptic.NondivSchauderNorm
+module
+
+public import NoCompromise.Elliptic.SchauderInterpolationQuantitativeScales
+public import NoCompromise.Elliptic.NondivSchauderNorm
+
+@[expose] public section
 
 /-! Same-ball interpolation with a polynomial cost in the small parameter.
 The exponent and constant are fixed before every radius at least one half,

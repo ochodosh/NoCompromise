@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2Tangential
-import NoCompromise.Elliptic.NondivSchauderClassical
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2Tangential
+public import NoCompromise.Elliptic.NondivSchauderClassical
+
+@[expose] public section
 
 /-!
 # The classical divergence identity for the homogeneous Neumann problem

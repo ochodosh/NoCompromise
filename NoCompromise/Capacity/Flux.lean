@@ -1,6 +1,10 @@
-import NoCompromise.Capacity.Potential
-import NoCompromise.Elliptic.HarmonicDerivativeTranslation
-import NoCompromise.Elliptic.KelvinRemovableCutoff
+module
+
+public import NoCompromise.Capacity.Potential
+public import NoCompromise.Elliptic.HarmonicDerivativeTranslation
+public import NoCompromise.Elliptic.KelvinRemovableCutoff
+
+@[expose] public section
 
 /-!
 # Decay of capacitary potentials

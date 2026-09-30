@@ -1,5 +1,9 @@
-import NoCompromise.Surface.MorseCoordsPlanar
-import NoCompromise.Surface.MorseRadialIntegral
+module
+
+public import NoCompromise.Surface.MorseCoordsPlanar
+public import NoCompromise.Surface.MorseRadialIntegral
+
+@[expose] public section
 
 /-!
 # The planar Morse lemma `lem:morse-coords` with smooth coordinates

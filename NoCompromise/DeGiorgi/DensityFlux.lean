@@ -1,7 +1,11 @@
-import NoCompromise.DeGiorgi.ReducedPerimeter
-import NoCompromise.Sobolev.RelativeScaling
-import NoCompromise.BV.RadialVolume
-import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+module
+
+public import NoCompromise.DeGiorgi.ReducedPerimeter
+public import NoCompromise.Sobolev.RelativeScaling
+public import NoCompromise.BV.RadialVolume
+public import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+
+@[expose] public section
 
 /-!
 # Conditional density inequalities from spherical flux

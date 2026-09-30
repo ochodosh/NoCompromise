@@ -1,4 +1,8 @@
-import NoCompromise.Topology.ParityEndpoint
+module
+
+public import NoCompromise.Topology.ParityEndpoint
+
+@[expose] public section
 
 /-!
 # Crossing the surface once (towards `prop:orientation-parity` (ii))

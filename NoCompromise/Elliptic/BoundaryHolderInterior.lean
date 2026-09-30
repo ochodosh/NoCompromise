@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.FrozenDecayEstimates
+module
+
+public import NoCompromise.Elliptic.FrozenDecayEstimates
+
+@[expose] public section
 
 /-!
 # Frozen derivative estimates on a prescribed boundary-reflection ball

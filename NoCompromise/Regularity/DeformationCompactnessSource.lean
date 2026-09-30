@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.DeformationTransport
-import NoCompromise.Regularity.DeformationColumn
-import NoCompromise.Regularity.DeformationCompetitor
+module
+
+public import NoCompromise.Regularity.DeformationTransport
+public import NoCompromise.Regularity.DeformationColumn
+public import NoCompromise.Regularity.DeformationCompetitor
+
+@[expose] public section
 
 /-!
 # A fixed compact source for every compressed local perimeter

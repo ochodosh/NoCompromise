@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.IsometryExcessPolar
-import NoCompromise.Regularity.IsometryCylinders
-import NoCompromise.Sobolev.LipschitzDomains
+module
+
+public import NoCompromise.Regularity.IsometryExcessPolar
+public import NoCompromise.Regularity.IsometryCylinders
+public import NoCompromise.Sobolev.LipschitzDomains
+
+@[expose] public section
 
 /-! # Actual cylindrical excess in orthogonal coordinates -/
 

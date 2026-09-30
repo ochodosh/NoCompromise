@@ -1,5 +1,9 @@
-import NoCompromise.BV.Slicing
-import NoCompromise.Area.Sphere
+module
+
+public import NoCompromise.BV.Slicing
+public import NoCompromise.Area.Sphere
+
+@[expose] public section
 
 /-!
 # Spherical slicing and weighted radial disintegration

@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.HarmonicPointBounds
-import NoCompromise.Regularity.GraphApproxHeight
+module
+
+public import NoCompromise.Regularity.HarmonicPointBounds
+public import NoCompromise.Regularity.GraphApproxHeight
+
+@[expose] public section
 
 /-!
 # The actual graph and harmonic data for tilt improvement

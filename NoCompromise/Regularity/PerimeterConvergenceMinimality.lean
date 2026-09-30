@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.PerimeterConvergenceInner
+module
+
+public import NoCompromise.Regularity.PerimeterConvergenceInner
+
+@[expose] public section
 
 /-!
 # Local quasiminimality of the actual L¹ limit

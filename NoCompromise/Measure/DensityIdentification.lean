@@ -1,6 +1,10 @@
-import NoCompromise.Measure.BallDifferentiation
-import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
-import Mathlib.MeasureTheory.Measure.Decomposition.RadonNikodym
+module
+
+public import NoCompromise.Measure.BallDifferentiation
+public import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+public import Mathlib.MeasureTheory.Measure.Decomposition.RadonNikodym
+
+@[expose] public section
 
 /-!
 # Identifying locally finite measures by open-ball density

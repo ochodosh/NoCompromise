@@ -1,5 +1,9 @@
-import NoCompromise.BV.LineSlicing
-import NoCompromise.Sobolev.Extension
+module
+
+public import NoCompromise.BV.LineSlicing
+public import NoCompromise.Sobolev.Extension
+
+@[expose] public section
 
 /-!
 # Directional BV slices and weak disintegration

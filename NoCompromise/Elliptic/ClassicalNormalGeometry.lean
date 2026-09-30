@@ -1,6 +1,10 @@
-import NoCompromise.DeGiorgi.SmoothBoundary
-import Mathlib.Analysis.Calculus.FDeriv.Affine
-import Mathlib.Analysis.Calculus.Deriv.Slope
+module
+
+public import NoCompromise.DeGiorgi.SmoothBoundary
+public import Mathlib.Analysis.Calculus.FDeriv.Affine
+public import Mathlib.Analysis.Calculus.Deriv.Slope
+
+@[expose] public section
 
 /-!
 # Pointwise agreement of classical boundary normals

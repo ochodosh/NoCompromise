@@ -1,6 +1,10 @@
-import NoCompromise.BV.StrictApprox
-import NoCompromise.BV.Coarea
-import NoCompromise.BV.CompactnessIndicators
+module
+
+public import NoCompromise.BV.StrictApprox
+public import NoCompromise.BV.Coarea
+public import NoCompromise.BV.CompactnessIndicators
+
+@[expose] public section
 
 /-!
 # Cutting off a set of locally finite perimeter in an open domain

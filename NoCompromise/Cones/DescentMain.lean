@@ -1,4 +1,8 @@
-import NoCompromise.Cones.Descent
+module
+
+public import NoCompromise.Cones.Descent
+
+@[expose] public section
 
 /-!
 # Descent of cylinder minimality

@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderTrace
-import NoCompromise.Elliptic.FrozenDecayAffine
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderTrace
+public import NoCompromise.Elliptic.FrozenDecayAffine
+
+@[expose] public section
 
 /-!
 # Linearity of the localized flat trace

@@ -1,5 +1,9 @@
-import NoCompromise.Cones.LinkGreatCircle
-import NoCompromise.Cones.LinkNonempty
+module
+
+public import NoCompromise.Cones.LinkGreatCircle
+public import NoCompromise.Cones.LinkNonempty
+
+@[expose] public section
 
 /-!
 # `thm:cone-3d` from the Euler equation on each connected component of the link

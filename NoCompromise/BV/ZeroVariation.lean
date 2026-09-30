@@ -1,8 +1,12 @@
-import NoCompromise.BV.StrictApprox
-import Mathlib.Analysis.Calculus.MeanValue
-import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
-import Mathlib.Topology.LocallyConstant.Basic
-import Mathlib.Topology.Compactness.Lindelof
+module
+
+public import NoCompromise.BV.StrictApprox
+public import Mathlib.Analysis.Calculus.MeanValue
+public import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
+public import Mathlib.Topology.LocallyConstant.Basic
+public import Mathlib.Topology.Compactness.Lindelof
+
+@[expose] public section
 
 /-!
 # Constancy from vanishing variation

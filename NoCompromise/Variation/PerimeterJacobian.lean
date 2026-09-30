@@ -1,5 +1,9 @@
-import NoCompromise.Variation.Volume
-import NoCompromise.Measure.QuadraticIntegral
+module
+
+public import NoCompromise.Variation.Volume
+public import NoCompromise.Measure.QuadraticIntegral
+
+@[expose] public section
 
 /-!
 # Differentiating the cofactor area integral

@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NewtonianSchauderIntegrals
-import NoCompromise.Elliptic.HolderInterpolationNorm
+module
+
+public import NoCompromise.Elliptic.NewtonianSchauderIntegrals
+public import NoCompromise.Elliptic.HolderInterpolationNorm
+
+@[expose] public section
 
 /-!
 # Size and difference estimates for the Newtonian Hessian

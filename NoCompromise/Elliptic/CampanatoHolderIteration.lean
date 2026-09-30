@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.CampanatoGrowthScalar
+module
+
+public import NoCompromise.Elliptic.CampanatoGrowthScalar
+
+@[expose] public section
 
 /-! Uniform power iteration for centered oscillations, with a separately
 controlled noncentered energy error. -/

@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.NeumannChartC1Smooth
-import NoCompromise.Elliptic.ClassicalNormal
-import NoCompromise.Elliptic.BoundaryNeumannInhomLift
+module
+
+public import NoCompromise.Elliptic.NeumannChartC1Smooth
+public import NoCompromise.Elliptic.ClassicalNormal
+public import NoCompromise.Elliptic.BoundaryNeumannInhomLift
+
+@[expose] public section
 
 /-!
 # Face geometry of the placed normal chart

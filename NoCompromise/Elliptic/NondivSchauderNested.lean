@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NondivSchauderScalingBall
-import NoCompromise.Elliptic.NondivSchauderLocalization
+module
+
+public import NoCompromise.Elliptic.NondivSchauderScalingBall
+public import NoCompromise.Elliptic.NondivSchauderLocalization
+
+@[expose] public section
 
 /-!
 # Nested-radius nondivergence Schauder estimate

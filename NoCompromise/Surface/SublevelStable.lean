@@ -1,5 +1,9 @@
-import NoCompromise.Surface.MorseMerge
-import NoCompromise.Surface.SurfaceChart
+module
+
+public import NoCompromise.Surface.MorseMerge
+public import NoCompromise.Surface.SurfaceChart
+
+@[expose] public section
 
 /-!
 # Sublevel stability across critical-value-free intervals (`cor:sublevel-stable`)

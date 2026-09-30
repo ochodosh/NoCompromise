@@ -1,5 +1,9 @@
-import NoCompromise.Surface.MorseBand
-import NoCompromise.Surface.TotalCurvature
+module
+
+public import NoCompromise.Surface.MorseBand
+public import NoCompromise.Surface.TotalCurvature
+
+@[expose] public section
 
 /-!
 # Merging saddles and the Morse count (`sec:morse-count`)

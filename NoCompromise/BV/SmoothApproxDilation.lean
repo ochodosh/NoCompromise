@@ -1,7 +1,11 @@
-import NoCompromise.BV.StrictApprox
-import NoCompromise.BV.AnnularGluingCoarea
-import NoCompromise.Energy.Scaling
-import Mathlib.MeasureTheory.Function.ContinuousMapDense
+module
+
+public import NoCompromise.BV.StrictApprox
+public import NoCompromise.BV.AnnularGluingCoarea
+public import NoCompromise.Energy.Scaling
+public import Mathlib.MeasureTheory.Function.ContinuousMapDense
+
+@[expose] public section
 
 /-!
 # Strong L¹ continuity of dilations

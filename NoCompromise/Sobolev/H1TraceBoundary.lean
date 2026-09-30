@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1TraceBoundaryGeometry
-import NoCompromise.Sobolev.H1ContinuousExtension
+module
+
+public import NoCompromise.Sobolev.H1TraceBoundaryGeometry
+public import NoCompromise.Sobolev.H1ContinuousExtension
+
+@[expose] public section
 
 /-!
 # The boundary L² estimate on bounded Lipschitz domains

@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.FrozenDecayLinear
+module
+
+public import NoCompromise.Elliptic.FrozenDecayLinear
+
+@[expose] public section
 
 /-!
 # Reflection adapted to a frozen elliptic operator

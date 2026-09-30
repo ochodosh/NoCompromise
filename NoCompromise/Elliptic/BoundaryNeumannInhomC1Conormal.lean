@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannInhomC1
-import NoCompromise.Elliptic.BoundaryNeumannEven
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannInhomC1
+public import NoCompromise.Elliptic.BoundaryNeumannEven
+
+@[expose] public section
 
 /-!
 # The classical conormal condition in `thm:boundary-neumann` (flat face)

@@ -1,9 +1,13 @@
-import NoCompromise.Compactness.Decomposition
-import NoCompromise.Compactness.Nonvanishing
-import NoCompromise.Value.Defs
-import NoCompromise.Value.Continuity
-import NoCompromise.Binding.Strict
-import NoCompromise.Threshold.Defs
+module
+
+public import NoCompromise.Compactness.Decomposition
+public import NoCompromise.Compactness.Nonvanishing
+public import NoCompromise.Value.Defs
+public import NoCompromise.Value.Continuity
+public import NoCompromise.Binding.Strict
+public import NoCompromise.Threshold.Defs
+
+@[expose] public section
 
 /-!
 # Existence below the threshold (blueprint chapter 19)

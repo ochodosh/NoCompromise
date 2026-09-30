@@ -1,4 +1,8 @@
-import NoCompromise.CapacitaryK.LevelRadiusDerivatives
+module
+
+public import NoCompromise.CapacitaryK.LevelRadiusDerivatives
+
+@[expose] public section
 
 /-!
 # Second derivatives of the capacitary level radius

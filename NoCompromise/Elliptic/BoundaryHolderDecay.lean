@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryHolderDerivative
-import NoCompromise.Elliptic.BoundaryHolderAffine
-import NoCompromise.Elliptic.BoundaryHolderDecayIntegrals
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderDerivative
+public import NoCompromise.Elliptic.BoundaryHolderAffine
+public import NoCompromise.Elliptic.BoundaryHolderDecayIntegrals
+
+@[expose] public section
 
 /-!
 # Frozen half-ball decay with the actual zero Dirichlet trace

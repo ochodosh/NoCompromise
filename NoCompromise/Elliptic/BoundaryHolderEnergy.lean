@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderOdd
-import NoCompromise.Elliptic.BoundaryHolderLocalization
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderOdd
+public import NoCompromise.Elliptic.BoundaryHolderLocalization
+
+@[expose] public section
 
 /-!
 # Gradient-energy control for adapted odd reflection

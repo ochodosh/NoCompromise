@@ -1,11 +1,15 @@
-import NoCompromise.Ball.Defs
-import NoCompromise.Energy.NullInvariance
-import NoCompromise.Threshold.Defs
-import NoCompromise.Classification.Endpoint
-import NoCompromise.Nonexistence.Sharp
-import NoCompromise.Nonexistence.Slicing
-import NoCompromise.Value.Subadditivity
-import NoCompromise.Threshold.Comparison
+module
+
+public import NoCompromise.Ball.Defs
+public import NoCompromise.Energy.NullInvariance
+public import NoCompromise.Threshold.Defs
+public import NoCompromise.Classification.Endpoint
+public import NoCompromise.Nonexistence.Sharp
+public import NoCompromise.Nonexistence.Slicing
+public import NoCompromise.Value.Subadditivity
+public import NoCompromise.Threshold.Comparison
+
+@[expose] public section
 
 /-!
 # Assembly of the main theorem

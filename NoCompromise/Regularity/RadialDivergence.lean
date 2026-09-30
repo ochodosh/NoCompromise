@@ -1,5 +1,9 @@
-import NoCompromise.Variation.PerimeterJacobian
-import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
+module
+
+public import NoCompromise.Variation.PerimeterJacobian
+public import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
+
+@[expose] public section
 
 /-! # Tangential divergence of radial vector fields -/
 

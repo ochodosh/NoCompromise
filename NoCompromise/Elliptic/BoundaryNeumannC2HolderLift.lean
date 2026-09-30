@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2
-import NoCompromise.Elliptic.BoundaryNeumannC2HolderAlgebra
-import NoCompromise.Elliptic.BoundaryNeumannInhomC1Lift
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2
+public import NoCompromise.Elliptic.BoundaryNeumannC2HolderAlgebra
+public import NoCompromise.Elliptic.BoundaryNeumannInhomC1Lift
+
+@[expose] public section
 
 /-!
 # C²,α of the boundary Neumann lift

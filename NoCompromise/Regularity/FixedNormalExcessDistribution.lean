@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.FixedNormalExcessLocalPolar
-import NoCompromise.Regularity.FixedNormalExcessContinuous
+module
+
+public import NoCompromise.Regularity.FixedNormalExcessLocalPolar
+public import NoCompromise.Regularity.FixedNormalExcessContinuous
+
+@[expose] public section
 
 /-! # Genuine local L¹ convergence implies convergence of normal pairings -/
 

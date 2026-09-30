@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.NondivSchauderEquation
-import NoCompromise.Elliptic.CampanatoComparisonTests
-import NoCompromise.Sobolev.H1TraceKernelApprox
+module
+
+public import NoCompromise.Elliptic.NondivSchauderEquation
+public import NoCompromise.Elliptic.CampanatoComparisonTests
+public import NoCompromise.Sobolev.H1TraceKernelApprox
+
+@[expose] public section
 
 /-!
 # From distributional tests to the C¹ energy test interface

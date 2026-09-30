@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NeumannLocalizeMap
-import NoCompromise.Sobolev.H1Chain
+module
+
+public import NoCompromise.Elliptic.NeumannLocalizeMap
+public import NoCompromise.Sobolev.H1Chain
+
+@[expose] public section
 
 /-!
 # H¹ pullback and ambient tests for a local normal chart

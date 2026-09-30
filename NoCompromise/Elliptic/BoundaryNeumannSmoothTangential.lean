@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNeumannSmoothFlux
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannSmoothFlux
+
+@[expose] public section
 
 /-!
 # The differentiated homogeneous Neumann problem

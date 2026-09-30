@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.W11Approximation
-import NoCompromise.Sobolev.W11Closed
-import NoCompromise.Sobolev.W11Pullback
+module
+
+public import NoCompromise.Sobolev.W11Approximation
+public import NoCompromise.Sobolev.W11Closed
+public import NoCompromise.Sobolev.W11Pullback
+
+@[expose] public section
 
 /-!
 # W¹,¹ chain rule under bi-Lipschitz changes of variables

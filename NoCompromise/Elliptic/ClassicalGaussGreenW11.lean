@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.ClassicalGaussGreen
-import NoCompromise.Sobolev.W11Pairing
-import NoCompromise.Sobolev.W11TraceVector
+module
+
+public import NoCompromise.Elliptic.ClassicalGaussGreen
+public import NoCompromise.Sobolev.W11Pairing
+public import NoCompromise.Sobolev.W11TraceVector
+
+@[expose] public section
 
 /-!
 # Passage from classical graph calculus to W¹,¹ Gauss–Green

@@ -1,7 +1,11 @@
-import NoCompromise.Surface.TotalCurvature
-import NoCompromise.Surface.TotalCurvatureIndexBridge
-import NoCompromise.Surface.TotalCurvatureIndexTangent
-import NoCompromise.Area.RectifiableFormula
+module
+
+public import NoCompromise.Surface.TotalCurvature
+public import NoCompromise.Surface.TotalCurvatureIndexBridge
+public import NoCompromise.Surface.TotalCurvatureIndexTangent
+public import NoCompromise.Area.RectifiableFormula
+
+@[expose] public section
 
 /-!
 # The total curvature equals the average index sum (blueprint chapter 14)

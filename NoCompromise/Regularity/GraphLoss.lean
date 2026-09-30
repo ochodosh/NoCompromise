@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.GraphBaseCoverage
-import NoCompromise.Regularity.GraphBadBase
-import NoCompromise.Area.Graph
+module
+
+public import NoCompromise.Regularity.GraphBaseCoverage
+public import NoCompromise.Regularity.GraphBadBase
+public import NoCompromise.Area.Graph
+
+@[expose] public section
 
 /-! # Quantitative loss of the actual Lipschitz graph -/
 

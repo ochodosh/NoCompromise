@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.SchauderAbsorption
+module
+
+public import NoCompromise.Elliptic.SchauderAbsorption
+
+@[expose] public section
 
 /-!
 # Removing the lower derivative norm from the nested Schauder estimate

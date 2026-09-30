@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.BoundaryNeumannCkLevel
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomSmooth
-import NoCompromise.Elliptic.BoundaryNeumannSmoothChain
-import NoCompromise.Elliptic.BoundaryNeumannCkIterate
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannCkLevel
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomSmooth
+public import NoCompromise.Elliptic.BoundaryNeumannSmoothChain
+public import NoCompromise.Elliptic.BoundaryNeumannCkIterate
+
+@[expose] public section
 
 /-!
 # The flat inhomogeneous Neumann problem with smooth data: regularity of every order

@@ -1,6 +1,11 @@
-import NoCompromise.BV.CoareaCoordinates
-import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ContDiff
-import Mathlib.MeasureTheory.Constructions.Polish.Basic
+module
+
+public import NoCompromise.BV.CoareaCoordinates
+public import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ContDiff
+public import Mathlib.MeasureTheory.Constructions.Polish.Basic
+public import Mathlib.Analysis.Calculus.FDeriv.OfCompLeft
+
+@[expose] public section
 
 /-!
 # Genuine inverse-function charts for regular scalar levels

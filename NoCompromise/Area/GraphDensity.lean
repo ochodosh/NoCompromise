@@ -1,5 +1,9 @@
-import NoCompromise.Area.GraphDensityGeometry
-import NoCompromise.Measure.BallDifferentiation
+module
+
+public import NoCompromise.Area.GraphDensityGeometry
+public import NoCompromise.Measure.BallDifferentiation
+
+@[expose] public section
 
 /-!
 # Density one on Borel pieces of Lipschitz graphs

@@ -1,6 +1,10 @@
-import Mathlib.Analysis.Calculus.ParametricIntervalIntegral
-import Mathlib.Analysis.Calculus.ContDiff.Operations
-import Mathlib.Analysis.Normed.Module.FiniteDimension
+module
+
+public import Mathlib.Analysis.Calculus.ParametricIntervalIntegral
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Normed.Module.FiniteDimension
+
+@[expose] public section
 
 /-!
 # Smoothness of weighted radial parametric integrals

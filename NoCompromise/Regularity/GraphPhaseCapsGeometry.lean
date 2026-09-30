@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.HeightBound
-import NoCompromise.Regularity.SlabGeometry
+module
+
+public import NoCompromise.Regularity.HeightBound
+public import NoCompromise.Regularity.SlabGeometry
+
+@[expose] public section
 
 /-!
 # Fixed open regions surrounding the graph-approximation caps

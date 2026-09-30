@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1Density
-import NoCompromise.Sobolev.H1FlatExtension
+module
+
+public import NoCompromise.Sobolev.H1Density
+public import NoCompromise.Sobolev.H1FlatExtension
+
+@[expose] public section
 
 /-!
 # Smooth positive-part approximations

@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.FrozenDecayLinear
-import NoCompromise.Elliptic.FrozenDecaySkew
-import NoCompromise.Elliptic.WeakMaximumCore
-import NoCompromise.Sobolev.H1Chain
+module
+
+public import NoCompromise.Elliptic.FrozenDecayLinear
+public import NoCompromise.Elliptic.FrozenDecaySkew
+public import NoCompromise.Elliptic.WeakMaximumCore
+public import NoCompromise.Sobolev.H1Chain
+
+@[expose] public section
 
 /-! Genuine weak harmonicity after the quantitative linear normalization.
 The weak gradient chain rule, scalar-test skew cancellation, and Haar

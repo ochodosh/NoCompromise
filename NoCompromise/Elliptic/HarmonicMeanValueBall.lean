@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.HarmonicMeanValueTests
-import Mathlib.Analysis.Calculus.ParametricIntegral
+module
+
+public import NoCompromise.Elliptic.HarmonicMeanValueTests
+public import Mathlib.Analysis.Calculus.ParametricIntegral
+
+@[expose] public section
 
 /-!
 # Classical harmonic ball mean values

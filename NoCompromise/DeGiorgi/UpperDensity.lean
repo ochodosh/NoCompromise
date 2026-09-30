@@ -1,5 +1,9 @@
-import NoCompromise.Area.Linear
-import Mathlib.MeasureTheory.Measure.Hausdorff
+module
+
+public import NoCompromise.Area.Linear
+public import Mathlib.MeasureTheory.Measure.Hausdorff
+
+@[expose] public section
 
 /-!
 # Upper density and Hausdorff comparison

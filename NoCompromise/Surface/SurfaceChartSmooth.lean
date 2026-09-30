@@ -1,4 +1,9 @@
-import NoCompromise.Surface.MorseChart
+module
+
+public import NoCompromise.Surface.MorseChart
+import all Mathlib.Analysis.Calculus.Implicit
+
+@[expose] public section
 
 /-!
 # Smooth projection charts and smooth chart pull-backs

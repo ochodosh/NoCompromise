@@ -1,4 +1,8 @@
-import NoCompromise.Measure.BallAverages
+module
+
+public import NoCompromise.Measure.BallAverages
+
+@[expose] public section
 
 /-!
 # Elementary radial measure facts

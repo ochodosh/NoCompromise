@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderTests
-import NoCompromise.Sobolev.H1FlatExtension
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderTests
+public import NoCompromise.Sobolev.H1FlatExtension
+
+@[expose] public section
 
 /-!
 # Localized actual flat trace

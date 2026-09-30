@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.GraphProjectedLocal
+module
+
+public import NoCompromise.Regularity.GraphProjectedLocal
+
+@[expose] public section
 
 /-! # The geometric contradiction in the good-base Lipschitz estimate -/
 

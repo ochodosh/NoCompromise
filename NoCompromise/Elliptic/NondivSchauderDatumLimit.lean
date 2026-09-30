@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NondivSchauderQuotient
-import NoCompromise.Elliptic.NondivSchauderConvergence
+module
+
+public import NoCompromise.Elliptic.NondivSchauderQuotient
+public import NoCompromise.Elliptic.NondivSchauderConvergence
+
+@[expose] public section
 
 /-!
 # Convergence of the constructed differentiated datum

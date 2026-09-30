@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.LevelAreaDensity
-import NoCompromise.CapacitaryK.CapacitaryRadialGraph
+module
+
+public import NoCompromise.CapacitaryK.LevelAreaDensity
+public import NoCompromise.CapacitaryK.CapacitaryRadialGraph
+
+@[expose] public section
 
 /-!
 # Small capacitary levels as radial graphs: the level set and the Kelvin data

@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.QuasilinearDifferentiated
-import NoCompromise.Elliptic.QuasilinearCampanatoInterior
+module
+
+public import NoCompromise.Elliptic.QuasilinearDifferentiated
+public import NoCompromise.Elliptic.QuasilinearCampanatoInterior
+
+@[expose] public section
 
 /-! The proved Campanato estimate applies to the constructed derivative
 equations. This gives actual C¹,α regularity of every coordinate derivative,

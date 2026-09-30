@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.EpsRegularityAhlfors
-import NoCompromise.Regularity.EpsRegularityHolder
+module
+
+public import NoCompromise.Regularity.EpsRegularityAhlfors
+public import NoCompromise.Regularity.EpsRegularityHolder
+
+@[expose] public section
 
 /-!
 # Hölder estimate for limiting normals at two boundary centres

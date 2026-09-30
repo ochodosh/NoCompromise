@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NewtonianSchauderEstimates
-import Mathlib.Analysis.Calculus.BumpFunction.InnerProduct
+module
+
+public import NoCompromise.Elliptic.NewtonianSchauderEstimates
+public import Mathlib.Analysis.Calculus.BumpFunction.InnerProduct
+
+@[expose] public section
 
 /-!
 # An explicit radial cutoff for the Newtonian kernel

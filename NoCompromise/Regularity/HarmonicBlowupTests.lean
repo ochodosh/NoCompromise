@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.Rellich
-import NoCompromise.Elliptic.WeakMaximumCore
+module
+
+public import NoCompromise.Sobolev.Rellich
+public import NoCompromise.Elliptic.WeakMaximumCore
+
+@[expose] public section
 
 /-!
 # Actual harmonic test equations under weak H¹ convergence

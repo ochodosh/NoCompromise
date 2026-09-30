@@ -1,12 +1,16 @@
-import NoCompromise.Stationary.CapEstimateAssembly
-import NoCompromise.Capacity.LocalExtension
-import NoCompromise.Capacity.HullPotential
-import NoCompromise.Capacity.HullPotentialCaccioppoliBound
-import NoCompromise.Elliptic.BoundaryC2aLocalAssembly
-import NoCompromise.Elliptic.BoundaryC2aShear
-import NoCompromise.Elliptic.BoundaryC2aPullback
-import NoCompromise.Elliptic.BoundaryC2aReflection
-import NoCompromise.Elliptic.BoundaryC2aFlatTraceZero
+module
+
+public import NoCompromise.Stationary.CapEstimateAssembly
+public import NoCompromise.Capacity.LocalExtension
+public import NoCompromise.Capacity.HullPotential
+public import NoCompromise.Capacity.HullPotentialCaccioppoliBound
+public import NoCompromise.Elliptic.BoundaryC2aLocalAssembly
+public import NoCompromise.Elliptic.BoundaryC2aShear
+public import NoCompromise.Elliptic.BoundaryC2aPullback
+public import NoCompromise.Elliptic.BoundaryC2aReflection
+public import NoCompromise.Elliptic.BoundaryC2aFlatTraceZero
+
+@[expose] public section
 
 /-!
 # `thm:boundary-C2a` for the capacitary potential of the filled hull

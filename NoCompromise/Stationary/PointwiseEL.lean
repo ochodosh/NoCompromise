@@ -1,9 +1,13 @@
-import NoCompromise.Stationary.GraphCurvature
-import NoCompromise.Stationary.Connected
-import NoCompromise.Stationary.ScalingIdentity
-import NoCompromise.Energy.PotentialHolder
-import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
-import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+module
+
+public import NoCompromise.Stationary.GraphCurvature
+public import NoCompromise.Stationary.Connected
+public import NoCompromise.Stationary.ScalingIdentity
+public import NoCompromise.Energy.PotentialHolder
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+
+@[expose] public section
 
 /-!
 # The pointwise Euler--Lagrange equation in a `C²` chart

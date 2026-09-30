@@ -1,4 +1,8 @@
-import NoCompromise.Capacity.AnnularDirichlet
+module
+
+public import NoCompromise.Capacity.AnnularDirichlet
+
+@[expose] public section
 
 /-!
 # Exterior-ball barriers for annular boundary continuity

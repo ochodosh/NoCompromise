@@ -1,4 +1,8 @@
-import NoCompromise.DeGiorgi.SmoothBoundary
+module
+
+public import NoCompromise.DeGiorgi.SmoothBoundary
+
+@[expose] public section
 
 /-!
 # Classical directional integration in one boundary chart

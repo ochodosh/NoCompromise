@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryC2aLocal
+module
+
+public import NoCompromise.Elliptic.BoundaryC2aLocal
+
+@[expose] public section
 
 /-!
 # Local boundary C²,α near flat points from H¹ (`thm:boundary-C2a`, assembly)

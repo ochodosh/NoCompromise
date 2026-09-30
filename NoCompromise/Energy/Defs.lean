@@ -1,5 +1,9 @@
-import NoCompromise.BV.Defs
-import NoCompromise.Energy.CoulombDefs
+module
+
+public import NoCompromise.BV.Defs
+public import NoCompromise.Energy.CoulombDefs
+
+@[expose] public section
 
 /-!
 # Energy and minimizers

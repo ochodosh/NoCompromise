@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.SobolevChainCompact
-import NoCompromise.Elliptic.SobolevChainHarmonic
-import NoCompromise.Elliptic.HarmonicMeanValueLocal
-import NoCompromise.Sobolev.SpatialGN
+module
+
+public import NoCompromise.Elliptic.SobolevChainCompact
+public import NoCompromise.Elliptic.SobolevChainHarmonic
+public import NoCompromise.Elliptic.HarmonicMeanValueLocal
+public import NoCompromise.Sobolev.SpatialGN
+
+@[expose] public section
 
 /-!
 # The Sobolev chain to classical regularity

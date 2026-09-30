@@ -1,9 +1,13 @@
-import NoCompromise.BV.ZeroVariation
-import NoCompromise.BV.Compactness
-import NoCompromise.BV.Algebra
-import NoCompromise.Sobolev.Extension
-import NoCompromise.Sobolev.BV
-import Mathlib.MeasureTheory.Integral.Average
+module
+
+public import NoCompromise.BV.ZeroVariation
+public import NoCompromise.BV.Compactness
+public import NoCompromise.BV.Algebra
+public import NoCompromise.Sobolev.Extension
+public import NoCompromise.Sobolev.BV
+public import Mathlib.MeasureTheory.Integral.Average
+
+@[expose] public section
 
 /-!
 # The compactness argument for BV Poincaré inequalities

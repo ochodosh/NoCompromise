@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.PerimeterConvergenceIdentification
+module
+
+public import NoCompromise.Regularity.PerimeterConvergenceIdentification
+
+@[expose] public section
 
 /-! # Full local weak convergence of the actual positive perimeter measures -/
 

@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.ClassicalCalculus
-import NoCompromise.Elliptic.ClassicalCubeAffine
+module
+
+public import NoCompromise.Elliptic.ClassicalCalculus
+public import NoCompromise.Elliptic.ClassicalCubeAffine
+
+@[expose] public section
 
 /-! # Classical Gauss–Green for all admissible domain classes -/
 

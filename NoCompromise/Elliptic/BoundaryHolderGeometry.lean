@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryHolderTangentialGrowth
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderTangentialGrowth
+
+@[expose] public section
 
 /-! Elementary ball geometry for the transition from flat-boundary estimates
 to interior estimates. No boundary regularity is used in these comparisons. -/

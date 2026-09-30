@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.H1Algebra
-import NoCompromise.Sobolev.H1Calculus
-import NoCompromise.Sobolev.H1TestApprox
+module
+
+public import NoCompromise.Sobolev.H1Algebra
+public import NoCompromise.Sobolev.H1Calculus
+public import NoCompromise.Sobolev.H1TestApprox
+
+@[expose] public section
 
 /-!
 # Caccioppoli's inequality for local weak solutions

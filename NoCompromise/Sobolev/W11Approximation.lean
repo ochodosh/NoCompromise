@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.W11Calculus
+module
+
+public import NoCompromise.Sobolev.W11Calculus
+
+@[expose] public section
 
 /-!
 # Smooth approximation in whole-space W¹,¹

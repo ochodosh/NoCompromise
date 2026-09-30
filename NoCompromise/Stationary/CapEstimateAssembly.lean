@@ -1,7 +1,11 @@
-import NoCompromise.Stationary.CapacitaryEstimate
-import NoCompromise.Surface.Geometry
-import NoCompromise.Green.SecondIdentity
-import NoCompromise.Capacity.HullExistence
+module
+
+public import NoCompromise.Stationary.CapacitaryEstimate
+public import NoCompromise.Surface.Geometry
+public import NoCompromise.Green.SecondIdentity
+public import NoCompromise.Capacity.HullExistence
+
+@[expose] public section
 
 /-! # Assembly of `prop:cap-estimate` for stationary domains containing the origin
 

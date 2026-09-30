@@ -1,6 +1,10 @@
-import NoCompromise.Sard.Slicing
-import NoCompromise.Sard.Scalar
-import NoCompromise.Measure.WeakDerivativeOne
+module
+
+public import NoCompromise.Sard.Slicing
+public import NoCompromise.Sard.Scalar
+public import NoCompromise.Measure.WeakDerivativeOne
+
+@[expose] public section
 
 /-!
 # Sard's theorem for C² maps from four to three dimensions

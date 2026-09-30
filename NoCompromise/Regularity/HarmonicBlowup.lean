@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.HarmonicBlowupNormalizedCompactness
-import NoCompromise.Regularity.HarmonicBlowupGeometry
-import NoCompromise.Regularity.ApproxHarmonicEstimateBounds
+module
+
+public import NoCompromise.Regularity.HarmonicBlowupNormalizedCompactness
+public import NoCompromise.Regularity.HarmonicBlowupGeometry
+public import NoCompromise.Regularity.ApproxHarmonicEstimateBounds
+
+@[expose] public section
 
 /-!
 # Harmonic blowup compactness of the actual graph approximations

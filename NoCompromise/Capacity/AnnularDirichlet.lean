@@ -1,8 +1,12 @@
-import NoCompromise.Capacity.FluxIdentity
-import NoCompromise.Capacity.ExistenceLimit
-import NoCompromise.Elliptic.WeakDirichlet
-import NoCompromise.Elliptic.WeakMaximum
-import NoCompromise.BV.StrictApprox
+module
+
+public import NoCompromise.Capacity.FluxIdentity
+public import NoCompromise.Capacity.ExistenceLimit
+public import NoCompromise.Elliptic.WeakDirichlet
+public import NoCompromise.Elliptic.WeakMaximum
+public import NoCompromise.BV.StrictApprox
+
+@[expose] public section
 
 /-!
 # The annular weak Dirichlet problem

@@ -1,4 +1,8 @@
-import NoCompromise.BV.Basic
+module
+
+public import NoCompromise.BV.Basic
+
+@[expose] public section
 
 /-!
 # Local-to-global BV on an open domain

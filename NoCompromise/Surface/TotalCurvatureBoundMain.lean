@@ -1,8 +1,12 @@
-import NoCompromise.Surface.GaussSardMain
-import NoCompromise.Surface.TotalCurvatureIndex
-import NoCompromise.CapacitaryK.FarFieldUnconditional
-import NoCompromise.CapacitaryK.GaussBonnetInput
-import NoCompromise.CapacitaryK.LevelInequality
+module
+
+public import NoCompromise.Surface.GaussSardMain
+public import NoCompromise.Surface.TotalCurvatureIndex
+public import NoCompromise.CapacitaryK.FarFieldUnconditional
+public import NoCompromise.CapacitaryK.GaussBonnetInput
+public import NoCompromise.CapacitaryK.LevelInequality
+
+@[expose] public section
 
 /-!
 # `thm:total-curvature-bound`, unconditionally, and its consumers in chapter 31

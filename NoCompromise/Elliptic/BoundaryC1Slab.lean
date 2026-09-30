@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryC1
+module
+
+public import NoCompromise.Elliptic.BoundaryC1
+
+@[expose] public section
 
 /-!
 # Boundary C¹,α regularity on a data-independent slab

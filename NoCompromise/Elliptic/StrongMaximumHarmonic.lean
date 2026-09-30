@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.StrongMaximum
-import NoCompromise.Elliptic.HarmonicMeanValue
+module
+
+public import NoCompromise.Elliptic.StrongMaximum
+public import NoCompromise.Elliptic.HarmonicMeanValue
+
+@[expose] public section
 
 /-!
 # Strong maximum principle for weakly harmonic functions

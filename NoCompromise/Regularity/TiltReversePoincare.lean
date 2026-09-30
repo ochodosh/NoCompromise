@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.ReversePoincareRotated
+module
+
+public import NoCompromise.Regularity.ReversePoincareRotated
+
+@[expose] public section
 
 /-! # Converting the actual tilted height moment into improved excess -/
 

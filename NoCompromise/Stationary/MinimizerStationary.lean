@@ -1,5 +1,9 @@
-import NoCompromise.Stationary.BootstrapC3Global
-import NoCompromise.Stationary.MinimizerC1Holder
+module
+
+public import NoCompromise.Stationary.BootstrapC3Global
+public import NoCompromise.Stationary.MinimizerC1Holder
+
+@[expose] public section
 
 /-!
 # The minimiser representative is a smooth stationary domain

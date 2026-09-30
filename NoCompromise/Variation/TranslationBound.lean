@@ -1,4 +1,8 @@
-import NoCompromise.Variation.OneDimensionalTranslation
+module
+
+public import NoCompromise.Variation.OneDimensionalTranslation
+
+@[expose] public section
 
 /-!
 # Uniform local domination of binary BV translations

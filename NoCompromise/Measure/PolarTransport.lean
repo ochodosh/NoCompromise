@@ -1,4 +1,8 @@
-import NoCompromise.DeGiorgi.PolarDifferentiation
+module
+
+public import NoCompromise.DeGiorgi.PolarDifferentiation
+
+@[expose] public section
 
 /-!
 # Transporting a locally integrable vector density

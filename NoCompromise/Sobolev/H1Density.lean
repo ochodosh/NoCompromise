@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1Extension
-import NoCompromise.Sobolev.H1Approximation
+module
+
+public import NoCompromise.Sobolev.H1Extension
+public import NoCompromise.Sobolev.H1Approximation
+
+@[expose] public section
 
 /-!
 # Smooth density in H¹ on bounded Lipschitz domains

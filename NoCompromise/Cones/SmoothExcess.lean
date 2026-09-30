@@ -1,8 +1,12 @@
-import NoCompromise.Cones.TangentHalfspaceMain
-import NoCompromise.Regularity.FixedNormalExcess
-import NoCompromise.Regularity.ExcessScaling
-import NoCompromise.DeGiorgi.HalfspacePerimeter
-import NoCompromise.DeGiorgi.AmbientPolar
+module
+
+public import NoCompromise.Cones.TangentHalfspaceMain
+public import NoCompromise.Regularity.FixedNormalExcess
+public import NoCompromise.Regularity.ExcessScaling
+public import NoCompromise.DeGiorgi.HalfspacePerimeter
+public import NoCompromise.DeGiorgi.AmbientPolar
+
+@[expose] public section
 
 /-!
 # Vanishing cylindrical excess at nonzero boundary points of minimizing cones

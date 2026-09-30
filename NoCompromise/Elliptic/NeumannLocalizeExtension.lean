@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNormalChartCoefficient
-import Mathlib.Analysis.Calculus.InverseFunctionTheorem.FiniteDimensional
+module
+
+public import NoCompromise.Elliptic.BoundaryNormalChartCoefficient
+public import Mathlib.Analysis.Calculus.InverseFunctionTheorem.FiniteDimensional
+
+@[expose] public section
 
 /-!
 # Global bi-Lipschitz extensions near a regular point

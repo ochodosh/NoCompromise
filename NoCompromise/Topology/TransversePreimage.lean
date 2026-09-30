@@ -1,6 +1,10 @@
-import NoCompromise.Topology.Transversality
-import NoCompromise.Surface.RegularValue
-import Mathlib.LinearAlgebra.FiniteDimensional.Basic
+module
+
+public import NoCompromise.Topology.Transversality
+public import NoCompromise.Surface.RegularValue
+public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
+
+@[expose] public section
 
 /-!
 # Compact transverse preimages and finite path intersections

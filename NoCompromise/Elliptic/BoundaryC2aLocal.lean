@@ -1,8 +1,12 @@
-import NoCompromise.Elliptic.BoundaryC2aH1
-import NoCompromise.Elliptic.BoundaryC2aTrace
-import NoCompromise.Elliptic.BoundaryHolderHalfScaling
-import NoCompromise.Elliptic.BoundaryHolderTranslate
-import NoCompromise.Elliptic.NondivSchauderScalingNorm
+module
+
+public import NoCompromise.Elliptic.BoundaryC2aH1
+public import NoCompromise.Elliptic.BoundaryC2aTrace
+public import NoCompromise.Elliptic.BoundaryHolderHalfScaling
+public import NoCompromise.Elliptic.BoundaryHolderTranslate
+public import NoCompromise.Elliptic.NondivSchauderScalingNorm
+
+@[expose] public section
 
 /-!
 # Local boundary C²,α near flat points: the rescaling step of `thm:boundary-C2a`

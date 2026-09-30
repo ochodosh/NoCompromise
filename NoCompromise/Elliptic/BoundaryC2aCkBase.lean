@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.BoundaryC2aCkIterate
-import NoCompromise.Elliptic.BoundaryC2aCoverNorm
-import NoCompromise.Elliptic.BoundaryC2aFlatTraceZero
-import NoCompromise.Elliptic.BoundaryC2aLocal
+module
+
+public import NoCompromise.Elliptic.BoundaryC2aCkIterate
+public import NoCompromise.Elliptic.BoundaryC2aCoverNorm
+public import NoCompromise.Elliptic.BoundaryC2aFlatTraceZero
+public import NoCompromise.Elliptic.BoundaryC2aLocal
+
+@[expose] public section
 
 /-!
 # The base level of the Dirichlet boundary higher-regularity iteration (`thm:boundary-C2a`)

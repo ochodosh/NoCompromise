@@ -1,5 +1,9 @@
-import NoCompromise.Topology.ParityPath
-import NoCompromise.Topology.ParitySides
+module
+
+public import NoCompromise.Topology.ParityPath
+public import NoCompromise.Topology.ParitySides
+
+@[expose] public section
 
 /-!
 # Orientation by parity: the two complementary components

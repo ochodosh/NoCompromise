@@ -1,5 +1,9 @@
-import NoCompromise.BV.CoareaLayerCake
-import Mathlib.Topology.Semicontinuity.Basic
+module
+
+public import NoCompromise.BV.CoareaLayerCake
+public import Mathlib.Topology.Semicontinuity.Basic
+
+@[expose] public section
 
 /-!
 # Measurability of superlevel perimeter

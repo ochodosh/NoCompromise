@@ -1,6 +1,10 @@
-import NoCompromise.Area.Rectifiable
-import NoCompromise.Area.Graph
-import Mathlib.Analysis.Calculus.ContDiff.RCLike
+module
+
+public import NoCompromise.Area.Rectifiable
+public import NoCompromise.Area.Graph
+public import Mathlib.Analysis.Calculus.ContDiff.RCLike
+
+@[expose] public section
 
 /-!
 # Compact embedded C¹ surfaces are rectifiable with finite area

@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.TangentScaling
-import NoCompromise.Regularity.TangentCompactness
-import NoCompromise.Regularity.PerimeterConvergence
+module
+
+public import NoCompromise.Regularity.TangentScaling
+public import NoCompromise.Regularity.TangentCompactness
+public import NoCompromise.Regularity.PerimeterConvergence
+
+@[expose] public section
 
 /-!
 # Minimizing limits of quasiminimal blow-ups

@@ -1,4 +1,8 @@
-import NoCompromise.BV.TraceKernels
+module
+
+public import NoCompromise.BV.TraceKernels
+
+@[expose] public section
 
 /-!
 # Actual BV cut identities on flat interfaces

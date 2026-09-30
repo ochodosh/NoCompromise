@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.CampanatoComparisonTests
+module
+
+public import NoCompromise.Elliptic.CampanatoComparisonTests
+
+@[expose] public section
 
 /-!
 # Comparison with the frozen solution

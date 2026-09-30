@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.Extension
+module
+
+public import NoCompromise.Sobolev.Extension
+
+@[expose] public section
 
 /-!
 # Exact variation of functions with a weak gradient

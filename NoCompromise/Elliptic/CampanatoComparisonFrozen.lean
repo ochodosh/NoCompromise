@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.CampanatoComparison
-import NoCompromise.Elliptic.VariationalHilbert
-import NoCompromise.Sobolev.H1TraceKernelApprox
+module
+
+public import NoCompromise.Elliptic.CampanatoComparison
+public import NoCompromise.Elliptic.VariationalHilbert
+public import NoCompromise.Sobolev.H1TraceKernelApprox
+
+@[expose] public section
 
 /-!
 # Construction of the frozen harmonic replacement

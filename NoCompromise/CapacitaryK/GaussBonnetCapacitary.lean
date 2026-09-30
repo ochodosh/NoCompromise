@@ -1,5 +1,9 @@
-import NoCompromise.Surface.TotalCurvatureBoundMain
-import NoCompromise.CapacitaryK.FromPotential
+module
+
+public import NoCompromise.Surface.TotalCurvatureBoundMain
+public import NoCompromise.CapacitaryK.FromPotential
+
+@[expose] public section
 
 /-!
 # `lem:K-gauss-bonnet-input` for the capacitary potential, unconditionally

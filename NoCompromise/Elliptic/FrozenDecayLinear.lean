@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.CampanatoComparisonFrozen
-import Mathlib.Analysis.InnerProductSpace.Positive
+module
+
+public import NoCompromise.Elliptic.CampanatoComparisonFrozen
+public import Mathlib.Analysis.InnerProductSpace.Positive
+
+@[expose] public section
 
 /-!
 # Quantitative linear normalization of frozen elliptic coefficients

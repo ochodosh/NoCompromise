@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNeumannQuotientScaling
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannQuotientScaling
+
+@[expose] public section
 
 /-!
 # Uniform C¹,α representatives of the Neumann tangential quotients

@@ -1,9 +1,13 @@
-import NoCompromise.Conventions
-import Mathlib.Analysis.Normed.Operator.Bilinear
-import Mathlib.Analysis.Calculus.Deriv.Pow
-import Mathlib.Analysis.Calculus.Deriv.Mul
-import Mathlib.Analysis.Calculus.Deriv.Add
-import Mathlib.Tactic
+module
+
+public import NoCompromise.Conventions
+public import Mathlib.Analysis.Normed.Operator.Bilinear
+public import Mathlib.Analysis.Calculus.Deriv.Pow
+public import Mathlib.Analysis.Calculus.Deriv.Mul
+public import Mathlib.Analysis.Calculus.Deriv.Add
+public import Mathlib.Tactic
+
+@[expose] public section
 
 /-!
 # Translation of the Kelvin kernels

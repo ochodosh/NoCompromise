@@ -1,6 +1,10 @@
-import NoCompromise.BV.CoareaLocal
-import NoCompromise.BV.CoareaIsometry
-import Mathlib.Topology.Compactness.Lindelof
+module
+
+public import NoCompromise.BV.CoareaLocal
+public import NoCompromise.BV.CoareaIsometry
+public import Mathlib.Topology.Compactness.Lindelof
+
+@[expose] public section
 
 /-!
 # The regular contribution to weighted C¹ coarea

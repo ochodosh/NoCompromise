@@ -1,7 +1,11 @@
-import Mathlib.Topology.Order.IntermediateValue
-import Mathlib.Topology.Compactness.Compact
-import Mathlib.Topology.Instances.Real.Lemmas
-import NoCompromise.Surface.MorseSectors
+module
+
+public import Mathlib.Topology.Order.IntermediateValue
+public import Mathlib.Topology.Compactness.Compact
+public import Mathlib.Topology.Instances.Real.Lemmas
+public import NoCompromise.Surface.MorseSectors
+
+@[expose] public section
 
 /-!
 # The two ends of an orbit

@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.GraphApproxHeight
+module
+
+public import NoCompromise.Regularity.GraphApproxHeight
+
+@[expose] public section
 
 /-!
 # Genuine geometric hypotheses for harmonic graph blowups

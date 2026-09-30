@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryHolderOddField
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderOddField
+
+@[expose] public section
 
 /-! Centered oscillations of the actual reflected field. Normal constants are
 preserved by odd scalar reflection, so boundary normal excess controls full-ball

@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.HolderInterpolationGeometry
-import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
-import Mathlib.MeasureTheory.Measure.OpenPos
-import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+module
+
+public import NoCompromise.Elliptic.HolderInterpolationGeometry
+public import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
+public import Mathlib.MeasureTheory.Measure.OpenPos
+public import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+
+@[expose] public section
 
 /-!
 # Explicit uniform and Hölder norms

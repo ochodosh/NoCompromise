@@ -1,8 +1,12 @@
-import NoCompromise.Hull.Properties
-import NoCompromise.Capacity.KelvinLevels
-import NoCompromise.Capacity.Flux
-import NoCompromise.Capacity.Slabs
-import NoCompromise.Elliptic.ClassicalNormal
+module
+
+public import NoCompromise.Hull.Properties
+public import NoCompromise.Capacity.KelvinLevels
+public import NoCompromise.Capacity.Flux
+public import NoCompromise.Capacity.Slabs
+public import NoCompromise.Elliptic.ClassicalNormal
+
+@[expose] public section
 
 /-!
 # The capacitary potential of the filled hull (`thm:capacitary-potential`, properties)

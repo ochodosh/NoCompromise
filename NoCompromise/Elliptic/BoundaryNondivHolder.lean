@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNondivQuotientBounds
+module
+
+public import NoCompromise.Elliptic.BoundaryNondivQuotientBounds
+
+@[expose] public section
 
 /-!
 # Closed-half-ball control of the constructed quotient datum

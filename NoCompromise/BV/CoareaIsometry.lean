@@ -1,5 +1,10 @@
-import NoCompromise.Area.C1GraphAlgebra
-import Mathlib.MeasureTheory.Integral.Lebesgue.Map
+module
+
+public import NoCompromise.Area.C1GraphAlgebra
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Map
+public import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+
+@[expose] public section
 
 /-!
 # Coarea identities under orthogonal changes of coordinates

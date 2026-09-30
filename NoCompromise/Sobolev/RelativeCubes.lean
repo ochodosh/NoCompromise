@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.RelativeScaling
-import NoCompromise.Sobolev.LipschitzCubes
+module
+
+public import NoCompromise.Sobolev.RelativeScaling
+public import NoCompromise.Sobolev.LipschitzCubes
+
+@[expose] public section
 
 /-!
 # Relative isoperimetry for arbitrarily oriented cubes

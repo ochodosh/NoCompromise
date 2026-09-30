@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryHolderOddField
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderOddField
+
+@[expose] public section
 
 /-! Orthogonal conjugation and the coefficient extensions for even reflection. -/
 

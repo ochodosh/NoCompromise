@@ -1,6 +1,10 @@
-import NoCompromise.Cones.ThreeDim
-import Mathlib.Analysis.Normed.Module.Connected
-import Mathlib.Topology.Connected.Clopen
+module
+
+public import NoCompromise.Cones.ThreeDim
+public import Mathlib.Analysis.Normed.Module.Connected
+public import Mathlib.Topology.Connected.Clopen
+
+@[expose] public section
 
 /-!
 # Nonemptiness of the link of a nontrivial three-dimensional cone

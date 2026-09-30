@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.W11FoldApprox
-import NoCompromise.Sobolev.H1Reflection
+module
+
+public import NoCompromise.Sobolev.W11FoldApprox
+public import NoCompromise.Sobolev.H1Reflection
+
+@[expose] public section
 
 /-!
 # Interior mollification followed by W¹,¹ reflection

@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.CapacitaryRadialGraph
-import NoCompromise.CapacitaryK.GradNormExpansion
+module
+
+public import NoCompromise.CapacitaryK.CapacitaryRadialGraph
+public import NoCompromise.CapacitaryK.GradNormExpansion
+
+@[expose] public section
 
 /-!
 # The gradient length on small capacitary levels

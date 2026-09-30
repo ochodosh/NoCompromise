@@ -1,6 +1,10 @@
-import Mathlib.Analysis.InnerProductSpace.PiL2
-import Mathlib.Topology.Order.Compact
-import Mathlib.Analysis.SpecificLimits.Basic
+module
+
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Topology.Order.Compact
+public import Mathlib.Analysis.SpecificLimits.Basic
+
+@[expose] public section
 
 /-!
 # `lem:K-level-asymptotics` (`eq:K-rt`, two-sided form): small levels lie between two radial graphs

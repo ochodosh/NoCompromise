@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.FixedNormalExcessDistribution
-import NoCompromise.Regularity.FixedNormalExcessIdentity
+module
+
+public import NoCompromise.Regularity.FixedNormalExcessDistribution
+public import NoCompromise.Regularity.FixedNormalExcessIdentity
+
+@[expose] public section
 
 /-! # Fixed-normal excess under strict perimeter convergence
 

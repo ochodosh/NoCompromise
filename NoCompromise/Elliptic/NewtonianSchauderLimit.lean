@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NewtonianSchauderCandidate
+module
+
+public import NoCompromise.Elliptic.NewtonianSchauderCandidate
+
+@[expose] public section
 
 /-!
 # Convergence of regularized Hessian kernels

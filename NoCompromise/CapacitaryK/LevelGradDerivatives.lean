@@ -1,6 +1,10 @@
-import NoCompromise.CapacitaryK.LevelGradExpansion
-import NoCompromise.CapacitaryK.LevelRadiusDerivatives
-import NoCompromise.CapacitaryK.LevelFrame
+module
+
+public import NoCompromise.CapacitaryK.LevelGradExpansion
+public import NoCompromise.CapacitaryK.LevelRadiusDerivatives
+public import NoCompromise.CapacitaryK.LevelFrame
+
+@[expose] public section
 
 /-!
 # Angular calculus for the gradient length on capacitary levels

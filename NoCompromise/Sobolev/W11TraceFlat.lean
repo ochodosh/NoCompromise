@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.H1Trace
+module
+
+public import NoCompromise.Sobolev.H1Trace
+
+@[expose] public section
 
 /-!
 # The L¹ normal-average trace

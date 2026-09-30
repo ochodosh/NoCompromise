@@ -1,11 +1,15 @@
-import NoCompromise.Regularity.TiltAnalyticData
-import NoCompromise.Regularity.GraphAffineHeightBound
-import NoCompromise.Regularity.TiltSmallness
-import NoCompromise.Regularity.TiltReversePoincare
-import NoCompromise.Regularity.TiltZero
-import NoCompromise.Regularity.HeightBound
-import NoCompromise.Regularity.ExcessDecayCoordinates
-import NoCompromise.Regularity.ExcessDecayScale
+module
+
+public import NoCompromise.Regularity.TiltAnalyticData
+public import NoCompromise.Regularity.GraphAffineHeightBound
+public import NoCompromise.Regularity.TiltSmallness
+public import NoCompromise.Regularity.TiltReversePoincare
+public import NoCompromise.Regularity.TiltZero
+public import NoCompromise.Regularity.HeightBound
+public import NoCompromise.Regularity.ExcessDecayCoordinates
+public import NoCompromise.Regularity.ExcessDecayScale
+
+@[expose] public section
 
 /-! # Uniform tilt improvement and fixed-scale excess decay -/
 

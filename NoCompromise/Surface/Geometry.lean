@@ -1,10 +1,14 @@
-import NoCompromise.BV.SmoothApproxBoundary
-import Mathlib.Analysis.Calculus.Implicit
-import Mathlib.Analysis.Calculus.FDeriv.Symmetric
-import Mathlib.LinearAlgebra.Trace
-import Mathlib.LinearAlgebra.Dual.Lemmas
-import Mathlib.Analysis.Calculus.AddTorsor.AffineMap
-import Mathlib.Analysis.Calculus.FDeriv.Affine
+module
+
+public import NoCompromise.BV.SmoothApproxBoundary
+public import Mathlib.Analysis.Calculus.Implicit
+public import Mathlib.Analysis.Calculus.FDeriv.Symmetric
+public import Mathlib.LinearAlgebra.Trace
+public import Mathlib.LinearAlgebra.Dual.Lemmas
+public import Mathlib.Analysis.Calculus.AddTorsor.AffineMap
+public import Mathlib.Analysis.Calculus.FDeriv.Affine
+
+@[expose] public section
 
 /-!
 # Concrete smooth surfaces and the positive-sphere curvature convention

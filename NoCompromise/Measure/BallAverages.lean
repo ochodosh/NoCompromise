@@ -1,10 +1,14 @@
-import NoCompromise.Sobolev.MaximalMeasurability
-import Mathlib.MeasureTheory.Integral.Prod
-import Mathlib.MeasureTheory.Integral.Average
-import Mathlib.MeasureTheory.Integral.DominatedConvergence
-import Mathlib.MeasureTheory.Constructions.Polish.Basic
-import Mathlib.MeasureTheory.Function.LocallyIntegrable
-import Mathlib.Topology.Order.IsLUB
+module
+
+public import NoCompromise.Sobolev.MaximalMeasurability
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.Integral.Average
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+public import Mathlib.MeasureTheory.Constructions.Polish.Basic
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import Mathlib.Topology.Order.IsLUB
+
+@[expose] public section
 
 /-!
 # Measurability and radial left continuity of ball averages

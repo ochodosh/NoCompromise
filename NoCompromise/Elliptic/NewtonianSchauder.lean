@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NewtonianSchauderCutoff
-import NoCompromise.Elliptic.NewtonianSchauderHarmonic
+module
+
+public import NoCompromise.Elliptic.NewtonianSchauderCutoff
+public import NoCompromise.Elliptic.NewtonianSchauderHarmonic
+
+@[expose] public section
 
 /-!
 # Interior Newtonian Schauder estimate

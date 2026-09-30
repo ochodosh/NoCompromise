@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.TiltImprovement
-import NoCompromise.Regularity.GeometricNormals
+module
+
+public import NoCompromise.Regularity.TiltImprovement
+public import NoCompromise.Regularity.GeometricNormals
+
+@[expose] public section
 
 /-!
 # Excess iteration and convergence of the selected normals

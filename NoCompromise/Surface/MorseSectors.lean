@@ -1,8 +1,12 @@
-import Mathlib.Analysis.InnerProductSpace.PiL2
-import Mathlib.Analysis.Normed.Module.Connected
-import Mathlib.Analysis.Convex.Topology
-import Mathlib.Analysis.Normed.Module.Ball.Homeomorph
-import Mathlib.Tactic
+module
+
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Analysis.Normed.Module.Connected
+public import Mathlib.Analysis.Convex.Topology
+public import Mathlib.Analysis.Normed.Module.Ball.Homeomorph
+public import Mathlib.Tactic
+
+@[expose] public section
 
 /-!
 # Local sectors in Morse model coordinates

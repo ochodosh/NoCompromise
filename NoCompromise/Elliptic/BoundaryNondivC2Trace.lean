@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNondivC2Equation
+module
+
+public import NoCompromise.Elliptic.BoundaryNondivC2Equation
+
+@[expose] public section
 
 /-!
 # Subtracting a C² extension of the boundary trace

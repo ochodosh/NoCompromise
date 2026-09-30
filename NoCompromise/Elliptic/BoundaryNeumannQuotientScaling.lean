@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNeumannQuotientBounds
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannQuotientBounds
+
+@[expose] public section
 
 /-! Positive rescaling preserves the full ambient-test conormal identity. -/
 

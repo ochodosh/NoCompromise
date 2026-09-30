@@ -1,6 +1,10 @@
-import NoCompromise.Variation.StraightDiffeo
-import Mathlib.Analysis.Calculus.ImplicitContDiff
-import Mathlib.MeasureTheory.Integral.IntervalIntegral.ContDiff
+module
+
+public import NoCompromise.Variation.StraightDiffeo
+public import Mathlib.Analysis.Calculus.ImplicitContDiff
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.ContDiff
+
+@[expose] public section
 
 /-!
 # Interpolation of inverse straight perturbations

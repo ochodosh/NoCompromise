@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.TiltGeometry
+module
+
+public import NoCompromise.Regularity.TiltGeometry
+
+@[expose] public section
 
 /-! # Distance to the affine plane associated with a graph slope -/
 

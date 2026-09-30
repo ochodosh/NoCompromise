@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.H1Reflection
-import NoCompromise.Sobolev.H1Approximation
-import NoCompromise.Sobolev.WeakCompactness
+module
+
+public import NoCompromise.Sobolev.H1Reflection
+public import NoCompromise.Sobolev.H1Approximation
+public import NoCompromise.Sobolev.WeakCompactness
+
+@[expose] public section
 
 /-!
 # H¹ reflection across a flat face

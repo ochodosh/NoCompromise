@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryHolderAverages
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderAverages
+
+@[expose] public section
 
 /-! Squared normal-excess decay constructs a genuine limit of the half-ball
 averages at the boundary origin, with a uniform error at every positive small radius. -/

@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NondivSchauderNorm
-import Mathlib.Analysis.Calculus.ContDiff.FiniteDimension
+module
+
+public import NoCompromise.Elliptic.NondivSchauderNorm
+public import Mathlib.Analysis.Calculus.ContDiff.FiniteDimension
+
+@[expose] public section
 
 /-!
 # Coordinate regularity and the full Hessian

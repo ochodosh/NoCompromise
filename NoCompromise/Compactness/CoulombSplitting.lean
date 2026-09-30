@@ -1,4 +1,8 @@
-import NoCompromise.Energy.Coulomb
+module
+
+public import NoCompromise.Energy.Coulomb
+
+@[expose] public section
 
 /-!
 # Coulomb splitting across expanding balls

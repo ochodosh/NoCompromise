@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.QuasilinearCampanatoScaling
+module
+
+public import NoCompromise.Elliptic.QuasilinearCampanatoScaling
+
+@[expose] public section
 
 /-! Uniform local Campanato applications fill the requested half-radius ball.
 This retains the larger three-quarter-radius domain for the actual H¹ equation,

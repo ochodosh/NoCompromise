@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1PositivePartTests
-import NoCompromise.Sobolev.PlanarGN
+module
+
+public import NoCompromise.Sobolev.H1PositivePartTests
+public import NoCompromise.Sobolev.PlanarGN
+
+@[expose] public section
 
 /-!
 # Bounded-domain coercivity for the positive-part argument

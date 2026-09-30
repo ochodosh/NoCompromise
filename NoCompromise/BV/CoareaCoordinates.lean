@@ -1,6 +1,10 @@
-import NoCompromise.Area.C1GraphAlgebra
-import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
-import Mathlib.MeasureTheory.Measure.Prod
+module
+
+public import NoCompromise.Area.C1GraphAlgebra
+public import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+public import Mathlib.MeasureTheory.Measure.Prod
+
+@[expose] public section
 
 /-!
 # Coordinates for scalar coarea

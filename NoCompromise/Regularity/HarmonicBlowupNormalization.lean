@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1Poincare
-import NoCompromise.Sobolev.H1Approximation
+module
+
+public import NoCompromise.Sobolev.H1Poincare
+public import NoCompromise.Sobolev.H1Approximation
+
+@[expose] public section
 
 /-!
 # Actual normalization of the graph functions

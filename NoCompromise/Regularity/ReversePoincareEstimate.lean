@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.ReversePoincareComparison
-import NoCompromise.Regularity.ReversePoincareMoment
-import NoCompromise.Regularity.ReversePoincareRadii
+module
+
+public import NoCompromise.Regularity.ReversePoincareComparison
+public import NoCompromise.Regularity.ReversePoincareMoment
+public import NoCompromise.Regularity.ReversePoincareRadii
+
+@[expose] public section
 
 /-! # Quantitative reverse Poincaré at the original geometric scale -/
 

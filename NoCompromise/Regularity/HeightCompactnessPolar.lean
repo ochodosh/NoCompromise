@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.HeightCompactnessPairing
-import NoCompromise.Regularity.ZeroExcessLocalPolar
+module
+
+public import NoCompromise.Regularity.HeightCompactnessPairing
+public import NoCompromise.Regularity.ZeroExcessLocalPolar
+
+@[expose] public section
 
 /-! # Small-excess limits have a genuine positive constant polar measure
 

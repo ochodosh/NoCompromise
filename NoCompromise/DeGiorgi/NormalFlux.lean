@@ -1,5 +1,9 @@
-import NoCompromise.DeGiorgi.Reduced
-import NoCompromise.DeGiorgi.RadialFlux
+module
+
+public import NoCompromise.DeGiorgi.Reduced
+public import NoCompromise.DeGiorgi.RadialFlux
+
+@[expose] public section
 
 /-!
 # Normal-flux comparison at a reduced point

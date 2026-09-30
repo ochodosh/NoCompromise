@@ -1,7 +1,11 @@
-import NoCompromise.DeGiorgi.BlowupScaling
-import NoCompromise.DeGiorgi.ReducedPerimeter
-import NoCompromise.DeGiorgi.ReducedDensity
-import NoCompromise.BV.Compactness
+module
+
+public import NoCompromise.DeGiorgi.BlowupScaling
+public import NoCompromise.DeGiorgi.ReducedPerimeter
+public import NoCompromise.DeGiorgi.ReducedDensity
+public import NoCompromise.BV.Compactness
+
+@[expose] public section
 
 /-!
 # Compactness of blow-ups at reduced points

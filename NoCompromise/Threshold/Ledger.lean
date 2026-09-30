@@ -1,7 +1,11 @@
-import NoCompromise.Threshold.Algebra
-import Mathlib.Analysis.Calculus.Deriv.MeanValue
-import Mathlib.Analysis.Calculus.Deriv.Pow
-import Mathlib.Analysis.Calculus.Deriv.Inv
+module
+
+public import NoCompromise.Threshold.Algebra
+public import Mathlib.Analysis.Calculus.Deriv.MeanValue
+public import Mathlib.Analysis.Calculus.Deriv.Pow
+public import Mathlib.Analysis.Calculus.Deriv.Inv
+
+@[expose] public section
 
 /-! # Algebraic ledger
 

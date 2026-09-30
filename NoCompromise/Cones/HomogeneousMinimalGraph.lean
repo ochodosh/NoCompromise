@@ -1,6 +1,10 @@
-import NoCompromise.Stationary.BootstrapC2
-import Mathlib.Analysis.Calculus.FDeriv.Symmetric
-import Mathlib.Analysis.InnerProductSpace.Trace
+module
+
+public import NoCompromise.Stationary.BootstrapC2
+public import Mathlib.Analysis.Calculus.FDeriv.Symmetric
+public import Mathlib.Analysis.InnerProductSpace.Trace
+
+@[expose] public section
 
 /-! A homogeneous minimal graph in two variables has vanishing Hessian. -/
 

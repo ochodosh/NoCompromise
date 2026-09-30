@@ -1,7 +1,11 @@
-import NoCompromise.BV.Algebra
-import Mathlib.MeasureTheory.Function.LpSpace.Basic
-import Mathlib.Analysis.Normed.Module.Basic
-import Mathlib.Analysis.Normed.Operator.Basic
+module
+
+public import NoCompromise.BV.Algebra
+public import Mathlib.MeasureTheory.Function.LpSpace.Basic
+public import Mathlib.Analysis.Normed.Module.Basic
+public import Mathlib.Analysis.Normed.Operator.Basic
+
+@[expose] public section
 
 /-!
 # The normed space of BV classes

@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.NondivSchauderHessian
-import NoCompromise.Elliptic.NondivSchauderDatumLimit
-import NoCompromise.Elliptic.NondivSchauderEquationLimit
+module
+
+public import NoCompromise.Elliptic.NondivSchauderHessian
+public import NoCompromise.Elliptic.NondivSchauderDatumLimit
+public import NoCompromise.Elliptic.NondivSchauderEquationLimit
+
+@[expose] public section
 
 /-!
 # The genuine differentiated nondivergence equation

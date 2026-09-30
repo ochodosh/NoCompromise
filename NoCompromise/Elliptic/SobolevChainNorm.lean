@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.SobolevChainLocal
-import Mathlib.Analysis.Calculus.ContDiff.Bounds
+module
+
+public import NoCompromise.Elliptic.SobolevChainLocal
+public import Mathlib.Analysis.Calculus.ContDiff.Bounds
+
+@[expose] public section
 
 /-!
 # Explicit Sobolev derivative data and its L² norm

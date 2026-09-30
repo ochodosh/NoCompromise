@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNormalChartInverse
-import Mathlib.Analysis.Calculus.Deriv.Abs
+module
+
+public import NoCompromise.Elliptic.BoundaryNormalChartInverse
+public import Mathlib.Analysis.Calculus.Deriv.Abs
+
+@[expose] public section
 
 /-!
 # The Dirichlet coefficient in normal graph coordinates

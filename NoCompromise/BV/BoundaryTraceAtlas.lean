@@ -1,4 +1,8 @@
-import NoCompromise.BV.TraceAgreement
+module
+
+public import NoCompromise.BV.TraceAgreement
+
+@[expose] public section
 
 /-!
 # A single integrable trace on a compact C¹ boundary

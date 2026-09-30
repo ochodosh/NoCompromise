@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.TangentLimit
-import NoCompromise.Regularity.TangentDensity
-import NoCompromise.Regularity.TangentBoundary
+module
+
+public import NoCompromise.Regularity.TangentLimit
+public import NoCompromise.Regularity.TangentDensity
+public import NoCompromise.Regularity.TangentBoundary
+
+@[expose] public section
 
 /-!
 # Existence of nontrivial locally minimizing tangent limits

@@ -1,5 +1,9 @@
-import NoCompromise.BV.SphericalSlicing
-import Mathlib.MeasureTheory.Integral.IntervalIntegral.LebesgueDifferentiationThm
+module
+
+public import NoCompromise.BV.SphericalSlicing
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.LebesgueDifferentiationThm
+
+@[expose] public section
 
 /-!
 # Radial volume and spherical section area

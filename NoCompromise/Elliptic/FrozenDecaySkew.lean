@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.InteriorH2Hessian
-import NoCompromise.Elliptic.CampanatoComparisonTests
+module
+
+public import NoCompromise.Elliptic.InteriorH2Hessian
+public import NoCompromise.Elliptic.CampanatoComparisonTests
+
+@[expose] public section
 
 /-! The constant skew part cancels against scalar weak gradients. This is
 proved from the symmetry of smooth test Hessians and the distributional

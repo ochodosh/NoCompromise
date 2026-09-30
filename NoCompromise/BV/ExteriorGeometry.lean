@@ -1,5 +1,9 @@
-import NoCompromise.DeGiorgi.SmoothBoundary
-import NoCompromise.Sobolev.Extension
+module
+
+public import NoCompromise.DeGiorgi.SmoothBoundary
+public import NoCompromise.Sobolev.Extension
+
+@[expose] public section
 
 /-!
 # Exterior charts for C¹ domains

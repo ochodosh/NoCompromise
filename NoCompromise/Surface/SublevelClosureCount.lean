@@ -1,5 +1,9 @@
-import NoCompromise.Surface.SublevelClosureSaddle
-import NoCompromise.Surface.SublevelAttach
+module
+
+public import NoCompromise.Surface.SublevelClosureSaddle
+public import NoCompromise.Surface.SublevelAttach
+
+@[expose] public section
 
 /-!
 # Component counts in `lem:sublevel-closure`: the non-merging saddle

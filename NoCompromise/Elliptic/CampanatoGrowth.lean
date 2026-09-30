@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.CampanatoGrowthScalar
-import NoCompromise.Elliptic.CampanatoGrowthStep
+module
+
+public import NoCompromise.Elliptic.CampanatoGrowthScalar
+public import NoCompromise.Elliptic.CampanatoGrowthStep
+
+@[expose] public section
 
 /-!
 # Subcritical gradient-energy growth

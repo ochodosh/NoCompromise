@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNondivC2Trace
-import NoCompromise.Elliptic.BoundaryNondivC2
+module
+
+public import NoCompromise.Elliptic.BoundaryNondivC2Trace
+public import NoCompromise.Elliptic.BoundaryNondivC2
+
+@[expose] public section
 
 /-!
 # Nonzero trace: the zero-trace data for `z - φ`

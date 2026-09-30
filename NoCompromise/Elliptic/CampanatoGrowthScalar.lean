@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.CampanatoIteration
-import Mathlib.Analysis.SpecialFunctions.Pow.Continuity
+module
+
+public import NoCompromise.Elliptic.CampanatoIteration
+public import Mathlib.Analysis.SpecialFunctions.Pow.Continuity
+
+@[expose] public section
 
 /-!
 # Uniform subcritical energy iteration

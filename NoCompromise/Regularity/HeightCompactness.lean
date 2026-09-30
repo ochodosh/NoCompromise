@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.HeightCompactnessDensity
-import NoCompromise.Regularity.TangentCompactness
+module
+
+public import NoCompromise.Regularity.HeightCompactnessDensity
+public import NoCompromise.Regularity.TangentCompactness
+
+@[expose] public section
 
 /-! # Actual BV compactness for uniformly bounded quasiminimality errors -/
 

@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.H1Extension
+module
+
+public import NoCompromise.Sobolev.H1Extension
+
+@[expose] public section
 
 /-!
 # H¹ extension retaining continuous representatives

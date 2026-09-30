@@ -1,8 +1,12 @@
-import NoCompromise.Sobolev.H1Approximation
-import NoCompromise.Sobolev.H1Algebra
-import NoCompromise.Sobolev.H1Reflection
-import NoCompromise.Sobolev.H1Chain
-import NoCompromise.Sobolev.WeakCompactness
+module
+
+public import NoCompromise.Sobolev.H1Approximation
+public import NoCompromise.Sobolev.H1Algebra
+public import NoCompromise.Sobolev.H1Reflection
+public import NoCompromise.Sobolev.H1Chain
+public import NoCompromise.Sobolev.WeakCompactness
+
+@[expose] public section
 
 /-!
 # H¹ difference quotients

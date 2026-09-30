@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryHolderGeometry
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderGeometry
+
+@[expose] public section
 
 /-! The explicitly reflected gradient field used for boundary Campanato
 embedding. Reflection preserves its actual Lebesgue integrals; no continuity

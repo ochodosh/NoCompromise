@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.CampanatoGrowth
-import NoCompromise.Measure.BallDifferentiation
-import Mathlib.Analysis.SpecificLimits.Normed
+module
+
+public import NoCompromise.Elliptic.CampanatoGrowth
+public import NoCompromise.Measure.BallDifferentiation
+public import Mathlib.Analysis.SpecificLimits.Normed
+
+@[expose] public section
 
 /-! Quantitative comparison of actual ball averages from squared mean oscillation. -/
 

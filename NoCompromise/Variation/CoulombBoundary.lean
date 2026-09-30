@@ -1,6 +1,10 @@
-import NoCompromise.Energy.PotentialRegularity
-import NoCompromise.DeGiorgi.Structure
-import NoCompromise.DeGiorgi.SmoothBoundary
+module
+
+public import NoCompromise.Energy.PotentialRegularity
+public import NoCompromise.DeGiorgi.Structure
+public import NoCompromise.DeGiorgi.SmoothBoundary
+
+@[expose] public section
 
 /-!
 # Boundary first variation of Coulomb energy

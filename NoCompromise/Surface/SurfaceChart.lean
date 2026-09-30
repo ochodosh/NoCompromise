@@ -1,4 +1,9 @@
-import NoCompromise.Surface.TangentFlow
+module
+
+public import NoCompromise.Surface.TangentFlow
+import all Mathlib.Analysis.Calculus.Implicit
+
+@[expose] public section
 
 /-!
 # Projection charts on an embedded surface

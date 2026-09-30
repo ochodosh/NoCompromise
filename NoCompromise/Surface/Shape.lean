@@ -1,6 +1,10 @@
-import NoCompromise.Surface.Geometry
-import NoCompromise.Area.Linear
-import Mathlib.Analysis.Calculus.ContDiff.Deriv
+module
+
+public import NoCompromise.Surface.Geometry
+public import NoCompromise.Area.Linear
+public import Mathlib.Analysis.Calculus.ContDiff.Deriv
+
+@[expose] public section
 
 /-!
 # Gauss-map Jacobian and the Hessian of height

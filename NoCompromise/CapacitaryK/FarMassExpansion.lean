@@ -1,7 +1,11 @@
-import NoCompromise.CapacitaryK.FarMassDensity
-import NoCompromise.CapacitaryK.LevelSandwich
-import NoCompromise.CapacitaryK.PolarMassExpansion
-import NoCompromise.CapacitaryK.TranslatedDerivatives
+module
+
+public import NoCompromise.CapacitaryK.FarMassDensity
+public import NoCompromise.CapacitaryK.LevelSandwich
+public import NoCompromise.CapacitaryK.PolarMassExpansion
+public import NoCompromise.CapacitaryK.TranslatedDerivatives
+
+@[expose] public section
 
 /-!
 # `eq:K-p-expansion`, `lem:K-far-field`, `thm:capacitary-inequalities` for the capacitary potential

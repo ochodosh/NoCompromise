@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.GraphGoodBaseLoss
-import NoCompromise.Regularity.GraphSlices
+module
+
+public import NoCompromise.Regularity.GraphGoodBaseLoss
+public import NoCompromise.Regularity.GraphSlices
+
+@[expose] public section
 
 /-! # The actual good graph misses only a null part of the maximal-function good set -/
 

@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.InteriorH2Energy
-import NoCompromise.Sobolev.H1FlatExtension
-import NoCompromise.Sobolev.ExtensionPartition
+module
+
+public import NoCompromise.Elliptic.InteriorH2Energy
+public import NoCompromise.Sobolev.H1FlatExtension
+public import NoCompromise.Sobolev.ExtensionPartition
+
+@[expose] public section
 
 /-!
 # Recovering local H¹ regularity from distributional L² Poisson data

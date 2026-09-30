@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNondivHolder
-import NoCompromise.Elliptic.BoundaryNeumann
+module
+
+public import NoCompromise.Elliptic.BoundaryNondivHolder
+public import NoCompromise.Elliptic.BoundaryNeumann
+
+@[expose] public section
 
 /-!
 # Tangential quotients of the homogeneous conormal equation

@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderFrozen
-import NoCompromise.Elliptic.FrozenDecayEstimates
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderFrozen
+public import NoCompromise.Elliptic.FrozenDecayEstimates
+
+@[expose] public section
 
 /-!
 # Derivatives and boundary values of smooth odd symmetrization

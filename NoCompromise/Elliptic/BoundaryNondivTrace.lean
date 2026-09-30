@@ -1,9 +1,13 @@
-import NoCompromise.Elliptic.BoundaryNondivQuotient
-import NoCompromise.Elliptic.BoundaryHolderTranslate
-import NoCompromise.Elliptic.BoundaryHolderTraceAlgebra
-import NoCompromise.Elliptic.BoundaryNeumannWeak
-import NoCompromise.Elliptic.BoundaryNeumannHolder
-import NoCompromise.Sobolev.H1TraceContinuous
+module
+
+public import NoCompromise.Elliptic.BoundaryNondivQuotient
+public import NoCompromise.Elliptic.BoundaryHolderTranslate
+public import NoCompromise.Elliptic.BoundaryHolderTraceAlgebra
+public import NoCompromise.Elliptic.BoundaryNeumannWeak
+public import NoCompromise.Elliptic.BoundaryNeumannHolder
+public import NoCompromise.Sobolev.H1TraceContinuous
+
+@[expose] public section
 
 /-!
 # Zero flat trace for tangential nondivergence quotients

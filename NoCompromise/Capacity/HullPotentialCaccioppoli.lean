@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.Caccioppoli
-import NoCompromise.Elliptic.SobolevChainHarmonic
-import NoCompromise.Elliptic.HarmonicMeanValue
-import NoCompromise.Elliptic.WeakMaximumCore
+module
+
+public import NoCompromise.Elliptic.Caccioppoli
+public import NoCompromise.Elliptic.SobolevChainHarmonic
+public import NoCompromise.Elliptic.HarmonicMeanValue
+public import NoCompromise.Elliptic.WeakMaximumCore
+
+@[expose] public section
 
 /-!
 # The weak Laplace equation for a continuous harmonic function

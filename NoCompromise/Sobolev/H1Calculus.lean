@@ -1,4 +1,8 @@
-import NoCompromise.BV.Rellich
+module
+
+public import NoCompromise.BV.Rellich
+
+@[expose] public section
 
 /-!
 # Compact cutoffs for weak gradients and H¹

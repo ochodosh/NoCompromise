@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.HopfGeometry
-import NoCompromise.BV.ExteriorGeometry
+module
+
+public import NoCompromise.Elliptic.HopfGeometry
+public import NoCompromise.BV.ExteriorGeometry
+
+@[expose] public section
 
 /-!
 # Tangent balls from C² boundary charts

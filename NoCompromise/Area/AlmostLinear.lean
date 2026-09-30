@@ -1,4 +1,8 @@
-import NoCompromise.Area.Linear
+module
+
+public import NoCompromise.Area.Linear
+
+@[expose] public section
 
 /-!
 # Quantitative area bounds for almost-linear maps

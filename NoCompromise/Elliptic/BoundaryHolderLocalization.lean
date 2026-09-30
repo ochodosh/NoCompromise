@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryHolderTrace
-import NoCompromise.Elliptic.CampanatoGrowthComparison
-import NoCompromise.Sobolev.LipschitzDomains
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderTrace
+public import NoCompromise.Elliptic.CampanatoGrowthComparison
+public import NoCompromise.Sobolev.LipschitzDomains
+
+@[expose] public section
 
 /-!
 # Localization of a zero-trace half-ball solution

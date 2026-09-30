@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.DeformationCompactness
-import NoCompromise.Regularity.DeformationCompactnessAE
+module
+
+public import NoCompromise.Regularity.DeformationCompactness
+public import NoCompromise.Regularity.DeformationCompactnessAE
+
+@[expose] public section
 
 /-! # Simultaneous local L¹ and almost-everywhere compression compactness -/
 

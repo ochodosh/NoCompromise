@@ -1,5 +1,9 @@
-import NoCompromise.Isoperimetric.RigidityRegularity
-import NoCompromise.Classification.Subcritical
+module
+
+public import NoCompromise.Isoperimetric.RigidityRegularity
+public import NoCompromise.Classification.Subcritical
+
+@[expose] public section
 
 /-!
 # Isoperimetric rigidity in the form used by Chapters 34–35

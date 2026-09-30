@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.QuasilinearCoefficients
-import NoCompromise.Elliptic.CampanatoHolderDatum
-import NoCompromise.Elliptic.NondivSchauderDifferenceEquation
-import NoCompromise.Elliptic.NondivSchauderTests
+module
+
+public import NoCompromise.Elliptic.QuasilinearCoefficients
+public import NoCompromise.Elliptic.CampanatoHolderDatum
+public import NoCompromise.Elliptic.NondivSchauderDifferenceEquation
+public import NoCompromise.Elliptic.NondivSchauderTests
+
+@[expose] public section
 
 /-! The nonlinear scalar divergence equation yields a genuine linear weak
 system for each nonzero coordinate quotient, with the constructed segment

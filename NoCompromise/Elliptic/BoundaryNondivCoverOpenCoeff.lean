@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNondivCoverOpen
+module
+
+public import NoCompromise.Elliptic.BoundaryNondivCoverOpen
+
+@[expose] public section
 
 /-!
 # `thm:boundary-nondiv` on `B⁺_{1/2}` with C¹,α coefficients on the open half ball

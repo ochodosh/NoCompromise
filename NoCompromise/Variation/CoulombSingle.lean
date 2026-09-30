@@ -1,5 +1,9 @@
-import NoCompromise.Variation.CoulombBulk
-import Mathlib.MeasureTheory.Function.StronglyMeasurable.Inner
+module
+
+public import NoCompromise.Variation.CoulombBulk
+public import Mathlib.MeasureTheory.Function.StronglyMeasurable.Inner
+
+@[expose] public section
 
 /-!
 # Absolute integrability of the single-variable Coulomb variation

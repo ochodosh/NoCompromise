@@ -1,9 +1,13 @@
-import NoCompromise.Capacity.SphereFlux
-import NoCompromise.Capacity.KelvinLevels
-import NoCompromise.Elliptic.ClassicalCalculus
-import NoCompromise.Elliptic.ClassicalNormal
-import NoCompromise.Sobolev.AnnulusDomain
-import NoCompromise.BV.ExteriorGeometry
+module
+
+public import NoCompromise.Capacity.SphereFlux
+public import NoCompromise.Capacity.KelvinLevels
+public import NoCompromise.Elliptic.ClassicalCalculus
+public import NoCompromise.Elliptic.ClassicalNormal
+public import NoCompromise.Sobolev.AnnulusDomain
+public import NoCompromise.BV.ExteriorGeometry
+
+@[expose] public section
 
 /-!
 # Capacity, boundary flux, and the Kelvin coefficient

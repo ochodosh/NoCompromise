@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.HarmonicDerivativeSobolev
-import NoCompromise.Elliptic.HarmonicMeanValueLocal
+module
+
+public import NoCompromise.Elliptic.HarmonicDerivativeSobolev
+public import NoCompromise.Elliptic.HarmonicMeanValueLocal
+
+@[expose] public section
 
 /-! Ball-center independent harmonic derivative estimates, obtained by translating
 the quantitative interior Sobolev estimates to the origin. -/

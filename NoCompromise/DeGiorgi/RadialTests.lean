@@ -1,5 +1,9 @@
-import NoCompromise.BV.SphericalSlicing
-import NoCompromise.DeGiorgi.PolarDifferentiation
+module
+
+public import NoCompromise.BV.SphericalSlicing
+public import NoCompromise.DeGiorgi.PolarDifferentiation
+
+@[expose] public section
 
 /-!
 # Radial test fields and spherical-section flux

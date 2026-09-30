@@ -1,8 +1,12 @@
-import NoCompromise.Stationary.MinimizerContext
-import NoCompromise.Variation.Perimeter
-import NoCompromise.Variation.VolumeBoundary
-import NoCompromise.Variation.CoulombBoundary
-import NoCompromise.Energy.Scaling
+module
+
+public import NoCompromise.Stationary.MinimizerContext
+public import NoCompromise.Variation.Perimeter
+public import NoCompromise.Variation.VolumeBoundary
+public import NoCompromise.Variation.CoulombBoundary
+public import NoCompromise.Energy.Scaling
+
+@[expose] public section
 
 /-!
 # The constrained first variation

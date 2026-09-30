@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.ClassicalNormal
-import NoCompromise.BV.ExteriorGeometry
+module
+
+public import NoCompromise.Elliptic.ClassicalNormal
+public import NoCompromise.BV.ExteriorGeometry
+
+@[expose] public section
 
 /-!
 # Unique differentiability of the closure of a C¹ domain

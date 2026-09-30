@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.W11Space
-import NoCompromise.Sobolev.W11Extension
+module
+
+public import NoCompromise.Sobolev.W11Space
+public import NoCompromise.Sobolev.W11Extension
+
+@[expose] public section
 
 /-!
 # Smooth density in W¹,¹ on bounded Lipschitz domains

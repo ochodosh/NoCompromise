@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.DeformationColumn
-import NoCompromise.Regularity.DeformationTransport
-import NoCompromise.Regularity.DeformationCore
+module
+
+public import NoCompromise.Regularity.DeformationColumn
+public import NoCompromise.Regularity.DeformationTransport
+public import NoCompromise.Regularity.DeformationCore
+
+@[expose] public section
 
 /-! # The uniform annular perimeter estimate for actual compression competitors -/
 

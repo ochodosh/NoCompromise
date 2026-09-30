@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.Cylinders
+module
+
+public import NoCompromise.Regularity.Cylinders
+
+@[expose] public section
 
 /-! # Exact covariance of intrinsic cylinders under orthogonal maps -/
 

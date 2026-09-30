@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.SobolevChainLocal
+module
+
+public import NoCompromise.Elliptic.SobolevChainLocal
+
+@[expose] public section
 
 /-! A continuous weak gradient produces a genuine C¹ representative. Local
 mollifications converge through their derivatives; an actual Lebesgue point

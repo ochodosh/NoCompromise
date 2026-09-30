@@ -1,10 +1,14 @@
-import NoCompromise.Cones.SmoothMain
-import NoCompromise.Cones.MinimalGraphEquationMain
-import NoCompromise.Cones.MinimalGraphC2
-import NoCompromise.Cones.SmoothHomogeneous
-import NoCompromise.Cones.HomogeneousMinimalGraph
-import NoCompromise.Cones.AffineOfHessian
-import NoCompromise.Cones.LinkLocal
+module
+
+public import NoCompromise.Cones.SmoothMain
+public import NoCompromise.Cones.MinimalGraphEquationMain
+public import NoCompromise.Cones.MinimalGraphC2
+public import NoCompromise.Cones.SmoothHomogeneous
+public import NoCompromise.Cones.HomogeneousMinimalGraph
+public import NoCompromise.Cones.AffineOfHessian
+public import NoCompromise.Cones.LinkLocal
+
+@[expose] public section
 
 /-! Three-dimensional minimizing cones are halfspaces, from the pointwise
 minimal-surface equation for C² weak solutions. -/

@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.H1PositivePartApprox
-import NoCompromise.Sobolev.H1TraceOperator
-import NoCompromise.Sobolev.H1MeanZero
+module
+
+public import NoCompromise.Sobolev.H1PositivePartApprox
+public import NoCompromise.Sobolev.H1TraceOperator
+public import NoCompromise.Sobolev.H1MeanZero
+
+@[expose] public section
 
 /-!
 # Positive parts in H¹ and their actual traces

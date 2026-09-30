@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.H1Approximation
+module
+
+public import NoCompromise.Sobolev.H1Approximation
+
+@[expose] public section
 
 /-!
 # Mollification of distributional Poisson equations

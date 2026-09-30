@@ -1,4 +1,8 @@
-import NoCompromise.Capacity.LevelAreaElement
+module
+
+public import NoCompromise.Capacity.LevelAreaElement
+
+@[expose] public section
 
 /-!
 # `lem:level-asymptotics` in one statement

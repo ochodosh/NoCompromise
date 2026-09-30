@@ -1,6 +1,10 @@
-import NoCompromise.Capacity.Flux
-import NoCompromise.Elliptic.KelvinRemovable
-import NoCompromise.Elliptic.NewtonianSchauderKernel
+module
+
+public import NoCompromise.Capacity.Flux
+public import NoCompromise.Elliptic.KelvinRemovable
+public import NoCompromise.Elliptic.NewtonianSchauderKernel
+
+@[expose] public section
 
 /-!
 # Kelvin transformation of capacitary potentials

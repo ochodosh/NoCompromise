@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.W11Pullback
-import NoCompromise.Sobolev.W11Approximation
+module
+
+public import NoCompromise.Sobolev.W11Pullback
+public import NoCompromise.Sobolev.W11Approximation
+
+@[expose] public section
 
 /-!
 # Strong L¹ approximation after shifted reflection

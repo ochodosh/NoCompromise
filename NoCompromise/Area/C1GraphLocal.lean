@@ -1,9 +1,13 @@
-import NoCompromise.Area.C1GraphAlgebra
-import NoCompromise.Measure.FinitePartition
-import Mathlib.Analysis.Calculus.ContDiff.RCLike
-import Mathlib.MeasureTheory.Constructions.Polish.Basic
-import Mathlib.MeasureTheory.Measure.Real
-import Mathlib.MeasureTheory.Measure.WithDensity
+module
+
+public import NoCompromise.Area.C1GraphAlgebra
+public import NoCompromise.Measure.FinitePartition
+public import Mathlib.Analysis.Calculus.ContDiff.RCLike
+public import Mathlib.MeasureTheory.Constructions.Polish.Basic
+public import Mathlib.MeasureTheory.Measure.Real
+public import Mathlib.MeasureTheory.Measure.WithDensity
+
+@[expose] public section
 
 /-!
 # Area of C¹ graphs in arbitrary dimension

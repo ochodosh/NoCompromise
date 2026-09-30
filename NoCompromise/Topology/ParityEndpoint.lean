@@ -1,4 +1,8 @@
-import NoCompromise.Topology.Parity
+module
+
+public import NoCompromise.Topology.Parity
+
+@[expose] public section
 
 /-!
 # Moving the endpoint of a transverse path (towards `prop:orientation-parity` (ii))

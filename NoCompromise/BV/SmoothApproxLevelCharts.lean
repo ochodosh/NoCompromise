@@ -1,5 +1,9 @@
-import NoCompromise.BV.SmoothApproxBoundary
-import NoCompromise.BV.LineDistribution
+module
+
+public import NoCompromise.BV.SmoothApproxBoundary
+public import NoCompromise.BV.LineDistribution
+
+@[expose] public section
 
 /-!
 # One-sided smooth charts at regular scalar levels

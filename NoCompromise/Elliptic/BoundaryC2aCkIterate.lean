@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryC2aCkLevel
-import NoCompromise.Elliptic.BoundaryNeumannCkIterate
+module
+
+public import NoCompromise.Elliptic.BoundaryC2aCkLevel
+public import NoCompromise.Elliptic.BoundaryNeumannCkIterate
+
+@[expose] public section
 
 /-!
 # The step of the Dirichlet boundary higher-regularity iteration (`thm:boundary-C2a`)

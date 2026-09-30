@@ -1,6 +1,10 @@
-import NoCompromise.Area.GraphDensity
-import NoCompromise.Regularity.DensitySimilarity
-import NoCompromise.DeGiorgi.Structure
+module
+
+public import NoCompromise.Area.GraphDensity
+public import NoCompromise.Regularity.DensitySimilarity
+public import NoCompromise.DeGiorgi.Structure
+
+@[expose] public section
 
 /-!
 # Positive base mass near a graph density point

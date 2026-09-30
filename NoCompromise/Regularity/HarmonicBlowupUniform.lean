@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.HarmonicBlowup
-import NoCompromise.Regularity.HarmonicBlowupUniformNormalized
+module
+
+public import NoCompromise.Regularity.HarmonicBlowup
+public import NoCompromise.Regularity.HarmonicBlowupUniformNormalized
+
+@[expose] public section
 
 /-!
 # Uniform harmonic approximation of every actual graph approximation

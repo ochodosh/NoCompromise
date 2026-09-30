@@ -1,6 +1,10 @@
-import NoCompromise.Classification.Unconditional
-import NoCompromise.Classification.CapEstimateFinal
-import NoCompromise.Surface.TotalCurvatureBoundMain
+module
+
+public import NoCompromise.Classification.Unconditional
+public import NoCompromise.Classification.CapEstimateFinal
+public import NoCompromise.Surface.TotalCurvatureBoundMain
+
+@[expose] public section
 
 /-!
 # The main theorem modulo `thm:boundary-C2a` for the hull potential

@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.DeformationExtension
+module
+
+public import NoCompromise.Regularity.DeformationExtension
+
+@[expose] public section
 
 /-! # The extended slices have no interface outside the cleared slab -/
 

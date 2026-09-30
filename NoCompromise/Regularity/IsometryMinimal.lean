@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.OmegaMinimal
-import NoCompromise.DeGiorgi.SmoothBoundary
+module
+
+public import NoCompromise.Regularity.OmegaMinimal
+public import NoCompromise.DeGiorgi.SmoothBoundary
+
+@[expose] public section
 
 /-! # Genuine quasiminimality under rigid changes of coordinates -/
 

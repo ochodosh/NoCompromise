@@ -1,5 +1,9 @@
-import NoCompromise.BV.CoareaCritical
-import Mathlib.Topology.MetricSpace.Thickening
+module
+
+public import NoCompromise.BV.CoareaCritical
+public import Mathlib.Topology.MetricSpace.Thickening
+
+@[expose] public section
 
 /-!
 # Null images from uniformly flat Taylor remainders

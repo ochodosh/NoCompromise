@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.BoundaryNeumannRecentre
-import NoCompromise.Elliptic.BoundaryC2aCover
-import NoCompromise.Elliptic.BoundaryNeumannC2HolderPrimitive
-import NoCompromise.Elliptic.BoundaryNeumannInhom
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannRecentre
+public import NoCompromise.Elliptic.BoundaryC2aCover
+public import NoCompromise.Elliptic.BoundaryNeumannC2HolderPrimitive
+public import NoCompromise.Elliptic.BoundaryNeumannInhom
+
+@[expose] public section
 
 /-!
 # Boundary Neumann C²,α on the half ball `B⁺_{1/2}` (`thm:boundary-neumann`, second assertion)

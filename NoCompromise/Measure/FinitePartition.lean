@@ -1,6 +1,10 @@
-import Mathlib.MeasureTheory.Integral.Bochner.Set
-import Mathlib.Analysis.InnerProductSpace.PiL2
-import Mathlib.Analysis.Normed.Lp.MeasurableSpace
+module
+
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Analysis.Normed.Lp.MeasurableSpace
+
+@[expose] public section
 
 /-!
 # Finite measurable partitions subordinate to small neighborhoods

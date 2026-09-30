@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.Relative
-import NoCompromise.Sobolev.LipschitzDomains
+module
+
+public import NoCompromise.Sobolev.Relative
+public import NoCompromise.Sobolev.LipschitzDomains
+
+@[expose] public section
 
 /-!
 # Scale invariance of relative isoperimetry

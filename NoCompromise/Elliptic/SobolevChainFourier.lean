@@ -1,7 +1,11 @@
-import NoCompromise.Sobolev.SpatialGN
-import Mathlib.Analysis.Fourier.FourierTransformDeriv
-import Mathlib.Analysis.Fourier.Inversion
-import Mathlib.Analysis.SpecialFunctions.JapaneseBracket
+module
+
+public import NoCompromise.Sobolev.SpatialGN
+public import Mathlib.Analysis.Fourier.FourierTransformDeriv
+public import Mathlib.Analysis.Fourier.Inversion
+public import Mathlib.Analysis.SpecialFunctions.JapaneseBracket
+
+@[expose] public section
 
 /-!
 # Weighted Fourier estimates for the Sobolev chain

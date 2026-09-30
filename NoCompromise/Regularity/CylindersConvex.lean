@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.Cylinders
-import Mathlib.Analysis.Convex.Basic
+module
+
+public import NoCompromise.Regularity.Cylinders
+public import Mathlib.Analysis.Convex.Basic
+
+@[expose] public section
 
 /-! # Convexity of intrinsic cylinders -/
 

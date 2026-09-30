@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.KelvinNormalization
-import Mathlib.MeasureTheory.Constructions.HaarToSphere
+module
+
+public import NoCompromise.CapacitaryK.KelvinNormalization
+public import Mathlib.MeasureTheory.Constructions.HaarToSphere
+
+@[expose] public section
 
 /-!
 # The normalized translated quadrupole

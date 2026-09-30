@@ -1,10 +1,14 @@
-import NoCompromise.Classification.Subcritical
-import NoCompromise.Existence.Subcritical
-import NoCompromise.Value.Continuity
-import NoCompromise.Ball.Potential
-import NoCompromise.Energy.NullInvariance
-import NoCompromise.Energy.Scaling
-import NoCompromise.Threshold.Algebra
+module
+
+public import NoCompromise.Classification.Subcritical
+public import NoCompromise.Existence.Subcritical
+public import NoCompromise.Value.Continuity
+public import NoCompromise.Ball.Potential
+public import NoCompromise.Energy.NullInvariance
+public import NoCompromise.Energy.Scaling
+public import NoCompromise.Threshold.Algebra
+
+@[expose] public section
 
 /-!
 # Existence and uniqueness at the endpoint

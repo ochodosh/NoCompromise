@@ -1,5 +1,9 @@
-import NoCompromise.Cones.NoSingularDefs
-import NoCompromise.DeGiorgi.SmoothBoundary
+module
+
+public import NoCompromise.Cones.NoSingularDefs
+public import NoCompromise.DeGiorgi.SmoothBoundary
+
+@[expose] public section
 
 /-!
 # Global consequences of regular boundary charts (`prop:no-singular-points`)

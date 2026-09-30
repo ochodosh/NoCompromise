@@ -1,4 +1,8 @@
-import NoCompromise.BV.StrictApprox
+module
+
+public import NoCompromise.BV.StrictApprox
+
+@[expose] public section
 
 /-!
 # Bounded indicator mollification and weighted convergence

@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannTangential
-import Mathlib.Analysis.Calculus.FDeriv.Extend
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannTangential
+public import Mathlib.Analysis.Calculus.FDeriv.Extend
+
+@[expose] public section
 
 /-!
 # C¹ gluing across the flat Neumann face

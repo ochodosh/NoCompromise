@@ -1,4 +1,8 @@
-import NoCompromise.DeGiorgi.LipschitzPieces
+module
+
+public import NoCompromise.DeGiorgi.LipschitzPieces
+
+@[expose] public section
 
 /-!
 # Geometric separation of uniform density and cone pieces

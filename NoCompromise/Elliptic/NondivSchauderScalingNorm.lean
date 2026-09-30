@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NondivSchauderNorm
-import NoCompromise.Elliptic.QuasilinearCampanatoPullback
+module
+
+public import NoCompromise.Elliptic.NondivSchauderNorm
+public import NoCompromise.Elliptic.QuasilinearCampanatoPullback
+
+@[expose] public section
 
 /-!
 # Hölder norms under similarities

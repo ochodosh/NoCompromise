@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.DeformationCompression
-import NoCompromise.Regularity.DeformationStrip
+module
+
+public import NoCompromise.Regularity.DeformationCompression
+public import NoCompromise.Regularity.DeformationStrip
+
+@[expose] public section
 
 /-! # Actual finite-perimeter competitors for the cylindrical deformation -/
 

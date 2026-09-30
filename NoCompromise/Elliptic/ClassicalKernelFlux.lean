@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.ClassicalKernelField
-import NoCompromise.Elliptic.ClassicalKernelFluxLimits
+module
+
+public import NoCompromise.Elliptic.ClassicalKernelField
+public import NoCompromise.Elliptic.ClassicalKernelFluxLimits
+
+@[expose] public section
 
 /-!
 # Gauss–Green for a compact field divided by distance

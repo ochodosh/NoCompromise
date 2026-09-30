@@ -1,8 +1,12 @@
-import NoCompromise.CapacitaryK.FromPotential
-import NoCompromise.CapacitaryK.FarFieldZero
-import NoCompromise.CapacitaryK.Endpoint
-import NoCompromise.CapacitaryK.FarFieldMass
-import NoCompromise.CapacitaryK.CollarMass
+module
+
+public import NoCompromise.CapacitaryK.FromPotential
+public import NoCompromise.CapacitaryK.FarFieldZero
+public import NoCompromise.CapacitaryK.Endpoint
+public import NoCompromise.CapacitaryK.FarFieldMass
+public import NoCompromise.CapacitaryK.CollarMass
+
+@[expose] public section
 
 /-!
 # `thm:capacitary-inequalities` for the capacitary potential, with `F(0+) = 0` discharged

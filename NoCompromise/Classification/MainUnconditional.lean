@@ -1,6 +1,10 @@
-import NoCompromise.Classification.MainOfBoundaryC2
-import NoCompromise.Capacity.HullPotentialBoundaryC2
-import NoCompromise.Nonexistence.SharpUnconditional
+module
+
+public import NoCompromise.Classification.MainOfBoundaryC2
+public import NoCompromise.Capacity.HullPotentialBoundaryC2
+public import NoCompromise.Nonexistence.SharpUnconditional
+
+@[expose] public section
 
 /-!
 # The endgame, unconditionally

@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.SpatialGN
-import NoCompromise.Sobolev.Rellich
+module
+
+public import NoCompromise.Sobolev.SpatialGN
+public import NoCompromise.Sobolev.Rellich
+
+@[expose] public section
 
 /-!
 # Spatial H¹ embeddings and compactness on bounded Lipschitz domains

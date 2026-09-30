@@ -1,5 +1,9 @@
-import NoCompromise.Isoperimetric.ABPNeumannC3
-import NoCompromise.Elliptic.NeumannChartC3Ambient
+module
+
+public import NoCompromise.Isoperimetric.ABPNeumannC3
+public import NoCompromise.Elliptic.NeumannChartC3Ambient
+
+@[expose] public section
 
 /-!
 # The local boundary ingredient of `lem:abp-neumann` on domains with C³ boundary

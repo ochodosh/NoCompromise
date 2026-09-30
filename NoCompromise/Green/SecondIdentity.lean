@@ -1,7 +1,11 @@
-import NoCompromise.Green.IdentityCapacity
-import NoCompromise.Capacity.FluxBoundaryW
-import NoCompromise.Elliptic.InteriorH2Mollification
-import Mathlib.Analysis.Calculus.BumpFunction.Convolution
+module
+
+public import NoCompromise.Green.IdentityCapacity
+public import NoCompromise.Capacity.FluxBoundaryW
+public import NoCompromise.Elliptic.InteriorH2Mollification
+public import Mathlib.Analysis.Calculus.BumpFunction.Convolution
+
+@[expose] public section
 
 /-!
 # The second Green identity on `B_R ∖ K` (`eq:green-second`)

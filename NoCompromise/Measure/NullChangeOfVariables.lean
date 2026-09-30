@@ -1,5 +1,9 @@
-import NoCompromise.BV.Basic
-import Mathlib.MeasureTheory.Function.Jacobian
+module
+
+public import NoCompromise.BV.Basic
+public import Mathlib.MeasureTheory.Function.Jacobian
+
+@[expose] public section
 
 /-!
 # Change of variables for Lebesgue-measurable sets

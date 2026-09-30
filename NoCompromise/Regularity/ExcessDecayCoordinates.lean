@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.IsometryExcess
-import NoCompromise.Regularity.IsometryDensity
-import NoCompromise.Regularity.ExcessScaling
+module
+
+public import NoCompromise.Regularity.IsometryExcess
+public import NoCompromise.Regularity.IsometryDensity
+public import NoCompromise.Regularity.ExcessScaling
+
+@[expose] public section
 
 /-!
 # Genuine coordinates for excess decay

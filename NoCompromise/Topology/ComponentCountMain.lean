@@ -1,5 +1,9 @@
-import NoCompromise.Topology.ComponentCount
-import NoCompromise.Topology.OrientationParity
+module
+
+public import NoCompromise.Topology.ComponentCount
+public import NoCompromise.Topology.OrientationParity
+
+@[expose] public section
 
 /-!
 # Component count for a disjoint union of surfaces (`thm:component-count`)

@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomBounds
-import NoCompromise.Elliptic.NeumannChartC1Data
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomBounds
+public import NoCompromise.Elliptic.NeumannChartC1Data
+
+@[expose] public section
 
 /-! Smooth flat Neumann data supply all the quantitative C¹ hypotheses. -/
 

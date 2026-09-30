@@ -1,5 +1,9 @@
-import NoCompromise.Value.Defs
-import Mathlib.Analysis.Convex.Continuous
+module
+
+public import NoCompromise.Value.Defs
+public import Mathlib.Analysis.Convex.Continuous
+
+@[expose] public section
 
 /-!
 # Normalised concavity and continuity of the value function

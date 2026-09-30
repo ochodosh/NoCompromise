@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryC2aCkBase
-import NoCompromise.Elliptic.BoundaryFaceExtension
-import NoCompromise.Elliptic.BoundaryNeumannSmoothChain
+module
+
+public import NoCompromise.Elliptic.BoundaryC2aCkBase
+public import NoCompromise.Elliptic.BoundaryFaceExtension
+public import NoCompromise.Elliptic.BoundaryNeumannSmoothChain
+
+@[expose] public section
 
 /-!
 # Chaining the levels of the Dirichlet boundary higher-regularity iteration (`thm:boundary-C2a`)

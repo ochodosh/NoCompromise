@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.PoincareTrace
+module
+
+public import NoCompromise.Sobolev.PoincareTrace
+
+@[expose] public section
 
 /-!
 # The normalized Sobolev space for Neumann problems

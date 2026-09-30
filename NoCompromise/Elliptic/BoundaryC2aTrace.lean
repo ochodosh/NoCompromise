@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryC2aZeroTrace
-import NoCompromise.Elliptic.BoundaryNondivC2TraceData
+module
+
+public import NoCompromise.Elliptic.BoundaryC2aZeroTrace
+public import NoCompromise.Elliptic.BoundaryNondivC2TraceData
+
+@[expose] public section
 
 /-!
 # Boundary C²,α for the divergence-form Dirichlet problem (nonzero C²,α trace)

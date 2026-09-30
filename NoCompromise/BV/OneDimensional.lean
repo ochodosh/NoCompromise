@@ -1,6 +1,10 @@
-import NoCompromise.Measure.CumulativeDerivative
-import NoCompromise.BV.LineDistribution
-import Mathlib.Topology.EMetricSpace.VariationOnFromTo
+module
+
+public import NoCompromise.Measure.CumulativeDerivative
+public import NoCompromise.BV.LineDistribution
+public import Mathlib.Topology.EMetricSpace.VariationOnFromTo
+
+@[expose] public section
 
 /-!
 # One-dimensional BV representatives and finite jumps

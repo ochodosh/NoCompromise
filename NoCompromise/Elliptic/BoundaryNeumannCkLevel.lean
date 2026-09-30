@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.CkHolderAlgebra
-import NoCompromise.Elliptic.BoundaryNeumannQuotient
+module
+
+public import NoCompromise.Elliptic.CkHolderAlgebra
+public import NoCompromise.Elliptic.BoundaryNeumannQuotient
+
+@[expose] public section
 
 /-!
 # The levels of the smooth boundary Neumann iteration (`thm:boundary-neumann`)

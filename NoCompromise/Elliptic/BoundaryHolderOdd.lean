@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderTests
-import NoCompromise.Elliptic.FrozenDecayChange
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderTests
+public import NoCompromise.Elliptic.FrozenDecayChange
+
+@[expose] public section
 
 /-!
 # Weak reflection of a frozen boundary equation

@@ -1,9 +1,13 @@
-import NoCompromise.Binding.BallRatio
-import NoCompromise.Energy.NullInvariance
-import NoCompromise.Nonexistence.Slicing
-import NoCompromise.Regularity.PenalizationQuasiminimal
-import NoCompromise.Regularity.RepresentativeBounded
-import NoCompromise.Regularity.RepresentativeOpen
+module
+
+public import NoCompromise.Binding.BallRatio
+public import NoCompromise.Energy.NullInvariance
+public import NoCompromise.Nonexistence.Slicing
+public import NoCompromise.Regularity.PenalizationQuasiminimal
+public import NoCompromise.Regularity.RepresentativeBounded
+public import NoCompromise.Regularity.RepresentativeOpen
+
+@[expose] public section
 
 /-!
 # Relaxed energy-to-volume ratios

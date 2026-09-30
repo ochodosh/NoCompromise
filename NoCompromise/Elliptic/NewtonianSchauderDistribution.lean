@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NewtonianSchauderRegularized
-import NoCompromise.Elliptic.NewtonianSchauderSplit
+module
+
+public import NoCompromise.Elliptic.NewtonianSchauderRegularized
+public import NoCompromise.Elliptic.NewtonianSchauderSplit
+
+@[expose] public section
 
 /-!
 # Distributional Hessian of the signed Newtonian kernel

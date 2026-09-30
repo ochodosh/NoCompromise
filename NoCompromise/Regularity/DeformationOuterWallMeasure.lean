@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.DeformationAnnulus
+module
+
+public import NoCompromise.Regularity.DeformationAnnulus
+
+@[expose] public section
 
 /-! # Null vertical walls from uniformly dominated horizontal bands -/
 

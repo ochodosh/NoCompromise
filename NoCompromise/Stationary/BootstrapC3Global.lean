@@ -1,5 +1,9 @@
-import NoCompromise.Stationary.BootstrapC3Chart
-import NoCompromise.Stationary.BootstrapC3
+module
+
+public import NoCompromise.Stationary.BootstrapC3Chart
+public import NoCompromise.Stationary.BootstrapC3
+
+@[expose] public section
 
 /-!
 # `prop:bootstrap-C3` at every boundary point

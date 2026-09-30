@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.CapacitaryHarmonic
-import NoCompromise.Capacity.KelvinLevels
+module
+
+public import NoCompromise.CapacitaryK.CapacitaryHarmonic
+public import NoCompromise.Capacity.KelvinLevels
+
+@[expose] public section
 
 /-!
 # Vanishing of F at the far field (chapter 31)

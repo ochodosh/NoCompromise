@@ -1,4 +1,8 @@
-import NoCompromise.Flow.FlowCkHigher
+module
+
+public import NoCompromise.Flow.FlowCkHigher
+
+@[expose] public section
 
 /-!
 # `C^k` localization of vector fields

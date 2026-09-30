@@ -1,5 +1,9 @@
-import NoCompromise.BV.GoodRadii
-import NoCompromise.BV.SphericalSlicing
+module
+
+public import NoCompromise.BV.GoodRadii
+public import NoCompromise.BV.SphericalSlicing
+
+@[expose] public section
 
 /-!
 # Construction of the cutting radii

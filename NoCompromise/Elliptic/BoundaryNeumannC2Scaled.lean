@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannClosedScaling
-import NoCompromise.Elliptic.BoundaryNeumannC2
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannClosedScaling
+public import NoCompromise.Elliptic.BoundaryNeumannC2
+
+@[expose] public section
 
 /-!
 # The homogeneous conormal C²,α theorem at every scale

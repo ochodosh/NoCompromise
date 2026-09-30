@@ -1,5 +1,9 @@
-import NoCompromise.BV.CoareaRegular
-import NoCompromise.BV.CoareaCritical
+module
+
+public import NoCompromise.BV.CoareaRegular
+public import NoCompromise.BV.CoareaCritical
+
+@[expose] public section
 
 /-!
 # Weighted C¹ coarea without Sard's theorem

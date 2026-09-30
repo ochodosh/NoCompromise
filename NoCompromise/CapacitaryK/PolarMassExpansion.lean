@@ -1,4 +1,8 @@
-import NoCompromise.CapacitaryK.PolarMass
+module
+
+public import NoCompromise.CapacitaryK.PolarMass
+
+@[expose] public section
 
 /-!
 # The volume route to the far-field mass expansion

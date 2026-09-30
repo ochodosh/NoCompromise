@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.OmegaMinimal
-import NoCompromise.BV.OneDimensional
+module
+
+public import NoCompromise.Regularity.OmegaMinimal
+public import NoCompromise.BV.OneDimensional
+
+@[expose] public section
 
 /-!
 # Minimising cones in the plane

@@ -1,5 +1,9 @@
-import NoCompromise.Surface.TotalCurvatureIndex
-import NoCompromise.Surface.SublevelClosure
+module
+
+public import NoCompromise.Surface.TotalCurvatureIndex
+public import NoCompromise.Surface.SublevelClosure
+
+@[expose] public section
 
 /-!
 # The total curvature bound with thm:total-curvature-index discharged

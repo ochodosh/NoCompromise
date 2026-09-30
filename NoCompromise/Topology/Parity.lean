@@ -1,5 +1,9 @@
-import NoCompromise.Topology.Handshake
-import NoCompromise.Topology.TransversalityMain
+module
+
+public import NoCompromise.Topology.Handshake
+public import NoCompromise.Topology.TransversalityMain
+
+@[expose] public section
 
 /-!
 # Orientation by parity (partial)

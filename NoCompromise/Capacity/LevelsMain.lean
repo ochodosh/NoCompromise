@@ -1,5 +1,9 @@
-import NoCompromise.Capacity.Levels
-import NoCompromise.Topology.ComponentCountMain
+module
+
+public import NoCompromise.Capacity.Levels
+public import NoCompromise.Topology.ComponentCountMain
+
+@[expose] public section
 
 /-!
 # Level connectedness (blueprint `lem:level-connected`), unconditional

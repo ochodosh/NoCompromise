@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.HarmonicDerivative
-import NoCompromise.Elliptic.HolderInterpolationGeometry
-import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+module
+
+public import NoCompromise.Elliptic.HarmonicDerivative
+public import NoCompromise.Elliptic.HolderInterpolationGeometry
+public import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+
+@[expose] public section
 
 /-!
 # Affine approximation of planar harmonic functions

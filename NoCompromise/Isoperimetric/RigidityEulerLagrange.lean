@@ -1,5 +1,9 @@
-import NoCompromise.Isoperimetric.RigidityMinimal
-import NoCompromise.Stationary.EulerLagrange
+module
+
+public import NoCompromise.Isoperimetric.RigidityMinimal
+public import NoCompromise.Stationary.EulerLagrange
+
+@[expose] public section
 
 /-!
 # The Euler--Lagrange equation of a perimeter minimiser

@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.ClassicalCalculus
+module
+
+public import NoCompromise.Elliptic.ClassicalCalculus
+
+@[expose] public section
 
 /-! # Finite classical boundary area and distance from an interior point -/
 

@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.FixedNormalExcessPairing
+module
+
+public import NoCompromise.Regularity.FixedNormalExcessPairing
+
+@[expose] public section
 
 /-! # The exact quadratic identity for unit-normal excess -/
 

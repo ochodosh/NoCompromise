@@ -1,6 +1,10 @@
-import NoCompromise.Surface.LevelFlow
-import NoCompromise.Surface.SaddleChart
-import NoCompromise.Topology.OrbitEnds
+module
+
+public import NoCompromise.Surface.LevelFlow
+public import NoCompromise.Surface.SaddleChart
+public import NoCompromise.Topology.OrbitEnds
+
+@[expose] public section
 
 /-!
 # `lem:merge-disjoint`, core argument

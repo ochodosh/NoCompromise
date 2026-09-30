@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderZeroSpace
-import NoCompromise.Elliptic.CampanatoComparisonFrozen
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderZeroSpace
+public import NoCompromise.Elliptic.CampanatoComparisonFrozen
+
+@[expose] public section
 
 /-!
 # Frozen comparison with the actual flat Dirichlet trace

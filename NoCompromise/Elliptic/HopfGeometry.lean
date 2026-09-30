@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.Hopf
-import Mathlib.Analysis.Calculus.ContDiff.RCLike
+module
+
+public import NoCompromise.Elliptic.Hopf
+public import Mathlib.Analysis.Calculus.ContDiff.RCLike
+
+@[expose] public section
 
 /-!
 # Local geometry for the exterior Hopf sign

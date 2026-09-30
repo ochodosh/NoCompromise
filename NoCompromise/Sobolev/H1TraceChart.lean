@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.H1TraceContinuous
-import NoCompromise.Sobolev.H1Chain
-import Mathlib.MeasureTheory.Measure.Comap
+module
+
+public import NoCompromise.Sobolev.H1TraceContinuous
+public import NoCompromise.Sobolev.H1Chain
+public import Mathlib.MeasureTheory.Measure.Comap
+
+@[expose] public section
 
 /-!
 # H¹ traces in bi-Lipschitz coordinates

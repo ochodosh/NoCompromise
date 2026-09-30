@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.FarFieldZero
-import NoCompromise.CapacitaryK.Endpoint
+module
+
+public import NoCompromise.CapacitaryK.FarFieldZero
+public import NoCompromise.CapacitaryK.Endpoint
+
+@[expose] public section
 
 /-!
 # Finite collar mass (chapter 31, `thm:capacitary-inequalities`, endpoint step)

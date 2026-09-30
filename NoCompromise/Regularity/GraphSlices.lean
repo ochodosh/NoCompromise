@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.GraphSlicesFibers
-import NoCompromise.Regularity.GraphSlicesCapBridge
-import NoCompromise.Regularity.GraphPhaseCaps
+module
+
+public import NoCompromise.Regularity.GraphSlicesFibers
+public import NoCompromise.Regularity.GraphSlicesCapBridge
+public import NoCompromise.Regularity.GraphPhaseCaps
+
+@[expose] public section
 
 /-! # Actual almost-everywhere coverage of the graph-approximation base -/
 

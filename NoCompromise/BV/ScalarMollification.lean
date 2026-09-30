@@ -1,4 +1,8 @@
-import NoCompromise.BV.PolarMollification
+module
+
+public import NoCompromise.BV.PolarMollification
+
+@[expose] public section
 
 /-!
 # Scalar BV mollification against compact continuous tests

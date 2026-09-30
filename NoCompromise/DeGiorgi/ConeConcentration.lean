@@ -1,6 +1,10 @@
-import NoCompromise.DeGiorgi.ExactDensity
-import NoCompromise.Measure.WeakStarNull
-import Mathlib.Topology.MetricSpace.HausdorffDistance
+module
+
+public import NoCompromise.DeGiorgi.ExactDensity
+public import NoCompromise.Measure.WeakStarNull
+public import Mathlib.Topology.MetricSpace.HausdorffDistance
+
+@[expose] public section
 
 /-!
 # Perimeter concentration in tangent-plane cones

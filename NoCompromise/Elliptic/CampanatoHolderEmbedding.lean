@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.CampanatoHolderLimits
-import NoCompromise.Elliptic.CampanatoHolderLebesgue
+module
+
+public import NoCompromise.Elliptic.CampanatoHolderLimits
+public import NoCompromise.Elliptic.CampanatoHolderLebesgue
+
+@[expose] public section
 
 /-! A genuine Hölder representative is constructed from mean-oscillation bounds.
 The proof compares limits of actual ball averages, including at non-Lebesgue points. -/

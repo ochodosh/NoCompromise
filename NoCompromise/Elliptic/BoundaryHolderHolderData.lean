@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderData
-import NoCompromise.Elliptic.BoundaryHolderAverages
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderData
+public import NoCompromise.Elliptic.BoundaryHolderAverages
+
+@[expose] public section
 
 /-! The blueprint's actual Hölder coefficient and datum hypotheses imply the
 radial equation data used in the boundary bootstrap. -/

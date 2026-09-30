@@ -1,5 +1,9 @@
-import NoCompromise.BV.RadialCuts
-import NoCompromise.DeGiorgi.DensityFlux
+module
+
+public import NoCompromise.BV.RadialCuts
+public import NoCompromise.DeGiorgi.DensityFlux
+
+@[expose] public section
 
 /-!
 # Radial volume derivatives and exact cuts

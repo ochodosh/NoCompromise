@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.CompressionMap
-import Mathlib.Analysis.Calculus.ContDiff.RCLike
+module
+
+public import NoCompromise.Regularity.CompressionMap
+public import Mathlib.Analysis.Calculus.ContDiff.RCLike
+
+@[expose] public section
 
 /-! # Bi-Lipschitz bounds for vertical compression on bounded regions -/
 

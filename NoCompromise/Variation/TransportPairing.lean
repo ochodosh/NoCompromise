@@ -1,4 +1,8 @@
-import NoCompromise.Variation.TransportC2
+module
+
+public import NoCompromise.Variation.TransportC2
+
+@[expose] public section
 
 /-!
 # C¹ transport by smooth approximation of the indicator

@@ -1,6 +1,10 @@
-import NoCompromise.Energy.PotentialRegularity
-import Mathlib.Analysis.SpecialFunctions.Integrability.Basic
-import Mathlib.Topology.MetricSpace.Holder
+module
+
+public import NoCompromise.Energy.PotentialRegularity
+public import Mathlib.Analysis.SpecialFunctions.Integrability.Basic
+public import Mathlib.Topology.MetricSpace.Holder
+
+@[expose] public section
 
 /-!
 # Hölder regularity of the Newtonian gradient

@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.PerimeterConvergenceBalls
-import Mathlib.Topology.Compactness.Lindelof
+module
+
+public import NoCompromise.Regularity.PerimeterConvergenceBalls
+public import Mathlib.Topology.Compactness.Lindelof
+
+@[expose] public section
 
 /-! # Identification of every positive weak limit with the actual perimeter -/
 

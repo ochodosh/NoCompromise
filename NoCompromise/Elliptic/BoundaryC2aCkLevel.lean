@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.CkHolderAlgebra
-import NoCompromise.Elliptic.BoundaryC2aDifferentiate
+module
+
+public import NoCompromise.Elliptic.CkHolderAlgebra
+public import NoCompromise.Elliptic.BoundaryC2aDifferentiate
+
+@[expose] public section
 
 /-!
 # The levels of the Dirichlet boundary higher-regularity iteration (`thm:boundary-C2a`)

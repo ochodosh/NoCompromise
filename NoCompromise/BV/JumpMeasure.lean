@@ -1,6 +1,10 @@
-import NoCompromise.BV.OneDimensional
-import Mathlib.MeasureTheory.Measure.Support
-import Mathlib.MeasureTheory.Integral.Bochner.SumMeasure
+module
+
+public import NoCompromise.BV.OneDimensional
+public import Mathlib.MeasureTheory.Measure.Support
+public import Mathlib.MeasureTheory.Integral.Bochner.SumMeasure
+
+@[expose] public section
 
 /-!
 # The one-dimensional derivative as a jump measure

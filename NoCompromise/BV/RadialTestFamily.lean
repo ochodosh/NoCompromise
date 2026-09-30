@@ -1,5 +1,9 @@
-import NoCompromise.BV.CompactC1Tests
-import NoCompromise.BV.WeightedRadialFlux
+module
+
+public import NoCompromise.BV.CompactC1Tests
+public import NoCompromise.BV.WeightedRadialFlux
+
+@[expose] public section
 
 /-!
 # A common exceptional set for weighted radial flux tests

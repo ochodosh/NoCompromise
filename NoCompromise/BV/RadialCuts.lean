@@ -1,5 +1,9 @@
-import NoCompromise.BV.GoodRadii
-import NoCompromise.DeGiorgi.AmbientPolar
+module
+
+public import NoCompromise.BV.GoodRadii
+public import NoCompromise.DeGiorgi.AmbientPolar
+
+@[expose] public section
 
 /-!
 # Exact cuts at good radii

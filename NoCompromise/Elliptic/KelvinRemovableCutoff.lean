@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.HarmonicMeanValue
+module
+
+public import NoCompromise.Elliptic.HarmonicMeanValue
+
+@[expose] public section
 
 /-!
 # Shrinking cutoff estimates for point removability

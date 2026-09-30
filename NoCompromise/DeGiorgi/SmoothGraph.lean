@@ -1,8 +1,12 @@
-import NoCompromise.BV.CoareaCoordinates
-import NoCompromise.BV.StrictApprox
-import NoCompromise.Area.C1Graph
-import Mathlib.MeasureTheory.Integral.IntegralEqImproper
-import Mathlib.MeasureTheory.Integral.Prod
+module
+
+public import NoCompromise.BV.CoareaCoordinates
+public import NoCompromise.BV.StrictApprox
+public import NoCompromise.Area.C1Graph
+public import Mathlib.MeasureTheory.Integral.IntegralEqImproper
+public import Mathlib.MeasureTheory.Integral.Prod
+
+@[expose] public section
 
 /-!
 # Distributional boundary formula for a C¹ subgraph

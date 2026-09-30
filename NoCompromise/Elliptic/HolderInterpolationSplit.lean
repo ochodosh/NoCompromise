@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.HolderInterpolationGeometry
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
+module
+
+public import NoCompromise.Elliptic.HolderInterpolationGeometry
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+
+@[expose] public section
 
 /-!
 # The two-scale Hölder estimate

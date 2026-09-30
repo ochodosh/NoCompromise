@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.W11Space
+module
+
+public import NoCompromise.Sobolev.W11Space
+
+@[expose] public section
 
 /-!
 # Vector-valued W¹,¹ data and its coordinate bounds

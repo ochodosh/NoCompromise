@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.ZeroExcessMollification
+module
+
+public import NoCompromise.Regularity.ZeroExcessMollification
+
+@[expose] public section
 
 /-! # Almost-everywhere height ordering from a local constant normal -/
 

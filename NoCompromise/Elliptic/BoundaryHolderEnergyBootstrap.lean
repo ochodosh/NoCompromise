@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderLimits
-import NoCompromise.Elliptic.CampanatoGrowthStep
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderLimits
+public import NoCompromise.Elliptic.CampanatoGrowthStep
+
+@[expose] public section
 
 /-! Supercritical normal-excess decay bounds all half-ball means, and hence
 upgrades the actual gradient energy to cubic growth. -/

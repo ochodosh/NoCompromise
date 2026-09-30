@@ -1,4 +1,8 @@
-import NoCompromise.BV.SmoothApproxLevelCharts
+module
+
+public import NoCompromise.BV.SmoothApproxLevelCharts
+
+@[expose] public section
 
 /-!
 # Balls have smooth boundary

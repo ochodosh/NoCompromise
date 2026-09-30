@@ -1,4 +1,8 @@
-import NoCompromise.Cones.ThreeDimFinal
+module
+
+public import NoCompromise.Cones.ThreeDimFinal
+
+@[expose] public section
 
 /-!
 # `lem:cone-smooth`: the punctured boundary of a 3-d minimising cone is smooth and minimal

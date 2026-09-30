@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.LevelAreaSecondDerivative
-import NoCompromise.CapacitaryK.LevelGradSecondDerivative
+module
+
+public import NoCompromise.CapacitaryK.LevelAreaSecondDerivative
+public import NoCompromise.CapacitaryK.LevelGradSecondDerivative
+
+@[expose] public section
 
 /-!
 # Radial and tangential gradient components on capacitary levels

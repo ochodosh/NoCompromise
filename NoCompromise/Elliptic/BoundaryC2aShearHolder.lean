@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryC2aCurvedHolder
+module
+
+public import NoCompromise.Elliptic.BoundaryC2aCurvedHolder
+
+@[expose] public section
 
 /-!
 # `thm:boundary-C2a` in a shear chart with a C^{2,α} height

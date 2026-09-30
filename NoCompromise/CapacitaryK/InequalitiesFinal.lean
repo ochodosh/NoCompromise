@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.BoundaryMeanCurvature
-import NoCompromise.CapacitaryK.MuMeasure
+module
+
+public import NoCompromise.CapacitaryK.BoundaryMeanCurvature
+public import NoCompromise.CapacitaryK.MuMeasure
+
+@[expose] public section
 
 /-!
 # `thm:capacitary-inequalities`, blueprint statement

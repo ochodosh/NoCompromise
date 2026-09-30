@@ -1,5 +1,9 @@
-import NoCompromise.Variation.FiniteFreezing
-import NoCompromise.DeGiorgi.AmbientPolar
+module
+
+public import NoCompromise.Variation.FiniteFreezing
+public import NoCompromise.DeGiorgi.AmbientPolar
+
+@[expose] public section
 
 /-!
 # Boundary flux error for finite freezing

@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderTrace
-import NoCompromise.Elliptic.CampanatoGrowthComparison
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderTrace
+public import NoCompromise.Elliptic.CampanatoGrowthComparison
+
+@[expose] public section
 
 /-! Tangential translation preserves the actual localized flat trace and the
 original compact-test weak equation. -/

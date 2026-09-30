@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannCutoff
-import NoCompromise.Elliptic.BoundaryNeumannEquation
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannCutoff
+public import NoCompromise.Elliptic.BoundaryNeumannEquation
+
+@[expose] public section
 
 /-! Identification of the weak gradient supplied by the even-fold theorem. -/
 

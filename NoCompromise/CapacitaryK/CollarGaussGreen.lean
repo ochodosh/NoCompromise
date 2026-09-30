@@ -1,6 +1,10 @@
-import NoCompromise.Capacity.FluxLevel
-import NoCompromise.Capacity.FluxBoundaryW
-import NoCompromise.CapacitaryK.PGeometric
+module
+
+public import NoCompromise.Capacity.FluxLevel
+public import NoCompromise.Capacity.FluxBoundaryW
+public import NoCompromise.CapacitaryK.PGeometric
+
+@[expose] public section
 
 /-!
 # Gauss–Green on the collar between a regular level and `∂K`

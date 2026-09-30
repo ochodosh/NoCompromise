@@ -1,5 +1,9 @@
-import NoCompromise.Area.Cofactor
-import NoCompromise.BV.CoareaCoordinates
+module
+
+public import NoCompromise.Area.Cofactor
+public import NoCompromise.BV.CoareaCoordinates
+
+@[expose] public section
 
 /-! # The exact derivative and cofactor of a vertical compression -/
 

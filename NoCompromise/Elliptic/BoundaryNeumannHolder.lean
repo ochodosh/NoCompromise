@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannCoefficients
-import NoCompromise.Elliptic.CampanatoHolderEmbedding
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannCoefficients
+public import NoCompromise.Elliptic.CampanatoHolderEmbedding
+
+@[expose] public section
 
 /-! Hölder gluing of the reflected coefficients across the flat face. -/
 

@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.CompressionJacobian
-import NoCompromise.Variation.TransportC1
+module
+
+public import NoCompromise.Regularity.CompressionJacobian
+public import NoCompromise.Variation.TransportC1
+
+@[expose] public section
 
 /-! # Perimeter transport under the genuine compression diffeomorphism -/
 

@@ -1,6 +1,10 @@
-import NoCompromise.Surface.HeightMorse
-import NoCompromise.Area.Sphere
-import NoCompromise.Area.Cofactor
+module
+
+public import NoCompromise.Surface.HeightMorse
+public import NoCompromise.Area.Sphere
+public import NoCompromise.Area.Cofactor
+
+@[expose] public section
 
 /-!
 # Morse height functions

@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.FixedNormalExcessPairing
+module
+
+public import NoCompromise.Regularity.FixedNormalExcessPairing
+
+@[expose] public section
 
 /-! # Upgrading smooth polar pairings to compact continuous tests -/
 

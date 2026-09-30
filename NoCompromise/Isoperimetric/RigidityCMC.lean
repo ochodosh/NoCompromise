@@ -1,6 +1,10 @@
-import NoCompromise.Isoperimetric.RigidityBootstrap
-import NoCompromise.Isoperimetric.RigiditySmoothCharts
-import NoCompromise.Isoperimetric.RigidityStatement
+module
+
+public import NoCompromise.Isoperimetric.RigidityBootstrap
+public import NoCompromise.Isoperimetric.RigiditySmoothCharts
+public import NoCompromise.Isoperimetric.RigidityStatement
+
+@[expose] public section
 
 /-!
 # Isoperimetric rigidity modulo `lem:abp-neumann` and `C³ → C^∞` for CMC graphs

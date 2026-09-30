@@ -1,6 +1,10 @@
-import NoCompromise.BV.Gluing
-import NoCompromise.BV.GoodRadii
-import NoCompromise.BV.RadialCuts
+module
+
+public import NoCompromise.BV.Gluing
+public import NoCompromise.BV.GoodRadii
+public import NoCompromise.BV.RadialCuts
+
+@[expose] public section
 
 /-!
 # Agreement of both traces at a good spherical radius

@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryHolderSymmetrization
-import NoCompromise.Elliptic.BoundaryHolderInterior
-import NoCompromise.Elliptic.BoundaryHolderEnergy
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderSymmetrization
+public import NoCompromise.Elliptic.BoundaryHolderInterior
+public import NoCompromise.Elliptic.BoundaryHolderEnergy
+
+@[expose] public section
 
 /-!
 # Quantitative derivatives of a frozen boundary solution

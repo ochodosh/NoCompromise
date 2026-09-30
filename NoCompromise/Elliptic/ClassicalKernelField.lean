@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.ClassicalKernelW11
-import NoCompromise.Sobolev.W11VectorAssembly
+module
+
+public import NoCompromise.Elliptic.ClassicalKernelW11
+public import NoCompromise.Sobolev.W11VectorAssembly
+
+@[expose] public section
 
 /-! # Compact C¹ vector fields divided by reciprocal distance are W¹,¹ -/
 

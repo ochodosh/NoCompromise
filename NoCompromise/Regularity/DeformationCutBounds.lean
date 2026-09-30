@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.DeformationStrip
-import NoCompromise.BV.Algebra
+module
+
+public import NoCompromise.Regularity.DeformationStrip
+public import NoCompromise.BV.Algebra
+
+@[expose] public section
 
 /-!
 # Quantitative bounds for cuts at fixed planes

@@ -1,6 +1,10 @@
-import NoCompromise.BV.FlatTraces
-import NoCompromise.BV.LineDistribution
-import Mathlib.Topology.EMetricSpace.VariationOnFromTo
+module
+
+public import NoCompromise.BV.FlatTraces
+public import NoCompromise.BV.LineDistribution
+public import Mathlib.Topology.EMetricSpace.VariationOnFromTo
+
+@[expose] public section
 
 /-!
 # Almost every flat trace is the original slice

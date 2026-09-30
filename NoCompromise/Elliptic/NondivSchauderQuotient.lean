@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NondivSchauderForcing
-import NoCompromise.Elliptic.CampanatoHolderDatum
+module
+
+public import NoCompromise.Elliptic.NondivSchauderForcing
+public import NoCompromise.Elliptic.CampanatoHolderDatum
+
+@[expose] public section
 
 /-!
 # Constructed equations for nondivergence difference quotients

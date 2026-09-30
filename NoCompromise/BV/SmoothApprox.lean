@@ -1,5 +1,9 @@
-import NoCompromise.BV.SmoothApproxLevelCharts
-import NoCompromise.BV.SmoothApproxVolume
+module
+
+public import NoCompromise.BV.SmoothApproxLevelCharts
+public import NoCompromise.BV.SmoothApproxVolume
+
+@[expose] public section
 
 /-!
 # Smooth bounded approximation with exact volume

@@ -1,7 +1,11 @@
-import NoCompromise.Regularity.ApproxHarmonic
-import NoCompromise.Regularity.ApproxHarmonicEstimateScaling
-import NoCompromise.Regularity.HeightBoundBoundaryScaling
-import NoCompromise.Regularity.ExcessScaling
+module
+
+public import NoCompromise.Regularity.ApproxHarmonic
+public import NoCompromise.Regularity.ApproxHarmonicEstimateScaling
+public import NoCompromise.Regularity.HeightBoundBoundaryScaling
+public import NoCompromise.Regularity.ExcessScaling
+
+@[expose] public section
 
 /-! # Approximate harmonicity at every admissible physical scale -/
 

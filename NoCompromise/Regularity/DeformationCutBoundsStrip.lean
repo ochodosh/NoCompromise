@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.DeformationCutBounds
+module
+
+public import NoCompromise.Regularity.DeformationCutBounds
+
+@[expose] public section
 
 /-! # Uniform local perimeter bounds for the actual strip replacement -/
 

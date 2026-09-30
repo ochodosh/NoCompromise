@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.W11Pullback
+module
+
+public import NoCompromise.Sobolev.W11Pullback
+
+@[expose] public section
 
 /-!
 # L¹ bounds for the actual reflected weak-gradient field

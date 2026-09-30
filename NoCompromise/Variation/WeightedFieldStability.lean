@@ -1,7 +1,11 @@
-import NoCompromise.Variation.FieldStability
-import NoCompromise.DeGiorgi.PolarDifferentiation
-import Mathlib.MeasureTheory.Integral.Layercake
-import Mathlib.MeasureTheory.Measure.WithDensity
+module
+
+public import NoCompromise.Variation.FieldStability
+public import NoCompromise.DeGiorgi.PolarDifferentiation
+public import Mathlib.MeasureTheory.Integral.Layercake
+public import Mathlib.MeasureTheory.Measure.WithDensity
+
+@[expose] public section
 
 /-!
 # Weighted stability and finite partitions

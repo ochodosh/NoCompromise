@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryHolderRadiusLocalization
-import NoCompromise.Elliptic.BoundaryHolderHalfScaling
-import NoCompromise.Elliptic.BoundaryHolderExcess
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderRadiusLocalization
+public import NoCompromise.Elliptic.BoundaryHolderHalfScaling
+public import NoCompromise.Elliptic.BoundaryHolderExcess
+
+@[expose] public section
 
 /-! Frozen boundary decay at every positive radius, obtained from the actual
 localized zero extension and exact similarity identities. -/

@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.DeformationLimitProperties
-import NoCompromise.Regularity.DeformationWall
+module
+
+public import NoCompromise.Regularity.DeformationLimitProperties
+public import NoCompromise.Regularity.DeformationWall
+
+@[expose] public section
 
 /-! # Assembling the disk, annulus, and zero-wall perimeter estimate -/
 

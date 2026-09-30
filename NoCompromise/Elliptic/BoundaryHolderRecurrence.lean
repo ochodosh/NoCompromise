@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.BoundaryHolderRadiusDecay
-import NoCompromise.Elliptic.BoundaryHolderComparisonBounds
-import NoCompromise.Elliptic.BoundaryHolderTransfer
-import NoCompromise.Elliptic.CampanatoGrowthStep
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderRadiusDecay
+public import NoCompromise.Elliptic.BoundaryHolderComparisonBounds
+public import NoCompromise.Elliptic.BoundaryHolderTransfer
+public import NoCompromise.Elliptic.CampanatoGrowthStep
+
+@[expose] public section
 
 /-! The actual boundary energy and normal-excess recurrences, with constants
 selected before the exponent, radius, coefficients, and weak solution. -/

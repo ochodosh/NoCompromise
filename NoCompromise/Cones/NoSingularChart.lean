@@ -1,10 +1,14 @@
-import NoCompromise.Cones.NoSingularDefs
-import NoCompromise.Cones.SmoothGraph
-import NoCompromise.Regularity.EpsRegularityMain
-import NoCompromise.Regularity.ExcessDecayCoordinates
-import NoCompromise.Regularity.GraphTwoPointCaps
-import NoCompromise.Regularity.HeightBound
-import NoCompromise.Regularity.SlabGeometry
+module
+
+public import NoCompromise.Cones.NoSingularDefs
+public import NoCompromise.Cones.SmoothGraph
+public import NoCompromise.Regularity.EpsRegularityMain
+public import NoCompromise.Regularity.ExcessDecayCoordinates
+public import NoCompromise.Regularity.GraphTwoPointCaps
+public import NoCompromise.Regularity.HeightBound
+public import NoCompromise.Regularity.SlabGeometry
+
+@[expose] public section
 
 /-!
 # Regular boundary points from vanishing excess (`prop:no-singular-points`)

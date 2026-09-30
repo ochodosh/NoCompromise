@@ -1,4 +1,8 @@
-import NoCompromise.BV.GluingLocalTraces
+module
+
+public import NoCompromise.BV.GluingLocalTraces
+
+@[expose] public section
 
 /-!
 # The BV gluing estimate for global realizations

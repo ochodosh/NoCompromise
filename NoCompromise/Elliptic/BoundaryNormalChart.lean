@@ -1,6 +1,10 @@
-import NoCompromise.DeGiorgi.SmoothGraph
-import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ContDiff
-import Mathlib.Analysis.Calculus.Deriv.MeanValue
+module
+
+public import NoCompromise.DeGiorgi.SmoothGraph
+public import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ContDiff
+public import Mathlib.Analysis.Calculus.Deriv.MeanValue
+
+@[expose] public section
 
 /-!
 # Normal coordinates at a graph boundary

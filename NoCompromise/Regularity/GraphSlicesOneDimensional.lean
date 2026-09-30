@@ -1,4 +1,8 @@
-import NoCompromise.BV.JumpDisintegration
+module
+
+public import NoCompromise.BV.JumpDisintegration
+
+@[expose] public section
 
 /-! # The actual signed jump count between cleared binary phases -/
 

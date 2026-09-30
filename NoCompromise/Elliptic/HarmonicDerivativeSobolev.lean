@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.SobolevChainBounds
+module
+
+public import NoCompromise.Elliptic.SobolevChainBounds
+
+@[expose] public section
 
 /-!
 # Quantitative higher weak derivatives of harmonic functions

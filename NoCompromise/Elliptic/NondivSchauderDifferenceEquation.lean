@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NondivSchauderEquation
-import NoCompromise.Elliptic.NondivSchauderDifference
+module
+
+public import NoCompromise.Elliptic.NondivSchauderEquation
+public import NoCompromise.Elliptic.NondivSchauderDifference
+
+@[expose] public section
 
 /-!
 # Difference quotients of the actual weak equation

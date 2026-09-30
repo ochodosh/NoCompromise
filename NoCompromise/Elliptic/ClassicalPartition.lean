@@ -1,5 +1,9 @@
-import NoCompromise.DeGiorgi.SmoothBoundary
-import NoCompromise.Sobolev.ExtensionPartition
+module
+
+public import NoCompromise.DeGiorgi.SmoothBoundary
+public import NoCompromise.Sobolev.ExtensionPartition
+
+@[expose] public section
 
 /-!
 # Finite C¹ boundary charts for classical calculus

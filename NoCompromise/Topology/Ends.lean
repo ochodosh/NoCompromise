@@ -1,9 +1,13 @@
-import Mathlib.Topology.Connected.Basic
-import Mathlib.Topology.Instances.Real.Lemmas
-import Mathlib.Topology.Homeomorph.Lemmas
-import Mathlib.Topology.Order.IntermediateValue
-import Mathlib.Data.Set.Card
-import Mathlib.Tactic.Linarith
+module
+
+public import Mathlib.Topology.Connected.Basic
+public import Mathlib.Topology.Instances.Real.Lemmas
+public import Mathlib.Topology.Homeomorph.Lemmas
+public import Mathlib.Topology.Order.IntermediateValue
+public import Mathlib.Data.Set.Card
+public import Mathlib.Tactic.Linarith
+
+@[expose] public section
 
 /-!
 # Two ends of the real line

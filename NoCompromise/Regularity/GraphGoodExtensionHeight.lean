@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.GraphGoodSet
-import NoCompromise.Regularity.GraphExtensionClamp
+module
+
+public import NoCompromise.Regularity.GraphGoodSet
+public import NoCompromise.Regularity.GraphExtensionClamp
+
+@[expose] public section
 
 /-! # A genuine Borel Lipschitz graph selected from small excess -/
 

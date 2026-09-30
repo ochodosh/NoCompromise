@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.InteriorH2Localization
+module
+
+public import NoCompromise.Elliptic.InteriorH2Localization
+
+@[expose] public section
 
 /-!
 # Interior H² regularity for distributional Poisson equations

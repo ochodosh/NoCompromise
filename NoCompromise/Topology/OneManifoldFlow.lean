@@ -1,7 +1,11 @@
-import Mathlib.Geometry.Manifold.IntegralCurve.ExistUnique
-import Mathlib.Analysis.Calculus.InverseFunctionTheorem.Deriv
-import Mathlib.Topology.Instances.AddCircle.Real
-import Mathlib.Topology.Homeomorph.Lemmas
+module
+
+public import Mathlib.Geometry.Manifold.IntegralCurve.ExistUnique
+public import Mathlib.Analysis.Calculus.InverseFunctionTheorem.Deriv
+public import Mathlib.Topology.Instances.AddCircle.Real
+public import Mathlib.Topology.Homeomorph.Lemmas
+
+@[expose] public section
 
 /-!
 # Complete integral curves on one-manifolds

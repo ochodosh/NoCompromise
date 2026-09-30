@@ -1,4 +1,8 @@
-import NoCompromise.DeGiorgi.SmoothBoundary
+module
+
+public import NoCompromise.DeGiorgi.SmoothBoundary
+
+@[expose] public section
 
 /-! # The filled hull (blueprint `def:hull`) -/
 

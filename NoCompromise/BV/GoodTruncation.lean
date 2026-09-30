@@ -1,5 +1,9 @@
-import NoCompromise.BV.RadialCuts
-import Mathlib.MeasureTheory.Integral.Average
+module
+
+public import NoCompromise.BV.RadialCuts
+public import Mathlib.MeasureTheory.Integral.Average
+
+@[expose] public section
 
 /-!
 # Good truncation of a finite-volume finite-perimeter set

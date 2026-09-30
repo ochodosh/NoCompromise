@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.QuasilinearCampanatoPullback
+module
+
+public import NoCompromise.Elliptic.QuasilinearCampanatoPullback
+
+@[expose] public section
 
 /-! Scale-independent interior energy control. A genuine weak solution whose
 initial energy has volume growth inherits the same growth on smaller balls.

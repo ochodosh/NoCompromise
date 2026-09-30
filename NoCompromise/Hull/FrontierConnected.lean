@@ -1,5 +1,9 @@
-import NoCompromise.Hull.Properties
-import NoCompromise.Topology.Unicoherence
+module
+
+public import NoCompromise.Hull.Properties
+public import NoCompromise.Topology.Unicoherence
+
+@[expose] public section
 
 /-! # The boundary of the filled hull is connected (blueprint `lem:hull-properties`)
 

@@ -1,5 +1,9 @@
-import NoCompromise.Ball.Potential
-import NoCompromise.Threshold.Ledger
+module
+
+public import NoCompromise.Ball.Potential
+public import NoCompromise.Threshold.Ledger
+
+@[expose] public section
 
 /-!
 # The uniquely optimal volume among balls

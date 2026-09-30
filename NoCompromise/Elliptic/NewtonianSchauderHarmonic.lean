@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.NewtonianSchauderNorm
-import NoCompromise.Elliptic.HarmonicDerivative
-import NoCompromise.Elliptic.HarmonicAlgebra
+module
+
+public import NoCompromise.Elliptic.NewtonianSchauderNorm
+public import NoCompromise.Elliptic.HarmonicDerivative
+public import NoCompromise.Elliptic.HarmonicAlgebra
+
+@[expose] public section
 
 /-!
 # The harmonic remainder in the Schauder estimate

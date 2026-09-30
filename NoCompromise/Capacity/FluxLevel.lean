@@ -1,5 +1,9 @@
-import NoCompromise.Capacity.FluxIdentity
-import NoCompromise.CapacitaryK.SlabGaussGreen
+module
+
+public import NoCompromise.Capacity.FluxIdentity
+public import NoCompromise.CapacitaryK.SlabGaussGreen
+
+@[expose] public section
 
 /-!
 # Flux through regular levels of the capacitary potential

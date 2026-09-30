@@ -1,6 +1,10 @@
-import NoCompromise.Surface.Geometry
-import NoCompromise.Energy.CoulombDefs
-import NoCompromise.Elliptic.HopfC2Boundary
+module
+
+public import NoCompromise.Surface.Geometry
+public import NoCompromise.Energy.CoulombDefs
+public import NoCompromise.Elliptic.HopfC2Boundary
+
+@[expose] public section
 
 /-!
 # Stationary domains

@@ -1,5 +1,9 @@
-import NoCompromise.Variation.TransportC1
-import NoCompromise.Variation.PerimeterJacobian
+module
+
+public import NoCompromise.Variation.TransportC1
+public import NoCompromise.Variation.PerimeterJacobian
+
+@[expose] public section
 
 /-!
 # First variation of perimeter

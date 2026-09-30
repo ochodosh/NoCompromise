@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.ClassicalCubeGeometry
-import NoCompromise.Sobolev.W11Pairing
-import Mathlib.MeasureTheory.Integral.DivergenceTheorem
+module
+
+public import NoCompromise.Elliptic.ClassicalCubeGeometry
+public import NoCompromise.Sobolev.W11Pairing
+public import Mathlib.MeasureTheory.Integral.DivergenceTheorem
+
+@[expose] public section
 
 /-!
 # Classical divergence theorem on a cube

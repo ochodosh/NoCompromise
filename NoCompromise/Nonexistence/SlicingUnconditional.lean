@@ -1,5 +1,9 @@
-import NoCompromise.Nonexistence.Slicing
-import NoCompromise.Classification.Subcritical
+module
+
+public import NoCompromise.Nonexistence.Slicing
+public import NoCompromise.Classification.Subcritical
+
+@[expose] public section
 
 /-!
 # `lem:slicing-inequality` for fixed-volume minimisers, unconditionally

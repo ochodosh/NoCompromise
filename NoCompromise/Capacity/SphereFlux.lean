@@ -1,5 +1,9 @@
-import NoCompromise.Capacity.Kelvin
-import NoCompromise.Area.Sphere
+module
+
+public import NoCompromise.Capacity.Kelvin
+public import NoCompromise.Area.Sphere
+
+@[expose] public section
 
 /-!
 # Flux of the capacitary potential through large spheres

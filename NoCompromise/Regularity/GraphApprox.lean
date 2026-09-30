@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.GraphGoodExtension
-import NoCompromise.Regularity.GraphEnergyExtension
-import NoCompromise.Regularity.GraphDirichlet
+module
+
+public import NoCompromise.Regularity.GraphGoodExtension
+public import NoCompromise.Regularity.GraphEnergyExtension
+public import NoCompromise.Regularity.GraphDirichlet
+
+@[expose] public section
 
 /-!
 # Actual graph approximation for each fixed Lipschitz constant

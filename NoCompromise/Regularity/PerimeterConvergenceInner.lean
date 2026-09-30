@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.PerimeterConvergenceGluing
-import NoCompromise.Regularity.PerimeterConvergenceL1
+module
+
+public import NoCompromise.Regularity.PerimeterConvergenceGluing
+public import NoCompromise.Regularity.PerimeterConvergenceL1
+
+@[expose] public section
 
 /-! # Inner-ball comparison for local L¹ limits at varying admissible scales -/
 

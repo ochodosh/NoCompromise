@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.EndpointBoundary
-import NoCompromise.Stationary.GraphCurvature
+module
+
+public import NoCompromise.CapacitaryK.EndpointBoundary
+public import NoCompromise.Stationary.GraphCurvature
+
+@[expose] public section
 
 /-!
 # The mean curvature in `thm:capacitary-inequalities` is the chart mean curvature of `∂K`

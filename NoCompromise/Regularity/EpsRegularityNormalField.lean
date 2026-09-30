@@ -1,7 +1,11 @@
-import NoCompromise.Regularity.EpsRegularityCone
-import NoCompromise.Regularity.EpsRegularityNormalHolder
-import NoCompromise.Regularity.LimitingNormal
-import NoCompromise.Regularity.GraphGoodSet
+module
+
+public import NoCompromise.Regularity.EpsRegularityCone
+public import NoCompromise.Regularity.EpsRegularityNormalHolder
+public import NoCompromise.Regularity.LimitingNormal
+public import NoCompromise.Regularity.GraphGoodSet
+
+@[expose] public section
 
 /-!
 # The limiting normal field on the quarter cylinder

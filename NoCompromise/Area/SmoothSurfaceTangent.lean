@@ -1,4 +1,8 @@
-import NoCompromise.Area.SmoothSurface
+module
+
+public import NoCompromise.Area.SmoothSurface
+
+@[expose] public section
 
 /-!
 # Tangent planes of compact embedded C¹ surfaces

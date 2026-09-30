@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1TraceKernelOperators
-import NoCompromise.Sobolev.H1TraceKernelApprox
+module
+
+public import NoCompromise.Sobolev.H1TraceKernelOperators
+public import NoCompromise.Sobolev.H1TraceKernelApprox
+
+@[expose] public section
 
 /-!
 # Localization preserves zero boundary trace

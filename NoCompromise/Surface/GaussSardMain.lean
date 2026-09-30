@@ -1,6 +1,10 @@
-import NoCompromise.Surface.GaussSard
-import NoCompromise.Surface.GaussSardChart
-import NoCompromise.Surface.MergeDisjoint
+module
+
+public import NoCompromise.Surface.GaussSard
+public import NoCompromise.Surface.GaussSardChart
+public import NoCompromise.Surface.MergeDisjoint
+
+@[expose] public section
 
 /-!
 # `cor:sard-charts` for the Gauss map, and its consequences in chapter 14

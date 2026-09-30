@@ -1,11 +1,15 @@
-import NoCompromise.Isoperimetric.ABPContact
-import NoCompromise.Elliptic.ClassicalNormal
-import NoCompromise.Elliptic.WeakSolutions
-import NoCompromise.Elliptic.ClassicalBoundaryMeasure
-import NoCompromise.BV.SmoothApproxBoundary
-import NoCompromise.Elliptic.NeumannGlue
-import NoCompromise.Elliptic.NeumannUniqueDiff
-import NoCompromise.Elliptic.NeumannInteriorSmooth
+module
+
+public import NoCompromise.Isoperimetric.ABPContact
+public import NoCompromise.Elliptic.ClassicalNormal
+public import NoCompromise.Elliptic.WeakSolutions
+public import NoCompromise.Elliptic.ClassicalBoundaryMeasure
+public import NoCompromise.BV.SmoothApproxBoundary
+public import NoCompromise.Elliptic.NeumannGlue
+public import NoCompromise.Elliptic.NeumannUniqueDiff
+public import NoCompromise.Elliptic.NeumannInteriorSmooth
+
+@[expose] public section
 
 /-!
 # The ABP auxiliary Neumann problem

@@ -1,5 +1,9 @@
-import NoCompromise.Capacity.HullPotentialBoundaryC2
-import NoCompromise.Elliptic.HolderInterpolation
+module
+
+public import NoCompromise.Capacity.HullPotentialBoundaryC2
+public import NoCompromise.Elliptic.HolderInterpolation
+
+@[expose] public section
 
 /-!
 # `thm:capacitary-potential`: `u ∈ C^{2,α}_loc(closure (ℝ³ ∖ K))` for the filled hull

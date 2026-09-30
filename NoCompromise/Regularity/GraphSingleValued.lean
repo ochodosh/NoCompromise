@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.GraphGoodExtension
-import NoCompromise.Regularity.GraphBaseCoverage
+module
+
+public import NoCompromise.Regularity.GraphGoodExtension
+public import NoCompromise.Regularity.GraphBaseCoverage
+
+@[expose] public section
 
 /-! # Actual oriented slices and the single-valued Borel good graph -/
 

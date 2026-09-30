@@ -1,10 +1,14 @@
-import NoCompromise.Elliptic.BoundaryNeumannSmoothTangential
-import NoCompromise.Elliptic.BoundaryNeumannC2Scaled
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomFinite
-import NoCompromise.Elliptic.BoundaryNeumannC2HolderAlgebra
-import NoCompromise.Elliptic.BoundaryNeumannTangential
-import NoCompromise.Elliptic.BoundaryNeumannInhom
-import NoCompromise.Elliptic.BoundaryNeumannC2HolderLift
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannSmoothTangential
+public import NoCompromise.Elliptic.BoundaryNeumannC2Scaled
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomFinite
+public import NoCompromise.Elliptic.BoundaryNeumannC2HolderAlgebra
+public import NoCompromise.Elliptic.BoundaryNeumannTangential
+public import NoCompromise.Elliptic.BoundaryNeumannInhom
+public import NoCompromise.Elliptic.BoundaryNeumannC2HolderLift
+
+@[expose] public section
 
 /-!
 # First step of the smooth boundary Neumann iteration

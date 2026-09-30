@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.FluxDefect
+module
+
+public import NoCompromise.Regularity.FluxDefect
+
+@[expose] public section
 
 /-! # Genuine height moments and volume bounds in the original scale -/
 

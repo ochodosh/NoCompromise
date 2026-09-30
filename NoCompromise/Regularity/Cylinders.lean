@@ -1,6 +1,10 @@
-import NoCompromise.Conventions
-import Mathlib.Analysis.InnerProductSpace.Calculus
-import Mathlib.Topology.MetricSpace.Bounded
+module
+
+public import NoCompromise.Conventions
+public import Mathlib.Analysis.InnerProductSpace.Calculus
+public import Mathlib.Topology.MetricSpace.Bounded
+
+@[expose] public section
 
 /-! # Intrinsic open cylinders about a unit axis -/
 

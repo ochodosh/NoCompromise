@@ -1,4 +1,8 @@
-import NoCompromise.Surface.MorseSurfaceChart
+module
+
+public import NoCompromise.Surface.MorseSurfaceChart
+
+@[expose] public section
 
 /-!
 # Local ingredients of `lem:sublevel-closure`

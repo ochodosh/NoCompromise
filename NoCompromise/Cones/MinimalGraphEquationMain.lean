@@ -1,7 +1,11 @@
-import NoCompromise.Cones.MinimalGraphEquation
-import NoCompromise.DeGiorgi.AmbientPolar
-import NoCompromise.Regularity.ApproxHarmonicTest
-import NoCompromise.Regularity.ApproxHarmonicSupport
+module
+
+public import NoCompromise.Cones.MinimalGraphEquation
+public import NoCompromise.DeGiorgi.AmbientPolar
+public import NoCompromise.Regularity.ApproxHarmonicTest
+public import NoCompromise.Regularity.ApproxHarmonicSupport
+
+@[expose] public section
 
 /-!
 # Local first variation on a minimal graph

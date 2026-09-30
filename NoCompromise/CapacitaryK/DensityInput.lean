@@ -1,4 +1,8 @@
-import NoCompromise.CapacitaryK.PushforwardDensity
+module
+
+public import NoCompromise.CapacitaryK.PushforwardDensity
+
+@[expose] public section
 
 /-!
 # The lower density of `u_#μ` (chapter 31, density input of `prop:K-measure-inequality`)

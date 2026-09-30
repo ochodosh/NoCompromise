@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.QuasilinearCampanatoPullback
+module
+
+public import NoCompromise.Elliptic.QuasilinearCampanatoPullback
+
+@[expose] public section
 
 /-! Campanato estimates on arbitrary translated balls, with a uniform constant
 chosen before the center and all equation data. Continuous input representatives

@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.SlabPhases
+module
+
+public import NoCompromise.Regularity.SlabPhases
+
+@[expose] public section
 
 /-! # Interior balls at flat cylindrical caps -/
 

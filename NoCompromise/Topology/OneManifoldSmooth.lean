@@ -1,6 +1,11 @@
-import NoCompromise.Topology.OneManifoldFlow
-import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ContDiff
-import Mathlib.Geometry.Manifold.LocalDiffeomorph
+module
+
+public import NoCompromise.Topology.OneManifoldFlow
+public import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ContDiff
+public import Mathlib.Geometry.Manifold.LocalDiffeomorph
+import all Mathlib.Geometry.Manifold.LocalDiffeomorph
+
+@[expose] public section
 
 /-!
 # Smooth complete integral curves on one-manifolds

@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryHolderComparisonBounds
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderComparisonBounds
+
+@[expose] public section
 
 /-! Genuine radial boundary equation data. These are weaker than full Hölder
 hypotheses: only the coefficient and datum oscillations about the boundary

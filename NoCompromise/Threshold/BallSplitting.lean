@@ -1,7 +1,11 @@
-import NoCompromise.Ball.Perimeter
-import NoCompromise.Energy.Scaling
-import NoCompromise.Threshold.Algebra
-import Mathlib.Analysis.Normed.MulAction
+module
+
+public import NoCompromise.Ball.Perimeter
+public import NoCompromise.Energy.Scaling
+public import NoCompromise.Threshold.Algebra
+public import Mathlib.Analysis.Normed.MulAction
+
+@[expose] public section
 
 /-!
 # Half-volume balls and the exact comparison coefficients

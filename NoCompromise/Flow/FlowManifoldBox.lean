@@ -1,6 +1,10 @@
-import NoCompromise.Flow.FlowManifoldAbstract
-import NoCompromise.Flow.FlowManifoldLocalCk
-import NoCompromise.Flow.FlowBoxCk
+module
+
+public import NoCompromise.Flow.FlowManifoldAbstract
+public import NoCompromise.Flow.FlowManifoldLocalCk
+public import NoCompromise.Flow.FlowBoxCk
+
+@[expose] public section
 
 /-!
 # Flow boxes on abstract manifolds

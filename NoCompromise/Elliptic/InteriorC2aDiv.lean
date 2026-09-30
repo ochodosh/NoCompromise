@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNondivC2
-import NoCompromise.Elliptic.NondivSchauder
+module
+
+public import NoCompromise.Elliptic.BoundaryNondivC2
+public import NoCompromise.Elliptic.NondivSchauder
+
+@[expose] public section
 
 /-!
 # Interior C²,α for the divergence-form equation (C¹,α solution)

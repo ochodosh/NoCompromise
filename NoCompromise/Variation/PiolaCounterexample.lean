@@ -1,4 +1,8 @@
-import NoCompromise.Variation.Piola
+module
+
+public import NoCompromise.Variation.Piola
+
+@[expose] public section
 
 /-!
 # The Piola identity is not symmetric in the two index slots

@@ -1,6 +1,10 @@
-import NoCompromise.Area.C1GraphLocal
-import Mathlib.MeasureTheory.Integral.Lebesgue.Map
-import Mathlib.Topology.Compactness.SigmaCompact
+module
+
+public import NoCompromise.Area.C1GraphLocal
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Map
+public import Mathlib.Topology.Compactness.SigmaCompact
+
+@[expose] public section
 
 /-!
 # Area and weighted area of C¹ graphs on open domains

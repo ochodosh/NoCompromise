@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NeumannChartC1Data
+module
+
+public import NoCompromise.Elliptic.NeumannChartC1Data
+
+@[expose] public section
 
 /-!
 # C¹ representatives and the classical conormal condition in a normal chart

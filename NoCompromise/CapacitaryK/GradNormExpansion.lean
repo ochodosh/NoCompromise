@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.Bochner
-import NoCompromise.Capacity.Kelvin
+module
+
+public import NoCompromise.CapacitaryK.Bochner
+public import NoCompromise.Capacity.Kelvin
+
+@[expose] public section
 
 /-!
 # Calculus ingredients for the far-field gradient-length expansion

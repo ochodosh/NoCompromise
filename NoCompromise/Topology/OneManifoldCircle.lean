@@ -1,7 +1,11 @@
-import NoCompromise.Topology.OneManifoldSmooth
-import Mathlib.Geometry.Manifold.Instances.Sphere
-import Mathlib.Analysis.SpecialFunctions.Complex.Circle
-import Mathlib.Analysis.SpecialFunctions.Complex.LogDeriv
+module
+
+public import NoCompromise.Topology.OneManifoldSmooth
+public import Mathlib.Geometry.Manifold.Instances.Sphere
+public import Mathlib.Analysis.SpecialFunctions.Complex.Circle
+public import Mathlib.Analysis.SpecialFunctions.Complex.LogDeriv
+
+@[expose] public section
 
 /-!
 # Periodic complete integral curves and the smooth circle

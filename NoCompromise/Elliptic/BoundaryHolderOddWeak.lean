@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderOddField
-import NoCompromise.Elliptic.BoundaryHolderLocalization
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderOddField
+public import NoCompromise.Elliptic.BoundaryHolderLocalization
+
+@[expose] public section
 
 /-! Actual H¹ reflection from the original zero weak trace. The explicitly
 reflected field agrees with the constructed weak gradient near the flat face. -/

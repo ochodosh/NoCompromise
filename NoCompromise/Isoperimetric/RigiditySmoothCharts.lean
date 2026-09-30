@@ -1,4 +1,8 @@
-import NoCompromise.BV.SmoothApproxBoundary
+module
+
+public import NoCompromise.BV.SmoothApproxBoundary
+
+@[expose] public section
 
 /-!
 # Smooth boundary from `C³` constant-mean-curvature charts

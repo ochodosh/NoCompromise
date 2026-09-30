@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NewtonianSchauderKernel
-import Mathlib.Analysis.SpecialFunctions.Pow.Integral
+module
+
+public import NoCompromise.Elliptic.NewtonianSchauderKernel
+public import Mathlib.Analysis.SpecialFunctions.Pow.Integral
+
+@[expose] public section
 
 /-!
 # Radial integrals for Newtonian Hölder estimates

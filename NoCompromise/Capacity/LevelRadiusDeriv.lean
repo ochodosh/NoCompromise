@@ -1,4 +1,8 @@
-import NoCompromise.Capacity.LevelAsymptotics
+module
+
+public import NoCompromise.Capacity.LevelAsymptotics
+
+@[expose] public section
 
 /-!
 # First derivative of the radial graph of small capacitary levels

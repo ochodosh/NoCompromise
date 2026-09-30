@@ -1,5 +1,9 @@
-import NoCompromise.Isoperimetric.SharpNeumann
-import NoCompromise.Elliptic.NeumannChartC1Ambient
+module
+
+public import NoCompromise.Isoperimetric.SharpNeumann
+public import NoCompromise.Elliptic.NeumannChartC1Ambient
+
+@[expose] public section
 
 /-!
 # The ABP Neumann problem to first order, and the sharp isoperimetric inequality

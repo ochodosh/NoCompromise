@@ -1,6 +1,10 @@
-import NoCompromise.Area.Linear
-import Mathlib.LinearAlgebra.CrossProduct
-import Mathlib.LinearAlgebra.Matrix.Adjugate
+module
+
+public import NoCompromise.Area.Linear
+public import Mathlib.LinearAlgebra.CrossProduct
+public import Mathlib.LinearAlgebra.Matrix.Adjugate
+
+@[expose] public section
 
 /-!
 # Cofactors and the Jacobian on a normal plane

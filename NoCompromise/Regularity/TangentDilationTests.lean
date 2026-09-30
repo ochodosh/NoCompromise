@@ -1,5 +1,9 @@
-import NoCompromise.BV.StrictApprox
-import Mathlib.Analysis.Calculus.ParametricIntegral
+module
+
+public import NoCompromise.BV.StrictApprox
+public import Mathlib.Analysis.Calculus.ParametricIntegral
+
+@[expose] public section
 
 /-!
 # Differentiating compact tests along the dilation flow

@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.CampanatoHolderSegmentTests
-import NoCompromise.Elliptic.CampanatoHolderSegmentDerivative
+module
+
+public import NoCompromise.Elliptic.CampanatoHolderSegmentTests
+public import NoCompromise.Elliptic.CampanatoHolderSegmentDerivative
+
+@[expose] public section
 
 /-!
 # Hölder data as a divergence, blueprint `lem:Gh`

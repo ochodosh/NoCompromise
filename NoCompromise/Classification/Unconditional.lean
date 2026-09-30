@@ -1,7 +1,11 @@
-import NoCompromise.Classification.Endpoint
-import NoCompromise.Main
-import NoCompromise.Binding.Main
-import NoCompromise.Isoperimetric.Unconditional
+module
+
+public import NoCompromise.Classification.Endpoint
+public import NoCompromise.Main
+public import NoCompromise.Binding.Main
+public import NoCompromise.Isoperimetric.Unconditional
+
+@[expose] public section
 
 /-!
 # Chapters 34–38 modulo `prop:cap-estimate` only

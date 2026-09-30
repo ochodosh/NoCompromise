@@ -1,5 +1,9 @@
-import NoCompromise.Cones.TwoDimChord
-import NoCompromise.Cones.TangentHalfspace
+module
+
+public import NoCompromise.Cones.TwoDimChord
+public import NoCompromise.Cones.TangentHalfspace
+
+@[expose] public section
 
 /-!
 # Halfspace tangents of three-dimensional minimising cones, unconditionally

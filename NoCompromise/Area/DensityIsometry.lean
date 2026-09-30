@@ -1,5 +1,9 @@
-import NoCompromise.Area.Graph
-import NoCompromise.DeGiorgi.LipschitzPieces
+module
+
+public import NoCompromise.Area.Graph
+public import NoCompromise.DeGiorgi.LipschitzPieces
+
+@[expose] public section
 
 /-!
 # Transport of graph-piece densities under orthogonal changes of frame

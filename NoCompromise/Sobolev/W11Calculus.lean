@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1Calculus
-import NoCompromise.Sobolev.W11TraceFlat
+module
+
+public import NoCompromise.Sobolev.H1Calculus
+public import NoCompromise.Sobolev.W11TraceFlat
+
+@[expose] public section
 
 /-!
 # Elementary W¹,¹ calculus

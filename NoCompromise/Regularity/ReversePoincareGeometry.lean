@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.DeformationOuterWall
-import NoCompromise.Regularity.RepresentativeDensity
+module
+
+public import NoCompromise.Regularity.DeformationOuterWall
+public import NoCompromise.Regularity.RepresentativeDensity
+
+@[expose] public section
 
 /-! # Boundary regularity and containment of comparison cylinders -/
 

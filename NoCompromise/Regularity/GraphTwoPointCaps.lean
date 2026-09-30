@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.GraphTwoPoint
-import NoCompromise.Regularity.GraphPhaseCaps
+module
+
+public import NoCompromise.Regularity.GraphTwoPoint
+public import NoCompromise.Regularity.GraphPhaseCaps
+
+@[expose] public section
 
 /-! # The two-point estimate together with its actual oriented cap conclusion -/
 

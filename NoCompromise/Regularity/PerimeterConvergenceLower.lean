@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.PerimeterConvergenceMeasures
+module
+
+public import NoCompromise.Regularity.PerimeterConvergenceMeasures
+
+@[expose] public section
 
 /-! # Every positive weak limit dominates the genuine limiting perimeter measure -/
 

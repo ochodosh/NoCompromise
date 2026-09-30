@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NeumannChartC1Smooth
-import NoCompromise.Elliptic.BoundaryNeumannInhomC1Conormal
+module
+
+public import NoCompromise.Elliptic.NeumannChartC1Smooth
+public import NoCompromise.Elliptic.BoundaryNeumannInhomC1Conormal
+
+@[expose] public section
 
 /-!
 # Bounds for smooth Neumann data in normal coordinates

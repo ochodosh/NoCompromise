@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.W11TraceOperator
-import NoCompromise.Sobolev.W11VectorData
+module
+
+public import NoCompromise.Sobolev.W11TraceOperator
+public import NoCompromise.Sobolev.W11VectorData
+
+@[expose] public section
 
 /-!
 # The L¹ trace for vector-valued W¹,¹ fields

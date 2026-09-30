@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.HolderInterpolation
+module
+
+public import NoCompromise.Elliptic.HolderInterpolation
+
+@[expose] public section
 
 /-!
 # The C² Hölder norm used in the Schauder estimate

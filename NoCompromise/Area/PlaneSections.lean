@@ -1,6 +1,10 @@
-import NoCompromise.BV.Slicing
-import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
-import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+module
+
+public import NoCompromise.BV.Slicing
+public import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+public import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+
+@[expose] public section
 
 /-!
 # Normalized Hausdorff measure of central planar sections

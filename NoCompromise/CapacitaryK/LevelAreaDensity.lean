@@ -1,4 +1,8 @@
-import NoCompromise.CapacitaryK.LevelGradExpansion
+module
+
+public import NoCompromise.CapacitaryK.LevelGradExpansion
+
+@[expose] public section
 
 /-!
 # The area density of small capacitary levels

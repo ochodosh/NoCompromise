@@ -1,8 +1,12 @@
-import NoCompromise.Elliptic.BoundaryNondivC2TraceData
-import NoCompromise.Elliptic.BoundaryC2aLocalAssembly
-import NoCompromise.Elliptic.NondivSchauderScalingBall
-import NoCompromise.Elliptic.NondivSchauderScalingEquation
-import NoCompromise.Elliptic.NondivSchauderLocalization
+module
+
+public import NoCompromise.Elliptic.BoundaryNondivC2TraceData
+public import NoCompromise.Elliptic.BoundaryC2aLocalAssembly
+public import NoCompromise.Elliptic.NondivSchauderScalingBall
+public import NoCompromise.Elliptic.NondivSchauderScalingEquation
+public import NoCompromise.Elliptic.NondivSchauderLocalization
+
+@[expose] public section
 
 /-!
 # Boundary nondivergence C²,α on the half ball `B⁺_{1/2}` (`thm:boundary-nondiv`, covering)

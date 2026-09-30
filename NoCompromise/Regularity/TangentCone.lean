@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.TangentDilation
-import NoCompromise.Regularity.TangentRepresentative
-import NoCompromise.Regularity.TangentExistence
+module
+
+public import NoCompromise.Regularity.TangentDilation
+public import NoCompromise.Regularity.TangentRepresentative
+public import NoCompromise.Regularity.TangentExistence
+
+@[expose] public section
 
 /-!
 # Tangent limits are cones

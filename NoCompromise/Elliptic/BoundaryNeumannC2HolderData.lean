@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2HolderLift
-import NoCompromise.Elliptic.BoundaryNeumannC2HolderDatum
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2HolderLift
+public import NoCompromise.Elliptic.BoundaryNeumannC2HolderDatum
+
+@[expose] public section
 
 /-!
 # Boundary Neumann C²,α regularity with the literal data classes

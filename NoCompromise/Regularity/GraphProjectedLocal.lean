@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.GraphProjectedExcess
+module
+
+public import NoCompromise.Regularity.GraphProjectedExcess
+
+@[expose] public section
 
 /-! # The maximal-density condition controls genuine excess at good centers -/
 

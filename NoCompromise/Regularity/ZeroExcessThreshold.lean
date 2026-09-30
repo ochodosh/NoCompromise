@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.ZeroExcessOrder
+module
+
+public import NoCompromise.Regularity.ZeroExcessOrder
+
+@[expose] public section
 
 /-! # A binary height-ordered phase has one lower threshold -/
 

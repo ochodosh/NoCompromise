@@ -1,7 +1,11 @@
-import NoCompromise.Sobolev.H1TraceKernelInward
-import NoCompromise.Sobolev.H1TraceKernelChartTrace
-import NoCompromise.Sobolev.H1TraceKernelTransport
-import NoCompromise.Sobolev.H1TraceKernelFlat
+module
+
+public import NoCompromise.Sobolev.H1TraceKernelInward
+public import NoCompromise.Sobolev.H1TraceKernelChartTrace
+public import NoCompromise.Sobolev.H1TraceKernelTransport
+public import NoCompromise.Sobolev.H1TraceKernelFlat
+
+@[expose] public section
 
 /-!
 # The trace kernel on one Lipschitz boundary chart

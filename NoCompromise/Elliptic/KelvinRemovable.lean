@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.KelvinRemovableCutoff
+module
+
+public import NoCompromise.Elliptic.KelvinRemovableCutoff
+
+@[expose] public section
 
 /-!
 # Kelvin removability

@@ -1,6 +1,10 @@
-import NoCompromise.BV.Basic
-import NoCompromise.Energy.Defs
-import NoCompromise.Energy.Coulomb
+module
+
+public import NoCompromise.BV.Basic
+public import NoCompromise.Energy.Defs
+public import NoCompromise.Energy.Coulomb
+
+@[expose] public section
 
 /-! # Null-set invariance of the showcase energy
 

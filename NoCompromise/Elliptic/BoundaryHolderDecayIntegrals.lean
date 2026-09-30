@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderVariance
-import NoCompromise.Elliptic.FrozenDecayIntegrals
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderVariance
+public import NoCompromise.Elliptic.FrozenDecayIntegrals
+
+@[expose] public section
 
 /-!
 # Half-ball decay from genuine pointwise frozen estimates

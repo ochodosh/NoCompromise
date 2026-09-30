@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.NondivSchauderBootstrap
-import NoCompromise.Elliptic.NondivSchauderScalingEquation
-import NoCompromise.Elliptic.NondivSchauderScalingInverse
+module
+
+public import NoCompromise.Elliptic.NondivSchauderBootstrap
+public import NoCompromise.Elliptic.NondivSchauderScalingEquation
+public import NoCompromise.Elliptic.NondivSchauderScalingInverse
+
+@[expose] public section
 
 /-!
 # The bootstrap on every contracting interior ball

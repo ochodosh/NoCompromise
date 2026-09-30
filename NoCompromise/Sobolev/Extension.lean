@@ -1,15 +1,19 @@
-import NoCompromise.BV.Compactness
-import NoCompromise.BV.Algebra
-import NoCompromise.BV.Space
-import NoCompromise.Sobolev.ExtensionPartition
-import Mathlib.Analysis.Normed.Affine.Isometry
-import Mathlib.Analysis.Calculus.Rademacher
-import Mathlib.Analysis.Calculus.FDeriv.Measurable
-import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
-import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
-import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
-import Mathlib.Topology.Algebra.MetricSpace.Lipschitz
-import Mathlib.Geometry.Euclidean.Volume.Measure
+module
+
+public import NoCompromise.BV.Compactness
+public import NoCompromise.BV.Algebra
+public import NoCompromise.BV.Space
+public import NoCompromise.Sobolev.ExtensionPartition
+public import Mathlib.Analysis.Normed.Affine.Isometry
+public import Mathlib.Analysis.Calculus.Rademacher
+public import Mathlib.Analysis.Calculus.FDeriv.Measurable
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+public import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+public import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
+public import Mathlib.Topology.Algebra.MetricSpace.Lipschitz
+public import Mathlib.Geometry.Euclidean.Volume.Measure
+
+@[expose] public section
 /-!
 # Weak gradients, the bi-Lipschitz BV chain rule, and BV extension
 

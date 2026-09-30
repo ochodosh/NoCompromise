@@ -1,5 +1,9 @@
-import NoCompromise.Binding.Ratio
-import NoCompromise.Existence.Subcritical
+module
+
+public import NoCompromise.Binding.Ratio
+public import NoCompromise.Existence.Subcritical
+
+@[expose] public section
 
 /-!
 # Attainment of the relaxed ratio infimum (blueprint chapter 38)

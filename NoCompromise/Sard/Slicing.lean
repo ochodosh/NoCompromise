@@ -1,7 +1,11 @@
-import NoCompromise.Sard.VectorFlat
-import NoCompromise.Sard.LevelCharts
-import Mathlib.Analysis.InnerProductSpace.Adjoint
-import Mathlib.Analysis.Normed.Module.FiniteDimension
+module
+
+public import NoCompromise.Sard.VectorFlat
+public import NoCompromise.Sard.LevelCharts
+public import Mathlib.Analysis.InnerProductSpace.Adjoint
+public import Mathlib.Analysis.Normed.Module.FiniteDimension
+
+@[expose] public section
 
 /-!
 # Reduction of critical values by one regular coordinate

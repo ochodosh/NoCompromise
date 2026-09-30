@@ -1,4 +1,8 @@
-import NoCompromise.BV.SmoothApprox
+module
+
+public import NoCompromise.BV.SmoothApprox
+
+@[expose] public section
 
 /-!
 # The sharp isoperimetric inequality from the smooth case

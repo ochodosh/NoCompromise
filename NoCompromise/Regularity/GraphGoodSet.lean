@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.GraphExtension
+module
+
+public import NoCompromise.Regularity.GraphExtension
+
+@[expose] public section
 
 /-! # The Borel good boundary and its genuine projected graph -/
 

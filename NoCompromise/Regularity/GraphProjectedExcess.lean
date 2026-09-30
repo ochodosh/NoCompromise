@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.SlabCap
-import NoCompromise.Regularity.Excess
-import NoCompromise.Sobolev.Maximal
+module
+
+public import NoCompromise.Regularity.SlabCap
+public import NoCompromise.Regularity.Excess
+public import NoCompromise.Sobolev.Maximal
+
+@[expose] public section
 
 /-! # The genuine projected excess measure and its good base set -/
 

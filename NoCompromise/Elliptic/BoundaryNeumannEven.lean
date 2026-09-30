@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNeumann
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumann
+
+@[expose] public section
 
 /-!
 # Evenness of the homogeneous conormal representative

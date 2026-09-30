@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NeumannChartC3Regularity
+module
+
+public import NoCompromise.Elliptic.NeumannChartC3Regularity
+
+@[expose] public section
 
 /-!
 # Localization of weak Neumann solutions with C² chart heights

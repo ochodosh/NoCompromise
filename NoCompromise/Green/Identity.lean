@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.Newtonian
-import NoCompromise.Energy.PotentialRegularity
-import NoCompromise.Area.Sphere
-import NoCompromise.Elliptic.ClassicalKernelFluxLimits
+module
+
+public import NoCompromise.Elliptic.Newtonian
+public import NoCompromise.Energy.PotentialRegularity
+public import NoCompromise.Area.Sphere
+public import NoCompromise.Elliptic.ClassicalKernelFluxLimits
+
+@[expose] public section
 
 noncomputable section
 open Set MeasureTheory Metric InnerProductSpace

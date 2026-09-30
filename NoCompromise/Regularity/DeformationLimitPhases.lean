@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.DeformationClearance
+module
+
+public import NoCompromise.Regularity.DeformationClearance
+
+@[expose] public section
 
 /-! # Phase constraints retained by genuine almost-everywhere limits -/
 

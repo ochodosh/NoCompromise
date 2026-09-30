@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannCkLevel
-import NoCompromise.Elliptic.BoundaryNeumannIterateStep
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannCkLevel
+public import NoCompromise.Elliptic.BoundaryNeumannIterateStep
+
+@[expose] public section
 
 /-!
 # All levels of the smooth boundary Neumann iteration (`thm:boundary-neumann`)

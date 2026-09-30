@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNeumannIterateStep
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannIterateStep
+
+@[expose] public section
 
 /-!
 # The first smooth boundary Neumann iteration as C³ regularity

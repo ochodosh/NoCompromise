@@ -1,6 +1,10 @@
-import NoCompromise.Sard.Scalar
-import NoCompromise.Sard.LevelCharts
-import NoCompromise.Sard.CubicFlat
+module
+
+public import NoCompromise.Sard.Scalar
+public import NoCompromise.Sard.LevelCharts
+public import NoCompromise.Sard.CubicFlat
+
+@[expose] public section
 
 /-!
 # Three-dimensional scalar Sard at C³ regularity

@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.FrozenDecayUnit
-import NoCompromise.Elliptic.FrozenDecayScaling
+module
+
+public import NoCompromise.Elliptic.FrozenDecayUnit
+public import NoCompromise.Elliptic.FrozenDecayScaling
+
+@[expose] public section
 
 /-!
 # Frozen elliptic energy and oscillation decay

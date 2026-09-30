@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.FrozenDecayEstimates
+module
+
+public import NoCompromise.Elliptic.FrozenDecayEstimates
+
+@[expose] public section
 
 /-! Affine subtraction preserves the genuine frozen equation. This lets the
 second derivative estimate depend on centered gradient energy. -/

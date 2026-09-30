@@ -1,4 +1,8 @@
-import NoCompromise.BV.RadialCuts
+module
+
+public import NoCompromise.BV.RadialCuts
+
+@[expose] public section
 
 /-!
 # Exact perimeter of a complete graph cut

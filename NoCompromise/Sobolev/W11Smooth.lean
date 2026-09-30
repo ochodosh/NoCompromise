@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.W11TraceFlat
+module
+
+public import NoCompromise.Sobolev.W11TraceFlat
+
+@[expose] public section
 
 /-!
 # Compact C¹ functions as genuine W¹,¹ data

@@ -1,4 +1,8 @@
-import NoCompromise.Flow.FlowBox
+module
+
+public import NoCompromise.Flow.FlowBox
+
+@[expose] public section
 
 /-!
 # thm:flow-Ck: `C^k` and smooth dependence of the global flow

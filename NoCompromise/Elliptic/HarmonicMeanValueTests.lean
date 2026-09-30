@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.InteriorH2Hessian
-import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+module
+
+public import NoCompromise.Elliptic.InteriorH2Hessian
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+
+@[expose] public section
 
 /-!
 # Compact radial tests for harmonic mean values

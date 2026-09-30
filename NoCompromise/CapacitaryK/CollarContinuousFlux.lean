@@ -1,7 +1,11 @@
-import NoCompromise.CapacitaryK.Calculus
-import NoCompromise.BV.StrictApprox
-import NoCompromise.Area.Linear
-import Mathlib.Analysis.Calculus.BumpFunction.SmoothApprox
+module
+
+public import NoCompromise.CapacitaryK.Calculus
+public import NoCompromise.BV.StrictApprox
+public import NoCompromise.Area.Linear
+public import Mathlib.Analysis.Calculus.BumpFunction.SmoothApprox
+
+@[expose] public section
 
 /-!
 # Surface fluxes of continuous fields by uniform smooth approximation

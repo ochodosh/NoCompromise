@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2Tangential
-import Mathlib.Topology.ExtendFrom
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2Tangential
+public import Mathlib.Topology.ExtendFrom
+
+@[expose] public section
 
 /-!
 # Continuous extensions of the tangential second derivatives

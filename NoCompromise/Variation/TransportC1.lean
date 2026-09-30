@@ -1,5 +1,9 @@
-import NoCompromise.Variation.TransportC1Pairing
-import Mathlib.Data.Real.Sign
+module
+
+public import NoCompromise.Variation.TransportC1Pairing
+public import Mathlib.Data.Real.Sign
+
+@[expose] public section
 
 /-!
 # Perimeter and normal transport under global C¹ diffeomorphisms

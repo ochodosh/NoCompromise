@@ -1,4 +1,8 @@
-import NoCompromise.BV.SmoothApproxRegular
+module
+
+public import NoCompromise.BV.SmoothApproxRegular
+
+@[expose] public section
 
 /-!
 # Exact-volume correction of strictly approximating sets

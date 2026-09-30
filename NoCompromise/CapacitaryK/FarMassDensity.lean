@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.PotentialAssembly
-import NoCompromise.CapacitaryK.MuRegular
+module
+
+public import NoCompromise.CapacitaryK.PotentialAssembly
+public import NoCompromise.CapacitaryK.MuRegular
+
+@[expose] public section
 
 /-!
 # The far-region mass of `μ = Δ|∇u|` as a translated volume integral

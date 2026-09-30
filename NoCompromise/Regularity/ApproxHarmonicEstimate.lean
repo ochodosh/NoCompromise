@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.ApproxHarmonicEstimateDecomposition
-import NoCompromise.Regularity.ApproxHarmonicEstimateError
-import NoCompromise.Regularity.ApproxHarmonicEstimateTestBounds
+module
+
+public import NoCompromise.Regularity.ApproxHarmonicEstimateDecomposition
+public import NoCompromise.Regularity.ApproxHarmonicEstimateError
+public import NoCompromise.Regularity.ApproxHarmonicEstimateTestBounds
+
+@[expose] public section
 
 /-! # Combining the genuine graph-variation and extension errors -/
 

@@ -1,7 +1,11 @@
-import NoCompromise.Regularity.DeformationCaps
-import NoCompromise.Regularity.DeformationDisk
-import NoCompromise.Regularity.DeformationAnnulus
-import NoCompromise.Regularity.DeformationLimitPhases
+module
+
+public import NoCompromise.Regularity.DeformationCaps
+public import NoCompromise.Regularity.DeformationDisk
+public import NoCompromise.Regularity.DeformationAnnulus
+public import NoCompromise.Regularity.DeformationLimitPhases
+
+@[expose] public section
 
 /-! # Core, caps, exterior agreement, and annular estimate of actual limits -/
 

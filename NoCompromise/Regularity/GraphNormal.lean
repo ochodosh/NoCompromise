@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.GraphNormalGeometry
-import NoCompromise.Regularity.GraphNormalDensity
+module
+
+public import NoCompromise.Regularity.GraphNormalGeometry
+public import NoCompromise.Regularity.GraphNormalDensity
+
+@[expose] public section
 
 /-!
 # The actual reduced normal on a Lipschitz graph piece

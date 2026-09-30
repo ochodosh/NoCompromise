@@ -1,6 +1,10 @@
-import NoCompromise.BV.Density
-import NoCompromise.Area.Linear
-import Mathlib.Analysis.InnerProductSpace.Projection.Reflection
+module
+
+public import NoCompromise.BV.Density
+public import NoCompromise.Area.Linear
+public import Mathlib.Analysis.InnerProductSpace.Projection.Reflection
+
+@[expose] public section
 
 /-!
 # Planar slicing in three dimensions

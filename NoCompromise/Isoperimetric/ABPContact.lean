@@ -1,12 +1,16 @@
-import NoCompromise.Ball.Perimeter
-import Mathlib.Analysis.Calculus.Gradient.Basic
-import Mathlib.Analysis.Calculus.DerivativeTest
-import Mathlib.Analysis.Calculus.ContDiff.Operations
-import Mathlib.Analysis.InnerProductSpace.Calculus
-import Mathlib.MeasureTheory.Function.Jacobian
-import Mathlib.Analysis.InnerProductSpace.Trace
-import Mathlib.Analysis.InnerProductSpace.Positive
-import Mathlib.Analysis.Calculus.FDeriv.Symmetric
+module
+
+public import NoCompromise.Ball.Perimeter
+public import Mathlib.Analysis.Calculus.Gradient.Basic
+public import Mathlib.Analysis.Calculus.DerivativeTest
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.InnerProductSpace.Calculus
+public import Mathlib.MeasureTheory.Function.Jacobian
+public import Mathlib.Analysis.InnerProductSpace.Trace
+public import Mathlib.Analysis.InnerProductSpace.Positive
+public import Mathlib.Analysis.Calculus.FDeriv.Symmetric
+
+@[expose] public section
 
 noncomputable section
 

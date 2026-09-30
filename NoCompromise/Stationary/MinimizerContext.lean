@@ -1,6 +1,10 @@
-import NoCompromise.Energy.Defs
-import NoCompromise.Energy.Coulomb
-import NoCompromise.DeGiorgi.SmoothBoundary
+module
+
+public import NoCompromise.Energy.Defs
+public import NoCompromise.Energy.Coulomb
+public import NoCompromise.DeGiorgi.SmoothBoundary
+
+@[expose] public section
 
 /-!
 # The fixed minimizer representative

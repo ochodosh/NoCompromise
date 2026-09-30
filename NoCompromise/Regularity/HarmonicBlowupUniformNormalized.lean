@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.HarmonicBlowupNormalizedCompactness
-import NoCompromise.Regularity.HarmonicBlowupUniformH1
+module
+
+public import NoCompromise.Regularity.HarmonicBlowupNormalizedCompactness
+public import NoCompromise.Regularity.HarmonicBlowupUniformH1
+
+@[expose] public section
 
 /-!
 # Uniform harmonic approximation of actual normalized functions

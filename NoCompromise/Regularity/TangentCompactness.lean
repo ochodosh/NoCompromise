@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.DensityAhlfors
-import NoCompromise.DeGiorgi.BlowupCompactness
+module
+
+public import NoCompromise.Regularity.DensityAhlfors
+public import NoCompromise.DeGiorgi.BlowupCompactness
+
+@[expose] public section
 
 /-!
 # Compactness of quasiminimal blow-ups at arbitrary centers

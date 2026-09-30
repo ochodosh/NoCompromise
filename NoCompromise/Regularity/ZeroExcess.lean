@@ -1,7 +1,11 @@
-import NoCompromise.Regularity.ZeroExcessThreshold
-import NoCompromise.Regularity.ZeroExcessLocalPolar
-import NoCompromise.Regularity.CylindersConvex
-import NoCompromise.Regularity.Excess
+module
+
+public import NoCompromise.Regularity.ZeroExcessThreshold
+public import NoCompromise.Regularity.ZeroExcessLocalPolar
+public import NoCompromise.Regularity.CylindersConvex
+public import NoCompromise.Regularity.Excess
+
+@[expose] public section
 
 /-! # Zero-excess classification, including the two constant phases -/
 

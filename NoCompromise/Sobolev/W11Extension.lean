@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.W11ChartExtension
-import NoCompromise.Sobolev.W11Algebra
-import NoCompromise.Sobolev.H1ContinuousExtension
+module
+
+public import NoCompromise.Sobolev.W11ChartExtension
+public import NoCompromise.Sobolev.W11Algebra
+public import NoCompromise.Sobolev.H1ContinuousExtension
+
+@[expose] public section
 
 /-!
 # W¹,¹ extension on bounded Lipschitz domains

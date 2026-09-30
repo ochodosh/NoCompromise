@@ -1,7 +1,11 @@
-import NoCompromise.CapacitaryK.Bochner
-import NoCompromise.CapacitaryK.LevelFrame
-import NoCompromise.CapacitaryK.MuPositive
-import NoCompromise.CapacitaryK.MuMeasure
+module
+
+public import NoCompromise.CapacitaryK.Bochner
+public import NoCompromise.CapacitaryK.LevelFrame
+public import NoCompromise.CapacitaryK.MuPositive
+public import NoCompromise.CapacitaryK.MuMeasure
+
+@[expose] public section
 
 /-!
 # The positive measure `Δ|∇u|`: pointwise identities (chapter 31)

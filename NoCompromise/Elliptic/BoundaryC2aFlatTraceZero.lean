@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderTrace
-import NoCompromise.Elliptic.BoundaryHolderDecayIntegrals
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderTrace
+public import NoCompromise.Elliptic.BoundaryHolderDecayIntegrals
+
+@[expose] public section
 
 /-!
 # Zero flat trace of functions continuous up to the flat face

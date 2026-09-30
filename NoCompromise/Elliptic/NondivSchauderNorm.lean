@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NewtonianSchauder
+module
+
+public import NoCompromise.Elliptic.NewtonianSchauder
+
+@[expose] public section
 
 /-!
 # Hölder data for the nondivergence Schauder estimate

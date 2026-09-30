@@ -1,5 +1,9 @@
-import NoCompromise.Isoperimetric.ABPNeumannSmooth
-import NoCompromise.Elliptic.NeumannChartSmoothAmbient
+module
+
+public import NoCompromise.Isoperimetric.ABPNeumannSmooth
+public import NoCompromise.Elliptic.NeumannChartSmoothAmbient
+
+@[expose] public section
 
 /-!
 # The local boundary ingredient of the smooth clause of `lem:abp-neumann`

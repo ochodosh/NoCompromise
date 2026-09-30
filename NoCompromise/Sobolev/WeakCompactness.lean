@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.Hilbert
-import Mathlib.Analysis.Normed.Module.WeakDual
+module
+
+public import NoCompromise.Sobolev.Hilbert
+public import Mathlib.Analysis.Normed.Module.WeakDual
+
+@[expose] public section
 
 /-!
 # Weak sequential compactness of H¹

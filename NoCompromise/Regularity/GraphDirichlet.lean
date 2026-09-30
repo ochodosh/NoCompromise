@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.GraphNormal
-import NoCompromise.Regularity.Excess
+module
+
+public import NoCompromise.Regularity.GraphNormal
+public import NoCompromise.Regularity.Excess
+
+@[expose] public section
 
 /-!
 # Graph Dirichlet energy from genuine reduced-normal excess

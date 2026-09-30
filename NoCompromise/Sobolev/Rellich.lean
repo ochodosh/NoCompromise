@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.PlanarDomain
-import NoCompromise.Sobolev.WeakCompactness
-import NoCompromise.Sobolev.Poincare
+module
+
+public import NoCompromise.Sobolev.PlanarDomain
+public import NoCompromise.Sobolev.WeakCompactness
+public import NoCompromise.Sobolev.Poincare
+
+@[expose] public section
 
 /-!
 # Simultaneous weak H¹ and strong L² convergence

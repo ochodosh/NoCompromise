@@ -1,4 +1,8 @@
-import Mathlib.Analysis.Calculus.Deriv.Slope
+module
+
+public import Mathlib.Analysis.Calculus.Deriv.Slope
+
+@[expose] public section
 
 /-! # Two-sided variation of an almost-minimum -/
 

@@ -1,5 +1,9 @@
-import NoCompromise.BV.WeightedCoarea
-import Mathlib.MeasureTheory.Integral.Bochner.Basic
+module
+
+public import NoCompromise.BV.WeightedCoarea
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
+
+@[expose] public section
 
 /-!
 # Coarea with an integrable signed weight

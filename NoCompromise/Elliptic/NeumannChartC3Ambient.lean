@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.NeumannChartC3Flat
-import NoCompromise.Elliptic.NeumannChartC1Ambient
-import NoCompromise.Stationary.Defs
+module
+
+public import NoCompromise.Elliptic.NeumannChartC3Flat
+public import NoCompromise.Elliptic.NeumannChartC1Ambient
+public import NoCompromise.Stationary.Defs
+
+@[expose] public section
 
 /-!
 # Ambient C¹ Neumann regularity for C³ boundaries

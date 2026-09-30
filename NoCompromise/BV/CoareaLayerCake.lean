@@ -1,6 +1,10 @@
-import NoCompromise.BV.StrictApprox
-import Mathlib.MeasureTheory.Integral.Layercake
-import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
+module
+
+public import NoCompromise.BV.StrictApprox
+public import Mathlib.MeasureTheory.Integral.Layercake
+public import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
+
+@[expose] public section
 
 /-!
 # Layer-cake distances and almost-everywhere convergence of superlevels

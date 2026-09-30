@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.W11Bounds
-import NoCompromise.Sobolev.W11TraceApprox
-import NoCompromise.Sobolev.H1TraceChart
+module
+
+public import NoCompromise.Sobolev.W11Bounds
+public import NoCompromise.Sobolev.W11TraceApprox
+public import NoCompromise.Sobolev.H1TraceChart
+
+@[expose] public section
 
 /-!
 # L¹ boundary estimates in a bi-Lipschitz chart

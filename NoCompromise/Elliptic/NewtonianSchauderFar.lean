@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NewtonianSchauderFarKernel
+module
+
+public import NoCompromise.Elliptic.NewtonianSchauderFarKernel
+
+@[expose] public section
 
 /-!
 # Far-field convolution estimates

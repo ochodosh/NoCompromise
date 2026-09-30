@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.TiltCaps
-import NoCompromise.Regularity.TiltPlane
-import NoCompromise.Regularity.IsometryExcess
+module
+
+public import NoCompromise.Regularity.TiltCaps
+public import NoCompromise.Regularity.TiltPlane
+public import NoCompromise.Regularity.IsometryExcess
+
+@[expose] public section
 
 /-! # The actual slab-and-cap configuration around the new affine plane -/
 

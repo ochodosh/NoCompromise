@@ -1,4 +1,8 @@
-import NoCompromise.Measure.WeakStar
+module
+
+public import NoCompromise.Measure.WeakStar
+
+@[expose] public section
 
 /-!
 # Positive local weak-star limits

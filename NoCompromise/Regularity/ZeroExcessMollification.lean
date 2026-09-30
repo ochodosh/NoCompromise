@@ -1,5 +1,9 @@
-import NoCompromise.DeGiorgi.HalfspaceRigidity
-import Mathlib.Topology.MetricSpace.Thickening
+module
+
+public import NoCompromise.DeGiorgi.HalfspaceRigidity
+public import Mathlib.Topology.MetricSpace.Thickening
+
+@[expose] public section
 
 /-! # Local constant-normal identities and mollified height ordering -/
 

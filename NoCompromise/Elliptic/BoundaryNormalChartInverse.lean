@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNormalChart
+module
+
+public import NoCompromise.Elliptic.BoundaryNormalChart
+
+@[expose] public section
 
 /-!
 # Invertibility of normal graph coordinates

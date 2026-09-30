@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.TangentDilationTests
-import NoCompromise.Regularity.TangentRadialGlobal
-import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+module
+
+public import NoCompromise.Regularity.TangentDilationTests
+public import NoCompromise.Regularity.TangentRadialGlobal
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+
+@[expose] public section
 
 /-!
 # Dilation invariance from the actual radial distributional identity

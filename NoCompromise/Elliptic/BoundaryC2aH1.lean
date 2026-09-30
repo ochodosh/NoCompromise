@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryC1Slab
-import NoCompromise.Sobolev.H1Algebra
+module
+
+public import NoCompromise.Elliptic.BoundaryC1Slab
+public import NoCompromise.Sobolev.H1Algebra
+
+@[expose] public section
 
 /-!
 # Boundary C¹,α from H¹ with a nonzero trace (first step of `thm:boundary-C2a`)

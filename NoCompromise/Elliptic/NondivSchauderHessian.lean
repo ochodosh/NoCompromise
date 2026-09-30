@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.NondivSchauderQuotientBounds
-import NoCompromise.Elliptic.NondivSchauderConvergence
-import NoCompromise.Elliptic.NondivSchauderWeakLimit
+module
+
+public import NoCompromise.Elliptic.NondivSchauderQuotientBounds
+public import NoCompromise.Elliptic.NondivSchauderConvergence
+public import NoCompromise.Elliptic.NondivSchauderWeakLimit
+
+@[expose] public section
 
 /-!
 # Construction of actual weak second derivatives

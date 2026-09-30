@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.MonotonicityRadial
+module
+
+public import NoCompromise.Regularity.MonotonicityRadial
+
+@[expose] public section
 
 /-!
 # The exponential integrating factor in radial first variation

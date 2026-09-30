@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.BoundaryC2aPullbackGeneral
-import NoCompromise.Elliptic.BoundaryC2aCoverNorm
-import NoCompromise.Elliptic.InteriorH2Energy
-import NoCompromise.Elliptic.BoundaryC2aShear
+module
+
+public import NoCompromise.Elliptic.BoundaryC2aPullbackGeneral
+public import NoCompromise.Elliptic.BoundaryC2aCoverNorm
+public import NoCompromise.Elliptic.InteriorH2Energy
+public import NoCompromise.Elliptic.BoundaryC2aShear
+
+@[expose] public section
 
 /-!
 # `thm:boundary-C2a` after flattening a curved boundary

@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.ApproxHarmonicEstimateField
-import NoCompromise.Regularity.GraphBadBase
+module
+
+public import NoCompromise.Regularity.ApproxHarmonicEstimateField
+public import NoCompromise.Regularity.GraphBadBase
+
+@[expose] public section
 
 /-! # The genuine perimeter first variation for the fixed vertical field -/
 

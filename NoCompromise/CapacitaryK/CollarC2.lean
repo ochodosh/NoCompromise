@@ -1,5 +1,9 @@
-import NoCompromise.Capacity.FluxBoundaryW
-import NoCompromise.CapacitaryK.LevelFrame
+module
+
+public import NoCompromise.Capacity.FluxBoundaryW
+public import NoCompromise.CapacitaryK.LevelFrame
+
+@[expose] public section
 
 /-!
 # Collar bounds near `∂K` from a `C²` extension across `∂K`

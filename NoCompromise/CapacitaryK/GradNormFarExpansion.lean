@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.BochnerScalar
-import NoCompromise.CapacitaryK.BochnerInvariants
+module
+
+public import NoCompromise.CapacitaryK.BochnerScalar
+public import NoCompromise.CapacitaryK.BochnerInvariants
+
+@[expose] public section
 
 /-!
 # Far-field expansion of `Δ|∇U|`

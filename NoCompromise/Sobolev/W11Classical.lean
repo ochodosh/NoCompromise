@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.W11VectorData
+module
+
+public import NoCompromise.Sobolev.W11VectorData
+
+@[expose] public section
 
 /-!
 # Classical C¹ fields on bounded domains as W¹,¹ data

@@ -1,5 +1,9 @@
-import NoCompromise.BV.ScalarDistribution
-import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+module
+
+public import NoCompromise.BV.ScalarDistribution
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+
+@[expose] public section
 
 /-!
 # Uniqueness of local scalar derivative representations

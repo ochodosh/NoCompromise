@@ -1,4 +1,8 @@
-import NoCompromise.CapacitaryK.MuMeasure
+module
+
+public import NoCompromise.CapacitaryK.MuMeasure
+
+@[expose] public section
 
 /-!
 # The Laplacian measure on the regular set

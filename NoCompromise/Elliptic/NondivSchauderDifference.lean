@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NondivSchauderData
-import NoCompromise.Sobolev.H1DifferenceQuotient
+module
+
+public import NoCompromise.Elliptic.NondivSchauderData
+public import NoCompromise.Sobolev.H1DifferenceQuotient
+
+@[expose] public section
 
 /-!
 # Uniform Hölder bounds for coefficient difference quotients

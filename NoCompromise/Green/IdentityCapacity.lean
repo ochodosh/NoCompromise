@@ -1,6 +1,10 @@
-import NoCompromise.Green.Identity
-import NoCompromise.Capacity.HullPotential
-import NoCompromise.Elliptic.ClassicalBoundaryMeasure
+module
+
+public import NoCompromise.Green.Identity
+public import NoCompromise.Capacity.HullPotential
+public import NoCompromise.Elliptic.ClassicalBoundaryMeasure
+
+@[expose] public section
 
 /-!
 # `lem:wronskian` and `thm:green-identity` for the capacitary potential of the filled hull

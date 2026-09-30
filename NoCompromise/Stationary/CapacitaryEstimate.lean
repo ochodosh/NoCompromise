@@ -1,5 +1,9 @@
-import NoCompromise.Threshold.Ledger
-import Mathlib.MeasureTheory.Integral.Bochner.Basic
+module
+
+public import NoCompromise.Threshold.Ledger
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
+
+@[expose] public section
 
 /-! # The capacitary estimate for stationary domains
 

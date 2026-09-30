@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryC2
+module
+
+public import NoCompromise.Elliptic.BoundaryC2
+
+@[expose] public section
 
 /-!
 # Hölder control in the algebraic normal-derivative step

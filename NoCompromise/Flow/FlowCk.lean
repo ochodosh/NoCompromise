@@ -1,6 +1,10 @@
-import NoCompromise.Flow.ODE
-import Mathlib.Analysis.ODE.Gronwall
-import Mathlib.Topology.UniformSpace.HeineCantor
+module
+
+public import NoCompromise.Flow.ODE
+public import Mathlib.Analysis.ODE.Gronwall
+public import Mathlib.Topology.UniformSpace.HeineCantor
+
+@[expose] public section
 
 /-!
 # thm:flow-Ck (first part): the spatial derivative of the flow is the variational matrix

@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.HopfComparison
-import Mathlib.Analysis.Calculus.Deriv.Slope
-import Mathlib.Topology.Instances.EReal.Lemmas
+module
+
+public import NoCompromise.Elliptic.HopfComparison
+public import Mathlib.Analysis.Calculus.Deriv.Slope
+public import Mathlib.Topology.Instances.EReal.Lemmas
+
+@[expose] public section
 
 /-!
 # Hopf's boundary lemma with the outward sign

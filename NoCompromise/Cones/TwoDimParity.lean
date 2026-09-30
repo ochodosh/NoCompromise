@@ -1,4 +1,8 @@
-import NoCompromise.Cones.TwoDimLink
+module
+
+public import NoCompromise.Cones.TwoDimLink
+
+@[expose] public section
 
 /-!
 # Parity of the planar cone link

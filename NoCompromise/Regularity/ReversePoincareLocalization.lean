@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.DeformationLocality
-import NoCompromise.Regularity.OmegaMinimal
+module
+
+public import NoCompromise.Regularity.DeformationLocality
+public import NoCompromise.Regularity.OmegaMinimal
+
+@[expose] public section
 
 /-! # Quasiminimality localized by genuine boundary-null cancellation -/
 

@@ -1,6 +1,10 @@
-import NoCompromise.CapacitaryK.Representatives
-import NoCompromise.CapacitaryK.Inequality
-import NoCompromise.CapacitaryK.Asymptotics
+module
+
+public import NoCompromise.CapacitaryK.Representatives
+public import NoCompromise.CapacitaryK.Inequality
+public import NoCompromise.CapacitaryK.Asymptotics
+
+@[expose] public section
 
 /-!
 # The measure differential inequality (chapter 31, `prop:K-measure-inequality`)

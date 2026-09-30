@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.InteriorH2
+module
+
+public import NoCompromise.Elliptic.InteriorH2
+
+@[expose] public section
 
 /-!
 # Weak derivatives and the interior Sobolev bootstrap

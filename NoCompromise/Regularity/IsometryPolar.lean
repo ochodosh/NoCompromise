@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.IsometryMinimal
-import NoCompromise.DeGiorgi.AmbientPolar
+module
+
+public import NoCompromise.Regularity.IsometryMinimal
+public import NoCompromise.DeGiorgi.AmbientPolar
+
+@[expose] public section
 
 /-! # Actual perimeter polars under rigid coordinate changes -/
 

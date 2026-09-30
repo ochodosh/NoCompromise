@@ -1,5 +1,9 @@
-import NoCompromise.Cones.ThreeDimMain
-import NoCompromise.Cones.MinimalGraphPointwise
+module
+
+public import NoCompromise.Cones.ThreeDimMain
+public import NoCompromise.Cones.MinimalGraphPointwise
+
+@[expose] public section
 
 /-!
 # `thm:cone-3d`: three-dimensional minimising cones are halfspaces

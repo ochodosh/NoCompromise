@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.DeformationOuterWall
+module
+
+public import NoCompromise.Regularity.DeformationOuterWall
+
+@[expose] public section
 
 /-! # Genuine regular horizontal radii for reverse Poincaré comparison -/
 

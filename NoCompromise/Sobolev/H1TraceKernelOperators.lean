@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1ChartExtension
-import NoCompromise.Sobolev.H1Algebra
+module
+
+public import NoCompromise.Sobolev.H1ChartExtension
+public import NoCompromise.Sobolev.H1Algebra
+
+@[expose] public section
 
 /-!
 # Restriction and cutoff operators on genuine H¹ spaces

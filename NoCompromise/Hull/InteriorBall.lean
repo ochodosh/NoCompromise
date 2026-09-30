@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.HopfC2Boundary
+module
+
+public import NoCompromise.Elliptic.HopfC2Boundary
+
+@[expose] public section
 
 /-!
 # Interior tangent balls for regular closed sets

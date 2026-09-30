@@ -1,5 +1,9 @@
-import NoCompromise.BV.Compactness
-import NoCompromise.Regularity.DeformationClearance
+module
+
+public import NoCompromise.BV.Compactness
+public import NoCompromise.Regularity.DeformationClearance
+
+@[expose] public section
 
 /-! # Almost-everywhere refinement for compactly confined indicator perturbations -/
 

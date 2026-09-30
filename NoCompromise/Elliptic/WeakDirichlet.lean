@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.VariationalHilbert
-import NoCompromise.Sobolev.H1Zero
+module
+
+public import NoCompromise.Elliptic.VariationalHilbert
+public import NoCompromise.Sobolev.H1Zero
+
+@[expose] public section
 
 /-!
 # The weak Dirichlet problem

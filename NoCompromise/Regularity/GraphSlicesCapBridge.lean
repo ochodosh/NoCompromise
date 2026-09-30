@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.GraphSlicesPhases
-import NoCompromise.Regularity.GraphPhaseCapsGeometry
+module
+
+public import NoCompromise.Regularity.GraphSlicesPhases
+public import NoCompromise.Regularity.GraphPhaseCapsGeometry
+
+@[expose] public section
 
 /-! # The established graph cap phases feed the actual BV slice theorem -/
 

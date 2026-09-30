@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.PerimeterConvergenceWeak
-import NoCompromise.Regularity.PerimeterConvergenceContinuity
-import NoCompromise.Regularity.PerimeterConvergenceMinimality
+module
+
+public import NoCompromise.Regularity.PerimeterConvergenceWeak
+public import NoCompromise.Regularity.PerimeterConvergenceContinuity
+public import NoCompromise.Regularity.PerimeterConvergenceMinimality
+
+@[expose] public section
 
 /-!
 # Perimeter-measure convergence at varying admissible scales

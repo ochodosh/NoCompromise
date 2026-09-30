@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomSmooth
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomSmooth
+
+@[expose] public section
 
 /-!
 # Flat boundary C²,α bounds for inhomogeneous conormal data

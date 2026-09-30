@@ -1,7 +1,11 @@
-import NoCompromise.CapacitaryK.SlabGaussGreen
-import NoCompromise.CapacitaryK.PushforwardDensity
-import NoCompromise.CapacitaryK.HarmonicSmooth
-import NoCompromise.CapacitaryK.SlabCoarea
+module
+
+public import NoCompromise.CapacitaryK.SlabGaussGreen
+public import NoCompromise.CapacitaryK.PushforwardDensity
+public import NoCompromise.CapacitaryK.HarmonicSmooth
+public import NoCompromise.CapacitaryK.SlabCoarea
+
+@[expose] public section
 
 /-!
 # The two slab identities from Gauss-Green on the slab (chapter 31)

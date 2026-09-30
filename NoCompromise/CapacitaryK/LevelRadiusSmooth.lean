@@ -1,4 +1,8 @@
-import NoCompromise.CapacitaryK.CapacitaryRadialGraph
+module
+
+public import NoCompromise.CapacitaryK.CapacitaryRadialGraph
+
+@[expose] public section
 
 /-!
 # Smoothness of the capacitary level radius

@@ -1,6 +1,10 @@
-import NoCompromise.Surface.Geometry
-import Mathlib.MeasureTheory.Covering.DensityTheorem
-import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+module
+
+public import NoCompromise.Surface.Geometry
+public import Mathlib.MeasureTheory.Covering.DensityTheorem
+public import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+
+@[expose] public section
 
 /-!
 # Differentials of maps into a surface are tangent almost everywhere

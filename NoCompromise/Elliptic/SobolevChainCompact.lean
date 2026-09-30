@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.SobolevChainBounds
-import NoCompromise.Sobolev.ExtensionPartition
+module
+
+public import NoCompromise.Elliptic.SobolevChainBounds
+public import NoCompromise.Sobolev.ExtensionPartition
+
+@[expose] public section
 
 /-!
 # Sobolev embedding on relatively compact domains

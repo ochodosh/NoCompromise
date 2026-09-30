@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.FrozenDecay
+module
+
+public import NoCompromise.Elliptic.FrozenDecay
+
+@[expose] public section
 
 /-!
 # Energy comparisons for actual weak gradients

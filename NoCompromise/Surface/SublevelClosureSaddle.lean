@@ -1,4 +1,8 @@
-import NoCompromise.Surface.MorseDischarged
+module
+
+public import NoCompromise.Surface.MorseDischarged
+
+@[expose] public section
 
 /-!
 # The saddle case of `lem:sublevel-closure`: local lower trace

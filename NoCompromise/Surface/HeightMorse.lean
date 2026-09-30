@@ -1,6 +1,10 @@
-import NoCompromise.Surface.Shape
-import NoCompromise.Surface.MorseIndex
-import NoCompromise.Surface.RegularValue
+module
+
+public import NoCompromise.Surface.Shape
+public import NoCompromise.Surface.MorseIndex
+public import NoCompromise.Surface.RegularValue
+
+@[expose] public section
 
 /-!
 # Height functions, curvature, and Morse index

@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NondivSchauderNorm
+module
+
+public import NoCompromise.Elliptic.NondivSchauderNorm
+
+@[expose] public section
 
 /-!
 # `C^{k,α}` bookkeeping for the boundary Schauder iteration

@@ -1,4 +1,8 @@
-import NoCompromise.BV.Basic
+module
+
+public import NoCompromise.BV.Basic
+
+@[expose] public section
 
 /-!
 # Algebra and finite assembly of BV functions

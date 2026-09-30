@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.NewtonianKernel
-import NoCompromise.Sobolev.W11Closed
-import NoCompromise.Sobolev.W11Classical
+module
+
+public import NoCompromise.Elliptic.NewtonianKernel
+public import NoCompromise.Sobolev.W11Closed
+public import NoCompromise.Sobolev.W11Classical
+
+@[expose] public section
 
 /-!
 # The reciprocal-distance kernel has a genuine W¹,¹ gradient

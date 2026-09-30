@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.W11Reflection
-import NoCompromise.Sobolev.W11FoldDomain
-import NoCompromise.Sobolev.W11Closed
+module
+
+public import NoCompromise.Sobolev.W11Reflection
+public import NoCompromise.Sobolev.W11FoldDomain
+public import NoCompromise.Sobolev.W11Closed
+
+@[expose] public section
 
 /-!
 # Even reflection of W¹,¹ functions

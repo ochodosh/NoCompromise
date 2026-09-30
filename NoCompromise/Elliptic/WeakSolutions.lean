@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.WeakDirichlet
-import NoCompromise.Sobolev.H1MeanZero
+module
+
+public import NoCompromise.Elliptic.WeakDirichlet
+public import NoCompromise.Sobolev.H1MeanZero
+
+@[expose] public section
 
 /-!
 # The weak Neumann problem

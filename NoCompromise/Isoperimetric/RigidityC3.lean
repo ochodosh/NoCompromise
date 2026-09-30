@@ -1,7 +1,11 @@
-import NoCompromise.Isoperimetric.ComponentsC3
-import NoCompromise.Isoperimetric.BallSmoothBoundary
-import NoCompromise.Isoperimetric.RigidityBootstrap
-import NoCompromise.Isoperimetric.RigidityStatement
+module
+
+public import NoCompromise.Isoperimetric.ComponentsC3
+public import NoCompromise.Isoperimetric.BallSmoothBoundary
+public import NoCompromise.Isoperimetric.RigidityBootstrap
+public import NoCompromise.Isoperimetric.RigidityStatement
+
+@[expose] public section
 
 /-!
 # Isoperimetric rigidity from the ABP Neumann problem on `C³` domains

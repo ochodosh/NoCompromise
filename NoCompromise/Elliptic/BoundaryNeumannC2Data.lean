@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2Equation
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2Equation
+
+@[expose] public section
 
 /-! # The scalar source for the normal second derivative -/
 

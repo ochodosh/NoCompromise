@@ -1,7 +1,11 @@
-import NoCompromise.Conventions
-import NoCompromise.Sobolev.MaximalMeasurability
-import Mathlib.MeasureTheory.Covering.Vitali
-import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+module
+
+public import NoCompromise.Conventions
+public import NoCompromise.Sobolev.MaximalMeasurability
+public import Mathlib.MeasureTheory.Covering.Vitali
+public import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+
+@[expose] public section
 
 /-!
 # Planar maximal measure functions and the weak maximal estimate

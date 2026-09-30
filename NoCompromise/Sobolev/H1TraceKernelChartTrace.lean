@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1TraceKernelChartGeometry
-import NoCompromise.Sobolev.H1TraceKernelApprox
+module
+
+public import NoCompromise.Sobolev.H1TraceKernelChartGeometry
+public import NoCompromise.Sobolev.H1TraceKernelApprox
+
+@[expose] public section
 
 /-!
 # Recovering the flat trace from the domain trace

@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.UniformCenters
-import NoCompromise.Regularity.SlabCap
+module
+
+public import NoCompromise.Regularity.UniformCenters
+public import NoCompromise.Regularity.SlabCap
+
+@[expose] public section
 
 /-!
 # Quarter-scale centres and the boundary cone estimate

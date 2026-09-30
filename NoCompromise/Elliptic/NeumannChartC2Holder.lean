@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NeumannChartC1Data
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomHolder
+module
+
+public import NoCompromise.Elliptic.NeumannChartC1Data
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomHolder
+
+@[expose] public section
 
 /-!
 # C²,α regularity up to the face in a smooth normal chart

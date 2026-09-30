@@ -1,6 +1,10 @@
-import NoCompromise.CapacitaryK.InequalitiesHull
-import NoCompromise.Capacity.FluxIdentityHull
-import NoCompromise.Surface.TotalCurvatureBoundMain
+module
+
+public import NoCompromise.CapacitaryK.InequalitiesHull
+public import NoCompromise.Capacity.FluxIdentityHull
+public import NoCompromise.Surface.TotalCurvatureBoundMain
+
+@[expose] public section
 
 /-!
 # `thm:capacitary-inequalities` for the filled hull, unconditionally

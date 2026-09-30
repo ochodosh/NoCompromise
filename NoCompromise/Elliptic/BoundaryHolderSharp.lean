@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryHolderHolderData
-import NoCompromise.Elliptic.BoundaryHolderGrowth
-import NoCompromise.Elliptic.BoundaryHolderEnergyBootstrap
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderHolderData
+public import NoCompromise.Elliptic.BoundaryHolderGrowth
+public import NoCompromise.Elliptic.BoundaryHolderEnergyBootstrap
+
+@[expose] public section
 
 /-! Two genuine boundary iterations yield the full coefficient exponent for
 the normal excess, and consequently for the actual gradient mean oscillation. -/

@@ -1,8 +1,12 @@
-import NoCompromise.Surface.MorseChart
-import NoCompromise.Surface.RegularValue
-import NoCompromise.Surface.Shape
-import NoCompromise.Area.RankDeficient
-import NoCompromise.Area.Linear
+module
+
+public import NoCompromise.Surface.MorseChart
+public import NoCompromise.Surface.RegularValue
+public import NoCompromise.Surface.Shape
+public import NoCompromise.Area.RankDeficient
+public import NoCompromise.Area.Linear
+
+@[expose] public section
 
 /-!
 # Sard for the Gauss map in one chart (`cor:sard-charts`)

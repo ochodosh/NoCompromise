@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.W11TraceBoundary
-import NoCompromise.Sobolev.W11Density
-import Mathlib.Analysis.Normed.Operator.Extend
+module
+
+public import NoCompromise.Sobolev.W11TraceBoundary
+public import NoCompromise.Sobolev.W11Density
+public import Mathlib.Analysis.Normed.Operator.Extend
+
+@[expose] public section
 
 /-!
 # The constructed W¹,¹ trace on bounded Lipschitz domains

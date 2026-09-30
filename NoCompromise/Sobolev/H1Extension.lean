@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1ChartExtension
-import NoCompromise.Sobolev.H1Algebra
+module
+
+public import NoCompromise.Sobolev.H1ChartExtension
+public import NoCompromise.Sobolev.H1Algebra
+
+@[expose] public section
 
 /-!
 # Bounded linear H¹ extension on Lipschitz domains

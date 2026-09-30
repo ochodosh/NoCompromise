@@ -1,4 +1,8 @@
-import NoCompromise.Stationary.EulerLagrange
+module
+
+public import NoCompromise.Stationary.EulerLagrange
+
+@[expose] public section
 
 /-!
 # The scaling identity

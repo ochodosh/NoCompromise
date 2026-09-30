@@ -1,4 +1,8 @@
-import NoCompromise.BV.JumpMeasure
+module
+
+public import NoCompromise.BV.JumpMeasure
+
+@[expose] public section
 
 /-!
 # Directional derivative disintegration into actual jump measures

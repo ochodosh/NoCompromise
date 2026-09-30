@@ -1,6 +1,10 @@
-import NoCompromise.BV.Defs
-import NoCompromise.Sobolev.MaximalMeasurability
-import Mathlib.MeasureTheory.Covering.DensityTheorem
+module
+
+public import NoCompromise.BV.Defs
+public import NoCompromise.Sobolev.MaximalMeasurability
+public import Mathlib.MeasureTheory.Covering.DensityTheorem
+
+@[expose] public section
 
 /-!
 # Density representatives

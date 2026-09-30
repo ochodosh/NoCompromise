@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNeumannQuotientEnergy
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannQuotientEnergy
+
+@[expose] public section
 
 /-! Uniform energy of the actual tangential quotients, from Caccioppoli. -/
 

@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.SobolevChainSchwartz
+module
+
+public import NoCompromise.Elliptic.SobolevChainSchwartz
+
+@[expose] public section
 
 /-!
 # Continuous representatives from the H² estimate

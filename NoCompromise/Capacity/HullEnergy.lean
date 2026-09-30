@@ -1,5 +1,9 @@
-import NoCompromise.Capacity.HullExistence
-import NoCompromise.Capacity.FiniteEnergy
+module
+
+public import NoCompromise.Capacity.HullExistence
+public import NoCompromise.Capacity.FiniteEnergy
+
+@[expose] public section
 
 /-!
 # The filled-hull capacitary potential: locally H¹ extension and finite energy

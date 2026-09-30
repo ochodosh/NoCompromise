@@ -1,7 +1,11 @@
-import NoCompromise.Regularity.CompressionJoin
-import Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv
-import Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds
-import Mathlib.Analysis.Calculus.MeanValue
+module
+
+public import NoCompromise.Regularity.CompressionJoin
+public import Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv
+public import Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds
+public import Mathlib.Analysis.Calculus.MeanValue
+
+@[expose] public section
 
 /-! # The exact sine-squared compression profile in the radius -/
 

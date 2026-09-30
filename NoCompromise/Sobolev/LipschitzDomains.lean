@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.Extension
-import Mathlib.Analysis.InnerProductSpace.Projection.Reflection
+module
+
+public import NoCompromise.Sobolev.Extension
+public import Mathlib.Analysis.InnerProductSpace.Projection.Reflection
+
+@[expose] public section
 
 /-!
 # Lipschitz boundary charts for Euclidean balls

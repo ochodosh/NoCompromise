@@ -1,5 +1,9 @@
-import NoCompromise.Topology.ParityCrossing
-import NoCompromise.Topology.ParityEndpoint
+module
+
+public import NoCompromise.Topology.ParityCrossing
+public import NoCompromise.Topology.ParityEndpoint
+
+@[expose] public section
 
 /-!
 # Path independence of intersection parity

@@ -1,5 +1,9 @@
-import NoCompromise.Cones.ThreeDimFinal
-import NoCompromise.Cones.SmoothExcess
+module
+
+public import NoCompromise.Cones.ThreeDimFinal
+public import NoCompromise.Cones.SmoothExcess
+
+@[expose] public section
 
 /-!
 # Vanishing cylindrical excess at every boundary point of an `ω`-minimal set

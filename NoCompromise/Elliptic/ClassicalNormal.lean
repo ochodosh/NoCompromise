@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.ClassicalNormalGeometry
+module
+
+public import NoCompromise.Elliptic.ClassicalNormalGeometry
+
+@[expose] public section
 
 /-!
 # The classical outward normal of a C¹ domain

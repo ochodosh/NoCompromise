@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.TiltSlab
+module
+
+public import NoCompromise.Regularity.TiltSlab
+
+@[expose] public section
 
 /-! # Explicit smallness conditions for the tilted slab -/
 

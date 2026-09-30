@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.CampanatoComparisonTests
-import Mathlib.MeasureTheory.Integral.Average
+module
+
+public import NoCompromise.Elliptic.CampanatoComparisonTests
+public import Mathlib.MeasureTheory.Integral.Average
+
+@[expose] public section
 
 /-! The mean minimizes squared Euclidean oscillation on a finite measure
 space. This gives the centered-energy comparison needed at the larger scales. -/

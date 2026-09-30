@@ -1,5 +1,9 @@
-import NoCompromise.Capacity.AnnularBarrier
-import NoCompromise.Capacity.HullPotential
+module
+
+public import NoCompromise.Capacity.AnnularBarrier
+public import NoCompromise.Capacity.HullPotential
+
+@[expose] public section
 
 /-!
 # Existence of the capacitary potential of the filled hull

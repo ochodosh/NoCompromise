@@ -1,7 +1,11 @@
-import NoCompromise.BV.Compactness
-import NoCompromise.Sobolev.Extension
-import Mathlib.MeasureTheory.Integral.MeanInequalities
-import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
+module
+
+public import NoCompromise.BV.Compactness
+public import NoCompromise.Sobolev.Extension
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
+
+@[expose] public section
 
 /-!
 # L² interpolation and the strong-convergence step of Rellich

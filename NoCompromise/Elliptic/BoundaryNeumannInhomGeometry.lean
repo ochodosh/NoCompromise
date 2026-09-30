@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumann
-import NoCompromise.DeGiorgi.SmoothGraph
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumann
+public import NoCompromise.DeGiorgi.SmoothGraph
+
+@[expose] public section
 
 /-! Vertical slices of the half-ball, including their curved endpoints. -/
 

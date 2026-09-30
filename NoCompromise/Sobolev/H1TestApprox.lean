@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.H1Approximation
+module
+
+public import NoCompromise.Sobolev.H1Approximation
+
+@[expose] public section
 
 /-!
 # Compactly supported smooth H¹ test approximation

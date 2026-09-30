@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NondivSchauderWeakLimit
-import NoCompromise.Elliptic.NondivSchauderTests
+module
+
+public import NoCompromise.Elliptic.NondivSchauderWeakLimit
+public import NoCompromise.Elliptic.NondivSchauderTests
+
+@[expose] public section
 
 /-!
 # Passing variable-coefficient weak equations to the limit

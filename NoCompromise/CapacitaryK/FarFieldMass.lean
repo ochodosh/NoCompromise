@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.Representatives
-import Mathlib.Analysis.Asymptotics.Lemmas
+module
+
+public import NoCompromise.CapacitaryK.Representatives
+public import Mathlib.Analysis.Asymptotics.Lemmas
+
+@[expose] public section
 
 /-!
 # `p` as the mass of the far region (chapter 31, towards `eq:K-p-expansion`)

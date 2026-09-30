@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNormalChartCoefficient
-import Mathlib.MeasureTheory.Function.Jacobian
+module
+
+public import NoCompromise.Elliptic.BoundaryNormalChartCoefficient
+public import Mathlib.MeasureTheory.Function.Jacobian
+
+@[expose] public section
 
 /-!
 # Change of variables for the Dirichlet form

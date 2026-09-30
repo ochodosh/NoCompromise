@@ -1,4 +1,8 @@
-import NoCompromise.CapacitaryK.CollarC2
+module
+
+public import NoCompromise.CapacitaryK.CollarC2
+
+@[expose] public section
 
 /-!
 # `|∇u|` on `∂K` is the one-sided normal derivative of `u`

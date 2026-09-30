@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.PenalizationDilation
-import NoCompromise.Energy.NullInvariance
+module
+
+public import NoCompromise.Regularity.PenalizationDilation
+public import NoCompromise.Energy.NullInvariance
+
+@[expose] public section
 
 /-!
 # Global volume penalization for liquid-drop minimizers

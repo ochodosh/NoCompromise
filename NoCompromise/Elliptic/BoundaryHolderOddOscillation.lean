@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderOddExcess
-import NoCompromise.Elliptic.BoundaryHolderNearInterior
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderOddExcess
+public import NoCompromise.Elliptic.BoundaryHolderNearInterior
+
+@[expose] public section
 
 /-! Uniform full-ball Campanato estimates for the reflected weak gradient.
 Balls meeting the flat face use normal excess; balls on one side use genuine

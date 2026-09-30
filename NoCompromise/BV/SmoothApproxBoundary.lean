@@ -1,5 +1,9 @@
-import NoCompromise.DeGiorgi.SmoothBoundary
-import NoCompromise.Sard.LevelCharts
+module
+
+public import NoCompromise.DeGiorgi.SmoothBoundary
+public import NoCompromise.Sard.LevelCharts
+
+@[expose] public section
 
 /-!
 # Smooth one-sided boundary charts

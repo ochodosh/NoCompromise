@@ -1,4 +1,8 @@
-import NoCompromise.Isoperimetric.ABPNeumann
+module
+
+public import NoCompromise.Isoperimetric.ABPNeumann
+
+@[expose] public section
 
 /-!
 # The smooth clause of `lem:abp-neumann` from local boundary regularity of every order

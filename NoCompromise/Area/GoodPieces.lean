@@ -1,4 +1,8 @@
-import NoCompromise.Area.AlmostLinear
+module
+
+public import NoCompromise.Area.AlmostLinear
+
+@[expose] public section
 
 /-!
 # Uniform differentiability pieces

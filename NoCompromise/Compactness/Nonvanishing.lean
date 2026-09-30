@@ -1,10 +1,14 @@
-import NoCompromise.BV.CompactnessIndicators
-import NoCompromise.Energy.Scaling
-import NoCompromise.Energy.Coulomb
-import NoCompromise.Sobolev.RelativeCubes
-import NoCompromise.Elliptic.ClassicalCubeGeometry
-import NoCompromise.BV.Basic
-import NoCompromise.BV.PlanarCuts
+module
+
+public import NoCompromise.BV.CompactnessIndicators
+public import NoCompromise.Energy.Scaling
+public import NoCompromise.Energy.Coulomb
+public import NoCompromise.Sobolev.RelativeCubes
+public import NoCompromise.Elliptic.ClassicalCubeGeometry
+public import NoCompromise.BV.Basic
+public import NoCompromise.BV.PlanarCuts
+
+@[expose] public section
 
 /-!
 # Lower semicontinuity of Coulomb energy under local L¹ convergence
@@ -120,7 +124,7 @@ namespace LiquidDrop
 set_option linter.style.haveILetI false
 
 /-- The integer lattice point associated with a cube index. -/
-private def gridPoint (k : Fin 3 → ℤ) : AmbientSpace :=
+def gridPoint (k : Fin 3 → ℤ) : AmbientSpace :=
   WithLp.toLp 2 (fun j => (k j : ℝ))
 
 /-- An open unit cube in the grid translated by `v`. -/

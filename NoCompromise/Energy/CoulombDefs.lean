@@ -1,6 +1,10 @@
-import NoCompromise.Conventions
-import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
-import Mathlib.MeasureTheory.Measure.Prod
+module
+
+public import NoCompromise.Conventions
+public import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+public import Mathlib.MeasureTheory.Measure.Prod
+
+@[expose] public section
 
 /-!
 # Coulomb definitions

@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.CampanatoGrowth
+module
+
+public import NoCompromise.Elliptic.CampanatoGrowth
+
+@[expose] public section
 
 /-! The centered oscillation recurrence follows from the actual frozen replacement
 and its proved decay. The gradient-energy error remains explicit for bootstrapping. -/

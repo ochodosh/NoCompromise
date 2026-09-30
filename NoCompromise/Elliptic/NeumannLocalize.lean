@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NeumannLocalizeIntegrals
-import NoCompromise.Elliptic.NeumannLocalizeCoefficient
+module
+
+public import NoCompromise.Elliptic.NeumannLocalizeIntegrals
+public import NoCompromise.Elliptic.NeumannLocalizeCoefficient
+
+@[expose] public section
 
 /-!
 # A global weak Neumann solution in flat normal coordinates

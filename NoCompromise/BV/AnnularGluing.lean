@@ -1,5 +1,9 @@
-import NoCompromise.BV.AnnularGluingCoarea
-import NoCompromise.BV.AnnularGluingTraces
+module
+
+public import NoCompromise.BV.AnnularGluingCoarea
+public import NoCompromise.BV.AnnularGluingTraces
+
+@[expose] public section
 
 /-!
 # Annular BV gluing with vanishing mismatch

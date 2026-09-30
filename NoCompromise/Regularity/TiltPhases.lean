@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.GraphPhaseCaps
+module
+
+public import NoCompromise.Regularity.GraphPhaseCaps
+
+@[expose] public section
 
 /-! # The fixed oriented phases extend to every cleared thinner slab -/
 

@@ -1,7 +1,11 @@
-import NoCompromise.Regularity.CompressionScalar
-import Mathlib.Analysis.InnerProductSpace.Calculus
-import Mathlib.Analysis.Calculus.Gradient.Basic
-import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
+module
+
+public import NoCompromise.Regularity.CompressionScalar
+public import Mathlib.Analysis.InnerProductSpace.Calculus
+public import Mathlib.Analysis.Calculus.Gradient.Basic
+public import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
+
+@[expose] public section
 
 /-! # The planar compression profile and its exact gradient estimate -/
 

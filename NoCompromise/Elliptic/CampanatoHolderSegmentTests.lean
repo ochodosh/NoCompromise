@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.CampanatoHolderSegment
-import NoCompromise.Elliptic.SobolevChainLocal
+module
+
+public import NoCompromise.Elliptic.CampanatoHolderSegment
+public import NoCompromise.Elliptic.SobolevChainLocal
+
+@[expose] public section
 
 /-! The segment-average divergence identity follows from translation invariance,
 Fubini, and the ordinary fundamental theorem of calculus on the test function.

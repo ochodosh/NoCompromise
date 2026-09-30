@@ -1,4 +1,8 @@
-import NoCompromise.DeGiorgi.RadialFlux
+module
+
+public import NoCompromise.DeGiorgi.RadialFlux
+
+@[expose] public section
 
 /-!
 # Weighted radial flux for finite-perimeter sets

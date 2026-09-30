@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NeumannChartC1Smooth
+module
+
+public import NoCompromise.Elliptic.NeumannChartC1Smooth
+
+@[expose] public section
 
 /-!
 # Finite regularity of normal coordinates and their coefficients

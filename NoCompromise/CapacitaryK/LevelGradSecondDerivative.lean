@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.LevelGradDerivatives
-import NoCompromise.CapacitaryK.LevelRadiusSecondDerivative
+module
+
+public import NoCompromise.CapacitaryK.LevelGradDerivatives
+public import NoCompromise.CapacitaryK.LevelRadiusSecondDerivative
+
+@[expose] public section
 
 /-!
 # Second-order angular calculus for the level gradient length

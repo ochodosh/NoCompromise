@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryHolderOddField
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderOddField
+
+@[expose] public section
 
 /-!
 # Even reflection for the homogeneous conormal problem

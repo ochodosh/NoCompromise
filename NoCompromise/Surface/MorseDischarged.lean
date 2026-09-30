@@ -1,5 +1,9 @@
-import NoCompromise.Surface.MorseCoordsPlanar
-import NoCompromise.Surface.SublevelStable
+module
+
+public import NoCompromise.Surface.MorseCoordsPlanar
+public import NoCompromise.Surface.SublevelStable
+
+@[expose] public section
 
 /-!
 # Chapter 14 results with the planar Morse lemma and cor:sublevel-stable discharged

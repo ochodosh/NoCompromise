@@ -1,7 +1,11 @@
-import NoCompromise.Hull.Defs
-import NoCompromise.Sobolev.C1Domain
-import NoCompromise.Stationary.Defs
-import NoCompromise.BV.GluingLocalTraces
+module
+
+public import NoCompromise.Hull.Defs
+public import NoCompromise.Sobolev.C1Domain
+public import NoCompromise.Stationary.Defs
+public import NoCompromise.BV.GluingLocalTraces
+
+@[expose] public section
 
 /-! # Properties of the filled hull (blueprint `lem:hull-properties`) -/
 

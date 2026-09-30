@@ -1,7 +1,11 @@
-import NoCompromise.Variation.Volume
-import NoCompromise.Energy.Coulomb
-import Mathlib.Analysis.Calculus.ParametricIntegral
-import Mathlib.Analysis.InnerProductSpace.Calculus
+module
+
+public import NoCompromise.Variation.Volume
+public import NoCompromise.Energy.Coulomb
+public import Mathlib.Analysis.Calculus.ParametricIntegral
+public import Mathlib.Analysis.InnerProductSpace.Calculus
+
+@[expose] public section
 
 /-!
 # The bulk first variation of Coulomb energy

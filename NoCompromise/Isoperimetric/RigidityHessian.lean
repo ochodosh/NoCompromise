@@ -1,4 +1,8 @@
-import NoCompromise.Isoperimetric.ABPContact
+module
+
+public import NoCompromise.Isoperimetric.ABPContact
+
+@[expose] public section
 
 /-!
 # The Hessian on the ABP contact set: AM-GM and its equality case

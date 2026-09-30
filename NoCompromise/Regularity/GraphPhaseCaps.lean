@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.GraphPhaseCapsCompactness
+module
+
+public import NoCompromise.Regularity.GraphPhaseCapsCompactness
+
+@[expose] public section
 
 /-!
 # The oriented cap conclusion in the graph approximation

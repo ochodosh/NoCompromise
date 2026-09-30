@@ -1,6 +1,10 @@
-import NoCompromise.CapacitaryK.LevelFrame
-import NoCompromise.CapacitaryK.PositiveMeasure
-import NoCompromise.BV.CoareaL1Lebesgue
+module
+
+public import NoCompromise.CapacitaryK.LevelFrame
+public import NoCompromise.CapacitaryK.PositiveMeasure
+public import NoCompromise.BV.CoareaL1Lebesgue
+
+@[expose] public section
 
 /-!
 # Coarea identities for the capacitary gradient length

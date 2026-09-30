@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NeumannChartC3Geometry
-import NoCompromise.Elliptic.NeumannChartC1Data
+module
+
+public import NoCompromise.Elliptic.NeumannChartC3Geometry
+public import NoCompromise.Elliptic.NeumannChartC1Data
+
+@[expose] public section
 
 /-!
 # Hölder data bounds from C³ chart heights

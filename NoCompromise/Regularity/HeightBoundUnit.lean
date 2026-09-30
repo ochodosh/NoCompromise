@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.HeightBoundLimit
+module
+
+public import NoCompromise.Regularity.HeightBoundLimit
+
+@[expose] public section
 
 /-! # Uniform height control at unit scale -/
 

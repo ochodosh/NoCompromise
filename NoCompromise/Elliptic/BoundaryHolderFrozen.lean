@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryHolderOdd
-import NoCompromise.Elliptic.BoundaryHolderLocalization
-import NoCompromise.Elliptic.FrozenDecayRegularity
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderOdd
+public import NoCompromise.Elliptic.BoundaryHolderLocalization
+public import NoCompromise.Elliptic.FrozenDecayRegularity
+
+@[expose] public section
 
 /-!
 # Genuine smooth frozen representatives across the flat boundary

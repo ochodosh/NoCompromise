@@ -1,6 +1,10 @@
-import NoCompromise.Classification.Subcritical
-import NoCompromise.Stationary.CapEstimateAssembly
-import NoCompromise.Stationary.TranslateDomain
+module
+
+public import NoCompromise.Classification.Subcritical
+public import NoCompromise.Stationary.CapEstimateAssembly
+public import NoCompromise.Stationary.TranslateDomain
+
+@[expose] public section
 
 /-! # `prop:cap-estimate` as the predicate `CapEstimateStatement`
 

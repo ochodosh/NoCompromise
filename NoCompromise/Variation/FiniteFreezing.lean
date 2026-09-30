@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.ExtensionPartition
-import Mathlib.Analysis.Calculus.ContDiff.RCLike
+module
+
+public import NoCompromise.Sobolev.ExtensionPartition
+public import Mathlib.Analysis.Calculus.ContDiff.RCLike
+
+@[expose] public section
 
 /-!
 # Finite freezing of a compactly supported field

@@ -1,5 +1,9 @@
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
-import Mathlib.Analysis.Convex.SpecificFunctions.Pow
+module
+
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Analysis.Convex.SpecificFunctions.Pow
+
+@[expose] public section
 
 namespace LiquidDrop
 

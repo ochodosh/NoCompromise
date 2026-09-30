@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.H1TraceKernelLocal
-import NoCompromise.Sobolev.H1TraceKernelLocalization
-import NoCompromise.Sobolev.H1Extension
+module
+
+public import NoCompromise.Sobolev.H1TraceKernelLocal
+public import NoCompromise.Sobolev.H1TraceKernelLocalization
+public import NoCompromise.Sobolev.H1Extension
+
+@[expose] public section
 
 /-!
 # The trace kernel is the actual H¹₀ space

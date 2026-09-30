@@ -1,4 +1,8 @@
-import NoCompromise.BV.CoareaL1
+module
+
+public import NoCompromise.BV.CoareaL1
+
+@[expose] public section
 
 /-!
 # Coarea on Lebesgue measurable sets

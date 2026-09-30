@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1TraceChart
-import NoCompromise.BV.CoareaIsometry
+module
+
+public import NoCompromise.Sobolev.H1TraceChart
+public import NoCompromise.BV.CoareaIsometry
+
+@[expose] public section
 
 /-!
 # Finite boundary-plane covers for trace estimates

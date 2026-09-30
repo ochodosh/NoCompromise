@@ -1,4 +1,8 @@
-import NoCompromise.Surface.MorseDischarged
+module
+
+public import NoCompromise.Surface.MorseDischarged
+
+@[expose] public section
 
 /-!
 # Deformation retractions of sublevels

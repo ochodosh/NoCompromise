@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.ApproxHarmonicTest
-import NoCompromise.Regularity.ApproxHarmonicSupport
-import NoCompromise.Regularity.SlabGeometry
+module
+
+public import NoCompromise.Regularity.ApproxHarmonicTest
+public import NoCompromise.Regularity.ApproxHarmonicSupport
+public import NoCompromise.Regularity.SlabGeometry
+
+@[expose] public section
 
 /-! # A fixed admissible compact vertical variation for approximate harmonicity -/
 

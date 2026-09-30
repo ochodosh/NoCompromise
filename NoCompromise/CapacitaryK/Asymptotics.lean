@@ -1,6 +1,10 @@
-import NoCompromise.CapacitaryK.OneDim
-import Mathlib.Analysis.Asymptotics.Lemmas
-import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
+module
+
+public import NoCompromise.CapacitaryK.OneDim
+public import Mathlib.Analysis.Asymptotics.Lemmas
+public import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
+
+@[expose] public section
 
 /-!
 # Far-field normalisation (chapter 31, `lem:K-far-field`, limit step)

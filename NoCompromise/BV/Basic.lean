@@ -1,25 +1,29 @@
-import NoCompromise.BV.Defs
-import NoCompromise.Measure.SignedRiesz
-import Mathlib.Analysis.Normed.Module.HahnBanach
-import Mathlib.Tactic
-import Mathlib.Topology.Order.LiminfLimsup
-import Mathlib.MeasureTheory.Group.Integral
-import Mathlib.Analysis.Calculus.ContDiff.Comp
-import Mathlib.Analysis.Calculus.ContDiff.Operations
-import Mathlib.Analysis.Calculus.FDeriv.Equiv
-import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
-import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
-import Mathlib.Analysis.Calculus.BumpFunction.Convolution
-import Mathlib.Analysis.Calculus.ContDiff.Convolution
-import Mathlib.MeasureTheory.Integral.DominatedConvergence
-import Mathlib.MeasureTheory.Measure.Decomposition.RadonNikodym
-import Mathlib.MeasureTheory.SpecificCodomains.WithLp
-import Mathlib.MeasureTheory.Function.SpecialFunctions.Inner
-import Mathlib.MeasureTheory.Function.ContinuousMapDense
-import Mathlib.MeasureTheory.VectorMeasure.WithDensityVec
-import Mathlib.Geometry.Manifold.PartitionOfUnity
-import Mathlib.Geometry.Manifold.ContMDiff.NormedSpace
-import Mathlib.MeasureTheory.Measure.Hausdorff
+module
+
+public import NoCompromise.BV.Defs
+public import NoCompromise.Measure.SignedRiesz
+public import Mathlib.Analysis.Normed.Module.HahnBanach
+public import Mathlib.Tactic
+public import Mathlib.Topology.Order.LiminfLimsup
+public import Mathlib.MeasureTheory.Group.Integral
+public import Mathlib.Analysis.Calculus.ContDiff.Comp
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Calculus.FDeriv.Equiv
+public import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+public import Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts
+public import Mathlib.Analysis.Calculus.BumpFunction.Convolution
+public import Mathlib.Analysis.Calculus.ContDiff.Convolution
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+public import Mathlib.MeasureTheory.Measure.Decomposition.RadonNikodym
+public import Mathlib.MeasureTheory.SpecificCodomains.WithLp
+public import Mathlib.MeasureTheory.Function.SpecialFunctions.Inner
+public import Mathlib.MeasureTheory.Function.ContinuousMapDense
+public import Mathlib.MeasureTheory.VectorMeasure.WithDensityVec
+public import Mathlib.Geometry.Manifold.PartitionOfUnity
+public import Mathlib.Geometry.Manifold.ContMDiff.NormedSpace
+public import Mathlib.MeasureTheory.Measure.Hausdorff
+
+@[expose] public section
 
 /-!
 # Perimeter invariances, test fields, and derivative representations

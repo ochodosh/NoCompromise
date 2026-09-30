@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1TraceOperator
-import NoCompromise.Sobolev.SpatialGN
+module
+
+public import NoCompromise.Sobolev.H1TraceOperator
+public import NoCompromise.Sobolev.SpatialGN
+
+@[expose] public section
 
 /-!
 # The genuine zero-boundary Sobolev space

@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.CampanatoHolderSegment
-import NoCompromise.Elliptic.SobolevChainLocal
+module
+
+public import NoCompromise.Elliptic.CampanatoHolderSegment
+public import NoCompromise.Elliptic.SobolevChainLocal
+
+@[expose] public section
 
 /-! The segment average has the claimed ordinary directional derivative even
 when the datum is only continuous. The argument is the one-dimensional FTC,

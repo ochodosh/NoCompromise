@@ -1,4 +1,8 @@
-import NoCompromise.Binding.Splitting
+module
+
+public import NoCompromise.Binding.Splitting
+
+@[expose] public section
 
 namespace LiquidDrop
 

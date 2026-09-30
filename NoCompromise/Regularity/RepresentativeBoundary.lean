@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.RepresentativeOpen
+module
+
+public import NoCompromise.Regularity.RepresentativeOpen
+
+@[expose] public section
 
 /-! # Topological boundary of the density-one representative -/
 

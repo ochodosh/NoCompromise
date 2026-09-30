@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.ApproxHarmonicEstimateVariation
-import NoCompromise.Regularity.ApproxHarmonicEstimateArea
-import NoCompromise.Regularity.GraphNormal
+module
+
+public import NoCompromise.Regularity.ApproxHarmonicEstimateVariation
+public import NoCompromise.Regularity.ApproxHarmonicEstimateArea
+public import NoCompromise.Regularity.GraphNormal
+
+@[expose] public section
 
 /-! # Genuine first variation split into the graph and omitted boundary -/
 

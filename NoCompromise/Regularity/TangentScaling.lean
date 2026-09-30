@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.OmegaMinimal
-import NoCompromise.DeGiorgi.BlowupPolar
+module
+
+public import NoCompromise.Regularity.OmegaMinimal
+public import NoCompromise.DeGiorgi.BlowupPolar
+
+@[expose] public section
 
 /-!
 # Quasiminimality under actual blow-up transformations

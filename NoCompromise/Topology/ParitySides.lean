@@ -1,7 +1,11 @@
-import NoCompromise.Topology.Transversality
-import Mathlib.Analysis.Calculus.Deriv.MeanValue
-import Mathlib.Analysis.Calculus.Deriv.Inverse
-import Mathlib.Topology.Connected.LocallyConnected
+module
+
+public import NoCompromise.Topology.Transversality
+public import Mathlib.Analysis.Calculus.Deriv.MeanValue
+public import Mathlib.Analysis.Calculus.Deriv.Inverse
+public import Mathlib.Topology.Connected.LocallyConnected
+
+@[expose] public section
 
 /-!
 # Local sides and complementary components

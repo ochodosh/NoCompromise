@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.GraphApproxHeight
-import NoCompromise.Regularity.ApproxHarmonicAlgebra
+module
+
+public import NoCompromise.Regularity.GraphApproxHeight
+public import NoCompromise.Regularity.ApproxHarmonicAlgebra
+
+@[expose] public section
 
 /-! # Quantitative geometry of the new affine plane -/
 

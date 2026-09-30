@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NeumannLocalize
+module
+
+public import NoCompromise.Elliptic.NeumannLocalize
+
+@[expose] public section
 
 /-!
 # Smooth data in a placed normal chart

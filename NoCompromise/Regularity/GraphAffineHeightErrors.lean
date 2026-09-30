@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.GraphAffineHeightArea
-import NoCompromise.Regularity.HarmonicBlowupNormalization
-import NoCompromise.Regularity.HarmonicAffine
+module
+
+public import NoCompromise.Regularity.GraphAffineHeightArea
+public import NoCompromise.Regularity.HarmonicBlowupNormalization
+public import NoCompromise.Regularity.HarmonicAffine
+
+@[expose] public section
 
 /-! # Normalization and harmonic-affine error control for the height moment -/
 

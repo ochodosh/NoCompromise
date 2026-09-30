@@ -1,4 +1,8 @@
-import NoCompromise.BV.AnnularGluingDiagonal
+module
+
+public import NoCompromise.BV.AnnularGluingDiagonal
+
+@[expose] public section
 
 /-!
 # All clauses of the annular gluing proposition

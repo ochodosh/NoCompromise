@@ -1,10 +1,14 @@
-import NoCompromise.Conventions
-import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
-import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
-import Mathlib.MeasureTheory.Measure.Continuity
-import Mathlib.MeasureTheory.Constructions.BorelSpace.Order
-import Mathlib.Topology.Semicontinuity.Basic
-import Mathlib.Tactic
+module
+
+public import NoCompromise.Conventions
+public import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+public import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+public import Mathlib.MeasureTheory.Measure.Continuity
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.Order
+public import Mathlib.Topology.Semicontinuity.Basic
+public import Mathlib.Tactic
+
+@[expose] public section
 
 /-!
 # Lower semicontinuity of centered maximal densities

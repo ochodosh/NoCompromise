@@ -1,6 +1,10 @@
-import NoCompromise.BV.CoareaCharts
-import NoCompromise.Area.C1Graph
-import Mathlib.MeasureTheory.Function.Jacobian
+module
+
+public import NoCompromise.BV.CoareaCharts
+public import NoCompromise.Area.C1Graph
+public import Mathlib.MeasureTheory.Function.Jacobian
+
+@[expose] public section
 
 /-!
 # Weighted scalar coarea in a genuine inverse coordinate chart

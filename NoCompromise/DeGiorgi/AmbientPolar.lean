@@ -1,5 +1,9 @@
-import NoCompromise.DeGiorgi.Reduced
-import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+module
+
+public import NoCompromise.DeGiorgi.Reduced
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+
+@[expose] public section
 
 /-!
 # Constructing ambient perimeter polars from coordinate pairings

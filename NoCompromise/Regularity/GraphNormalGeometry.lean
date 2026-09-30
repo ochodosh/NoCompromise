@@ -1,5 +1,9 @@
-import NoCompromise.Area.GraphDensityGeometry
-import NoCompromise.DeGiorgi.ConeConcentration
+module
+
+public import NoCompromise.Area.GraphDensityGeometry
+public import NoCompromise.DeGiorgi.ConeConcentration
+
+@[expose] public section
 
 /-!
 # Graph tangents and exterior normal cones

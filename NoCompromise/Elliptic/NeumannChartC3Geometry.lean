@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NeumannChartC3Localize
-import NoCompromise.Elliptic.NeumannChartC1Geometry
+module
+
+public import NoCompromise.Elliptic.NeumannChartC3Localize
+public import NoCompromise.Elliptic.NeumannChartC1Geometry
+
+@[expose] public section
 
 /-!
 # Face geometry for C² chart heights

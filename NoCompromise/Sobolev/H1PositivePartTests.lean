@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1PositivePart
-import NoCompromise.Sobolev.H1Zero
+module
+
+public import NoCompromise.Sobolev.H1PositivePart
+public import NoCompromise.Sobolev.H1Zero
+
+@[expose] public section
 
 /-!
 # Nonnegative smooth testing in H¹₀

@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNeumannQuotientHolder
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannQuotientHolder
+
+@[expose] public section
 
 /-!
 # Energy tests meeting the Neumann face

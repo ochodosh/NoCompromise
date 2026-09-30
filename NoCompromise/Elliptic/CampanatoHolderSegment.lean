@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.CampanatoHolderEmbedding
-import NoCompromise.Elliptic.HolderInterpolationNorm
-import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
+module
+
+public import NoCompromise.Elliptic.CampanatoHolderEmbedding
+public import NoCompromise.Elliptic.HolderInterpolationNorm
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
+
+@[expose] public section
 
 /-! Segment averages for blueprint `lem:Gh`. The domain contains precisely the
 points whose entire displacement segment remains in the original open set.

@@ -1,7 +1,12 @@
-import NoCompromise.Topology.TransversePreimageDisk
-import NoCompromise.Sard.Equidimensional
-import NoCompromise.Sard.FourToThree
-import Mathlib.Analysis.Calculus.ImplicitContDiff
+module
+
+public import NoCompromise.Topology.TransversePreimageDisk
+public import NoCompromise.Sard.Equidimensional
+public import NoCompromise.Sard.FourToThree
+public import Mathlib.Analysis.Calculus.ImplicitContDiff
+import all Mathlib.Analysis.Calculus.Implicit
+
+@[expose] public section
 
 /-!
 # Relative transversality for paths and disks

@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.GeometricRecurrence
+module
+
+public import NoCompromise.Regularity.GeometricRecurrence
+
+@[expose] public section
 
 /-! # The fixed scale chosen after the universal tilt constant -/
 

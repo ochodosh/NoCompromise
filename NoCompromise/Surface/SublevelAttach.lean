@@ -1,5 +1,9 @@
-import NoCompromise.Surface.SublevelStable
-import NoCompromise.Surface.MorseCount
+module
+
+public import NoCompromise.Surface.SublevelStable
+public import NoCompromise.Surface.MorseCount
+
+@[expose] public section
 
 /-!
 # The attaching step of `lem:sublevel-closure`

@@ -1,5 +1,9 @@
-import NoCompromise.BV.RadialCuts
-import NoCompromise.BV.PlanarCuts
+module
+
+public import NoCompromise.BV.RadialCuts
+public import NoCompromise.BV.PlanarCuts
+
+@[expose] public section
 
 /-!
 # Exact spherical and planar cuts

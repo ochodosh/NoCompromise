@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.Hilbert
+module
+
+public import NoCompromise.Sobolev.Hilbert
+
+@[expose] public section
 
 /-!
 # H¹ algebra and lifting bounded operators

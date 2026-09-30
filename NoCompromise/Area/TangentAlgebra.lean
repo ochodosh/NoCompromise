@@ -1,4 +1,8 @@
-import NoCompromise.Area.Linear
+module
+
+public import NoCompromise.Area.Linear
+
+@[expose] public section
 
 /-!
 # Linear algebra of planar chart derivatives

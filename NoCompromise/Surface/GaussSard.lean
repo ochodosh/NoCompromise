@@ -1,6 +1,10 @@
-import NoCompromise.Surface.SurfaceChart
-import NoCompromise.Surface.RegularValue
-import NoCompromise.Area.Linear
+module
+
+public import NoCompromise.Surface.SurfaceChart
+public import NoCompromise.Surface.RegularValue
+public import NoCompromise.Area.Linear
+
+@[expose] public section
 
 /-!
 # `cor:sard-charts` for the Gauss map of a compact embedded surface

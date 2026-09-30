@@ -1,7 +1,11 @@
-import NoCompromise.DeGiorgi.SmoothBoundary
-import NoCompromise.BV.FlatCutMeasure
-import NoCompromise.Regularity.DeformationCutBounds
-import NoCompromise.Regularity.IsometryMinimal
+module
+
+public import NoCompromise.DeGiorgi.SmoothBoundary
+public import NoCompromise.BV.FlatCutMeasure
+public import NoCompromise.Regularity.DeformationCutBounds
+public import NoCompromise.Regularity.IsometryMinimal
+
+@[expose] public section
 
 /-!
 # Perimeter of a coordinate halfspace (toward `lem:cone-2d`)

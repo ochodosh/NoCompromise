@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.NondivSchauderNested
-import NoCompromise.Elliptic.NondivSchauderAbsorption
-import NoCompromise.Elliptic.SchauderInterpolationQuantitative
+module
+
+public import NoCompromise.Elliptic.NondivSchauderNested
+public import NoCompromise.Elliptic.NondivSchauderAbsorption
+public import NoCompromise.Elliptic.SchauderInterpolationQuantitative
+
+@[expose] public section
 
 /-!
 # Interior nondivergence Schauder regularity and the sharp estimate

@@ -1,6 +1,10 @@
-import NoCompromise.CapacitaryK.LevelRadiusSecondDerivative
-import NoCompromise.CapacitaryK.LevelGradDerivatives
-import NoCompromise.CapacitaryK.CapacitaryLevelRadius
+module
+
+public import NoCompromise.CapacitaryK.LevelRadiusSecondDerivative
+public import NoCompromise.CapacitaryK.LevelGradDerivatives
+public import NoCompromise.CapacitaryK.CapacitaryLevelRadius
+
+@[expose] public section
 
 /-!
 # Angular derivatives of the capacitary area density

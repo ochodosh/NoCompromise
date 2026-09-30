@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNeumannTangential
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannTangential
+
+@[expose] public section
 
 /-!
 # Tangential second derivatives in the original Neumann coordinates

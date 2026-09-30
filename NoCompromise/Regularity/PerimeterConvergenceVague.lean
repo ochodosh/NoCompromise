@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.PerimeterConvergenceMeasures
-import NoCompromise.Measure.WeakStarBalls
-import NoCompromise.Measure.RadialMeasures
+module
+
+public import NoCompromise.Regularity.PerimeterConvergenceMeasures
+public import NoCompromise.Measure.WeakStarBalls
+public import NoCompromise.Measure.RadialMeasures
+
+@[expose] public section
 
 /-!
 # Local weak convergence and continuity balls inside the domain

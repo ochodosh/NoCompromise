@@ -1,9 +1,13 @@
-import NoCompromise.Conventions
-import NoCompromise.BV.Defs
-import Mathlib.Analysis.Calculus.ContDiff.Operations
-import Mathlib.Topology.OpenPartialHomeomorph.Basic
-import Mathlib.MeasureTheory.Function.Jacobian
-import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ApproximatesLinearOn
+module
+
+public import NoCompromise.Conventions
+public import NoCompromise.BV.Defs
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Topology.OpenPartialHomeomorph.Basic
+public import Mathlib.MeasureTheory.Function.Jacobian
+public import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ApproximatesLinearOn
+
+@[expose] public section
 
 /-!
 # Derivatives of a C¹ diffeomorphism between open sets

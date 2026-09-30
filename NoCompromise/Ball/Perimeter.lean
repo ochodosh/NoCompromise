@@ -1,7 +1,11 @@
-import NoCompromise.Ball.Defs
-import NoCompromise.Area.Sphere
-import NoCompromise.Sobolev.AnnulusDomain
-import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+module
+
+public import NoCompromise.Ball.Defs
+public import NoCompromise.Area.Sphere
+public import NoCompromise.Sobolev.AnnulusDomain
+public import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+
+@[expose] public section
 
 /-!
 # Exact volume and perimeter of a ball

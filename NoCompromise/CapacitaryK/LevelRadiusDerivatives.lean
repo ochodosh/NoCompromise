@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.LevelRadiusSmooth
-import NoCompromise.CapacitaryK.LevelRadialArea
+module
+
+public import NoCompromise.CapacitaryK.LevelRadiusSmooth
+public import NoCompromise.CapacitaryK.LevelRadialArea
+
+@[expose] public section
 
 /-!
 # Angular derivatives of the capacitary level radius

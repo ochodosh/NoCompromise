@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.ReversePoincareGeometry
-import NoCompromise.Regularity.ReversePoincareLocalization
-import NoCompromise.Regularity.FluxDefect
+module
+
+public import NoCompromise.Regularity.ReversePoincareGeometry
+public import NoCompromise.Regularity.ReversePoincareLocalization
+public import NoCompromise.Regularity.FluxDefect
+
+@[expose] public section
 
 /-! # The actual compression comparison bounds the flat-disk perimeter defect -/
 

@@ -1,5 +1,9 @@
-import NoCompromise.Surface.MergeDisjoint
-import Mathlib.Topology.Instances.AddCircle.Real
+module
+
+public import NoCompromise.Surface.MergeDisjoint
+public import Mathlib.Topology.Instances.AddCircle.Real
+
+@[expose] public section
 
 /-!
 # `lem:one-manifold` for regular levels of a smooth function on an embedded surface

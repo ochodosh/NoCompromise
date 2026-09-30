@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.EpsReg
+module
+
+public import NoCompromise.Regularity.EpsReg
+
+@[expose] public section
 
 /-!
 # Uniform smallness at every nearby boundary centre

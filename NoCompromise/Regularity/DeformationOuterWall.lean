@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.DeformationOuterWallBands
-import NoCompromise.Regularity.DeformationOuterWallMeasure
-import NoCompromise.Regularity.Deformation
+module
+
+public import NoCompromise.Regularity.DeformationOuterWallBands
+public import NoCompromise.Regularity.DeformationOuterWallMeasure
+public import NoCompromise.Regularity.Deformation
+
+@[expose] public section
 
 /-! # Outer-wall regularity for genuine phase-preserving deformations -/
 

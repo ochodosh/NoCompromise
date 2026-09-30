@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1PositivePartPoincare
-import NoCompromise.Elliptic.InteriorH2Hessian
+module
+
+public import NoCompromise.Sobolev.H1PositivePartPoincare
+public import NoCompromise.Elliptic.InteriorH2Hessian
+
+@[expose] public section
 
 /-!
 # The positive-part energy argument for the weak maximum principle

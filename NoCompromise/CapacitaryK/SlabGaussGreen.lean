@@ -1,8 +1,12 @@
-import NoCompromise.CapacitaryK.Calculus
-import Mathlib.Analysis.Calculus.LocalExtr.Basic
-import NoCompromise.BV.SmoothApproxLevelCharts
-import NoCompromise.Elliptic.ClassicalGaussGreen
-import NoCompromise.Elliptic.ClassicalNormalGeometry
+module
+
+public import NoCompromise.CapacitaryK.Calculus
+public import Mathlib.Analysis.Calculus.LocalExtr.Basic
+public import NoCompromise.BV.SmoothApproxLevelCharts
+public import NoCompromise.Elliptic.ClassicalGaussGreen
+public import NoCompromise.Elliptic.ClassicalNormalGeometry
+
+@[expose] public section
 
 /-!
 # Gauss-Green on a regular slab (chapter 31, input to `lem:K-slab-H` and `lem:K-slab-F`)

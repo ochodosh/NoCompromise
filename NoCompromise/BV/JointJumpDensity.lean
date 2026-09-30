@@ -1,5 +1,9 @@
-import NoCompromise.BV.JumpProduct
-import Mathlib.MeasureTheory.Constructions.Polish.Basic
+module
+
+public import NoCompromise.BV.JumpProduct
+public import Mathlib.MeasureTheory.Constructions.Polish.Basic
+
+@[expose] public section
 
 /-!
 # A jointly Borel density for binary slice derivatives

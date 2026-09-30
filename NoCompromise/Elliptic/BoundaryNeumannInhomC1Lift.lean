@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannInhom
-import NoCompromise.Sobolev.H1Algebra
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannInhom
+public import NoCompromise.Sobolev.H1Algebra
+
+@[expose] public section
 
 /-!
 # Quantitative estimates for the conormal lift

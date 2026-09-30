@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.Monotonicity
-import NoCompromise.Regularity.PerimeterConvergence
-import NoCompromise.DeGiorgi.BlowupCompactness
+module
+
+public import NoCompromise.Regularity.Monotonicity
+public import NoCompromise.Regularity.PerimeterConvergence
+public import NoCompromise.DeGiorgi.BlowupCompactness
+
+@[expose] public section
 
 /-!
 # Constant density ratios of a tangent limit

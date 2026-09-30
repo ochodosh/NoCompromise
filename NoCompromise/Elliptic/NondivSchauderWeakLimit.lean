@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.WeakCompactness
-import NoCompromise.Sobolev.H1Algebra
-import NoCompromise.Elliptic.Caccioppoli
+module
+
+public import NoCompromise.Sobolev.WeakCompactness
+public import NoCompromise.Sobolev.H1Algebra
+public import NoCompromise.Elliptic.Caccioppoli
+
+@[expose] public section
 
 /-!
 # Identification of bounded H¹ approximants

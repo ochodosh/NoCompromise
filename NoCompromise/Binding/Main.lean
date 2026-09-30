@@ -1,6 +1,10 @@
-import NoCompromise.Binding.Ratio
-import NoCompromise.Binding.RelaxedAttained
-import NoCompromise.Main
+module
+
+public import NoCompromise.Binding.Ratio
+public import NoCompromise.Binding.RelaxedAttained
+public import NoCompromise.Main
+
+@[expose] public section
 
 /-!
 # The binding main theorem

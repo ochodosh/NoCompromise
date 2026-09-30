@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.AnnulusDomain
+module
+
+public import NoCompromise.Sobolev.AnnulusDomain
+
+@[expose] public section
 
 /-!
 # Poincaré and the genuine L² trace on admissible domains

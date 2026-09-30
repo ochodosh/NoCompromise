@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.ExcessScalingPolar
-import NoCompromise.Regularity.ExcessScalingGeometry
-import NoCompromise.Regularity.Excess
+module
+
+public import NoCompromise.Regularity.ExcessScalingPolar
+public import NoCompromise.Regularity.ExcessScalingGeometry
+public import NoCompromise.Regularity.Excess
+
+@[expose] public section
 
 /-!
 # Exact positive-blowup covariance of normal excess

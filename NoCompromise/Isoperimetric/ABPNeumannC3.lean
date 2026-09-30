@@ -1,5 +1,9 @@
-import NoCompromise.Isoperimetric.ABPNeumann
-import NoCompromise.Stationary.Defs
+module
+
+public import NoCompromise.Isoperimetric.ABPNeumann
+public import NoCompromise.Stationary.Defs
+
+@[expose] public section
 
 /-!
 # The ABP Neumann problem on domains with `C³` boundary

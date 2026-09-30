@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.SobolevChain
-import NoCompromise.Isoperimetric.ABPContact
+module
+
+public import NoCompromise.Elliptic.SobolevChain
+public import NoCompromise.Isoperimetric.ABPContact
+
+@[expose] public section
 
 /-!
 # The two classical Laplacians and the Neumann quadratic correction

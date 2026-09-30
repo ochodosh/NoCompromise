@@ -1,8 +1,12 @@
-import Mathlib.Analysis.Calculus.Rademacher
-import Mathlib.Analysis.Calculus.LocalExtr.Basic
-import Mathlib.Analysis.Calculus.Gradient.Basic
-import Mathlib.Geometry.Euclidean.Volume.Measure
-import Mathlib.Topology.Algebra.MetricSpace.Lipschitz
+module
+
+public import Mathlib.Analysis.Calculus.Rademacher
+public import Mathlib.Analysis.Calculus.LocalExtr.Basic
+public import Mathlib.Analysis.Calculus.Gradient.Basic
+public import Mathlib.Geometry.Euclidean.Volume.Measure
+public import Mathlib.Topology.Algebra.MetricSpace.Lipschitz
+
+@[expose] public section
 
 namespace LiquidDrop
 

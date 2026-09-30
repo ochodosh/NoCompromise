@@ -1,7 +1,11 @@
-import NoCompromise.Area.RankDeficient
-import NoCompromise.Area.PieceMeasure
-import NoCompromise.Area.PieceFormula
-import NoCompromise.Area.GoodPiecesCover
+module
+
+public import NoCompromise.Area.RankDeficient
+public import NoCompromise.Area.PieceMeasure
+public import NoCompromise.Area.PieceFormula
+public import NoCompromise.Area.GoodPiecesCover
+
+@[expose] public section
 
 /-!
 # The planar-source area formula with multiplicity

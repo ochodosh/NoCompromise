@@ -1,4 +1,8 @@
-import NoCompromise.CapacitaryK.GaussBonnetCapacitary
+module
+
+public import NoCompromise.CapacitaryK.GaussBonnetCapacitary
+
+@[expose] public section
 
 /-!
 # `lem:K-h-monotone` and `prop:K-two-ineq` for the capacitary potential, unconditionally

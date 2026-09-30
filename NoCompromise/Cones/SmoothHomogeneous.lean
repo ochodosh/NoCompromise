@@ -1,5 +1,9 @@
-import NoCompromise.Cones.SmoothGraph
-import NoCompromise.Cones.LinkNonempty
+module
+
+public import NoCompromise.Cones.SmoothGraph
+public import NoCompromise.Cones.LinkNonempty
+
+@[expose] public section
 
 /-!
 # Homogeneity of the boundary graph of a cone about the vertex (toward `lem:cone-link-great-circle`)

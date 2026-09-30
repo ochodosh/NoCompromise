@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NondivSchauderQuotient
-import NoCompromise.Elliptic.NondivSchauderEnergy
+module
+
+public import NoCompromise.Elliptic.NondivSchauderQuotient
+public import NoCompromise.Elliptic.NondivSchauderEnergy
+
+@[expose] public section
 
 /-!
 # Uniform bounds for the constructed interior quotients

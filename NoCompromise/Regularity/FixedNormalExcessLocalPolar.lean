@@ -1,4 +1,8 @@
-import NoCompromise.BV.Basic
+module
+
+public import NoCompromise.BV.Basic
+
+@[expose] public section
 
 /-! # Ambient realization of genuine polar data on an open subdomain -/
 

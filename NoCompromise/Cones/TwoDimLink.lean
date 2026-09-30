@@ -1,5 +1,9 @@
-import NoCompromise.Cones.TwoDim
-import NoCompromise.BV.Density
+module
+
+public import NoCompromise.Cones.TwoDim
+public import NoCompromise.BV.Density
+
+@[expose] public section
 
 /-!
 # BV profiles for planar cones

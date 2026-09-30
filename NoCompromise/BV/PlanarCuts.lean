@@ -1,5 +1,9 @@
-import NoCompromise.BV.TraceAlmostEverywhere
-import NoCompromise.BV.GraphCutPerimeter
+module
+
+public import NoCompromise.BV.TraceAlmostEverywhere
+public import NoCompromise.BV.GraphCutPerimeter
+
+@[expose] public section
 
 /-!
 # Almost every planar cut

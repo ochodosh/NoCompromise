@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2Interior
-import NoCompromise.Elliptic.BoundaryNondivC1
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2Interior
+public import NoCompromise.Elliptic.BoundaryNondivC1
+
+@[expose] public section
 
 /-!
 # The classical nondivergence equation and interior C² for the boundary problem

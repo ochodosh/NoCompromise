@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.SobolevChainNorm
-import Mathlib.Analysis.Calculus.ContDiff.Bounds
-import Mathlib.MeasureTheory.Measure.OpenPos
+module
+
+public import NoCompromise.Elliptic.SobolevChainNorm
+public import Mathlib.Analysis.Calculus.ContDiff.Bounds
+public import Mathlib.MeasureTheory.Measure.OpenPos
+
+@[expose] public section
 
 /-!
 # Quantitative local Sobolev embedding

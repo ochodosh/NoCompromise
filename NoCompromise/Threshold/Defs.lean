@@ -1,5 +1,9 @@
-import NoCompromise.Conventions
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
+module
+
+public import NoCompromise.Conventions
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+
+@[expose] public section
 
 /-! # Threshold constants
 

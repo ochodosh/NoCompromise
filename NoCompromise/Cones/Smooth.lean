@@ -1,7 +1,11 @@
-import NoCompromise.Cones.ThreeDim
-import NoCompromise.Regularity.FirstVariation
-import NoCompromise.Regularity.DensityEstimates
-import NoCompromise.Regularity.RepresentativeBoundary
+module
+
+public import NoCompromise.Cones.ThreeDim
+public import NoCompromise.Regularity.FirstVariation
+public import NoCompromise.Regularity.DensityEstimates
+public import NoCompromise.Regularity.RepresentativeBoundary
+
+@[expose] public section
 
 /-!
 # Supporting steps toward `lem:cone-smooth` (chapter 25)

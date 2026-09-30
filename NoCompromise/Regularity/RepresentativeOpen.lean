@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.RepresentativeDensity
+module
+
+public import NoCompromise.Regularity.RepresentativeDensity
+
+@[expose] public section
 
 /-! # Openness of both pure-density phases of a quasiminimizer -/
 

@@ -1,5 +1,9 @@
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
-import Mathlib.Analysis.Normed.Group.Basic
+module
+
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Analysis.Normed.Group.Basic
+
+@[expose] public section
 
 /-!
 # Hölder comparison of limiting normals from two-centre estimates

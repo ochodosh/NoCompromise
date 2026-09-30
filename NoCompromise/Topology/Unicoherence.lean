@@ -1,9 +1,13 @@
-import Mathlib.Topology.Homotopy.Lifting
-import Mathlib.Analysis.SpecialFunctions.Complex.Circle
-import Mathlib.Analysis.Convex.Contractible
-import Mathlib.Topology.UrysohnsLemma
-import Mathlib.Analysis.LocallyConvex.Basic
-import NoCompromise.Conventions
+module
+
+public import Mathlib.Topology.Homotopy.Lifting
+public import Mathlib.Analysis.SpecialFunctions.Complex.Circle
+public import Mathlib.Analysis.Convex.Contractible
+public import Mathlib.Topology.UrysohnsLemma
+public import Mathlib.Analysis.LocallyConvex.Basic
+public import NoCompromise.Conventions
+
+@[expose] public section
 
 /-! # Unicoherence of simply connected spaces
 

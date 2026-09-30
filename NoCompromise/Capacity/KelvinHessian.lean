@@ -1,4 +1,8 @@
-import NoCompromise.Capacity.Kelvin
+module
+
+public import NoCompromise.Capacity.Kelvin
+
+@[expose] public section
 
 /-!
 # Second derivatives of the Kelvin transform

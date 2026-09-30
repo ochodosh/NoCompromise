@@ -1,6 +1,10 @@
-import NoCompromise.BV.Coarea
-import NoCompromise.BV.AnnularGluingDiagonal
-import NoCompromise.Sard.ThreeDimensional
+module
+
+public import NoCompromise.BV.Coarea
+public import NoCompromise.BV.AnnularGluingDiagonal
+public import NoCompromise.Sard.ThreeDimensional
+
+@[expose] public section
 
 /-!
 # Choosing regular superlevels for smooth set approximation

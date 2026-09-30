@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.H1Extension
-import NoCompromise.Sobolev.PlanarGN
-import NoCompromise.Sobolev.LipschitzDomains
+module
+
+public import NoCompromise.Sobolev.H1Extension
+public import NoCompromise.Sobolev.PlanarGN
+public import NoCompromise.Sobolev.LipschitzDomains
+
+@[expose] public section
 
 /-!
 # Planar H¹ to L⁴ on bounded Lipschitz domains

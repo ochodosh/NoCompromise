@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.FrozenDecayAffine
-import NoCompromise.Elliptic.FrozenDecayIntegrals
+module
+
+public import NoCompromise.Elliptic.FrozenDecayAffine
+public import NoCompromise.Elliptic.FrozenDecayIntegrals
+
+@[expose] public section
 
 /-! Both frozen decay inequalities on the unit ball, for the actual weak
 H¹ solution, with one constant depending only on dimension and ellipticity. -/

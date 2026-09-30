@@ -2,12 +2,16 @@
 Copyright (c) 2026 Otis Chodosh. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 -/
-import Solution.Defs
-import NoCompromise.Showcase
-import NoCompromise.Main
-import NoCompromise.Classification.MainUnconditional
-import NoCompromise.Ball.Perimeter
-import NoCompromise.Ball.Potential
+module
+
+public import Solution.Defs
+public import NoCompromise.Showcase
+public import NoCompromise.Main
+public import NoCompromise.Classification.MainUnconditional
+public import NoCompromise.Ball.Perimeter
+public import NoCompromise.Ball.Potential
+
+@[expose] public section
 
 /-!
 # Proofs of the challenge statements

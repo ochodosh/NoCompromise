@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.OmegaMinimal
-import NoCompromise.Regularity.DensityRadial
+module
+
+public import NoCompromise.Regularity.OmegaMinimal
+public import NoCompromise.Regularity.DensityRadial
+
+@[expose] public section
 
 /-!
 # Emptying and filling comparisons for quasiminimal sets

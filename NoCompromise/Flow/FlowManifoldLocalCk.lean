@@ -1,5 +1,9 @@
-import NoCompromise.Flow.FlowMaximal
-import Mathlib.Geometry.Manifold.IntegralCurve.ExistUnique
+module
+
+public import NoCompromise.Flow.FlowMaximal
+public import Mathlib.Geometry.Manifold.IntegralCurve.ExistUnique
+
+@[expose] public section
 
 /-!
 # Local `C^k` flows on a smooth manifold without boundary

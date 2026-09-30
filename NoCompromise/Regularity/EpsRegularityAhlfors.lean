@@ -1,7 +1,11 @@
-import NoCompromise.Regularity.LimitingNormal
-import NoCompromise.Regularity.DensityAhlfors
-import NoCompromise.Regularity.ExcessDecayCoordinates
-import NoCompromise.DeGiorgi.BlowupCompactness
+module
+
+public import NoCompromise.Regularity.LimitingNormal
+public import NoCompromise.Regularity.DensityAhlfors
+public import NoCompromise.Regularity.ExcessDecayCoordinates
+public import NoCompromise.DeGiorgi.BlowupCompactness
+
+@[expose] public section
 
 /-!
 # Uniform Ahlfors lower bound and two-centre normal comparison

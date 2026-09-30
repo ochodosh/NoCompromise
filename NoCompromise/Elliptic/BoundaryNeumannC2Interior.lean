@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2Data
-import NoCompromise.Elliptic.NondivSchauderScalingBall
-import NoCompromise.Elliptic.BoundaryC2
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2Data
+public import NoCompromise.Elliptic.NondivSchauderScalingBall
+public import NoCompromise.Elliptic.BoundaryC2
+
+@[expose] public section
 
 /-!
 # Interior C² regularity from the Neumann data

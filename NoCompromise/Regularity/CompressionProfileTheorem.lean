@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.CompressionProfile
+module
+
+public import NoCompromise.Regularity.CompressionProfile
+
+@[expose] public section
 
 /-! # Blueprint compression-profile lemma -/
 

@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.HarmonicMeanValueBall
-import Mathlib.Topology.Connected.Basic
-import Mathlib.MeasureTheory.Measure.OpenPos
+module
+
+public import NoCompromise.Elliptic.HarmonicMeanValueBall
+public import Mathlib.Topology.Connected.Basic
+public import Mathlib.MeasureTheory.Measure.OpenPos
+
+@[expose] public section
 
 /-!
 # Strong maximum principle from the actual ball mean-value identity

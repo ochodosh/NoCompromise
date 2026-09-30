@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.ApproxHarmonicEstimateBounds
+module
+
+public import NoCompromise.Regularity.ApproxHarmonicEstimateBounds
+
+@[expose] public section
 
 /-! # Exact scaling of the planar approximate-harmonic residual -/
 

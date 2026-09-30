@@ -1,5 +1,9 @@
-import NoCompromise.Surface.MorseCoordsSmooth
-import NoCompromise.Surface.SurfaceChartSmooth
+module
+
+public import NoCompromise.Surface.MorseCoordsSmooth
+public import NoCompromise.Surface.SurfaceChartSmooth
+
+@[expose] public section
 
 /-!
 # `lem:morse-coords` on an embedded surface with smooth coordinates

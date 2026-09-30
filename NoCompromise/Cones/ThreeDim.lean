@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.TangentCone
-import Mathlib.Analysis.InnerProductSpace.Projection.FiniteDimensional
+module
+
+public import NoCompromise.Regularity.TangentCone
+public import Mathlib.Analysis.InnerProductSpace.Projection.FiniteDimensional
+
+@[expose] public section
 
 /-!
 # Cylindrical tangent limits of cones

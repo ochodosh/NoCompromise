@@ -1,8 +1,12 @@
-import NoCompromise.Surface.Geometry
-import Mathlib.Analysis.Calculus.LocalExtr.Basic
-import Mathlib.Topology.Instances.NNReal.Lemmas
-import Mathlib.Topology.OpenPartialHomeomorph.Composition
-import Mathlib.Topology.Order.IntermediateValue
+module
+
+public import NoCompromise.Surface.Geometry
+public import Mathlib.Analysis.Calculus.LocalExtr.Basic
+public import Mathlib.Topology.Instances.NNReal.Lemmas
+public import Mathlib.Topology.OpenPartialHomeomorph.Composition
+public import Mathlib.Topology.Order.IntermediateValue
+
+@[expose] public section
 
 /-!
 # Topological one-manifolds with boundary; relative transversality

@@ -1,9 +1,13 @@
-import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
-import Mathlib.MeasureTheory.Measure.Regular
-import Mathlib.MeasureTheory.Integral.Bochner.Set
-import Mathlib.MeasureTheory.Function.LocallyIntegrable
-import Mathlib.Topology.ContinuousMap.CompactlySupported
-import Mathlib.Topology.UrysohnsLemma
+module
+
+public import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+public import Mathlib.MeasureTheory.Measure.Regular
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import Mathlib.Topology.ContinuousMap.CompactlySupported
+public import Mathlib.Topology.UrysohnsLemma
+
+@[expose] public section
 
 /-!
 # Compact null sets under local weak-star convergence

@@ -1,8 +1,12 @@
-import NoCompromise.Regularity.EpsRegularityHeight
-import NoCompromise.Regularity.EpsRegularityCone
-import NoCompromise.Regularity.EpsRegularityGraph
-import NoCompromise.Regularity.EpsRegularityNormalField
-import NoCompromise.Regularity.EpsRegularityFlat
+module
+
+public import NoCompromise.Regularity.EpsRegularityHeight
+public import NoCompromise.Regularity.EpsRegularityCone
+public import NoCompromise.Regularity.EpsRegularityGraph
+public import NoCompromise.Regularity.EpsRegularityNormalField
+public import NoCompromise.Regularity.EpsRegularityFlat
+
+@[expose] public section
 
 /-!
 # ε-regularity (`thm:eps-regularity`)

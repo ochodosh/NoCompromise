@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.CampanatoHolderBootstrap
-import NoCompromise.Elliptic.CampanatoHolderPrimitive
+module
+
+public import NoCompromise.Elliptic.CampanatoHolderBootstrap
+public import NoCompromise.Elliptic.CampanatoHolderPrimitive
+
+@[expose] public section
 
 /-!
 # The divergence-form C¹,α estimate

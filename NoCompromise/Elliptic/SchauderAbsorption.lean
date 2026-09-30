@@ -1,5 +1,9 @@
-import Mathlib.Analysis.SpecificLimits.Basic
-import Mathlib.Tactic
+module
+
+public import Mathlib.Analysis.SpecificLimits.Basic
+public import Mathlib.Tactic
+
+@[expose] public section
 
 /-! A quantitative nested-radius absorption argument. A finite outer bound is
 used only to kill the residual geometric term; it does not enter the estimate. -/

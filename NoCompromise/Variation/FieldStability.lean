@@ -1,5 +1,9 @@
-import NoCompromise.Variation.FieldInterpolation
-import NoCompromise.Sobolev.Extension
+module
+
+public import NoCompromise.Variation.FieldInterpolation
+public import NoCompromise.Sobolev.Extension
+
+@[expose] public section
 
 /-!
 # Stability of BV pullbacks under changes of the field

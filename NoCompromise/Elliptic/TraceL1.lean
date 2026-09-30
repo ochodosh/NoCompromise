@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.W11TraceVector
-import NoCompromise.Sobolev.C1Domain
+module
+
+public import NoCompromise.Sobolev.W11TraceVector
+public import NoCompromise.Sobolev.C1Domain
+
+@[expose] public section
 
 /-!
 # The blueprint L¹ trace theorem

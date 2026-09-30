@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryC2aLocalAssembly
-import Mathlib.Analysis.Calculus.Deriv.Abs
+module
+
+public import NoCompromise.Elliptic.BoundaryC2aLocalAssembly
+public import Mathlib.Analysis.Calculus.Deriv.Abs
+
+@[expose] public section
 
 /-!
 # Pullback of the Dirichlet form under a C¹ diffeomorphism

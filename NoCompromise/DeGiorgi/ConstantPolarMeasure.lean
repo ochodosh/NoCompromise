@@ -1,5 +1,9 @@
-import NoCompromise.DeGiorgi.HalfspaceRigidity
-import NoCompromise.DeGiorgi.Reduced
+module
+
+public import NoCompromise.DeGiorgi.HalfspaceRigidity
+public import NoCompromise.DeGiorgi.Reduced
+
+@[expose] public section
 
 /-!
 # Identification of a constant polar measure with perimeter

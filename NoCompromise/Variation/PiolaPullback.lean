@@ -1,8 +1,12 @@
-import NoCompromise.Variation.Piola
-import NoCompromise.BV.StrictApprox
-import NoCompromise.DeGiorgi.Structure
-import Mathlib.MeasureTheory.Function.Jacobian
-import Mathlib.Analysis.Calculus.ContDiff.WithLp
+module
+
+public import NoCompromise.Variation.Piola
+public import NoCompromise.BV.StrictApprox
+public import NoCompromise.DeGiorgi.Structure
+public import Mathlib.MeasureTheory.Function.Jacobian
+public import Mathlib.Analysis.Calculus.ContDiff.WithLp
+
+@[expose] public section
 
 
 /-!

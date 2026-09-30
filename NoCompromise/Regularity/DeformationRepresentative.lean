@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.DeformationCaps
+module
+
+public import NoCompromise.Regularity.DeformationCaps
+
+@[expose] public section
 
 /-! # Choosing an exact core and exterior representative of a BV limit -/
 

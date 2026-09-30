@@ -1,7 +1,11 @@
-import NoCompromise.Cones.NoSingularExcess
-import NoCompromise.Cones.NoSingularChart
-import NoCompromise.Cones.NoSingularGlobal
-import NoCompromise.Regularity.RepresentativeBounded
+module
+
+public import NoCompromise.Cones.NoSingularExcess
+public import NoCompromise.Cones.NoSingularChart
+public import NoCompromise.Cones.NoSingularGlobal
+public import NoCompromise.Regularity.RepresentativeBounded
+
+@[expose] public section
 
 /-!
 # `prop:no-singular-points`: every boundary point of an `ω`-minimal set is regular

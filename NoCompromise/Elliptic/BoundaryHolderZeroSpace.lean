@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderTraceContinuous
-import NoCompromise.Sobolev.H1PositivePartTests
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderTraceContinuous
+public import NoCompromise.Sobolev.H1PositivePartTests
+
+@[expose] public section
 
 /-!
 # Genuine H¹₀ corrections preserve the flat Dirichlet trace

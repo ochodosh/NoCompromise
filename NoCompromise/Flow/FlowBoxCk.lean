@@ -1,4 +1,8 @@
-import NoCompromise.Flow.FlowLocalCk
+module
+
+public import NoCompromise.Flow.FlowLocalCk
+
+@[expose] public section
 
 /-!
 # Flow boxes of class `C^k`

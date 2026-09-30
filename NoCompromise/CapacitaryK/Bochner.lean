@@ -1,6 +1,10 @@
-import NoCompromise.CapacitaryK.Calculus
-import Mathlib.Analysis.Calculus.FDeriv.Symmetric
-import Mathlib.Analysis.SpecialFunctions.Sqrt
+module
+
+public import NoCompromise.CapacitaryK.Calculus
+public import Mathlib.Analysis.Calculus.FDeriv.Symmetric
+public import Mathlib.Analysis.SpecialFunctions.Sqrt
+
+@[expose] public section
 
 /-!
 # Bochner identity for the regularised gradient length

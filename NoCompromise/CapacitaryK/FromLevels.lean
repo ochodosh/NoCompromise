@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.MeasureInequality
-import NoCompromise.CapacitaryK.DensityInput
+module
+
+public import NoCompromise.CapacitaryK.MeasureInequality
+public import NoCompromise.CapacitaryK.DensityInput
+
+@[expose] public section
 
 /-!
 # Capacitary inequalities from the level-set data (chapter 31, `thm:capacitary-inequalities`)

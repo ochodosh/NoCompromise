@@ -1,5 +1,9 @@
-import NoCompromise.BV.Basic
-import NoCompromise.Measure.BallDifferentiation
+module
+
+public import NoCompromise.BV.Basic
+public import NoCompromise.Measure.BallDifferentiation
+
+@[expose] public section
 
 /-!
 # Local BV from genuine distributional densities

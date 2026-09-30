@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.GraphTwoPointGeometry
-import NoCompromise.Regularity.GraphHeightCenters
+module
+
+public import NoCompromise.Regularity.GraphTwoPointGeometry
+public import NoCompromise.Regularity.GraphHeightCenters
+
+@[expose] public section
 
 /-! # The actual two-point Lipschitz estimate over the good base
 

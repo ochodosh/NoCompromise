@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.PerimeterConvergenceVague
-import NoCompromise.Regularity.PerimeterConvergenceInner
-import NoCompromise.Regularity.PerimeterConvergenceLower
+module
+
+public import NoCompromise.Regularity.PerimeterConvergenceVague
+public import NoCompromise.Regularity.PerimeterConvergenceInner
+public import NoCompromise.Regularity.PerimeterConvergenceLower
+
+@[expose] public section
 
 /-! # Interior continuity balls and the upper bound for positive perimeter limits -/
 

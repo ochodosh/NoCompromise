@@ -1,8 +1,12 @@
-import NoCompromise.Flow.FlowCk
-import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ContDiff
-import Mathlib.Analysis.Normed.Module.FiniteDimension
-import Mathlib.LinearAlgebra.Projection
-import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
+module
+
+public import NoCompromise.Flow.FlowCk
+public import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ContDiff
+public import Mathlib.Analysis.Normed.Module.FiniteDimension
+public import Mathlib.LinearAlgebra.Projection
+public import Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension
+
+@[expose] public section
 
 /-!
 # Joint C¹ regularity and C¹ flow boxes

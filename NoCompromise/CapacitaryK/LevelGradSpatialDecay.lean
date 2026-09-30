@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.LevelGradSecondDerivative
-import NoCompromise.CapacitaryK.LevelAreaSecondDerivative
+module
+
+public import NoCompromise.CapacitaryK.LevelGradSecondDerivative
+public import NoCompromise.CapacitaryK.LevelAreaSecondDerivative
+
+@[expose] public section
 
 /-!
 # Spatial calculus for the gradient-length remainder

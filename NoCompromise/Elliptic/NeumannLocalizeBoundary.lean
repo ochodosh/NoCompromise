@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NeumannLocalizeTests
-import NoCompromise.DeGiorgi.SmoothBoundary
+module
+
+public import NoCompromise.Elliptic.NeumannLocalizeTests
+public import NoCompromise.DeGiorgi.SmoothBoundary
+
+@[expose] public section
 
 /-!
 # The boundary integral in a rigid graph chart

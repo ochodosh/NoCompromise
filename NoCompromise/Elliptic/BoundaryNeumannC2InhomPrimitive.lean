@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomBounds
-import Mathlib.Analysis.Calculus.ParametricIntervalIntegral
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomBounds
+public import Mathlib.Analysis.Calculus.ParametricIntervalIntegral
+
+@[expose] public section
 
 /-! Smoothness of the existing vertical primitive, by differentiation under
 the normalized integral over `[0,1]`. -/

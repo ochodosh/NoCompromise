@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.Calculus
-import NoCompromise.BV.SphericalSlicing
+module
+
+public import NoCompromise.CapacitaryK.Calculus
+public import NoCompromise.BV.SphericalSlicing
+
+@[expose] public section
 
 /-!
 # Area of a C¹ radial graph over the unit sphere

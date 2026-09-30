@@ -1,5 +1,9 @@
-import Mathlib.Analysis.ODE.ExistUnique
-import Mathlib.Analysis.Calculus.ContDiff.RCLike
+module
+
+public import Mathlib.Analysis.ODE.ExistUnique
+public import Mathlib.Analysis.Calculus.ContDiff.RCLike
+
+@[expose] public section
 
 /-!
 # Global flows of bounded Lipschitz vector fields

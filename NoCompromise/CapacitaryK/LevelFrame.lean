@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.Calculus
-import Mathlib.Analysis.Calculus.FDeriv.Symmetric
+module
+
+public import NoCompromise.CapacitaryK.Calculus
+public import Mathlib.Analysis.Calculus.FDeriv.Symmetric
+
+@[expose] public section
 
 /-!
 # Level-set frame identities (blueprint `lem:K-level-identities`)

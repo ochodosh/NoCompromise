@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NondivSchauderScalingNorm
-import NoCompromise.Elliptic.NondivSchauderEquation
+module
+
+public import NoCompromise.Elliptic.NondivSchauderScalingNorm
+public import NoCompromise.Elliptic.NondivSchauderEquation
+
+@[expose] public section
 
 /-!
 # Exact similarity pullback of the distributional equation

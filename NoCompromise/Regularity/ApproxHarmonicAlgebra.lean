@@ -1,5 +1,9 @@
-import NoCompromise.Area.Graph
-import NoCompromise.BV.CoareaCoordinates
+module
+
+public import NoCompromise.Area.Graph
+public import NoCompromise.BV.CoareaCoordinates
+
+@[expose] public section
 
 /-! # The graph first-variation density and its quadratic error -/
 

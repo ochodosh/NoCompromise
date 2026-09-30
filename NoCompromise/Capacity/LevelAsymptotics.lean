@@ -1,8 +1,12 @@
-import NoCompromise.Capacity.KelvinLevels
-import NoCompromise.Capacity.KelvinHessian
-import NoCompromise.Capacity.FluxLevel
-import NoCompromise.CapacitaryK.LevelFrame
-import NoCompromise.CapacitaryK.LevelInequality
+module
+
+public import NoCompromise.Capacity.KelvinLevels
+public import NoCompromise.Capacity.KelvinHessian
+public import NoCompromise.Capacity.FluxLevel
+public import NoCompromise.CapacitaryK.LevelFrame
+public import NoCompromise.CapacitaryK.LevelInequality
+
+@[expose] public section
 
 /-!
 # Asymptotics of small capacitary levels (blueprint `lem:level-asymptotics`)

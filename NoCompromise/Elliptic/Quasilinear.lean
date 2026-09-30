@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.QuasilinearCoordinate
-import NoCompromise.Elliptic.QuasilinearNorm
-import NoCompromise.Elliptic.NondivSchauderClassical
+module
+
+public import NoCompromise.Elliptic.QuasilinearCoordinate
+public import NoCompromise.Elliptic.QuasilinearNorm
+public import NoCompromise.Elliptic.NondivSchauderClassical
+
+@[expose] public section
 
 /-! Blueprint `thm:quasilinear-schauder`. The nonlinear flux has genuine C²
 regularity, the initial solution is only C¹,α, and the equation is tested against

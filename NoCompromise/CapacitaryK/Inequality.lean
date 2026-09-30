@@ -1,6 +1,10 @@
-import NoCompromise.CapacitaryK.OneDim
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
-import Mathlib.Topology.Order.Basic
+module
+
+public import NoCompromise.CapacitaryK.OneDim
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Topology.Order.Basic
+
+@[expose] public section
 
 /-!
 # The measure inequality and the capacitary inequalities (chapter 31)

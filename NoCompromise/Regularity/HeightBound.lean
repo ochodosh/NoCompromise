@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.HeightBoundUnit
-import NoCompromise.Regularity.HeightBoundBoundaryScaling
-import NoCompromise.Regularity.ExcessScaling
+module
+
+public import NoCompromise.Regularity.HeightBoundUnit
+public import NoCompromise.Regularity.HeightBoundBoundaryScaling
+public import NoCompromise.Regularity.ExcessScaling
+
+@[expose] public section
 
 /-! # The scale-invariant height bound
 

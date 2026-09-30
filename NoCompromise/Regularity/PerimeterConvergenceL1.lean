@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.PerimeterConvergenceLocal
+module
+
+public import NoCompromise.Regularity.PerimeterConvergenceLocal
+
+@[expose] public section
 
 /-! # Indicator L¹ convergence and the actual symmetric-difference cost -/
 

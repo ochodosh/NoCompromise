@@ -1,5 +1,9 @@
-import NoCompromise.Threshold.BallSplitting
-import NoCompromise.Ball.Potential
+module
+
+public import NoCompromise.Threshold.BallSplitting
+public import NoCompromise.Ball.Potential
+
+@[expose] public section
 
 /-!
 # One ball versus two equal balls

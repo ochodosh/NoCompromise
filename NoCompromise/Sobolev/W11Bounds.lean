@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.W11Chain
-import NoCompromise.Sobolev.W11FlatExtension
+module
+
+public import NoCompromise.Sobolev.W11Chain
+public import NoCompromise.Sobolev.W11FlatExtension
+
+@[expose] public section
 
 /-!
 # Quantitative W¹,¹ cutoff, pullback and reflection bounds

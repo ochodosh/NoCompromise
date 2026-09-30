@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.FrozenDecayRegularity
-import NoCompromise.Elliptic.HarmonicDerivative
+module
+
+public import NoCompromise.Elliptic.FrozenDecayRegularity
+public import NoCompromise.Elliptic.HarmonicDerivative
+
+@[expose] public section
 
 /-! Ellipticity-controlled interior derivative bounds on the unit ball,
 obtained from the proved weak harmonic change of variables. -/

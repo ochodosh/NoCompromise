@@ -1,7 +1,11 @@
-import NoCompromise.Stationary.BootstrapC2
-import NoCompromise.Stationary.EulerLagrange
-import NoCompromise.Energy.PotentialHolder
-import NoCompromise.Elliptic.NondivSchauderScalingInverse
+module
+
+public import NoCompromise.Stationary.BootstrapC2
+public import NoCompromise.Stationary.EulerLagrange
+public import NoCompromise.Energy.PotentialHolder
+public import NoCompromise.Elliptic.NondivSchauderScalingInverse
+
+@[expose] public section
 
 /-! Blueprint `prop:bootstrap-C2`: scaling and local regularity in boundary charts. -/
 

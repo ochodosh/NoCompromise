@@ -1,6 +1,10 @@
-import NoCompromise.Compactness.PerimeterSplitting
-import NoCompromise.Compactness.Radii
-import NoCompromise.Compactness.CoulombSplitting
+module
+
+public import NoCompromise.Compactness.PerimeterSplitting
+public import NoCompromise.Compactness.Radii
+public import NoCompromise.Compactness.CoulombSplitting
+
+@[expose] public section
 
 /-!
 # Concentration-compactness decomposition (blueprint chapter 19)

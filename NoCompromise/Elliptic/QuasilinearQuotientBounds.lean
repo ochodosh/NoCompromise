@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.QuasilinearEquation
-import NoCompromise.Elliptic.NondivSchauderQuotientBounds
+module
+
+public import NoCompromise.Elliptic.QuasilinearEquation
+public import NoCompromise.Elliptic.NondivSchauderQuotientBounds
+
+@[expose] public section
 
 /-! Uniform H¹ bounds for the genuine quasilinear difference quotients. The
 constant uses the gradient bound and scalar-source norm, and is invariant under

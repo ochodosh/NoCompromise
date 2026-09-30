@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.HeightCompactnessPolar
-import NoCompromise.Regularity.HeightCompactnessClassification
-import NoCompromise.Regularity.SlabCap
+module
+
+public import NoCompromise.Regularity.HeightCompactnessPolar
+public import NoCompromise.Regularity.HeightCompactnessClassification
+public import NoCompromise.Regularity.SlabCap
+
+@[expose] public section
 
 /-! # The small-excess compactness limit is the correctly oriented plane -/
 

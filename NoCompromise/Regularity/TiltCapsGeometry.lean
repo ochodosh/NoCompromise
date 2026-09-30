@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.TiltGeometry
-import NoCompromise.Regularity.IsometryCylinders
+module
+
+public import NoCompromise.Regularity.TiltGeometry
+public import NoCompromise.Regularity.IsometryCylinders
+
+@[expose] public section
 
 /-! # Heights and sizes of actual rotated cap points -/
 

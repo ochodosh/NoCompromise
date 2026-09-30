@@ -1,6 +1,10 @@
-import NoCompromise.Capacity.FluxIdentity
-import NoCompromise.BV.Rellich
-import Mathlib.Analysis.SpecialFunctions.JapaneseBracket
+module
+
+public import NoCompromise.Capacity.FluxIdentity
+public import NoCompromise.BV.Rellich
+public import Mathlib.Analysis.SpecialFunctions.JapaneseBracket
+
+@[expose] public section
 
 /-!
 # Lipschitz regularity, local H¹, and finite energy of the capacitary potential

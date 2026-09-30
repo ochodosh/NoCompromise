@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNeumannInhomC1Lift
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannInhomC1Lift
+
+@[expose] public section
 
 /-!
 # Inhomogeneous conormal C¹,α regularity

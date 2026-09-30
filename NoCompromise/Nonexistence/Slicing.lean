@@ -1,7 +1,11 @@
-import Mathlib
-import NoCompromise.BV.SphericalSlicing
-import NoCompromise.BV.ExactCuts
-import NoCompromise.Energy.Scaling
+module
+
+public import Mathlib
+public import NoCompromise.BV.SphericalSlicing
+public import NoCompromise.BV.ExactCuts
+public import NoCompromise.Energy.Scaling
+
+@[expose] public section
 
 noncomputable section
 open MeasureTheory Set Filter

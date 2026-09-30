@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.SlabCap
-import NoCompromise.Regularity.IsometryExcess
+module
+
+public import NoCompromise.Regularity.SlabCap
+public import NoCompromise.Regularity.IsometryExcess
+
+@[expose] public section
 
 /-!
 # Regular boundary points (`prop:no-singular-points`, chapter 26)

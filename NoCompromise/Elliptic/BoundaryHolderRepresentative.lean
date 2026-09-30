@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.BoundaryHolderOddOscillation
-import NoCompromise.Elliptic.BoundaryHolderOddWeak
-import NoCompromise.Elliptic.CampanatoHolderPrimitive
-import NoCompromise.Elliptic.CampanatoHolderPowers
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderOddOscillation
+public import NoCompromise.Elliptic.BoundaryHolderOddWeak
+public import NoCompromise.Elliptic.CampanatoHolderPrimitive
+public import NoCompromise.Elliptic.CampanatoHolderPowers
+
+@[expose] public section
 
 /-! A genuine C¹,α representative across the flat origin. The continuous weak
 gradient comes from the proved Campanato estimate for the explicit odd field;

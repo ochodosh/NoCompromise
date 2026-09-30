@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.Extension
+module
+
+public import NoCompromise.Sobolev.Extension
+
+@[expose] public section
 
 /-! # The value bound for a compact test on the half disk -/
 

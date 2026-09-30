@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.QuasilinearEquation
+module
+
+public import NoCompromise.Elliptic.QuasilinearEquation
+
+@[expose] public section
 
 /-! Quantitative control of the actual linearized coefficient DA(∇f). The
 averaged secant coefficients converge uniformly to it without requiring any

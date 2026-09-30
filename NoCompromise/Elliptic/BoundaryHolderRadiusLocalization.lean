@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryHolderZeroSpace
-import NoCompromise.Elliptic.BoundaryHolderLocalization
-import NoCompromise.Elliptic.QuasilinearCampanatoPullback
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderZeroSpace
+public import NoCompromise.Elliptic.BoundaryHolderLocalization
+public import NoCompromise.Elliptic.QuasilinearCampanatoPullback
+
+@[expose] public section
 
 /-!
 # Actual zero extension and similarity pullback at positive radii

@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.GraphTwoPoint
-import Mathlib.MeasureTheory.Constructions.Polish.Basic
-import Mathlib.Topology.MetricSpace.Lipschitz
+module
+
+public import NoCompromise.Regularity.GraphTwoPoint
+public import Mathlib.MeasureTheory.Constructions.Polish.Basic
+public import Mathlib.Topology.MetricSpace.Lipschitz
+
+@[expose] public section
 
 /-! # Actual graph selection and Lipschitz extension from a two-point estimate -/
 

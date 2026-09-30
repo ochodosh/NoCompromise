@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NondivSchauderDifference
+module
+
+public import NoCompromise.Elliptic.NondivSchauderDifference
+
+@[expose] public section
 
 /-!
 # Strong convergence of genuine coordinate quotients

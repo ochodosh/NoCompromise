@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.DeformationCompression
-import NoCompromise.Regularity.DeformationExtensionPhases
+module
+
+public import NoCompromise.Regularity.DeformationCompression
+public import NoCompromise.Regularity.DeformationExtensionPhases
+
+@[expose] public section
 
 /-! # The genuine compressed set retains the prescribed phases -/
 

@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.TangentScaling
-import NoCompromise.BV.Density
+module
+
+public import NoCompromise.Regularity.TangentScaling
+public import NoCompromise.BV.Density
+
+@[expose] public section
 
 /-!
 # Exact dilation covariance of the density-one representative

@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderSharp
-import NoCompromise.Elliptic.BoundaryC1
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderSharp
+public import NoCompromise.Elliptic.BoundaryC1
+
+@[expose] public section
 
 /-!
 # Boundary regularity (blueprint `thm:boundary-C1a` and its successors)

@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.IsometryPolar
-import NoCompromise.Regularity.Excess
+module
+
+public import NoCompromise.Regularity.IsometryPolar
+public import NoCompromise.Regularity.Excess
+
+@[expose] public section
 
 /-! # Canonical perimeter measure and reduced-normal covariance under isometries -/
 

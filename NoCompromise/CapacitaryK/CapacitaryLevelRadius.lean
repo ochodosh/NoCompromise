@@ -1,6 +1,10 @@
-import NoCompromise.CapacitaryK.LevelRadialArea
-import NoCompromise.CapacitaryK.LevelRadiusSmooth
-import NoCompromise.CapacitaryK.RadialGraphArea
+module
+
+public import NoCompromise.CapacitaryK.LevelRadialArea
+public import NoCompromise.CapacitaryK.LevelRadiusSmooth
+public import NoCompromise.CapacitaryK.RadialGraphArea
+
+@[expose] public section
 
 /-!
 # The capacitary level radius: smoothness, the level set and the area factor

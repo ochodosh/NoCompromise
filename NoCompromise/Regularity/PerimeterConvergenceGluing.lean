@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.PerimeterConvergenceLocal
+module
+
+public import NoCompromise.Regularity.PerimeterConvergenceLocal
+
+@[expose] public section
 
 /-!
 # The comparison inequality for actual good-radius glued competitors

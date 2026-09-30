@@ -1,6 +1,10 @@
-import NoCompromise.Area.Graph
-import NoCompromise.Area.PlaneSections
-import NoCompromise.BV.CoareaCoordinates
+module
+
+public import NoCompromise.Area.Graph
+public import NoCompromise.Area.PlaneSections
+public import NoCompromise.BV.CoareaCoordinates
+
+@[expose] public section
 
 /-!
 # Tangent ellipses for graph density

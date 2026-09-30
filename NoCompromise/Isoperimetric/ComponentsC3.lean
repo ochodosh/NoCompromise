@@ -1,5 +1,9 @@
-import NoCompromise.Isoperimetric.ABPNeumannC3
-import NoCompromise.Isoperimetric.SharpNeumann
+module
+
+public import NoCompromise.Isoperimetric.ABPNeumannC3
+public import NoCompromise.Isoperimetric.SharpNeumann
+
+@[expose] public section
 
 /-!
 # `cor:iso-smooth-components` for domains with `C³` boundary

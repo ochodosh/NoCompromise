@@ -1,6 +1,10 @@
-import NoCompromise.BV.Rellich
-import Mathlib.MeasureTheory.Function.L2Space
-import Mathlib.Analysis.InnerProductSpace.ProdL2
+module
+
+public import NoCompromise.BV.Rellich
+public import Mathlib.MeasureTheory.Function.L2Space
+public import Mathlib.Analysis.InnerProductSpace.ProdL2
+
+@[expose] public section
 
 /-!
 # The Hilbert space H¹

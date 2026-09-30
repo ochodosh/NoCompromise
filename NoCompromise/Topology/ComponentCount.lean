@@ -1,4 +1,8 @@
-import NoCompromise.Topology.ParitySides
+module
+
+public import NoCompromise.Topology.ParitySides
+
+@[expose] public section
 
 /-!
 # Component count for a disjoint union of surfaces (`thm:component-count`, abstract form)

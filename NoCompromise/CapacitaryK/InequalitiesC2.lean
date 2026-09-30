@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.CollarC2
-import NoCompromise.CapacitaryK.FarFieldUnconditional
+module
+
+public import NoCompromise.CapacitaryK.CollarC2
+public import NoCompromise.CapacitaryK.FarFieldUnconditional
+
+@[expose] public section
 
 /-!
 # `thm:capacitary-inequalities` modulo `thm:total-curvature-bound` and the `C²` extension

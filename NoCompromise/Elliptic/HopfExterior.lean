@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.HopfC2Boundary
-import NoCompromise.Elliptic.HopfDerivativeWithin
+module
+
+public import NoCompromise.Elliptic.HopfC2Boundary
+public import NoCompromise.Elliptic.HopfDerivativeWithin
+
+@[expose] public section
 
 /-!
 # The exterior Hopf sign

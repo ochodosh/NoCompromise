@@ -1,5 +1,9 @@
-import NoCompromise.Capacity.Potential
-import NoCompromise.Elliptic.HopfExterior
+module
+
+public import NoCompromise.Capacity.Potential
+public import NoCompromise.Elliptic.HopfExterior
+
+@[expose] public section
 
 /-!
 # The lower reciprocal-distance barrier

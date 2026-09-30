@@ -1,5 +1,9 @@
-import NoCompromise.Stationary.MinimizerContext
-import NoCompromise.Energy.Scaling
+module
+
+public import NoCompromise.Stationary.MinimizerContext
+public import NoCompromise.Energy.Scaling
+
+@[expose] public section
 
 /-!
 # Connectedness of the minimizer

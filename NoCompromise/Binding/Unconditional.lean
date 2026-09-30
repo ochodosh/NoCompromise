@@ -1,9 +1,13 @@
-import NoCompromise.Isoperimetric.ABPNeumannC1
-import NoCompromise.Value.Defs
-import NoCompromise.Binding.Splitting
-import NoCompromise.Binding.Strict
-import NoCompromise.Existence.Subcritical
-import NoCompromise.Binding.RelaxedAttained
+module
+
+public import NoCompromise.Isoperimetric.ABPNeumannC1
+public import NoCompromise.Value.Defs
+public import NoCompromise.Binding.Splitting
+public import NoCompromise.Binding.Strict
+public import NoCompromise.Existence.Subcritical
+public import NoCompromise.Binding.RelaxedAttained
+
+@[expose] public section
 
 /-!
 # Chapters 17–19 and 38 with `thm:sharp-isoperimetric` discharged

@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.StrongMaximumHarmonic
-import NoCompromise.Sobolev.AnnulusDomain
-import NoCompromise.Elliptic.HopfBarrier
+module
+
+public import NoCompromise.Elliptic.StrongMaximumHarmonic
+public import NoCompromise.Sobolev.AnnulusDomain
+public import NoCompromise.Elliptic.HopfBarrier
+
+@[expose] public section
 
 /-!
 # Compact-domain harmonic comparison

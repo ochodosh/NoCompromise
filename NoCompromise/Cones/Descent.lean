@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.OmegaMinimal
-import NoCompromise.BV.CoareaCoordinates
+module
+
+public import NoCompromise.Regularity.OmegaMinimal
+public import NoCompromise.BV.CoareaCoordinates
+
+@[expose] public section
 
 /-!
 # Descent for vertical cylinders

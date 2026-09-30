@@ -1,7 +1,11 @@
-import NoCompromise.Variation.CoulombSingle
-import Mathlib.Analysis.Calculus.UniformLimitsDeriv
-import Mathlib.Analysis.Calculus.Gradient.Basic
-import Mathlib.MeasureTheory.Integral.DominatedConvergence
+module
+
+public import NoCompromise.Variation.CoulombSingle
+public import Mathlib.Analysis.Calculus.UniformLimitsDeriv
+public import Mathlib.Analysis.Calculus.Gradient.Basic
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+
+@[expose] public section
 
 /-!
 # Differentiability of the Newtonian potential

@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.SlabCap
-import NoCompromise.BV.CoareaCoordinates
+module
+
+public import NoCompromise.Regularity.SlabCap
+public import NoCompromise.BV.CoareaCoordinates
+
+@[expose] public section
 
 /-!
 # The boundary is one Lipschitz graph in the quarter cylinder

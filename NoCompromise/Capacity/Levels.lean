@@ -1,7 +1,11 @@
-import NoCompromise.Capacity.Potential
-import NoCompromise.Surface.Geometry
-import Mathlib.Topology.Connected.LocallyConnected
-import Mathlib.Analysis.Normed.Module.Connected
+module
+
+public import NoCompromise.Capacity.Potential
+public import NoCompromise.Surface.Geometry
+public import Mathlib.Topology.Connected.LocallyConnected
+public import Mathlib.Analysis.Normed.Module.Connected
+
+@[expose] public section
 
 /-!
 # Levels of an exterior capacitary potential

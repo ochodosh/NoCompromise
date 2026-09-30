@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.BoundaryNeumannInhomPrimitive
-import NoCompromise.Elliptic.BoundaryNeumannInhomGeometry
-import NoCompromise.Elliptic.BoundaryNeumannInhomSlicing
-import NoCompromise.Elliptic.BoundaryNeumannInhomEstimates
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannInhomPrimitive
+public import NoCompromise.Elliptic.BoundaryNeumannInhomGeometry
+public import NoCompromise.Elliptic.BoundaryNeumannInhomSlicing
+public import NoCompromise.Elliptic.BoundaryNeumannInhomEstimates
+
+@[expose] public section
 
 /-!
 # Source identities for the inhomogeneous conormal reduction

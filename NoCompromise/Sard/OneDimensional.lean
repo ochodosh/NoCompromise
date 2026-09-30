@@ -1,4 +1,8 @@
-import NoCompromise.Sard.Flat
+module
+
+public import NoCompromise.Sard.Flat
+
+@[expose] public section
 
 /-!
 # One-dimensional critical values

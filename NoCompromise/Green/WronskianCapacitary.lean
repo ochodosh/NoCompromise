@@ -1,5 +1,9 @@
-import NoCompromise.Green.IdentityCapacity
-import NoCompromise.Capacity.HullExistence
+module
+
+public import NoCompromise.Green.IdentityCapacity
+public import NoCompromise.Capacity.HullExistence
+
+@[expose] public section
 
 /-!
 # `lem:wronskian` for the capacitary potential, unconditionally

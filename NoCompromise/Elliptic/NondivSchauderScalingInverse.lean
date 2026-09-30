@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NondivSchauderScalingNorm
+module
+
+public import NoCompromise.Elliptic.NondivSchauderScalingNorm
+
+@[expose] public section
 
 /-!
 # Explicit inverse scaling of C²,α norms

@@ -1,6 +1,10 @@
-import NoCompromise.CapacitaryK.SlabH
-import NoCompromise.CapacitaryK.LevelNull
-import NoCompromise.CapacitaryK.SlabFInput
+module
+
+public import NoCompromise.CapacitaryK.SlabH
+public import NoCompromise.CapacitaryK.LevelNull
+public import NoCompromise.CapacitaryK.SlabFInput
+
+@[expose] public section
 
 /-!
 # `lem:K-slab-H`, `lem:K-slab-F`, `lem:K-p-geometric` and `def:K-Fhat` (chapter 31)

@@ -1,1292 +1,1294 @@
-import NoCompromise.Regularity.TiltSmallness
-import NoCompromise.Regularity.TiltReversePoincare
-import NoCompromise.Regularity.HarmonicBlowup
-import NoCompromise.Regularity.HarmonicBlowupUniform
-import NoCompromise.Regularity.IsometryExcess
-import NoCompromise.Regularity.TiltPlane
-import NoCompromise.Regularity.TiltCapsGeometry
-import NoCompromise.Regularity.TiltCaps
-import NoCompromise.Regularity.TiltSlab
-import NoCompromise.Regularity.ReversePoincareRotated
-import NoCompromise.Regularity.TiltZero
-import NoCompromise.Regularity.ApproxHarmonicEstimateScaling
-import NoCompromise.Regularity.ApproxHarmonicScaling
-import NoCompromise.Regularity.ApproxHarmonicEstimateDecomposition
-import NoCompromise.Regularity.ApproxHarmonicEstimate
-import NoCompromise.Regularity.ApproxHarmonicEstimateBounds
-import NoCompromise.Regularity.ApproxHarmonic
-import NoCompromise.Regularity.HarmonicBlowupNormalizedCompactness
-import NoCompromise.Regularity.HarmonicBlowupUniformNormalized
-import NoCompromise.Regularity.HarmonicBlowupGeometry
-import NoCompromise.Elliptic.BoundaryHolderNearInterior
-import NoCompromise.Elliptic.BoundaryHolderOddField
-import NoCompromise.Elliptic.BoundaryHolderOddExcess
-import NoCompromise.Elliptic.BoundaryHolderOddOscillation
-import NoCompromise.Elliptic.BoundaryHolderOddWeak
-import NoCompromise.Regularity.IsometryExcessPolar
-import NoCompromise.Regularity.HarmonicBlowupNormalization
-import NoCompromise.Regularity.HarmonicBlowupUniformH1
-import NoCompromise.Regularity.IsometryCylinders
-import NoCompromise.Regularity.IsometryPolar
-import NoCompromise.Regularity.IsometryDensity
-import NoCompromise.Regularity.HarmonicBlowupTests
-import NoCompromise.Regularity.HarmonicBlowupCompactness
-import NoCompromise.Elliptic.BoundaryHolderInteriorBound
-import NoCompromise.Elliptic.BoundaryHolderGeometry
-import NoCompromise.Regularity.ApproxHarmonicEstimateVariation
-import NoCompromise.Regularity.ApproxHarmonicEstimateTestBounds
-import NoCompromise.Regularity.TiltGeometry
-import NoCompromise.Regularity.TiltPhases
-import NoCompromise.Elliptic.BoundaryHolderUniformIteration
-import NoCompromise.Elliptic.BoundaryHolderTangentialGrowth
-import NoCompromise.Regularity.IsometryMinimal
-import NoCompromise.Regularity.ApproxHarmonicEstimateError
-import NoCompromise.Regularity.ApproxHarmonicEstimateField
-import NoCompromise.Regularity.GraphApproxHeight
-import NoCompromise.Regularity.GraphGoodExtensionHeight
-import NoCompromise.Regularity.GraphEnergy
-import NoCompromise.Elliptic.BoundaryHolderTranslatedData
-import NoCompromise.Elliptic.BoundaryHolderSharp
-import NoCompromise.Regularity.ApproxHarmonicEstimateArea
-import NoCompromise.Regularity.GraphNormalGeometry
-import NoCompromise.Regularity.GraphNormalDensity
-import NoCompromise.Regularity.GraphNormal
-import NoCompromise.Regularity.GraphDirichlet
-import NoCompromise.Regularity.GraphSingleValued
-import NoCompromise.Regularity.GraphEnergyExtension
-import NoCompromise.Regularity.GraphApprox
-import NoCompromise.Regularity.GraphLoss
-import NoCompromise.Regularity.GraphSlicesUniqueness
-import NoCompromise.Regularity.GraphSlicesPolar
-import NoCompromise.Regularity.GraphSlicesFibers
-import NoCompromise.Regularity.GraphSlicesCapBridge
-import NoCompromise.Regularity.GraphSlices
-import NoCompromise.Regularity.GraphBadBaseFlux
-import NoCompromise.Regularity.GraphBadBase
-import NoCompromise.Regularity.GraphGoodBaseLoss
-import NoCompromise.Regularity.GraphBaseCoverage
-import NoCompromise.Regularity.ApproxHarmonicTest
-import NoCompromise.Regularity.ApproxHarmonicSupport
-import NoCompromise.Regularity.ApproxHarmonicAlgebra
-import NoCompromise.Elliptic.BoundaryHolderEnergyBootstrap
-import NoCompromise.Elliptic.BoundaryHolderHolderData
-import NoCompromise.Elliptic.BoundaryHolderTranslate
-import NoCompromise.Regularity.GraphTwoPointCaps
-import NoCompromise.Regularity.GraphGoodExtension
-import NoCompromise.Elliptic.BoundaryHolderAverages
-import NoCompromise.Elliptic.BoundaryHolderLimits
-import NoCompromise.Regularity.GraphExtension
-import NoCompromise.Regularity.GraphExtensionClamp
-import NoCompromise.Regularity.GraphGoodSet
-import NoCompromise.Regularity.GraphPhaseCapsGeometry
-import NoCompromise.Regularity.GraphPhaseCapsCompactness
-import NoCompromise.Regularity.GraphPhaseCaps
-import NoCompromise.Regularity.GraphSlicesOneDimensional
-import NoCompromise.Regularity.GraphSlicesPhases
-import NoCompromise.Elliptic.BoundaryHolderRecurrence
-import NoCompromise.Elliptic.BoundaryHolderData
-import NoCompromise.Elliptic.BoundaryHolderGrowth
-import NoCompromise.Regularity.ReversePoincare
-import NoCompromise.Regularity.ReversePoincareComparison
-import NoCompromise.Regularity.ReversePoincareComplement
-import NoCompromise.Regularity.ReversePoincareEstimate
-import NoCompromise.Regularity.ReversePoincareGeometry
-import NoCompromise.Regularity.ReversePoincareLocalization
-import NoCompromise.Regularity.ReversePoincareMoment
-import NoCompromise.Regularity.ReversePoincareRadii
-import NoCompromise.Regularity.GraphProjectedLocal
-import NoCompromise.Regularity.GraphTwoPointGeometry
-import NoCompromise.Regularity.GraphTwoPoint
-import NoCompromise.Regularity.DensitySimilarity
-import NoCompromise.Regularity.GraphHeightCenters
-import NoCompromise.Elliptic.BoundaryHolderRadiusLocalization
-import NoCompromise.Elliptic.BoundaryHolderExcess
-import NoCompromise.Elliptic.BoundaryHolderRadiusDecay
-import NoCompromise.Elliptic.BoundaryHolderComparisonBounds
-import NoCompromise.Elliptic.BoundaryHolderTransfer
-import NoCompromise.Regularity.HeightBoundLimit
-import NoCompromise.Regularity.HeightBoundBoundaryScaling
-import NoCompromise.Regularity.HeightBoundUnit
-import NoCompromise.Regularity.HeightBound
-import NoCompromise.Regularity.ExcessScalingPolar
-import NoCompromise.Regularity.ExcessScalingGeometry
-import NoCompromise.Regularity.ExcessScaling
-import NoCompromise.Regularity.GraphProjectedExcess
-import NoCompromise.Elliptic.BoundaryHolderComparison
-import NoCompromise.Elliptic.BoundaryHolderHalfScaling
-import NoCompromise.Regularity.GraphGoodBase
-import NoCompromise.Regularity.HeightCompactnessError
-import NoCompromise.Regularity.HeightCompactnessPairing
-import NoCompromise.Regularity.HeightCompactnessPolar
-import NoCompromise.Regularity.HeightCompactnessClassification
-import NoCompromise.Regularity.HarmonicAffine
-import NoCompromise.Regularity.GeometricRecurrence
-import NoCompromise.Regularity.GeometricNormals
-import NoCompromise.Regularity.FluxDefectTests
-import NoCompromise.Regularity.FluxDefectPairing
-import NoCompromise.Regularity.FluxDefectApprox
-import NoCompromise.Regularity.FluxDefect
-import NoCompromise.Elliptic.BoundaryHolderTraceContinuous
-import NoCompromise.Elliptic.BoundaryHolderZeroSpace
-import NoCompromise.Regularity.TangentCone
-import NoCompromise.Regularity.TangentDilation
-import NoCompromise.Regularity.TangentDilationTests
-import NoCompromise.Regularity.TangentRadial
-import NoCompromise.Regularity.TangentRadialGlobal
-import NoCompromise.Regularity.TangentRepresentative
-import NoCompromise.Regularity.DeformationOuterWallBands
-import NoCompromise.Regularity.DeformationOuterWallMeasure
-import NoCompromise.Regularity.DeformationOuterWall
-import NoCompromise.Regularity.HeightCompactnessDensity
-import NoCompromise.Elliptic.BoundaryHolderSymmetrization
-import NoCompromise.Elliptic.BoundaryHolderDerivative
-import NoCompromise.Regularity.HeightCompactness
-import NoCompromise.Regularity.HeightCompactnessPhases
-import NoCompromise.Elliptic.BoundaryHolderTraceAlgebra
-import NoCompromise.Elliptic.BoundaryHolderAffine
-import NoCompromise.Elliptic.BoundaryHolderDecayIntegrals
-import NoCompromise.Elliptic.BoundaryHolderDecay
-import NoCompromise.Regularity.Deformation
-import NoCompromise.Regularity.DeformationCompactness
-import NoCompromise.Regularity.DeformationCompactnessAE
-import NoCompromise.Regularity.DeformationCompactnessPointwise
-import NoCompromise.Regularity.DeformationCompactnessSource
-import NoCompromise.Regularity.DeformationDisk
-import NoCompromise.Regularity.DeformationEstimate
-import NoCompromise.Regularity.DeformationLimitProperties
-import NoCompromise.Regularity.DeformationRepresentative
-import NoCompromise.Regularity.TangentExistence
-import NoCompromise.Elliptic.BoundaryHolderLocalization
-import NoCompromise.Elliptic.BoundaryHolderFrozen
-import NoCompromise.Elliptic.BoundaryHolderVariance
-import NoCompromise.Elliptic.BoundaryHolderEnergy
-import NoCompromise.Elliptic.BoundaryHolderInterior
-import NoCompromise.Regularity.ZeroExcessMollification
-import NoCompromise.Regularity.ZeroExcessOrder
-import NoCompromise.Regularity.ZeroExcessThreshold
-import NoCompromise.Regularity.ZeroExcessLocalPolar
-import NoCompromise.Regularity.ZeroExcess
-import NoCompromise.Regularity.CylindersConvex
-import NoCompromise.Elliptic.NondivSchauderDifferenceEquation
-import NoCompromise.Elliptic.NondivSchauderTests
-import NoCompromise.Elliptic.CampanatoHolder
-import NoCompromise.Regularity.MonotonicityTests
-import NoCompromise.Regularity.MonotonicityPrimitive
-import NoCompromise.Elliptic.NondivSchauderDifference
-import NoCompromise.Regularity.Excess
-import NoCompromise.Elliptic.CampanatoHolderBootstrap
-import NoCompromise.Elliptic.CampanatoHolderPrimitive
-import NoCompromise.Elliptic.NondivSchauderEquation
-import NoCompromise.Regularity.RadialDivergence
-import NoCompromise.Regularity.RadialField
-import NoCompromise.Regularity.Cylinders
-import NoCompromise.Elliptic.CampanatoHolderStep
-import NoCompromise.Elliptic.CampanatoHolderPowers
-import NoCompromise.Elliptic.NondivSchauderData
-import NoCompromise.Regularity.FirstVariationScalar
-import NoCompromise.Regularity.FirstVariation
-import NoCompromise.Elliptic.ClassicalCubeAffine
-import NoCompromise.Elliptic.ClassicalAdmissible
-import NoCompromise.Elliptic.CampanatoHolderLebesgue
-import NoCompromise.Elliptic.CampanatoHolderEmbedding
-import NoCompromise.Elliptic.CampanatoHolderIteration
-import NoCompromise.Elliptic.NondivSchauderNorm
-import NoCompromise.Regularity.RepresentativeBounded
-import NoCompromise.Elliptic.CampanatoHolderOscillation
-import NoCompromise.Elliptic.CampanatoHolderAverages
-import NoCompromise.Elliptic.CampanatoHolderLimits
-import NoCompromise.Elliptic.NewtonianSchauderCutoff
-import NoCompromise.Elliptic.NewtonianSchauderHarmonic
-import NoCompromise.Elliptic.NewtonianSchauder
-import NoCompromise.Elliptic.ClassicalCubeGeometry
-import NoCompromise.Elliptic.ClassicalCubeCalculus
-import NoCompromise.Elliptic.ClassicalCubeW11
-import NoCompromise.Regularity.RepresentativeDensity
-import NoCompromise.Regularity.RepresentativeOpen
-import NoCompromise.Regularity.RepresentativeBoundary
-import NoCompromise.Elliptic.ClassicalKernelFluxLimits
-import NoCompromise.Elliptic.ClassicalKernelFlux
-import NoCompromise.Elliptic.ClassicalKernelW11
-import NoCompromise.Elliptic.ClassicalKernelField
-import NoCompromise.Elliptic.ClassicalBoundaryMeasure
-import NoCompromise.Sobolev.W11VectorAssembly
-import NoCompromise.Elliptic.NewtonianSchauderHessian
-import NoCompromise.Elliptic.NewtonianSchauderNorm
-import NoCompromise.Elliptic.NewtonianSchauderPotential
-import NoCompromise.Regularity.DensityCutComparison
-import NoCompromise.Regularity.DensityEstimates
-import NoCompromise.Regularity.DensityAhlfors
-import NoCompromise.Elliptic.CampanatoGrowthScalar
-import NoCompromise.Elliptic.CampanatoGrowthComparison
-import NoCompromise.Elliptic.CampanatoGrowthStep
-import NoCompromise.Elliptic.CampanatoGrowth
-import NoCompromise.Sobolev.W11Classical
-import NoCompromise.Elliptic.ClassicalNormalGeometry
-import NoCompromise.Elliptic.ClassicalNormal
-import NoCompromise.Elliptic.ClassicalCalculus
-import NoCompromise.Regularity.DensityRadial
-import NoCompromise.Regularity.PenalizationDilation
-import NoCompromise.Regularity.Penalization
-import NoCompromise.Regularity.OmegaMinimal
-import NoCompromise.Regularity.PenalizationQuasiminimal
-import NoCompromise.Elliptic.NewtonianSchauderLimit
-import NoCompromise.Sobolev.W11Pairing
-import NoCompromise.Elliptic.ClassicalGaussGreenW11
-import NoCompromise.Elliptic.FrozenDecay
-import NoCompromise.Elliptic.NewtonianSchauderFar
-import NoCompromise.Energy.SignedPotentialRegularity
-import NoCompromise.Elliptic.FrozenDecayVariance
-import NoCompromise.Elliptic.FrozenDecayAffine
-import NoCompromise.Elliptic.FrozenDecayIntegrals
-import NoCompromise.Elliptic.FrozenDecayUnit
-import NoCompromise.Elliptic.FrozenDecayScaling
-import NoCompromise.Elliptic.NewtonianSchauderCandidate
-import NoCompromise.Elliptic.ClassicalPartition
-import NoCompromise.Elliptic.ClassicalCharts
-import NoCompromise.Sobolev.W11Smooth
-import NoCompromise.Elliptic.ClassicalGaussGreen
-import NoCompromise.Elliptic.TraceL1
-import NoCompromise.Elliptic.NewtonianSchauderFarKernel
-import NoCompromise.Sobolev.W11TraceOperator
-import NoCompromise.Sobolev.W11VectorData
-import NoCompromise.Sobolev.W11TraceVector
-import NoCompromise.Elliptic.NewtonianSchauderDistribution
-import NoCompromise.Sobolev.W11Density
-import NoCompromise.BV.SmoothApproxLevelCharts
-import NoCompromise.BV.SmoothApprox
-import NoCompromise.Elliptic.FrozenDecayEstimates
-import NoCompromise.Sobolev.W11Algebra
-import NoCompromise.Sobolev.W11ChartExtension
-import NoCompromise.Sobolev.W11Extension
-import NoCompromise.Sobolev.W11TraceChart
-import NoCompromise.Sobolev.W11TraceBoundary
-import NoCompromise.Sobolev.W11Space
-import NoCompromise.Elliptic.FrozenDecayRegularity
-import NoCompromise.Sobolev.W11FlatExtension
-import NoCompromise.Sobolev.W11Bounds
-import NoCompromise.Elliptic.FrozenDecayChange
-import NoCompromise.Elliptic.NewtonianSchauderSplit
-import NoCompromise.Sobolev.W11FoldDomain
-import NoCompromise.Sobolev.W11Reflection
-import NoCompromise.Elliptic.FrozenDecaySkew
-import NoCompromise.Elliptic.NewtonianSchauderRegularized
-import NoCompromise.BV.SmoothApproxVolume
-import NoCompromise.BV.SmoothApproxBoundary
-import NoCompromise.Elliptic.FrozenDecayLinear
-import NoCompromise.Elliptic.NewtonianSchauderEstimates
-import NoCompromise.Sobolev.W11FoldApprox
-import NoCompromise.Sobolev.W11Approximation
-import NoCompromise.Sobolev.W11Pullback
-import NoCompromise.Sobolev.W11Chain
-import NoCompromise.BV.SmoothApproxRegular
-import NoCompromise.Sobolev.W11Calculus
-import NoCompromise.BV.SmoothApproxDilation
-import NoCompromise.BV.SmoothApproxLevels
-import NoCompromise.Sobolev.W11Closed
-import NoCompromise.Elliptic.NewtonianSchauderIntegrals
-import NoCompromise.Elliptic.CampanatoComparison
-import NoCompromise.Elliptic.CampanatoComparisonFrozen
-import NoCompromise.Sobolev.W11TraceApprox
-import NoCompromise.BV.AnnularGluing
-import NoCompromise.BV.AnnularGluingDiagonal
-import NoCompromise.BV.AnnularGluingFull
-import NoCompromise.Elliptic.NewtonianSchauderKernel
-import NoCompromise.Elliptic.CampanatoComparisonTests
-import NoCompromise.Sobolev.W11TraceFlat
-import NoCompromise.Elliptic.HopfDerivativeWithin
-import NoCompromise.Elliptic.HopfExterior
-import NoCompromise.BV.AnnularGluingCoarea
-import NoCompromise.BV.AnnularGluingTraces
-import NoCompromise.Elliptic.HolderInterpolationNorm
-import NoCompromise.Elliptic.HolderInterpolationSplit
-import NoCompromise.Elliptic.HolderInterpolation
-import NoCompromise.Elliptic.KelvinRemovableCutoff
-import NoCompromise.Elliptic.KelvinRemovable
-import NoCompromise.BV.GluingGlobal
-import NoCompromise.BV.Gluing
-import NoCompromise.Elliptic.HopfGeometry
-import NoCompromise.Elliptic.HopfC2Boundary
-import NoCompromise.Elliptic.Hopf
-import NoCompromise.Elliptic.HarmonicDerivativeTranslation
-import NoCompromise.Elliptic.HarmonicDerivative
-import NoCompromise.BV.GluingLocalTraces
-import NoCompromise.Elliptic.HolderInterpolationGeometry
-import NoCompromise.Elliptic.HopfBarrier
-import NoCompromise.Elliptic.HopfComparison
-import NoCompromise.Elliptic.StrongMaximum
-import NoCompromise.Elliptic.StrongMaximumHarmonic
-import NoCompromise.Elliptic.HarmonicMeanValueLocal
-import NoCompromise.Elliptic.HarmonicMeanValue
-import NoCompromise.Elliptic.SobolevChainBounds
-import NoCompromise.Elliptic.SobolevChainCompact
-import NoCompromise.Elliptic.SobolevChain
-import NoCompromise.BV.GraphCutPerimeter
-import NoCompromise.BV.PlanarCuts
-import NoCompromise.BV.ExactCuts
-import NoCompromise.Elliptic.HarmonicAlgebra
-import NoCompromise.BV.GoodTruncation
-import NoCompromise.Elliptic.HarmonicDerivativeSobolev
-import NoCompromise.Elliptic.HarmonicMeanValueBall
-import NoCompromise.Elliptic.SobolevChainNorm
-import NoCompromise.Elliptic.CampanatoIteration
-import NoCompromise.Elliptic.WeakMaximum
-import NoCompromise.Elliptic.SobolevChainHarmonic
-import NoCompromise.BV.TraceAlmostEverywhere
-import NoCompromise.Sobolev.H1TraceKernelOperators
-import NoCompromise.Sobolev.H1TraceKernelLocalization
-import NoCompromise.Sobolev.H1TraceKernelTransport
-import NoCompromise.Sobolev.H1TraceKernelInward
-import NoCompromise.Sobolev.H1TraceKernelLocal
-import NoCompromise.Sobolev.H1TraceKernel
-import NoCompromise.Elliptic.WeakMaximumCore
-import NoCompromise.Elliptic.HarmonicMeanValueTests
-import NoCompromise.Elliptic.SobolevChainClassical
-import NoCompromise.Elliptic.SobolevChainLocal
-import NoCompromise.BV.RadialCuts
-import NoCompromise.Sobolev.H1TraceKernelChartMeasure
-import NoCompromise.Sobolev.H1TraceKernelChartGeometry
-import NoCompromise.Sobolev.H1TraceKernelChartTrace
-import NoCompromise.Sobolev.H1PositivePartTests
-import NoCompromise.Sobolev.H1PositivePartPoincare
-import NoCompromise.BV.RadialTestFamily
-import NoCompromise.BV.TraceBounds
-import NoCompromise.BV.GoodRadii
-import NoCompromise.Elliptic.SobolevChainDerivatives
-import NoCompromise.Sobolev.H1TraceKernelApprox
-import NoCompromise.Sobolev.H1PositivePart
-import NoCompromise.BV.WeightedRadialFlux
-import NoCompromise.Elliptic.SobolevChainContinuous
-import NoCompromise.Sobolev.H1TraceKernelFlat
-import NoCompromise.Sobolev.H1PositivePartApprox
-import NoCompromise.Elliptic.SobolevChainSchwartz
-import NoCompromise.BV.CompactC1Tests
-import NoCompromise.BV.BoundaryTraces
-import NoCompromise.Elliptic.SobolevChainFourier
-import NoCompromise.Binding.Ratio
-import NoCompromise.BV.BoundaryCut
-import NoCompromise.Elliptic.Newtonian
-import NoCompromise.Elliptic.NewtonianKernel
-import NoCompromise.BV.BoundaryTraceAtlas
-import NoCompromise.Binding.BallRatio
-import NoCompromise.BV.ScalarDistributionGluing
-import NoCompromise.Elliptic.InteriorH2
-import NoCompromise.Elliptic.InteriorH2Localization
-import NoCompromise.BV.TraceReflection
-import NoCompromise.BV.ExteriorGeometry
-import NoCompromise.BV.TraceAgreement
-import NoCompromise.BV.LocalToGlobal
-import NoCompromise.Threshold.Comparison
-import NoCompromise.Ball.Potential
-import NoCompromise.BV.ChartTraces
-import NoCompromise.Elliptic.InteriorH2Hessian
-import NoCompromise.Elliptic.InteriorH2Global
-import NoCompromise.BV.GraphCut
-import NoCompromise.BV.ScalarDistributionUniqueness
-import NoCompromise.Elliptic.InteriorH2H1
-import NoCompromise.Threshold.BallSplitting
-import NoCompromise.Ball.PotentialAngular
-import NoCompromise.Elliptic.InteriorH2Energy
-import NoCompromise.BV.FlatCutMeasure
-import NoCompromise.Ball.Perimeter
-import NoCompromise.Variation.CoulombBoundary
-import NoCompromise.Energy.Scaling
-import NoCompromise.BV.GraphTraces
-import NoCompromise.BV.ScalarDistribution
-import NoCompromise.Elliptic.InteriorH2Mollification
-import NoCompromise.Variation.SymmetricDifferenceFull
-import NoCompromise.BV.FlatCut
-import NoCompromise.Variation.FreezingFlux
-import NoCompromise.BV.ScalarC1Pairing
-import NoCompromise.BV.ScalarMollification
-import NoCompromise.BV.TraceApproximation
-import NoCompromise.BV.TraceKernels
-import NoCompromise.Variation.FiniteFreezing
-import NoCompromise.Variation.WeightedFieldStability
-import NoCompromise.Elliptic.WeakSolutions
-import NoCompromise.BV.ScalarC1Transport
-import NoCompromise.Elliptic.WeakDirichlet
-import NoCompromise.Sobolev.H1MeanZero
-import NoCompromise.Variation.FieldStability
-import NoCompromise.BV.FlatTraces
-import NoCompromise.Sobolev.H1Zero
-import NoCompromise.Variation.Perimeter
-import NoCompromise.Variation.PerimeterJacobian
-import NoCompromise.Measure.QuadraticIntegral
-import NoCompromise.Elliptic.VariationalHilbert
-import NoCompromise.BV.Traces
-import NoCompromise.Variation.TransportC1
-import NoCompromise.Variation.TransportC1Pairing
-import NoCompromise.Measure.NullChangeOfVariables
-import NoCompromise.Variation.FieldInterpolation
-import NoCompromise.BV.IndicatorMollification
-import NoCompromise.Sobolev.PoincareTrace
-import NoCompromise.Sobolev.AnnulusDomain
-import NoCompromise.Variation.TransportPairing
-import NoCompromise.BV.PolarMollification
-import NoCompromise.Measure.ConvolutionPairing
-import NoCompromise.Variation.VolumeBoundary
-import NoCompromise.Sobolev.C1Domain
-import NoCompromise.Variation.ConstantTranslation
-import NoCompromise.Sobolev.H1TraceOperator
-import NoCompromise.Sobolev.H1Density
-import NoCompromise.DeGiorgi.SmoothBoundary
-import NoCompromise.Variation.TranslationBound
-import NoCompromise.Sobolev.H1TraceBoundary
-import NoCompromise.Sobolev.H1TraceBoundaryGeometry
-import NoCompromise.Sobolev.H1ContinuousExtension
-import NoCompromise.BV.DirectionalPolarCompatibility
-import NoCompromise.Variation.TransportC2
-import NoCompromise.Sobolev.H1TraceChart
-import NoCompromise.DeGiorgi.SmoothGraph
-import NoCompromise.Measure.PolarTransport
-import NoCompromise.Sobolev.H1TraceContinuous
-import NoCompromise.Variation.OneDimensionalTranslation
-import NoCompromise.DeGiorgi.AmbientPolar
-import NoCompromise.Sobolev.H1Trace
-import NoCompromise.Variation.PiolaPullback
-import NoCompromise.BV.JumpDisintegration
-import NoCompromise.BV.JointJumpDensity
-import NoCompromise.Area.GraphCoverDensity
-import NoCompromise.Area.GraphDensity
-import NoCompromise.Area.DensityIsometry
-import NoCompromise.BV.JumpProduct
-import NoCompromise.Area.GraphDensityGeometry
-import NoCompromise.Measure.DensityIdentification
-import NoCompromise.DeGiorgi.Structure
-import NoCompromise.Sard.FourToThree
-import NoCompromise.Sard.Slicing
-import NoCompromise.DeGiorgi.DensityComparison
-import NoCompromise.DeGiorgi.UpperDensity
-import NoCompromise.Sard.VectorFlat
-import NoCompromise.BV.JumpKernel
-import NoCompromise.DeGiorgi.Rectifiability
-import NoCompromise.Sard.Equidimensional
-import NoCompromise.Measure.WeakStarNull
-import NoCompromise.DeGiorgi.ConeConcentration
-import NoCompromise.DeGiorgi.RectifiabilityGeometry
-import NoCompromise.DeGiorgi.LipschitzPieces
-import NoCompromise.DeGiorgi.ExactDensity
-import NoCompromise.DeGiorgi.HalfspacePerimeter
-import NoCompromise.DeGiorgi.HalfspacePairing
-import NoCompromise.BV.JumpSlicing
-import NoCompromise.BV.JumpMeasure
-import NoCompromise.Measure.WeakStarBalls
-import NoCompromise.DeGiorgi.BlowupPolar
-import NoCompromise.Sard.ThreeDimensional
-import NoCompromise.Sard.CubicFlat
-import NoCompromise.Sard.LevelCharts
-import NoCompromise.DeGiorgi.Blowup
-import NoCompromise.DeGiorgi.ConstantPolarMeasure
-import NoCompromise.Area.PlaneSections
-import NoCompromise.Measure.PositiveWeakStar
-import NoCompromise.BV.OneDimensional
-import NoCompromise.DeGiorgi.BlowupLimits
-import NoCompromise.DeGiorgi.BlowupCompactness
-import NoCompromise.DeGiorgi.HalfspaceRigidity
-import NoCompromise.BV.CoareaL1Lebesgue
-import NoCompromise.Sard.Scalar
-import NoCompromise.Sard.OneDimensional
-import NoCompromise.Sard.Flat
-import NoCompromise.DeGiorgi.DensityFlux
-import NoCompromise.DeGiorgi.BlowupScaling
-import NoCompromise.BV.LineDistribution
-import NoCompromise.BV.RadialVolume
-import NoCompromise.BV.CoareaL1
-import NoCompromise.BV.LineSlicing
-import NoCompromise.BV.WeightedCoarea
-import NoCompromise.DeGiorgi.DensityODE
-import NoCompromise.BV.CoareaLocal
-import NoCompromise.BV.CoareaRegular
-import NoCompromise.Energy.PotentialHolder
-import NoCompromise.Measure.RadialCumulative
-import NoCompromise.DeGiorgi.RadialFlux
-import NoCompromise.DeGiorgi.ReducedDensity
-import NoCompromise.DeGiorgi.ReducedPerimeter
-import NoCompromise.BV.CoareaIsometry
-import NoCompromise.BV.CoareaCharts
-import NoCompromise.Measure.WeakDerivativeOne
-import NoCompromise.Measure.CumulativeDerivative
-import NoCompromise.BV.CoareaCoordinates
-import NoCompromise.Energy.PotentialRegularity
-import NoCompromise.DeGiorgi.RadialTests
-import NoCompromise.BV.SphericalSlicing
-import NoCompromise.Area.C1Graph
-import NoCompromise.Variation.CoulombSingle
-import NoCompromise.Measure.RadialMeasures
-import NoCompromise.DeGiorgi.NoAtoms
-import NoCompromise.Area.C1GraphLocal
-import NoCompromise.Variation.CoulombBulk
-import NoCompromise.DeGiorgi.Reduced
-import NoCompromise.DeGiorgi.NormalFlux
-import NoCompromise.BV.Slicing
-import NoCompromise.Area.C1GraphAlgebra
-import NoCompromise.BV.CoareaCritical
-import NoCompromise.Variation.Volume
-import NoCompromise.DeGiorgi.PolarDifferentiation
-import NoCompromise.Measure.BallAverages
-import NoCompromise.Measure.BallDifferentiation
-import NoCompromise.Measure.LevelSetCover
-import NoCompromise.Area.Sphere
-import NoCompromise.Area.TangentAlgebra
-import NoCompromise.Variation.StraightCofactor
-import NoCompromise.Area.Rectifiable
-import NoCompromise.Variation.Piola
-import NoCompromise.Variation.StraightDiffeo
-import NoCompromise.Area.Formula
-import NoCompromise.Area.Cofactor
-import NoCompromise.Area.Graph
-import NoCompromise.Showcase
-import NoCompromise.Threshold.Ledger
-import NoCompromise.Energy.NullInvariance
-import NoCompromise.Main
-import NoCompromise.Measure.SignedRiesz
-import NoCompromise.Measure.WeakStar
-import NoCompromise.BV.StrictApprox
-import NoCompromise.BV.Compactness
-import NoCompromise.BV.CompactnessIndicators
-import NoCompromise.Compactness.Nonvanishing
-import NoCompromise.Flow.ODE
-import NoCompromise.Isoperimetric.ABP
-import NoCompromise.Binding.Splitting
-import NoCompromise.Elliptic.Boundary
-import NoCompromise.Cones.ThreeDim
-import NoCompromise.Stationary.Bootstrap
-import NoCompromise.CapacitaryK.SlabIdentities
-import NoCompromise.Regularity.LimitingNormal
-import NoCompromise.Value.BoundedApprox
-import NoCompromise.Nonexistence.Slicing
-import NoCompromise.Surface.Geometry
-import NoCompromise.Topology.Tubular
-import NoCompromise.Green.Identity
-import NoCompromise.Nonexistence.Sharp
-import NoCompromise.Stationary.CapacitaryEstimate
-import NoCompromise.Value.Defs
-import NoCompromise.Compactness.PerimeterSplitting
-import NoCompromise.Cones.Descent
-import NoCompromise.Cones.TwoDim
-import NoCompromise.Stationary.MinimizerContext
-import NoCompromise.CapacitaryK.Calculus
-import NoCompromise.Compactness.Decomposition
-import NoCompromise.Area.SmoothSurface
-import NoCompromise.Area.RectifiableFormula
-import NoCompromise.Compactness.Radii
-import NoCompromise.Value.Continuity
-import NoCompromise.Isoperimetric.Sharp
-import NoCompromise.Isoperimetric.ABPContact
-import NoCompromise.Binding.Strict
-import NoCompromise.Regularity.EpsRegularityAhlfors
-import NoCompromise.Regularity.EpsRegularityHolder
-import NoCompromise.Regularity.EpsRegularityGraph
-import NoCompromise.Regularity.EpsRegularityCone
-import NoCompromise.Regularity.EpsRegularityNormalHolder
-import NoCompromise.Regularity.EpsRegularityNormalField
-import NoCompromise.Regularity.EpsRegularityHeight
-import NoCompromise.Regularity.EpsRegularityFlat
-import NoCompromise.Regularity.EpsRegularityMain
-import NoCompromise.CapacitaryK.Bochner
-import NoCompromise.CapacitaryK.LevelFrame
-import NoCompromise.CapacitaryK.PositiveMeasure
-import NoCompromise.CapacitaryK.MuPositive
-import NoCompromise.CapacitaryK.OneDim
-import NoCompromise.CapacitaryK.Inequality
-import NoCompromise.Stationary.EulerLagrange
-import NoCompromise.Stationary.ScalingIdentity
-import NoCompromise.Stationary.Connected
-import NoCompromise.Capacity.Flux
-import NoCompromise.Capacity.Potential
-import NoCompromise.Surface.Shape
-import NoCompromise.Surface.MorseIndex
-import NoCompromise.Surface.HeightMorse
-import NoCompromise.Surface.RegularValue
-import NoCompromise.Surface.GaussExtension
-import NoCompromise.Surface.TotalCurvature
-import NoCompromise.Topology.Transversality
-import NoCompromise.Topology.TransversePreimage
-import NoCompromise.Compactness.CoulombSplitting
-import NoCompromise.Existence.Subcritical
-import NoCompromise.Elliptic.BoundaryNeumannReflection
-import NoCompromise.Elliptic.BoundaryNeumannCoefficients
-import NoCompromise.Elliptic.BoundaryNeumannHolder
-import NoCompromise.Elliptic.BoundaryNeumannEquation
-import NoCompromise.Elliptic.BoundaryNeumannCutoff
-import NoCompromise.Elliptic.BoundaryNeumannWeak
-import NoCompromise.Elliptic.BoundaryNeumann
-import NoCompromise.Elliptic.BoundaryC2
-import NoCompromise.Elliptic.BoundaryNondivQuotient
-import NoCompromise.Area.SmoothSurfaceTangent
-import NoCompromise.Variation.PiolaCounterexample
-import NoCompromise.CapacitaryK.HarmonicSmooth
-import NoCompromise.CapacitaryK.PushforwardDensity
-import NoCompromise.Cones.DescentMain
-import NoCompromise.Cones.HalfplanePerimeter
-import NoCompromise.Cones.TwoDimGap
-import NoCompromise.Cones.TwoDimParity
-import NoCompromise.Cones.TwoDimChord
-import NoCompromise.Cones.TangentHalfspace
-import NoCompromise.Cones.TangentHalfspaceMain
-import NoCompromise.Cones.LinkGreatCircle
-import NoCompromise.Stationary.ChartLocalize
-import NoCompromise.Topology.ParityCrossing
-import NoCompromise.Topology.ParityEndpoint
-import NoCompromise.Topology.ParityPath
-import NoCompromise.Topology.ParitySides
-import NoCompromise.Topology.ParityNormal
-import NoCompromise.Topology.OrientationParity
-import NoCompromise.Topology.ComponentCount
-import NoCompromise.Topology.ComponentCountMain
-import NoCompromise.Capacity.LevelsMain
-import NoCompromise.CapacitaryK.CapacitaryHarmonic
-import NoCompromise.CapacitaryK.DensityInput
-import NoCompromise.CapacitaryK.FromLevels
-import NoCompromise.CapacitaryK.GaussEquation
-import NoCompromise.CapacitaryK.LevelArea
-import NoCompromise.CapacitaryK.LevelInequality
-import NoCompromise.CapacitaryK.LevelNull
-import NoCompromise.CapacitaryK.PGeometric
-import NoCompromise.CapacitaryK.SlabFInput
-import NoCompromise.CapacitaryK.SlabGaussGreen
-import NoCompromise.CapacitaryK.SlabH
-import NoCompromise.Capacity.Kelvin
-import NoCompromise.Capacity.KelvinLevels
-import NoCompromise.Capacity.LowerBarrier
-import NoCompromise.Capacity.SphereFlux
-import NoCompromise.Elliptic.BoundaryC1Slab
-import NoCompromise.Elliptic.BoundaryNeumannEven
-import NoCompromise.Elliptic.BoundaryNeumannInhom
-import NoCompromise.Elliptic.BoundaryNeumannInhomC1
-import NoCompromise.Elliptic.BoundaryNeumannInhomC1Conormal
-import NoCompromise.Elliptic.BoundaryNeumannInhomC1Lift
-import NoCompromise.Elliptic.BoundaryNeumannInhomEstimates
-import NoCompromise.Elliptic.BoundaryNeumannInhomGeometry
-import NoCompromise.Elliptic.BoundaryNeumannInhomLift
-import NoCompromise.Elliptic.BoundaryNeumannInhomPrimitive
-import NoCompromise.Elliptic.BoundaryNeumannInhomSlicing
-import NoCompromise.Elliptic.BoundaryNeumannQuotient
-import NoCompromise.Elliptic.BoundaryNeumannQuotientBounds
-import NoCompromise.Elliptic.BoundaryNeumannQuotientC1
-import NoCompromise.Elliptic.BoundaryNeumannQuotientEnergy
-import NoCompromise.Elliptic.BoundaryNeumannQuotientHolder
-import NoCompromise.Elliptic.BoundaryNeumannQuotientScaling
-import NoCompromise.Elliptic.BoundaryNeumannTangential
-import NoCompromise.Elliptic.BoundaryNondivC1
-import NoCompromise.Elliptic.BoundaryNondivEnergy
-import NoCompromise.Elliptic.BoundaryNondivHolder
-import NoCompromise.Elliptic.BoundaryNondivQuotientBounds
-import NoCompromise.Elliptic.BoundaryNondivTangential
-import NoCompromise.Elliptic.BoundaryNondivTests
-import NoCompromise.Elliptic.BoundaryNondivTrace
-import NoCompromise.Elliptic.C1HolderLimit
-import NoCompromise.Stationary.BootstrapC2Chart
-import NoCompromise.Stationary.BootstrapC3
-import NoCompromise.Stationary.BootstrapC3Chart
-import NoCompromise.Stationary.BootstrapC3Global
-import NoCompromise.Stationary.BootstrapGlobal
-import NoCompromise.Stationary.MinimizerC1Holder
-import NoCompromise.Stationary.MinimizerStationary
-import NoCompromise.Cones.TwoDimLink
-import NoCompromise.Cones.GreatCircle
-import NoCompromise.Cones.Halfspace
-import NoCompromise.Cones.Classification
-import NoCompromise.Cones.Smooth
-import NoCompromise.Value.Subadditivity
-import NoCompromise.Isoperimetric.ABPNeumann
-import NoCompromise.Isoperimetric.Components
-import NoCompromise.Isoperimetric.SharpNeumann
-import NoCompromise.Topology.Handshake
-import NoCompromise.Topology.TransversalityMain
-import NoCompromise.Topology.TransversePreimageDisk
-import NoCompromise.Topology.Parity
-import NoCompromise.Flow.FlowCk
-import NoCompromise.Flow.FlowBox
-import NoCompromise.Stationary.Defs
-import NoCompromise.Stationary.GraphCurvature
-import NoCompromise.Stationary.PointwiseEL
-import NoCompromise.Stationary.BootstrapC2
-import NoCompromise.Capacity.Levels
-import NoCompromise.CapacitaryK.MuMeasure
-import NoCompromise.CapacitaryK.Representatives
-import NoCompromise.CapacitaryK.MeasureInequality
-import NoCompromise.CapacitaryK.Asymptotics
-import NoCompromise.CapacitaryK.GaussBonnetInput
-import NoCompromise.CapacitaryK.SlabCoarea
-import NoCompromise.CapacitaryK.MuRegular
-import NoCompromise.BV.Rellich
-import NoCompromise.Sobolev.BV
-import NoCompromise.Sobolev.Extension
-import NoCompromise.BV.Algebra
-import NoCompromise.BV.ZeroVariation
-import NoCompromise.Sobolev.ExtensionPartition
-import NoCompromise.BV.Space
-import NoCompromise.Sobolev.Poincare
-import NoCompromise.Sobolev.Hilbert
-import NoCompromise.Sobolev.WeakCompactness
-import NoCompromise.Sobolev.LipschitzDomains
-import NoCompromise.Sobolev.Relative
-import NoCompromise.Sobolev.H1Calculus
-import NoCompromise.Sobolev.RelativeScaling
-import NoCompromise.Sobolev.Rellich
-import NoCompromise.Sobolev.LipschitzCubes
-import NoCompromise.Sobolev.RelativeCubes
-import NoCompromise.Sobolev.H1Mollification
-import NoCompromise.Sobolev.Maximal
-import NoCompromise.Sobolev.H1Approximation
-import NoCompromise.Sobolev.MaximalMeasurability
-import NoCompromise.Sobolev.H1Reflection
-import NoCompromise.Sobolev.PlanarGN
-import NoCompromise.Sobolev.H1FlatExtension
-import NoCompromise.Sobolev.H1Chain
-import NoCompromise.Sobolev.H1Algebra
-import NoCompromise.Sobolev.H1ChartExtension
-import NoCompromise.Sobolev.H1Extension
-import NoCompromise.Sobolev.PlanarDomain
-import NoCompromise.Sobolev.H1TestApprox
-import NoCompromise.Sobolev.SpatialGN
-import NoCompromise.Sobolev.SpatialDomain
-import NoCompromise.Sobolev.H1Poincare
-import NoCompromise.Area.Linear
-import NoCompromise.Elliptic.Caccioppoli
-import NoCompromise.BV.WeakGradientVariation
-import NoCompromise.BV.CoareaLayerCake
-import NoCompromise.Area.AlmostLinear
-import NoCompromise.BV.CoareaBound
-import NoCompromise.BV.CoareaApproximation
-import NoCompromise.BV.CoareaMeasurability
-import NoCompromise.BV.CoareaSmooth
-import NoCompromise.BV.Coarea
-import NoCompromise.Area.GoodPieces
-import NoCompromise.BV.Density
-import NoCompromise.Measure.FinitePartition
-import NoCompromise.Area.GoodPiecesExhaustion
-import NoCompromise.Area.UniformDerivative
-import NoCompromise.Sobolev.H1DifferenceQuotient
-import NoCompromise.Area.GoodPiecesCarrier
-import NoCompromise.Area.RankDeficient
-import NoCompromise.Area.PieceMeasure
-import NoCompromise.Area.GoodPiecesCover
-import NoCompromise.Area.PieceFormula
-
-import NoCompromise.Elliptic.CampanatoHolderSegment
-
-import NoCompromise.Elliptic.CampanatoHolderSegmentTests
-
-import NoCompromise.Elliptic.CampanatoHolderSegmentDerivative
-
-import NoCompromise.Elliptic.CampanatoHolderDatum
-
-import NoCompromise.Elliptic.NondivSchauderForcing
-
-import NoCompromise.Elliptic.NondivSchauderEnergy
-
-import NoCompromise.Elliptic.NondivSchauderWeakLimit
-
-import NoCompromise.Regularity.MonotonicityRadial
-
-import NoCompromise.Regularity.MonotonicityWeighted
-
-import NoCompromise.Regularity.FixedNormalExcessTests
-
-import NoCompromise.Regularity.FixedNormalExcessPairing
-
-import NoCompromise.Regularity.FixedNormalExcessContinuous
-
-import NoCompromise.Regularity.FixedNormalExcessLocalPolar
-
-import NoCompromise.Regularity.FixedNormalExcessDistribution
-
-import NoCompromise.Regularity.FixedNormalExcessIdentity
-
-import NoCompromise.Regularity.FixedNormalExcess
-
-import NoCompromise.Regularity.MonotonicityAnnulus
-
-import NoCompromise.Regularity.Monotonicity
-
-import NoCompromise.Elliptic.NondivSchauderConvergence
-
-import NoCompromise.Elliptic.NondivSchauderQuotient
-
-import NoCompromise.Elliptic.QuasilinearCampanatoPullback
-
-import NoCompromise.Elliptic.QuasilinearCampanatoScaling
-
-import NoCompromise.Elliptic.QuasilinearCampanatoInterior
-
-import NoCompromise.Regularity.CompressionJoin
-
-import NoCompromise.Regularity.CompressionScalar
-
-import NoCompromise.Regularity.CompressionProfile
-
-import NoCompromise.Regularity.CompressionProfileTheorem
-
-import NoCompromise.Regularity.CompressionLinear
-
-import NoCompromise.Regularity.CompressionEstimate
-
-import NoCompromise.Regularity.CompressionMap
-
-import NoCompromise.Regularity.CompressionBilipschitz
-
-import NoCompromise.Regularity.CompressionJacobian
-
-import NoCompromise.Regularity.PerimeterConvergenceLocal
-
-import NoCompromise.Regularity.PerimeterConvergenceGluing
-
-import NoCompromise.Regularity.PerimeterConvergenceL1
-
-import NoCompromise.Elliptic.NondivSchauderQuotientBounds
-
-import NoCompromise.Elliptic.NondivSchauderHessian
-
-import NoCompromise.Elliptic.NondivSchauderDatumLimit
-
-import NoCompromise.Elliptic.NondivSchauderEquationLimit
-
-import NoCompromise.Elliptic.QuasilinearCoefficients
-
-import NoCompromise.Elliptic.QuasilinearEquation
-
-import NoCompromise.Elliptic.QuasilinearQuotientBounds
-
-import NoCompromise.Elliptic.QuasilinearLinearization
-
-import NoCompromise.Regularity.SlabCap
-
-import NoCompromise.Regularity.SlabPhases
-
-import NoCompromise.Regularity.SlabCapArea
-
-import NoCompromise.Regularity.SlabDensity
-
-import NoCompromise.Regularity.SlabGeometry
-
-import NoCompromise.Regularity.SlabPhaseIdentification
-
-import NoCompromise.Regularity.PerimeterConvergenceInner
-
-import NoCompromise.Regularity.PerimeterConvergenceMinimality
-
-import NoCompromise.Regularity.PerimeterConvergenceMeasures
-
-import NoCompromise.Elliptic.NondivSchauderDerivativeEquation
-
-import NoCompromise.Elliptic.NondivSchauderClassical
-
-import NoCompromise.Elliptic.QuasilinearHessian
-
-import NoCompromise.Elliptic.QuasilinearDifferentiated
-
-import NoCompromise.Elliptic.QuasilinearCoordinate
-
-import NoCompromise.Elliptic.QuasilinearNorm
-
-import NoCompromise.Elliptic.Quasilinear
-
-import NoCompromise.Regularity.DeformationExtension
-
-import NoCompromise.Regularity.DeformationExtensionPhases
-
-import NoCompromise.Regularity.DeformationCompression
-
-import NoCompromise.Regularity.PerimeterConvergenceLower
-
-import NoCompromise.Regularity.PerimeterConvergenceVague
-
-import NoCompromise.Elliptic.NondivSchauderNormalize
-
-import NoCompromise.Elliptic.NondivSchauderBootstrap
-
-import NoCompromise.Elliptic.NondivSchauderScalingNorm
-
-import NoCompromise.Elliptic.SchauderInterpolationQuantitativeScales
-
-import NoCompromise.Elliptic.SchauderInterpolationQuantitative
-
-import NoCompromise.Elliptic.SchauderAbsorption
-
-import NoCompromise.Regularity.DeformationStrip
-
-import NoCompromise.Regularity.DeformationPhases
-
-import NoCompromise.Regularity.DeformationCompetitor
-
-import NoCompromise.Regularity.DeformationLocality
-
-import NoCompromise.Regularity.DeformationTransport
-
-import NoCompromise.Regularity.PerimeterConvergenceBalls
-
-import NoCompromise.Regularity.PerimeterConvergenceContinuity
-
-import NoCompromise.Regularity.PerimeterConvergenceIdentification
-
-import NoCompromise.Regularity.PerimeterConvergenceWeak
-
-import NoCompromise.Regularity.PerimeterConvergence
-
-import NoCompromise.Elliptic.NondivSchauderScalingEquation
-
-import NoCompromise.Elliptic.NondivSchauderScalingInverse
-
-import NoCompromise.Elliptic.NondivSchauderLocalization
-
-import NoCompromise.Elliptic.NondivSchauderScalingBall
-
-import NoCompromise.Regularity.DeformationColumn
-
-import NoCompromise.Regularity.DeformationCore
-
-import NoCompromise.Elliptic.NondivSchauderNested
-
-import NoCompromise.Elliptic.NondivSchauderAbsorption
-
-import NoCompromise.Elliptic.NondivSchauder
-
-import NoCompromise.Elliptic.BoundaryHolderReflection
-
-import NoCompromise.Regularity.DeformationDensity
-
-import NoCompromise.Regularity.DeformationClearance
-
-import NoCompromise.Regularity.DeformationCaps
-
-
-import NoCompromise.Regularity.DeformationAnnulus
-
-import NoCompromise.Regularity.DeformationLimitPhases
-
-import NoCompromise.Regularity.DeformationWall
-
-import NoCompromise.Regularity.DeformationCutBounds
-
-import NoCompromise.Regularity.DeformationCutBoundsStrip
-
-import NoCompromise.Regularity.TangentCompactness
-
-import NoCompromise.Regularity.TangentScaling
-
-import NoCompromise.Regularity.TangentLimit
-
-import NoCompromise.Regularity.TangentDensity
-
-import NoCompromise.Regularity.TangentBoundary
-
-import NoCompromise.Elliptic.BoundaryHolderTests
-
-import NoCompromise.Elliptic.BoundaryHolderTrace
-
-import NoCompromise.Elliptic.BoundaryHolderOdd
-import NoCompromise.Elliptic.BoundaryC2aZeroTrace
-import NoCompromise.Elliptic.BoundaryNeumannC2
-import NoCompromise.Elliptic.BoundaryNeumannC2Algebra
-import NoCompromise.Elliptic.BoundaryNeumannC2Data
-import NoCompromise.Elliptic.BoundaryNeumannC2Equation
-import NoCompromise.Elliptic.BoundaryNeumannC2Extension
-import NoCompromise.Elliptic.BoundaryNeumannC2Interior
-import NoCompromise.Elliptic.BoundaryNeumannC2Tangential
-import NoCompromise.Elliptic.BoundaryNeumannSmoothFlux
-import NoCompromise.Elliptic.BoundaryNeumannSmoothTangential
-import NoCompromise.Elliptic.BoundaryNondivC2
-import NoCompromise.Elliptic.BoundaryNondivC2Equation
-import NoCompromise.Elliptic.BoundaryNondivC2Trace
-import NoCompromise.Elliptic.BoundaryNondivC2TraceData
-import NoCompromise.Elliptic.BoundaryNormalChart
-import NoCompromise.Elliptic.BoundaryNormalChartChangeVariables
-import NoCompromise.Elliptic.BoundaryNormalChartCoefficient
-import NoCompromise.Elliptic.BoundaryNormalChartInverse
-
-import NoCompromise.Regularity.TiltImprovement
-
-import NoCompromise.Regularity.EpsReg
-import NoCompromise.Regularity.UniformCenters
-import NoCompromise.Capacity.FluxBoundaryW
-import NoCompromise.Capacity.FluxIdentity
-import NoCompromise.Capacity.HullPotential
-import NoCompromise.Capacity.KelvinHessian
-import NoCompromise.Capacity.Slabs
-import NoCompromise.Cones.AffineOfHessian
-import NoCompromise.Cones.HomogeneousMinimalGraph
-import NoCompromise.Cones.LinkComponents
-import NoCompromise.Cones.LinkLocal
-import NoCompromise.Cones.LinkNonempty
-import NoCompromise.Cones.MinimalGraphC2
-import NoCompromise.Cones.MinimalGraphEquation
-import NoCompromise.Cones.MinimalGraphEquationMain
-import NoCompromise.Cones.MinimalGraphPointwise
-import NoCompromise.Cones.SmoothExcess
-import NoCompromise.Cones.SmoothGraph
-import NoCompromise.Cones.SmoothHomogeneous
-import NoCompromise.Cones.SmoothMain
-import NoCompromise.Cones.ThreeDimFinal
-import NoCompromise.Cones.ThreeDimMain
-import NoCompromise.Hull.Defs
-import NoCompromise.Hull.Properties
-import NoCompromise.Surface.Morse
-import NoCompromise.Surface.MorseBand
-import NoCompromise.Surface.MorseCount
-import NoCompromise.Surface.MorseSectors
-import NoCompromise.Surface.TangentFlow
-import NoCompromise.CapacitaryK.CollarMass
-import NoCompromise.CapacitaryK.Endpoint
-import NoCompromise.CapacitaryK.FarFieldMass
-import NoCompromise.CapacitaryK.FarFieldZero
-import NoCompromise.CapacitaryK.FromPotential
-import NoCompromise.CapacitaryK.KelvinNormalization
-import NoCompromise.CapacitaryK.KelvinSecondOrder
-import NoCompromise.CapacitaryK.KelvinTranslation
-import NoCompromise.CapacitaryK.PotentialAssembly
-import NoCompromise.Cones.NoSingular
-import NoCompromise.Cones.NoSingularChart
-import NoCompromise.Cones.NoSingularDefs
-import NoCompromise.Cones.NoSingularExcess
-import NoCompromise.Cones.NoSingularGlobal
-import NoCompromise.Cones.SmoothFinal
-import NoCompromise.CapacitaryK.LevelSandwich
-import NoCompromise.Capacity.ExistenceLimit
-import NoCompromise.Capacity.Translate
-import NoCompromise.Classification.Subcritical
-import NoCompromise.Elliptic.BoundaryNeumannC2Scaled
-import NoCompromise.Elliptic.BoundaryNeumannClosedScaling
-import NoCompromise.Elliptic.BoundaryNeumannReflectC2Interface
-import NoCompromise.Elliptic.NeumannGlue
-import NoCompromise.Elliptic.NeumannInterior
-import NoCompromise.Elliptic.NeumannInteriorLaplacian
-import NoCompromise.Elliptic.NeumannInteriorSmooth
-import NoCompromise.Elliptic.NeumannLocalize
-import NoCompromise.Elliptic.NeumannLocalizeBoundary
-import NoCompromise.Elliptic.NeumannLocalizeCoefficient
-import NoCompromise.Elliptic.NeumannLocalizeExtension
-import NoCompromise.Elliptic.NeumannLocalizeIntegrals
-import NoCompromise.Elliptic.NeumannLocalizeMap
-import NoCompromise.Elliptic.NeumannLocalizePullback
-import NoCompromise.Elliptic.NeumannLocalizeTests
-import NoCompromise.Elliptic.NeumannUniqueDiff
-import NoCompromise.Green.IdentityCapacity
-import NoCompromise.Isoperimetric.Rigidity
-import NoCompromise.Isoperimetric.RigidityAffine
-import NoCompromise.Isoperimetric.RigidityHessian
-import NoCompromise.Isoperimetric.RigiditySmooth
-import NoCompromise.Surface.MorseChart
-import NoCompromise.Surface.MorseCoords
-import NoCompromise.Surface.MorseMerge
-import NoCompromise.Surface.MorseModel
-import NoCompromise.Surface.MorseSurfaceChart
-import NoCompromise.Surface.SurfaceChart
-import NoCompromise.Surface.MorseCoordsPlanar
-import NoCompromise.Surface.MorseDischarged
-import NoCompromise.Surface.SublevelAttach
-import NoCompromise.Surface.SublevelClosure
-import NoCompromise.Surface.SublevelClosureCount
-import NoCompromise.Surface.SublevelClosureLocal
-import NoCompromise.Surface.SublevelClosureMerge
-import NoCompromise.Surface.SublevelClosureSaddle
-import NoCompromise.Surface.SublevelClosureTwo
-import NoCompromise.Surface.SublevelClosureZero
-import NoCompromise.Surface.SublevelStable
-import NoCompromise.Capacity.AnnularBarrier
-import NoCompromise.Capacity.AnnularDirichlet
-import NoCompromise.Capacity.FluxLevel
-import NoCompromise.Capacity.HullExistence
-import NoCompromise.Green.SecondIdentity
-import NoCompromise.Hull.InteriorBall
-import NoCompromise.Isoperimetric.RigidityBootstrap
-import NoCompromise.Isoperimetric.RigidityCMC
-import NoCompromise.Isoperimetric.RigidityEulerLagrange
-import NoCompromise.Isoperimetric.RigidityMinimal
-import NoCompromise.Isoperimetric.RigidityRegularity
-import NoCompromise.Isoperimetric.RigiditySmoothCharts
-import NoCompromise.Isoperimetric.RigidityStatement
-import NoCompromise.CapacitaryK.BochnerInvariants
-import NoCompromise.CapacitaryK.BochnerScalar
-import NoCompromise.CapacitaryK.CapacitaryRadialGraph
-import NoCompromise.CapacitaryK.FarFieldUnconditional
-import NoCompromise.CapacitaryK.FarMassDensity
-import NoCompromise.CapacitaryK.FarMassExpansion
-import NoCompromise.CapacitaryK.GradNormExpansion
-import NoCompromise.CapacitaryK.GradNormFarExpansion
-import NoCompromise.CapacitaryK.LevelRadialGraph
-import NoCompromise.CapacitaryK.PolarMass
-import NoCompromise.CapacitaryK.PolarMassExpansion
-import NoCompromise.CapacitaryK.QuadrupoleMean
-import NoCompromise.CapacitaryK.TranslatedDerivatives
-import NoCompromise.Binding.Main
-import NoCompromise.Binding.RelaxedAttained
-import NoCompromise.Classification.Endpoint
-import NoCompromise.Isoperimetric.ABPNeumannC3
-import NoCompromise.Isoperimetric.BallSmoothBoundary
-import NoCompromise.Isoperimetric.ComponentsC3
-import NoCompromise.Isoperimetric.RigidityC3
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomBounds
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomData
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomPrimitive
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomReduction
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomSmooth
-import NoCompromise.Elliptic.NeumannChartC1Ambient
-import NoCompromise.Elliptic.NeumannChartC1Data
-import NoCompromise.Elliptic.NeumannChartC1Flat
-import NoCompromise.Elliptic.NeumannChartC1Geometry
-import NoCompromise.Elliptic.NeumannChartC1Smooth
-import NoCompromise.Elliptic.NeumannChartC2Flat
-import NoCompromise.Elliptic.NeumannChartC3Ambient
-import NoCompromise.Elliptic.NeumannChartC3Data
-import NoCompromise.Elliptic.NeumannChartC3Flat
-import NoCompromise.Elliptic.NeumannChartC3Geometry
-import NoCompromise.Elliptic.NeumannChartC3Localize
-import NoCompromise.Elliptic.NeumannChartC3Regularity
-import NoCompromise.Isoperimetric.ABPNeumannC1
-import NoCompromise.Isoperimetric.ABPNeumannC3Local
-import NoCompromise.Surface.GaussSard
-import NoCompromise.Surface.GaussSardChart
-import NoCompromise.Surface.GaussSardMain
-import NoCompromise.Surface.LevelArc
-import NoCompromise.Surface.LevelFlow
-import NoCompromise.Surface.MergeDisjoint
-import NoCompromise.Surface.MergeDisjointCore
-import NoCompromise.Surface.SaddleChart
-import NoCompromise.Topology.OrbitEnds
-import NoCompromise.Surface.TotalCurvatureIndex
-import NoCompromise.Surface.TotalCurvatureIndexBound
-import NoCompromise.Surface.TotalCurvatureIndexBridge
-import NoCompromise.Surface.TotalCurvatureIndexTangent
-import NoCompromise.Classification.CapEstimate
-import NoCompromise.Stationary.CapEstimateAssembly
-import NoCompromise.Stationary.TranslateDomain
-import NoCompromise.CapacitaryK.BoundaryMeanCurvature
-import NoCompromise.CapacitaryK.BoundaryNormalDerivative
-import NoCompromise.CapacitaryK.CollarC2
-import NoCompromise.CapacitaryK.CollarContinuousFlux
-import NoCompromise.CapacitaryK.CollarGaussGreen
-import NoCompromise.CapacitaryK.EndpointBoundary
-import NoCompromise.CapacitaryK.EndpointFields
-import NoCompromise.CapacitaryK.InequalitiesC2
-import NoCompromise.CapacitaryK.InequalitiesFinal
-import NoCompromise.CapacitaryK.InequalitiesHull
-import NoCompromise.CapacitaryK.LevelAreaDensity
-import NoCompromise.CapacitaryK.LevelGradExpansion
-import NoCompromise.Classification.CapEstimateFinal
-import NoCompromise.Capacity.FiniteEnergy
-import NoCompromise.Capacity.HullEnergy
-import NoCompromise.Capacity.LocalExtension
-import NoCompromise.Elliptic.BoundaryC2aH1
-import NoCompromise.Elliptic.BoundaryC2aLocal
-import NoCompromise.Elliptic.BoundaryC2aTrace
-import NoCompromise.Elliptic.InteriorC2aDiv
-import NoCompromise.Elliptic.InteriorC2aH1
-import NoCompromise.Binding.Unconditional
-import NoCompromise.Classification.Unconditional
-import NoCompromise.Isoperimetric.Unconditional
-import NoCompromise.Surface.TotalCurvatureBoundMain
-import NoCompromise.Classification.MainOfBoundaryC2
-import NoCompromise.Elliptic.BoundaryC2aLocalAssembly
-import NoCompromise.CapacitaryK.LevelRadialArea
-import NoCompromise.CapacitaryK.GaussBonnetCapacitary
-import NoCompromise.CapacitaryK.TwoIneqCapacitary
-import NoCompromise.Green.WronskianCapacitary
-import NoCompromise.Nonexistence.SharpUnconditional
-import NoCompromise.Nonexistence.SlicingUnconditional
-import NoCompromise.Capacity.LevelAsymptotics
-import NoCompromise.Capacity.LevelRadiusDeriv
-import NoCompromise.Variation.TransportLocal
-import NoCompromise.Variation.TransportLocalCutoff
-import NoCompromise.Variation.TransportLocalDefs
-import NoCompromise.Variation.TransportLocalExtension
-import NoCompromise.Variation.TransportLocalExtensionGlobal
-import NoCompromise.Variation.TransportLocalPerimeter
-import NoCompromise.Capacity.HullPotentialBoundaryC2
-import NoCompromise.Capacity.HullPotentialCaccioppoli
-import NoCompromise.Capacity.HullPotentialCaccioppoliBound
-import NoCompromise.Elliptic.BoundaryC2aFlatTraceZero
-import NoCompromise.Elliptic.BoundaryC2aPullback
-import NoCompromise.Elliptic.BoundaryC2aReflection
-import NoCompromise.Elliptic.BoundaryC2aShear
-import NoCompromise.Classification.MainUnconditional
-import NoCompromise.CapacitaryK.CapacitaryLevelArea
-import NoCompromise.CapacitaryK.CapacitaryLevelRadius
-import NoCompromise.CapacitaryK.LevelPExpansion
-import NoCompromise.CapacitaryK.LevelRadiusDerivatives
-import NoCompromise.CapacitaryK.LevelRadiusSmooth
-import NoCompromise.CapacitaryK.RadialGraphArea
-import NoCompromise.CapacitaryK.RadialGraphAreaFormula
-import NoCompromise.Elliptic.BoundaryNeumannC2HolderAlgebra
-import NoCompromise.Elliptic.BoundaryNeumannC2HolderData
-import NoCompromise.Elliptic.BoundaryNeumannC2HolderDatum
-import NoCompromise.Elliptic.BoundaryNeumannC2HolderLift
-import NoCompromise.Elliptic.BoundaryNeumannC2HolderPrimitive
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomFinite
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomHolder
-import NoCompromise.Elliptic.NeumannChartC2Ambient
-import NoCompromise.Elliptic.NeumannChartC2Holder
-import NoCompromise.CapacitaryK.LevelGradDerivatives
-import NoCompromise.CapacitaryK.LevelRadiusSecondDerivative
-import NoCompromise.CapacitaryK.InequalitiesHullUnconditional
-import NoCompromise.Capacity.FluxIdentityHull
-import NoCompromise.Capacity.HullPotentialC2Holder
-import NoCompromise.Green.SecondIdentityHull
-import NoCompromise.Stationary.CapEstimateAssemblyUnconditional
-import NoCompromise.CapacitaryK.LevelAreaDerivatives
-import NoCompromise.CapacitaryK.LevelAreaSecondDerivative
-import NoCompromise.CapacitaryK.LevelGradSecondDerivative
-import NoCompromise.Capacity.LevelAreaElement
-import NoCompromise.Capacity.LevelAsymptoticsFull
-import NoCompromise.Capacity.LevelRadiusSecondDeriv
-import NoCompromise.Elliptic.BoundaryC2aCover
-import NoCompromise.Elliptic.BoundaryC2aCoverNorm
-import NoCompromise.Elliptic.BoundaryNeumannHalfBall
-import NoCompromise.Elliptic.BoundaryNeumannRecentre
-import NoCompromise.Elliptic.BoundaryNondivCover
-import NoCompromise.Elliptic.BoundaryNondivCoverOpen
-import NoCompromise.Elliptic.BoundaryNondivCoverOpenCoeff
-import NoCompromise.CapacitaryK.LevelAreaComponents
-import NoCompromise.CapacitaryK.LevelGradSecondAssembly
-import NoCompromise.CapacitaryK.LevelGradSpatialDecay
-import NoCompromise.Elliptic.BoundaryC2aCurved
-import NoCompromise.Elliptic.BoundaryC2aPullbackGeneral
-import NoCompromise.Elliptic.BoundaryNeumannIterateStep
-import NoCompromise.Elliptic.NeumannChartC2AmbientHolder
-import NoCompromise.Elliptic.NeumannChartC2Atlas
-import NoCompromise.Flow.FlowCkHigher
-import NoCompromise.Hull.FrontierConnected
-import NoCompromise.Topology.Unicoherence
-import NoCompromise.Surface.MorseCoordsSmooth
-import NoCompromise.Surface.MorseRadialIntegral
-import NoCompromise.Surface.MorseSurfaceSmooth
-import NoCompromise.Surface.SurfaceChartSmooth
-import NoCompromise.Flow.FlowBoxCk
-import NoCompromise.Flow.FlowLocalCk
-import NoCompromise.Flow.FlowManifoldAbstract
-import NoCompromise.Flow.FlowManifoldBox
-import NoCompromise.Flow.FlowManifoldDomain
-import NoCompromise.Flow.FlowManifoldLocalCk
-import NoCompromise.Flow.FlowMaximal
-import NoCompromise.Surface.MorseBandSmooth
-import NoCompromise.Surface.SublevelRetract
-import NoCompromise.Surface.SublevelRetractMorse
-import NoCompromise.Surface.TangentFlowCk
-import NoCompromise.Surface.LevelOneManifold
-import NoCompromise.Surface.OneManifold
-import NoCompromise.Topology.Ends
-import NoCompromise.Topology.OneManifoldCircle
-import NoCompromise.Topology.OneManifoldDiffeo
-import NoCompromise.Topology.OneManifoldFlow
-import NoCompromise.Topology.OneManifoldMain
-import NoCompromise.Topology.OneManifoldMaximal
-import NoCompromise.Topology.OneManifoldSmooth
-import NoCompromise.Elliptic.BoundaryC2aCkBase
-import NoCompromise.Elliptic.BoundaryC2aCkIterate
-import NoCompromise.Elliptic.BoundaryC2aCkLevel
-import NoCompromise.Elliptic.BoundaryC2aCurvedHolder
-import NoCompromise.Elliptic.BoundaryC2aDifferentiate
-import NoCompromise.Elliptic.BoundaryC2aShearHolder
-import NoCompromise.Elliptic.BoundaryC2aSmoothChain
-import NoCompromise.Elliptic.BoundaryFaceExtension
-import NoCompromise.Elliptic.BoundaryNeumannCkIterate
-import NoCompromise.Elliptic.BoundaryNeumannCkLevel
-import NoCompromise.Elliptic.BoundaryNeumannInhomAllOrders
-import NoCompromise.Elliptic.BoundaryNeumannIterateC3
-import NoCompromise.Elliptic.BoundaryNeumannSmoothChain
-import NoCompromise.Elliptic.CkHolderAlgebra
-import NoCompromise.Elliptic.NeumannChartSmoothAmbient
-import NoCompromise.Isoperimetric.ABPNeumannSmooth
-import NoCompromise.Isoperimetric.ABPNeumannSmoothLocal
-import NoCompromise.Elliptic.BoundaryC2aCurvedSmooth
+module
+
+public import NoCompromise.Regularity.TiltSmallness
+public import NoCompromise.Regularity.TiltReversePoincare
+public import NoCompromise.Regularity.HarmonicBlowup
+public import NoCompromise.Regularity.HarmonicBlowupUniform
+public import NoCompromise.Regularity.IsometryExcess
+public import NoCompromise.Regularity.TiltPlane
+public import NoCompromise.Regularity.TiltCapsGeometry
+public import NoCompromise.Regularity.TiltCaps
+public import NoCompromise.Regularity.TiltSlab
+public import NoCompromise.Regularity.ReversePoincareRotated
+public import NoCompromise.Regularity.TiltZero
+public import NoCompromise.Regularity.ApproxHarmonicEstimateScaling
+public import NoCompromise.Regularity.ApproxHarmonicScaling
+public import NoCompromise.Regularity.ApproxHarmonicEstimateDecomposition
+public import NoCompromise.Regularity.ApproxHarmonicEstimate
+public import NoCompromise.Regularity.ApproxHarmonicEstimateBounds
+public import NoCompromise.Regularity.ApproxHarmonic
+public import NoCompromise.Regularity.HarmonicBlowupNormalizedCompactness
+public import NoCompromise.Regularity.HarmonicBlowupUniformNormalized
+public import NoCompromise.Regularity.HarmonicBlowupGeometry
+public import NoCompromise.Elliptic.BoundaryHolderNearInterior
+public import NoCompromise.Elliptic.BoundaryHolderOddField
+public import NoCompromise.Elliptic.BoundaryHolderOddExcess
+public import NoCompromise.Elliptic.BoundaryHolderOddOscillation
+public import NoCompromise.Elliptic.BoundaryHolderOddWeak
+public import NoCompromise.Regularity.IsometryExcessPolar
+public import NoCompromise.Regularity.HarmonicBlowupNormalization
+public import NoCompromise.Regularity.HarmonicBlowupUniformH1
+public import NoCompromise.Regularity.IsometryCylinders
+public import NoCompromise.Regularity.IsometryPolar
+public import NoCompromise.Regularity.IsometryDensity
+public import NoCompromise.Regularity.HarmonicBlowupTests
+public import NoCompromise.Regularity.HarmonicBlowupCompactness
+public import NoCompromise.Elliptic.BoundaryHolderInteriorBound
+public import NoCompromise.Elliptic.BoundaryHolderGeometry
+public import NoCompromise.Regularity.ApproxHarmonicEstimateVariation
+public import NoCompromise.Regularity.ApproxHarmonicEstimateTestBounds
+public import NoCompromise.Regularity.TiltGeometry
+public import NoCompromise.Regularity.TiltPhases
+public import NoCompromise.Elliptic.BoundaryHolderUniformIteration
+public import NoCompromise.Elliptic.BoundaryHolderTangentialGrowth
+public import NoCompromise.Regularity.IsometryMinimal
+public import NoCompromise.Regularity.ApproxHarmonicEstimateError
+public import NoCompromise.Regularity.ApproxHarmonicEstimateField
+public import NoCompromise.Regularity.GraphApproxHeight
+public import NoCompromise.Regularity.GraphGoodExtensionHeight
+public import NoCompromise.Regularity.GraphEnergy
+public import NoCompromise.Elliptic.BoundaryHolderTranslatedData
+public import NoCompromise.Elliptic.BoundaryHolderSharp
+public import NoCompromise.Regularity.ApproxHarmonicEstimateArea
+public import NoCompromise.Regularity.GraphNormalGeometry
+public import NoCompromise.Regularity.GraphNormalDensity
+public import NoCompromise.Regularity.GraphNormal
+public import NoCompromise.Regularity.GraphDirichlet
+public import NoCompromise.Regularity.GraphSingleValued
+public import NoCompromise.Regularity.GraphEnergyExtension
+public import NoCompromise.Regularity.GraphApprox
+public import NoCompromise.Regularity.GraphLoss
+public import NoCompromise.Regularity.GraphSlicesUniqueness
+public import NoCompromise.Regularity.GraphSlicesPolar
+public import NoCompromise.Regularity.GraphSlicesFibers
+public import NoCompromise.Regularity.GraphSlicesCapBridge
+public import NoCompromise.Regularity.GraphSlices
+public import NoCompromise.Regularity.GraphBadBaseFlux
+public import NoCompromise.Regularity.GraphBadBase
+public import NoCompromise.Regularity.GraphGoodBaseLoss
+public import NoCompromise.Regularity.GraphBaseCoverage
+public import NoCompromise.Regularity.ApproxHarmonicTest
+public import NoCompromise.Regularity.ApproxHarmonicSupport
+public import NoCompromise.Regularity.ApproxHarmonicAlgebra
+public import NoCompromise.Elliptic.BoundaryHolderEnergyBootstrap
+public import NoCompromise.Elliptic.BoundaryHolderHolderData
+public import NoCompromise.Elliptic.BoundaryHolderTranslate
+public import NoCompromise.Regularity.GraphTwoPointCaps
+public import NoCompromise.Regularity.GraphGoodExtension
+public import NoCompromise.Elliptic.BoundaryHolderAverages
+public import NoCompromise.Elliptic.BoundaryHolderLimits
+public import NoCompromise.Regularity.GraphExtension
+public import NoCompromise.Regularity.GraphExtensionClamp
+public import NoCompromise.Regularity.GraphGoodSet
+public import NoCompromise.Regularity.GraphPhaseCapsGeometry
+public import NoCompromise.Regularity.GraphPhaseCapsCompactness
+public import NoCompromise.Regularity.GraphPhaseCaps
+public import NoCompromise.Regularity.GraphSlicesOneDimensional
+public import NoCompromise.Regularity.GraphSlicesPhases
+public import NoCompromise.Elliptic.BoundaryHolderRecurrence
+public import NoCompromise.Elliptic.BoundaryHolderData
+public import NoCompromise.Elliptic.BoundaryHolderGrowth
+public import NoCompromise.Regularity.ReversePoincare
+public import NoCompromise.Regularity.ReversePoincareComparison
+public import NoCompromise.Regularity.ReversePoincareComplement
+public import NoCompromise.Regularity.ReversePoincareEstimate
+public import NoCompromise.Regularity.ReversePoincareGeometry
+public import NoCompromise.Regularity.ReversePoincareLocalization
+public import NoCompromise.Regularity.ReversePoincareMoment
+public import NoCompromise.Regularity.ReversePoincareRadii
+public import NoCompromise.Regularity.GraphProjectedLocal
+public import NoCompromise.Regularity.GraphTwoPointGeometry
+public import NoCompromise.Regularity.GraphTwoPoint
+public import NoCompromise.Regularity.DensitySimilarity
+public import NoCompromise.Regularity.GraphHeightCenters
+public import NoCompromise.Elliptic.BoundaryHolderRadiusLocalization
+public import NoCompromise.Elliptic.BoundaryHolderExcess
+public import NoCompromise.Elliptic.BoundaryHolderRadiusDecay
+public import NoCompromise.Elliptic.BoundaryHolderComparisonBounds
+public import NoCompromise.Elliptic.BoundaryHolderTransfer
+public import NoCompromise.Regularity.HeightBoundLimit
+public import NoCompromise.Regularity.HeightBoundBoundaryScaling
+public import NoCompromise.Regularity.HeightBoundUnit
+public import NoCompromise.Regularity.HeightBound
+public import NoCompromise.Regularity.ExcessScalingPolar
+public import NoCompromise.Regularity.ExcessScalingGeometry
+public import NoCompromise.Regularity.ExcessScaling
+public import NoCompromise.Regularity.GraphProjectedExcess
+public import NoCompromise.Elliptic.BoundaryHolderComparison
+public import NoCompromise.Elliptic.BoundaryHolderHalfScaling
+public import NoCompromise.Regularity.GraphGoodBase
+public import NoCompromise.Regularity.HeightCompactnessError
+public import NoCompromise.Regularity.HeightCompactnessPairing
+public import NoCompromise.Regularity.HeightCompactnessPolar
+public import NoCompromise.Regularity.HeightCompactnessClassification
+public import NoCompromise.Regularity.HarmonicAffine
+public import NoCompromise.Regularity.GeometricRecurrence
+public import NoCompromise.Regularity.GeometricNormals
+public import NoCompromise.Regularity.FluxDefectTests
+public import NoCompromise.Regularity.FluxDefectPairing
+public import NoCompromise.Regularity.FluxDefectApprox
+public import NoCompromise.Regularity.FluxDefect
+public import NoCompromise.Elliptic.BoundaryHolderTraceContinuous
+public import NoCompromise.Elliptic.BoundaryHolderZeroSpace
+public import NoCompromise.Regularity.TangentCone
+public import NoCompromise.Regularity.TangentDilation
+public import NoCompromise.Regularity.TangentDilationTests
+public import NoCompromise.Regularity.TangentRadial
+public import NoCompromise.Regularity.TangentRadialGlobal
+public import NoCompromise.Regularity.TangentRepresentative
+public import NoCompromise.Regularity.DeformationOuterWallBands
+public import NoCompromise.Regularity.DeformationOuterWallMeasure
+public import NoCompromise.Regularity.DeformationOuterWall
+public import NoCompromise.Regularity.HeightCompactnessDensity
+public import NoCompromise.Elliptic.BoundaryHolderSymmetrization
+public import NoCompromise.Elliptic.BoundaryHolderDerivative
+public import NoCompromise.Regularity.HeightCompactness
+public import NoCompromise.Regularity.HeightCompactnessPhases
+public import NoCompromise.Elliptic.BoundaryHolderTraceAlgebra
+public import NoCompromise.Elliptic.BoundaryHolderAffine
+public import NoCompromise.Elliptic.BoundaryHolderDecayIntegrals
+public import NoCompromise.Elliptic.BoundaryHolderDecay
+public import NoCompromise.Regularity.Deformation
+public import NoCompromise.Regularity.DeformationCompactness
+public import NoCompromise.Regularity.DeformationCompactnessAE
+public import NoCompromise.Regularity.DeformationCompactnessPointwise
+public import NoCompromise.Regularity.DeformationCompactnessSource
+public import NoCompromise.Regularity.DeformationDisk
+public import NoCompromise.Regularity.DeformationEstimate
+public import NoCompromise.Regularity.DeformationLimitProperties
+public import NoCompromise.Regularity.DeformationRepresentative
+public import NoCompromise.Regularity.TangentExistence
+public import NoCompromise.Elliptic.BoundaryHolderLocalization
+public import NoCompromise.Elliptic.BoundaryHolderFrozen
+public import NoCompromise.Elliptic.BoundaryHolderVariance
+public import NoCompromise.Elliptic.BoundaryHolderEnergy
+public import NoCompromise.Elliptic.BoundaryHolderInterior
+public import NoCompromise.Regularity.ZeroExcessMollification
+public import NoCompromise.Regularity.ZeroExcessOrder
+public import NoCompromise.Regularity.ZeroExcessThreshold
+public import NoCompromise.Regularity.ZeroExcessLocalPolar
+public import NoCompromise.Regularity.ZeroExcess
+public import NoCompromise.Regularity.CylindersConvex
+public import NoCompromise.Elliptic.NondivSchauderDifferenceEquation
+public import NoCompromise.Elliptic.NondivSchauderTests
+public import NoCompromise.Elliptic.CampanatoHolder
+public import NoCompromise.Regularity.MonotonicityTests
+public import NoCompromise.Regularity.MonotonicityPrimitive
+public import NoCompromise.Elliptic.NondivSchauderDifference
+public import NoCompromise.Regularity.Excess
+public import NoCompromise.Elliptic.CampanatoHolderBootstrap
+public import NoCompromise.Elliptic.CampanatoHolderPrimitive
+public import NoCompromise.Elliptic.NondivSchauderEquation
+public import NoCompromise.Regularity.RadialDivergence
+public import NoCompromise.Regularity.RadialField
+public import NoCompromise.Regularity.Cylinders
+public import NoCompromise.Elliptic.CampanatoHolderStep
+public import NoCompromise.Elliptic.CampanatoHolderPowers
+public import NoCompromise.Elliptic.NondivSchauderData
+public import NoCompromise.Regularity.FirstVariationScalar
+public import NoCompromise.Regularity.FirstVariation
+public import NoCompromise.Elliptic.ClassicalCubeAffine
+public import NoCompromise.Elliptic.ClassicalAdmissible
+public import NoCompromise.Elliptic.CampanatoHolderLebesgue
+public import NoCompromise.Elliptic.CampanatoHolderEmbedding
+public import NoCompromise.Elliptic.CampanatoHolderIteration
+public import NoCompromise.Elliptic.NondivSchauderNorm
+public import NoCompromise.Regularity.RepresentativeBounded
+public import NoCompromise.Elliptic.CampanatoHolderOscillation
+public import NoCompromise.Elliptic.CampanatoHolderAverages
+public import NoCompromise.Elliptic.CampanatoHolderLimits
+public import NoCompromise.Elliptic.NewtonianSchauderCutoff
+public import NoCompromise.Elliptic.NewtonianSchauderHarmonic
+public import NoCompromise.Elliptic.NewtonianSchauder
+public import NoCompromise.Elliptic.ClassicalCubeGeometry
+public import NoCompromise.Elliptic.ClassicalCubeCalculus
+public import NoCompromise.Elliptic.ClassicalCubeW11
+public import NoCompromise.Regularity.RepresentativeDensity
+public import NoCompromise.Regularity.RepresentativeOpen
+public import NoCompromise.Regularity.RepresentativeBoundary
+public import NoCompromise.Elliptic.ClassicalKernelFluxLimits
+public import NoCompromise.Elliptic.ClassicalKernelFlux
+public import NoCompromise.Elliptic.ClassicalKernelW11
+public import NoCompromise.Elliptic.ClassicalKernelField
+public import NoCompromise.Elliptic.ClassicalBoundaryMeasure
+public import NoCompromise.Sobolev.W11VectorAssembly
+public import NoCompromise.Elliptic.NewtonianSchauderHessian
+public import NoCompromise.Elliptic.NewtonianSchauderNorm
+public import NoCompromise.Elliptic.NewtonianSchauderPotential
+public import NoCompromise.Regularity.DensityCutComparison
+public import NoCompromise.Regularity.DensityEstimates
+public import NoCompromise.Regularity.DensityAhlfors
+public import NoCompromise.Elliptic.CampanatoGrowthScalar
+public import NoCompromise.Elliptic.CampanatoGrowthComparison
+public import NoCompromise.Elliptic.CampanatoGrowthStep
+public import NoCompromise.Elliptic.CampanatoGrowth
+public import NoCompromise.Sobolev.W11Classical
+public import NoCompromise.Elliptic.ClassicalNormalGeometry
+public import NoCompromise.Elliptic.ClassicalNormal
+public import NoCompromise.Elliptic.ClassicalCalculus
+public import NoCompromise.Regularity.DensityRadial
+public import NoCompromise.Regularity.PenalizationDilation
+public import NoCompromise.Regularity.Penalization
+public import NoCompromise.Regularity.OmegaMinimal
+public import NoCompromise.Regularity.PenalizationQuasiminimal
+public import NoCompromise.Elliptic.NewtonianSchauderLimit
+public import NoCompromise.Sobolev.W11Pairing
+public import NoCompromise.Elliptic.ClassicalGaussGreenW11
+public import NoCompromise.Elliptic.FrozenDecay
+public import NoCompromise.Elliptic.NewtonianSchauderFar
+public import NoCompromise.Energy.SignedPotentialRegularity
+public import NoCompromise.Elliptic.FrozenDecayVariance
+public import NoCompromise.Elliptic.FrozenDecayAffine
+public import NoCompromise.Elliptic.FrozenDecayIntegrals
+public import NoCompromise.Elliptic.FrozenDecayUnit
+public import NoCompromise.Elliptic.FrozenDecayScaling
+public import NoCompromise.Elliptic.NewtonianSchauderCandidate
+public import NoCompromise.Elliptic.ClassicalPartition
+public import NoCompromise.Elliptic.ClassicalCharts
+public import NoCompromise.Sobolev.W11Smooth
+public import NoCompromise.Elliptic.ClassicalGaussGreen
+public import NoCompromise.Elliptic.TraceL1
+public import NoCompromise.Elliptic.NewtonianSchauderFarKernel
+public import NoCompromise.Sobolev.W11TraceOperator
+public import NoCompromise.Sobolev.W11VectorData
+public import NoCompromise.Sobolev.W11TraceVector
+public import NoCompromise.Elliptic.NewtonianSchauderDistribution
+public import NoCompromise.Sobolev.W11Density
+public import NoCompromise.BV.SmoothApproxLevelCharts
+public import NoCompromise.BV.SmoothApprox
+public import NoCompromise.Elliptic.FrozenDecayEstimates
+public import NoCompromise.Sobolev.W11Algebra
+public import NoCompromise.Sobolev.W11ChartExtension
+public import NoCompromise.Sobolev.W11Extension
+public import NoCompromise.Sobolev.W11TraceChart
+public import NoCompromise.Sobolev.W11TraceBoundary
+public import NoCompromise.Sobolev.W11Space
+public import NoCompromise.Elliptic.FrozenDecayRegularity
+public import NoCompromise.Sobolev.W11FlatExtension
+public import NoCompromise.Sobolev.W11Bounds
+public import NoCompromise.Elliptic.FrozenDecayChange
+public import NoCompromise.Elliptic.NewtonianSchauderSplit
+public import NoCompromise.Sobolev.W11FoldDomain
+public import NoCompromise.Sobolev.W11Reflection
+public import NoCompromise.Elliptic.FrozenDecaySkew
+public import NoCompromise.Elliptic.NewtonianSchauderRegularized
+public import NoCompromise.BV.SmoothApproxVolume
+public import NoCompromise.BV.SmoothApproxBoundary
+public import NoCompromise.Elliptic.FrozenDecayLinear
+public import NoCompromise.Elliptic.NewtonianSchauderEstimates
+public import NoCompromise.Sobolev.W11FoldApprox
+public import NoCompromise.Sobolev.W11Approximation
+public import NoCompromise.Sobolev.W11Pullback
+public import NoCompromise.Sobolev.W11Chain
+public import NoCompromise.BV.SmoothApproxRegular
+public import NoCompromise.Sobolev.W11Calculus
+public import NoCompromise.BV.SmoothApproxDilation
+public import NoCompromise.BV.SmoothApproxLevels
+public import NoCompromise.Sobolev.W11Closed
+public import NoCompromise.Elliptic.NewtonianSchauderIntegrals
+public import NoCompromise.Elliptic.CampanatoComparison
+public import NoCompromise.Elliptic.CampanatoComparisonFrozen
+public import NoCompromise.Sobolev.W11TraceApprox
+public import NoCompromise.BV.AnnularGluing
+public import NoCompromise.BV.AnnularGluingDiagonal
+public import NoCompromise.BV.AnnularGluingFull
+public import NoCompromise.Elliptic.NewtonianSchauderKernel
+public import NoCompromise.Elliptic.CampanatoComparisonTests
+public import NoCompromise.Sobolev.W11TraceFlat
+public import NoCompromise.Elliptic.HopfDerivativeWithin
+public import NoCompromise.Elliptic.HopfExterior
+public import NoCompromise.BV.AnnularGluingCoarea
+public import NoCompromise.BV.AnnularGluingTraces
+public import NoCompromise.Elliptic.HolderInterpolationNorm
+public import NoCompromise.Elliptic.HolderInterpolationSplit
+public import NoCompromise.Elliptic.HolderInterpolation
+public import NoCompromise.Elliptic.KelvinRemovableCutoff
+public import NoCompromise.Elliptic.KelvinRemovable
+public import NoCompromise.BV.GluingGlobal
+public import NoCompromise.BV.Gluing
+public import NoCompromise.Elliptic.HopfGeometry
+public import NoCompromise.Elliptic.HopfC2Boundary
+public import NoCompromise.Elliptic.Hopf
+public import NoCompromise.Elliptic.HarmonicDerivativeTranslation
+public import NoCompromise.Elliptic.HarmonicDerivative
+public import NoCompromise.BV.GluingLocalTraces
+public import NoCompromise.Elliptic.HolderInterpolationGeometry
+public import NoCompromise.Elliptic.HopfBarrier
+public import NoCompromise.Elliptic.HopfComparison
+public import NoCompromise.Elliptic.StrongMaximum
+public import NoCompromise.Elliptic.StrongMaximumHarmonic
+public import NoCompromise.Elliptic.HarmonicMeanValueLocal
+public import NoCompromise.Elliptic.HarmonicMeanValue
+public import NoCompromise.Elliptic.SobolevChainBounds
+public import NoCompromise.Elliptic.SobolevChainCompact
+public import NoCompromise.Elliptic.SobolevChain
+public import NoCompromise.BV.GraphCutPerimeter
+public import NoCompromise.BV.PlanarCuts
+public import NoCompromise.BV.ExactCuts
+public import NoCompromise.Elliptic.HarmonicAlgebra
+public import NoCompromise.BV.GoodTruncation
+public import NoCompromise.Elliptic.HarmonicDerivativeSobolev
+public import NoCompromise.Elliptic.HarmonicMeanValueBall
+public import NoCompromise.Elliptic.SobolevChainNorm
+public import NoCompromise.Elliptic.CampanatoIteration
+public import NoCompromise.Elliptic.WeakMaximum
+public import NoCompromise.Elliptic.SobolevChainHarmonic
+public import NoCompromise.BV.TraceAlmostEverywhere
+public import NoCompromise.Sobolev.H1TraceKernelOperators
+public import NoCompromise.Sobolev.H1TraceKernelLocalization
+public import NoCompromise.Sobolev.H1TraceKernelTransport
+public import NoCompromise.Sobolev.H1TraceKernelInward
+public import NoCompromise.Sobolev.H1TraceKernelLocal
+public import NoCompromise.Sobolev.H1TraceKernel
+public import NoCompromise.Elliptic.WeakMaximumCore
+public import NoCompromise.Elliptic.HarmonicMeanValueTests
+public import NoCompromise.Elliptic.SobolevChainClassical
+public import NoCompromise.Elliptic.SobolevChainLocal
+public import NoCompromise.BV.RadialCuts
+public import NoCompromise.Sobolev.H1TraceKernelChartMeasure
+public import NoCompromise.Sobolev.H1TraceKernelChartGeometry
+public import NoCompromise.Sobolev.H1TraceKernelChartTrace
+public import NoCompromise.Sobolev.H1PositivePartTests
+public import NoCompromise.Sobolev.H1PositivePartPoincare
+public import NoCompromise.BV.RadialTestFamily
+public import NoCompromise.BV.TraceBounds
+public import NoCompromise.BV.GoodRadii
+public import NoCompromise.Elliptic.SobolevChainDerivatives
+public import NoCompromise.Sobolev.H1TraceKernelApprox
+public import NoCompromise.Sobolev.H1PositivePart
+public import NoCompromise.BV.WeightedRadialFlux
+public import NoCompromise.Elliptic.SobolevChainContinuous
+public import NoCompromise.Sobolev.H1TraceKernelFlat
+public import NoCompromise.Sobolev.H1PositivePartApprox
+public import NoCompromise.Elliptic.SobolevChainSchwartz
+public import NoCompromise.BV.CompactC1Tests
+public import NoCompromise.BV.BoundaryTraces
+public import NoCompromise.Elliptic.SobolevChainFourier
+public import NoCompromise.Binding.Ratio
+public import NoCompromise.BV.BoundaryCut
+public import NoCompromise.Elliptic.Newtonian
+public import NoCompromise.Elliptic.NewtonianKernel
+public import NoCompromise.BV.BoundaryTraceAtlas
+public import NoCompromise.Binding.BallRatio
+public import NoCompromise.BV.ScalarDistributionGluing
+public import NoCompromise.Elliptic.InteriorH2
+public import NoCompromise.Elliptic.InteriorH2Localization
+public import NoCompromise.BV.TraceReflection
+public import NoCompromise.BV.ExteriorGeometry
+public import NoCompromise.BV.TraceAgreement
+public import NoCompromise.BV.LocalToGlobal
+public import NoCompromise.Threshold.Comparison
+public import NoCompromise.Ball.Potential
+public import NoCompromise.BV.ChartTraces
+public import NoCompromise.Elliptic.InteriorH2Hessian
+public import NoCompromise.Elliptic.InteriorH2Global
+public import NoCompromise.BV.GraphCut
+public import NoCompromise.BV.ScalarDistributionUniqueness
+public import NoCompromise.Elliptic.InteriorH2H1
+public import NoCompromise.Threshold.BallSplitting
+public import NoCompromise.Ball.PotentialAngular
+public import NoCompromise.Elliptic.InteriorH2Energy
+public import NoCompromise.BV.FlatCutMeasure
+public import NoCompromise.Ball.Perimeter
+public import NoCompromise.Variation.CoulombBoundary
+public import NoCompromise.Energy.Scaling
+public import NoCompromise.BV.GraphTraces
+public import NoCompromise.BV.ScalarDistribution
+public import NoCompromise.Elliptic.InteriorH2Mollification
+public import NoCompromise.Variation.SymmetricDifferenceFull
+public import NoCompromise.BV.FlatCut
+public import NoCompromise.Variation.FreezingFlux
+public import NoCompromise.BV.ScalarC1Pairing
+public import NoCompromise.BV.ScalarMollification
+public import NoCompromise.BV.TraceApproximation
+public import NoCompromise.BV.TraceKernels
+public import NoCompromise.Variation.FiniteFreezing
+public import NoCompromise.Variation.WeightedFieldStability
+public import NoCompromise.Elliptic.WeakSolutions
+public import NoCompromise.BV.ScalarC1Transport
+public import NoCompromise.Elliptic.WeakDirichlet
+public import NoCompromise.Sobolev.H1MeanZero
+public import NoCompromise.Variation.FieldStability
+public import NoCompromise.BV.FlatTraces
+public import NoCompromise.Sobolev.H1Zero
+public import NoCompromise.Variation.Perimeter
+public import NoCompromise.Variation.PerimeterJacobian
+public import NoCompromise.Measure.QuadraticIntegral
+public import NoCompromise.Elliptic.VariationalHilbert
+public import NoCompromise.BV.Traces
+public import NoCompromise.Variation.TransportC1
+public import NoCompromise.Variation.TransportC1Pairing
+public import NoCompromise.Measure.NullChangeOfVariables
+public import NoCompromise.Variation.FieldInterpolation
+public import NoCompromise.BV.IndicatorMollification
+public import NoCompromise.Sobolev.PoincareTrace
+public import NoCompromise.Sobolev.AnnulusDomain
+public import NoCompromise.Variation.TransportPairing
+public import NoCompromise.BV.PolarMollification
+public import NoCompromise.Measure.ConvolutionPairing
+public import NoCompromise.Variation.VolumeBoundary
+public import NoCompromise.Sobolev.C1Domain
+public import NoCompromise.Variation.ConstantTranslation
+public import NoCompromise.Sobolev.H1TraceOperator
+public import NoCompromise.Sobolev.H1Density
+public import NoCompromise.DeGiorgi.SmoothBoundary
+public import NoCompromise.Variation.TranslationBound
+public import NoCompromise.Sobolev.H1TraceBoundary
+public import NoCompromise.Sobolev.H1TraceBoundaryGeometry
+public import NoCompromise.Sobolev.H1ContinuousExtension
+public import NoCompromise.BV.DirectionalPolarCompatibility
+public import NoCompromise.Variation.TransportC2
+public import NoCompromise.Sobolev.H1TraceChart
+public import NoCompromise.DeGiorgi.SmoothGraph
+public import NoCompromise.Measure.PolarTransport
+public import NoCompromise.Sobolev.H1TraceContinuous
+public import NoCompromise.Variation.OneDimensionalTranslation
+public import NoCompromise.DeGiorgi.AmbientPolar
+public import NoCompromise.Sobolev.H1Trace
+public import NoCompromise.Variation.PiolaPullback
+public import NoCompromise.BV.JumpDisintegration
+public import NoCompromise.BV.JointJumpDensity
+public import NoCompromise.Area.GraphCoverDensity
+public import NoCompromise.Area.GraphDensity
+public import NoCompromise.Area.DensityIsometry
+public import NoCompromise.BV.JumpProduct
+public import NoCompromise.Area.GraphDensityGeometry
+public import NoCompromise.Measure.DensityIdentification
+public import NoCompromise.DeGiorgi.Structure
+public import NoCompromise.Sard.FourToThree
+public import NoCompromise.Sard.Slicing
+public import NoCompromise.DeGiorgi.DensityComparison
+public import NoCompromise.DeGiorgi.UpperDensity
+public import NoCompromise.Sard.VectorFlat
+public import NoCompromise.BV.JumpKernel
+public import NoCompromise.DeGiorgi.Rectifiability
+public import NoCompromise.Sard.Equidimensional
+public import NoCompromise.Measure.WeakStarNull
+public import NoCompromise.DeGiorgi.ConeConcentration
+public import NoCompromise.DeGiorgi.RectifiabilityGeometry
+public import NoCompromise.DeGiorgi.LipschitzPieces
+public import NoCompromise.DeGiorgi.ExactDensity
+public import NoCompromise.DeGiorgi.HalfspacePerimeter
+public import NoCompromise.DeGiorgi.HalfspacePairing
+public import NoCompromise.BV.JumpSlicing
+public import NoCompromise.BV.JumpMeasure
+public import NoCompromise.Measure.WeakStarBalls
+public import NoCompromise.DeGiorgi.BlowupPolar
+public import NoCompromise.Sard.ThreeDimensional
+public import NoCompromise.Sard.CubicFlat
+public import NoCompromise.Sard.LevelCharts
+public import NoCompromise.DeGiorgi.Blowup
+public import NoCompromise.DeGiorgi.ConstantPolarMeasure
+public import NoCompromise.Area.PlaneSections
+public import NoCompromise.Measure.PositiveWeakStar
+public import NoCompromise.BV.OneDimensional
+public import NoCompromise.DeGiorgi.BlowupLimits
+public import NoCompromise.DeGiorgi.BlowupCompactness
+public import NoCompromise.DeGiorgi.HalfspaceRigidity
+public import NoCompromise.BV.CoareaL1Lebesgue
+public import NoCompromise.Sard.Scalar
+public import NoCompromise.Sard.OneDimensional
+public import NoCompromise.Sard.Flat
+public import NoCompromise.DeGiorgi.DensityFlux
+public import NoCompromise.DeGiorgi.BlowupScaling
+public import NoCompromise.BV.LineDistribution
+public import NoCompromise.BV.RadialVolume
+public import NoCompromise.BV.CoareaL1
+public import NoCompromise.BV.LineSlicing
+public import NoCompromise.BV.WeightedCoarea
+public import NoCompromise.DeGiorgi.DensityODE
+public import NoCompromise.BV.CoareaLocal
+public import NoCompromise.BV.CoareaRegular
+public import NoCompromise.Energy.PotentialHolder
+public import NoCompromise.Measure.RadialCumulative
+public import NoCompromise.DeGiorgi.RadialFlux
+public import NoCompromise.DeGiorgi.ReducedDensity
+public import NoCompromise.DeGiorgi.ReducedPerimeter
+public import NoCompromise.BV.CoareaIsometry
+public import NoCompromise.BV.CoareaCharts
+public import NoCompromise.Measure.WeakDerivativeOne
+public import NoCompromise.Measure.CumulativeDerivative
+public import NoCompromise.BV.CoareaCoordinates
+public import NoCompromise.Energy.PotentialRegularity
+public import NoCompromise.DeGiorgi.RadialTests
+public import NoCompromise.BV.SphericalSlicing
+public import NoCompromise.Area.C1Graph
+public import NoCompromise.Variation.CoulombSingle
+public import NoCompromise.Measure.RadialMeasures
+public import NoCompromise.DeGiorgi.NoAtoms
+public import NoCompromise.Area.C1GraphLocal
+public import NoCompromise.Variation.CoulombBulk
+public import NoCompromise.DeGiorgi.Reduced
+public import NoCompromise.DeGiorgi.NormalFlux
+public import NoCompromise.BV.Slicing
+public import NoCompromise.Area.C1GraphAlgebra
+public import NoCompromise.BV.CoareaCritical
+public import NoCompromise.Variation.Volume
+public import NoCompromise.DeGiorgi.PolarDifferentiation
+public import NoCompromise.Measure.BallAverages
+public import NoCompromise.Measure.BallDifferentiation
+public import NoCompromise.Measure.LevelSetCover
+public import NoCompromise.Area.Sphere
+public import NoCompromise.Area.TangentAlgebra
+public import NoCompromise.Variation.StraightCofactor
+public import NoCompromise.Area.Rectifiable
+public import NoCompromise.Variation.Piola
+public import NoCompromise.Variation.StraightDiffeo
+public import NoCompromise.Area.Formula
+public import NoCompromise.Area.Cofactor
+public import NoCompromise.Area.Graph
+public import NoCompromise.Showcase
+public import NoCompromise.Threshold.Ledger
+public import NoCompromise.Energy.NullInvariance
+public import NoCompromise.Main
+public import NoCompromise.Measure.SignedRiesz
+public import NoCompromise.Measure.WeakStar
+public import NoCompromise.BV.StrictApprox
+public import NoCompromise.BV.Compactness
+public import NoCompromise.BV.CompactnessIndicators
+public import NoCompromise.Compactness.Nonvanishing
+public import NoCompromise.Flow.ODE
+public import NoCompromise.Isoperimetric.ABP
+public import NoCompromise.Binding.Splitting
+public import NoCompromise.Elliptic.Boundary
+public import NoCompromise.Cones.ThreeDim
+public import NoCompromise.Stationary.Bootstrap
+public import NoCompromise.CapacitaryK.SlabIdentities
+public import NoCompromise.Regularity.LimitingNormal
+public import NoCompromise.Value.BoundedApprox
+public import NoCompromise.Nonexistence.Slicing
+public import NoCompromise.Surface.Geometry
+public import NoCompromise.Topology.Tubular
+public import NoCompromise.Green.Identity
+public import NoCompromise.Nonexistence.Sharp
+public import NoCompromise.Stationary.CapacitaryEstimate
+public import NoCompromise.Value.Defs
+public import NoCompromise.Compactness.PerimeterSplitting
+public import NoCompromise.Cones.Descent
+public import NoCompromise.Cones.TwoDim
+public import NoCompromise.Stationary.MinimizerContext
+public import NoCompromise.CapacitaryK.Calculus
+public import NoCompromise.Compactness.Decomposition
+public import NoCompromise.Area.SmoothSurface
+public import NoCompromise.Area.RectifiableFormula
+public import NoCompromise.Compactness.Radii
+public import NoCompromise.Value.Continuity
+public import NoCompromise.Isoperimetric.Sharp
+public import NoCompromise.Isoperimetric.ABPContact
+public import NoCompromise.Binding.Strict
+public import NoCompromise.Regularity.EpsRegularityAhlfors
+public import NoCompromise.Regularity.EpsRegularityHolder
+public import NoCompromise.Regularity.EpsRegularityGraph
+public import NoCompromise.Regularity.EpsRegularityCone
+public import NoCompromise.Regularity.EpsRegularityNormalHolder
+public import NoCompromise.Regularity.EpsRegularityNormalField
+public import NoCompromise.Regularity.EpsRegularityHeight
+public import NoCompromise.Regularity.EpsRegularityFlat
+public import NoCompromise.Regularity.EpsRegularityMain
+public import NoCompromise.CapacitaryK.Bochner
+public import NoCompromise.CapacitaryK.LevelFrame
+public import NoCompromise.CapacitaryK.PositiveMeasure
+public import NoCompromise.CapacitaryK.MuPositive
+public import NoCompromise.CapacitaryK.OneDim
+public import NoCompromise.CapacitaryK.Inequality
+public import NoCompromise.Stationary.EulerLagrange
+public import NoCompromise.Stationary.ScalingIdentity
+public import NoCompromise.Stationary.Connected
+public import NoCompromise.Capacity.Flux
+public import NoCompromise.Capacity.Potential
+public import NoCompromise.Surface.Shape
+public import NoCompromise.Surface.MorseIndex
+public import NoCompromise.Surface.HeightMorse
+public import NoCompromise.Surface.RegularValue
+public import NoCompromise.Surface.GaussExtension
+public import NoCompromise.Surface.TotalCurvature
+public import NoCompromise.Topology.Transversality
+public import NoCompromise.Topology.TransversePreimage
+public import NoCompromise.Compactness.CoulombSplitting
+public import NoCompromise.Existence.Subcritical
+public import NoCompromise.Elliptic.BoundaryNeumannReflection
+public import NoCompromise.Elliptic.BoundaryNeumannCoefficients
+public import NoCompromise.Elliptic.BoundaryNeumannHolder
+public import NoCompromise.Elliptic.BoundaryNeumannEquation
+public import NoCompromise.Elliptic.BoundaryNeumannCutoff
+public import NoCompromise.Elliptic.BoundaryNeumannWeak
+public import NoCompromise.Elliptic.BoundaryNeumann
+public import NoCompromise.Elliptic.BoundaryC2
+public import NoCompromise.Elliptic.BoundaryNondivQuotient
+public import NoCompromise.Area.SmoothSurfaceTangent
+public import NoCompromise.Variation.PiolaCounterexample
+public import NoCompromise.CapacitaryK.HarmonicSmooth
+public import NoCompromise.CapacitaryK.PushforwardDensity
+public import NoCompromise.Cones.DescentMain
+public import NoCompromise.Cones.HalfplanePerimeter
+public import NoCompromise.Cones.TwoDimGap
+public import NoCompromise.Cones.TwoDimParity
+public import NoCompromise.Cones.TwoDimChord
+public import NoCompromise.Cones.TangentHalfspace
+public import NoCompromise.Cones.TangentHalfspaceMain
+public import NoCompromise.Cones.LinkGreatCircle
+public import NoCompromise.Stationary.ChartLocalize
+public import NoCompromise.Topology.ParityCrossing
+public import NoCompromise.Topology.ParityEndpoint
+public import NoCompromise.Topology.ParityPath
+public import NoCompromise.Topology.ParitySides
+public import NoCompromise.Topology.ParityNormal
+public import NoCompromise.Topology.OrientationParity
+public import NoCompromise.Topology.ComponentCount
+public import NoCompromise.Topology.ComponentCountMain
+public import NoCompromise.Capacity.LevelsMain
+public import NoCompromise.CapacitaryK.CapacitaryHarmonic
+public import NoCompromise.CapacitaryK.DensityInput
+public import NoCompromise.CapacitaryK.FromLevels
+public import NoCompromise.CapacitaryK.GaussEquation
+public import NoCompromise.CapacitaryK.LevelArea
+public import NoCompromise.CapacitaryK.LevelInequality
+public import NoCompromise.CapacitaryK.LevelNull
+public import NoCompromise.CapacitaryK.PGeometric
+public import NoCompromise.CapacitaryK.SlabFInput
+public import NoCompromise.CapacitaryK.SlabGaussGreen
+public import NoCompromise.CapacitaryK.SlabH
+public import NoCompromise.Capacity.Kelvin
+public import NoCompromise.Capacity.KelvinLevels
+public import NoCompromise.Capacity.LowerBarrier
+public import NoCompromise.Capacity.SphereFlux
+public import NoCompromise.Elliptic.BoundaryC1Slab
+public import NoCompromise.Elliptic.BoundaryNeumannEven
+public import NoCompromise.Elliptic.BoundaryNeumannInhom
+public import NoCompromise.Elliptic.BoundaryNeumannInhomC1
+public import NoCompromise.Elliptic.BoundaryNeumannInhomC1Conormal
+public import NoCompromise.Elliptic.BoundaryNeumannInhomC1Lift
+public import NoCompromise.Elliptic.BoundaryNeumannInhomEstimates
+public import NoCompromise.Elliptic.BoundaryNeumannInhomGeometry
+public import NoCompromise.Elliptic.BoundaryNeumannInhomLift
+public import NoCompromise.Elliptic.BoundaryNeumannInhomPrimitive
+public import NoCompromise.Elliptic.BoundaryNeumannInhomSlicing
+public import NoCompromise.Elliptic.BoundaryNeumannQuotient
+public import NoCompromise.Elliptic.BoundaryNeumannQuotientBounds
+public import NoCompromise.Elliptic.BoundaryNeumannQuotientC1
+public import NoCompromise.Elliptic.BoundaryNeumannQuotientEnergy
+public import NoCompromise.Elliptic.BoundaryNeumannQuotientHolder
+public import NoCompromise.Elliptic.BoundaryNeumannQuotientScaling
+public import NoCompromise.Elliptic.BoundaryNeumannTangential
+public import NoCompromise.Elliptic.BoundaryNondivC1
+public import NoCompromise.Elliptic.BoundaryNondivEnergy
+public import NoCompromise.Elliptic.BoundaryNondivHolder
+public import NoCompromise.Elliptic.BoundaryNondivQuotientBounds
+public import NoCompromise.Elliptic.BoundaryNondivTangential
+public import NoCompromise.Elliptic.BoundaryNondivTests
+public import NoCompromise.Elliptic.BoundaryNondivTrace
+public import NoCompromise.Elliptic.C1HolderLimit
+public import NoCompromise.Stationary.BootstrapC2Chart
+public import NoCompromise.Stationary.BootstrapC3
+public import NoCompromise.Stationary.BootstrapC3Chart
+public import NoCompromise.Stationary.BootstrapC3Global
+public import NoCompromise.Stationary.BootstrapGlobal
+public import NoCompromise.Stationary.MinimizerC1Holder
+public import NoCompromise.Stationary.MinimizerStationary
+public import NoCompromise.Cones.TwoDimLink
+public import NoCompromise.Cones.GreatCircle
+public import NoCompromise.Cones.Halfspace
+public import NoCompromise.Cones.Classification
+public import NoCompromise.Cones.Smooth
+public import NoCompromise.Value.Subadditivity
+public import NoCompromise.Isoperimetric.ABPNeumann
+public import NoCompromise.Isoperimetric.Components
+public import NoCompromise.Isoperimetric.SharpNeumann
+public import NoCompromise.Topology.Handshake
+public import NoCompromise.Topology.TransversalityMain
+public import NoCompromise.Topology.TransversePreimageDisk
+public import NoCompromise.Topology.Parity
+public import NoCompromise.Flow.FlowCk
+public import NoCompromise.Flow.FlowBox
+public import NoCompromise.Stationary.Defs
+public import NoCompromise.Stationary.GraphCurvature
+public import NoCompromise.Stationary.PointwiseEL
+public import NoCompromise.Stationary.BootstrapC2
+public import NoCompromise.Capacity.Levels
+public import NoCompromise.CapacitaryK.MuMeasure
+public import NoCompromise.CapacitaryK.Representatives
+public import NoCompromise.CapacitaryK.MeasureInequality
+public import NoCompromise.CapacitaryK.Asymptotics
+public import NoCompromise.CapacitaryK.GaussBonnetInput
+public import NoCompromise.CapacitaryK.SlabCoarea
+public import NoCompromise.CapacitaryK.MuRegular
+public import NoCompromise.BV.Rellich
+public import NoCompromise.Sobolev.BV
+public import NoCompromise.Sobolev.Extension
+public import NoCompromise.BV.Algebra
+public import NoCompromise.BV.ZeroVariation
+public import NoCompromise.Sobolev.ExtensionPartition
+public import NoCompromise.BV.Space
+public import NoCompromise.Sobolev.Poincare
+public import NoCompromise.Sobolev.Hilbert
+public import NoCompromise.Sobolev.WeakCompactness
+public import NoCompromise.Sobolev.LipschitzDomains
+public import NoCompromise.Sobolev.Relative
+public import NoCompromise.Sobolev.H1Calculus
+public import NoCompromise.Sobolev.RelativeScaling
+public import NoCompromise.Sobolev.Rellich
+public import NoCompromise.Sobolev.LipschitzCubes
+public import NoCompromise.Sobolev.RelativeCubes
+public import NoCompromise.Sobolev.H1Mollification
+public import NoCompromise.Sobolev.Maximal
+public import NoCompromise.Sobolev.H1Approximation
+public import NoCompromise.Sobolev.MaximalMeasurability
+public import NoCompromise.Sobolev.H1Reflection
+public import NoCompromise.Sobolev.PlanarGN
+public import NoCompromise.Sobolev.H1FlatExtension
+public import NoCompromise.Sobolev.H1Chain
+public import NoCompromise.Sobolev.H1Algebra
+public import NoCompromise.Sobolev.H1ChartExtension
+public import NoCompromise.Sobolev.H1Extension
+public import NoCompromise.Sobolev.PlanarDomain
+public import NoCompromise.Sobolev.H1TestApprox
+public import NoCompromise.Sobolev.SpatialGN
+public import NoCompromise.Sobolev.SpatialDomain
+public import NoCompromise.Sobolev.H1Poincare
+public import NoCompromise.Area.Linear
+public import NoCompromise.Elliptic.Caccioppoli
+public import NoCompromise.BV.WeakGradientVariation
+public import NoCompromise.BV.CoareaLayerCake
+public import NoCompromise.Area.AlmostLinear
+public import NoCompromise.BV.CoareaBound
+public import NoCompromise.BV.CoareaApproximation
+public import NoCompromise.BV.CoareaMeasurability
+public import NoCompromise.BV.CoareaSmooth
+public import NoCompromise.BV.Coarea
+public import NoCompromise.Area.GoodPieces
+public import NoCompromise.BV.Density
+public import NoCompromise.Measure.FinitePartition
+public import NoCompromise.Area.GoodPiecesExhaustion
+public import NoCompromise.Area.UniformDerivative
+public import NoCompromise.Sobolev.H1DifferenceQuotient
+public import NoCompromise.Area.GoodPiecesCarrier
+public import NoCompromise.Area.RankDeficient
+public import NoCompromise.Area.PieceMeasure
+public import NoCompromise.Area.GoodPiecesCover
+public import NoCompromise.Area.PieceFormula
+
+public import NoCompromise.Elliptic.CampanatoHolderSegment
+
+public import NoCompromise.Elliptic.CampanatoHolderSegmentTests
+
+public import NoCompromise.Elliptic.CampanatoHolderSegmentDerivative
+
+public import NoCompromise.Elliptic.CampanatoHolderDatum
+
+public import NoCompromise.Elliptic.NondivSchauderForcing
+
+public import NoCompromise.Elliptic.NondivSchauderEnergy
+
+public import NoCompromise.Elliptic.NondivSchauderWeakLimit
+
+public import NoCompromise.Regularity.MonotonicityRadial
+
+public import NoCompromise.Regularity.MonotonicityWeighted
+
+public import NoCompromise.Regularity.FixedNormalExcessTests
+
+public import NoCompromise.Regularity.FixedNormalExcessPairing
+
+public import NoCompromise.Regularity.FixedNormalExcessContinuous
+
+public import NoCompromise.Regularity.FixedNormalExcessLocalPolar
+
+public import NoCompromise.Regularity.FixedNormalExcessDistribution
+
+public import NoCompromise.Regularity.FixedNormalExcessIdentity
+
+public import NoCompromise.Regularity.FixedNormalExcess
+
+public import NoCompromise.Regularity.MonotonicityAnnulus
+
+public import NoCompromise.Regularity.Monotonicity
+
+public import NoCompromise.Elliptic.NondivSchauderConvergence
+
+public import NoCompromise.Elliptic.NondivSchauderQuotient
+
+public import NoCompromise.Elliptic.QuasilinearCampanatoPullback
+
+public import NoCompromise.Elliptic.QuasilinearCampanatoScaling
+
+public import NoCompromise.Elliptic.QuasilinearCampanatoInterior
+
+public import NoCompromise.Regularity.CompressionJoin
+
+public import NoCompromise.Regularity.CompressionScalar
+
+public import NoCompromise.Regularity.CompressionProfile
+
+public import NoCompromise.Regularity.CompressionProfileTheorem
+
+public import NoCompromise.Regularity.CompressionLinear
+
+public import NoCompromise.Regularity.CompressionEstimate
+
+public import NoCompromise.Regularity.CompressionMap
+
+public import NoCompromise.Regularity.CompressionBilipschitz
+
+public import NoCompromise.Regularity.CompressionJacobian
+
+public import NoCompromise.Regularity.PerimeterConvergenceLocal
+
+public import NoCompromise.Regularity.PerimeterConvergenceGluing
+
+public import NoCompromise.Regularity.PerimeterConvergenceL1
+
+public import NoCompromise.Elliptic.NondivSchauderQuotientBounds
+
+public import NoCompromise.Elliptic.NondivSchauderHessian
+
+public import NoCompromise.Elliptic.NondivSchauderDatumLimit
+
+public import NoCompromise.Elliptic.NondivSchauderEquationLimit
+
+public import NoCompromise.Elliptic.QuasilinearCoefficients
+
+public import NoCompromise.Elliptic.QuasilinearEquation
+
+public import NoCompromise.Elliptic.QuasilinearQuotientBounds
+
+public import NoCompromise.Elliptic.QuasilinearLinearization
+
+public import NoCompromise.Regularity.SlabCap
+
+public import NoCompromise.Regularity.SlabPhases
+
+public import NoCompromise.Regularity.SlabCapArea
+
+public import NoCompromise.Regularity.SlabDensity
+
+public import NoCompromise.Regularity.SlabGeometry
+
+public import NoCompromise.Regularity.SlabPhaseIdentification
+
+public import NoCompromise.Regularity.PerimeterConvergenceInner
+
+public import NoCompromise.Regularity.PerimeterConvergenceMinimality
+
+public import NoCompromise.Regularity.PerimeterConvergenceMeasures
+
+public import NoCompromise.Elliptic.NondivSchauderDerivativeEquation
+
+public import NoCompromise.Elliptic.NondivSchauderClassical
+
+public import NoCompromise.Elliptic.QuasilinearHessian
+
+public import NoCompromise.Elliptic.QuasilinearDifferentiated
+
+public import NoCompromise.Elliptic.QuasilinearCoordinate
+
+public import NoCompromise.Elliptic.QuasilinearNorm
+
+public import NoCompromise.Elliptic.Quasilinear
+
+public import NoCompromise.Regularity.DeformationExtension
+
+public import NoCompromise.Regularity.DeformationExtensionPhases
+
+public import NoCompromise.Regularity.DeformationCompression
+
+public import NoCompromise.Regularity.PerimeterConvergenceLower
+
+public import NoCompromise.Regularity.PerimeterConvergenceVague
+
+public import NoCompromise.Elliptic.NondivSchauderNormalize
+
+public import NoCompromise.Elliptic.NondivSchauderBootstrap
+
+public import NoCompromise.Elliptic.NondivSchauderScalingNorm
+
+public import NoCompromise.Elliptic.SchauderInterpolationQuantitativeScales
+
+public import NoCompromise.Elliptic.SchauderInterpolationQuantitative
+
+public import NoCompromise.Elliptic.SchauderAbsorption
+
+public import NoCompromise.Regularity.DeformationStrip
+
+public import NoCompromise.Regularity.DeformationPhases
+
+public import NoCompromise.Regularity.DeformationCompetitor
+
+public import NoCompromise.Regularity.DeformationLocality
+
+public import NoCompromise.Regularity.DeformationTransport
+
+public import NoCompromise.Regularity.PerimeterConvergenceBalls
+
+public import NoCompromise.Regularity.PerimeterConvergenceContinuity
+
+public import NoCompromise.Regularity.PerimeterConvergenceIdentification
+
+public import NoCompromise.Regularity.PerimeterConvergenceWeak
+
+public import NoCompromise.Regularity.PerimeterConvergence
+
+public import NoCompromise.Elliptic.NondivSchauderScalingEquation
+
+public import NoCompromise.Elliptic.NondivSchauderScalingInverse
+
+public import NoCompromise.Elliptic.NondivSchauderLocalization
+
+public import NoCompromise.Elliptic.NondivSchauderScalingBall
+
+public import NoCompromise.Regularity.DeformationColumn
+
+public import NoCompromise.Regularity.DeformationCore
+
+public import NoCompromise.Elliptic.NondivSchauderNested
+
+public import NoCompromise.Elliptic.NondivSchauderAbsorption
+
+public import NoCompromise.Elliptic.NondivSchauder
+
+public import NoCompromise.Elliptic.BoundaryHolderReflection
+
+public import NoCompromise.Regularity.DeformationDensity
+
+public import NoCompromise.Regularity.DeformationClearance
+
+public import NoCompromise.Regularity.DeformationCaps
+
+
+public import NoCompromise.Regularity.DeformationAnnulus
+
+public import NoCompromise.Regularity.DeformationLimitPhases
+
+public import NoCompromise.Regularity.DeformationWall
+
+public import NoCompromise.Regularity.DeformationCutBounds
+
+public import NoCompromise.Regularity.DeformationCutBoundsStrip
+
+public import NoCompromise.Regularity.TangentCompactness
+
+public import NoCompromise.Regularity.TangentScaling
+
+public import NoCompromise.Regularity.TangentLimit
+
+public import NoCompromise.Regularity.TangentDensity
+
+public import NoCompromise.Regularity.TangentBoundary
+
+public import NoCompromise.Elliptic.BoundaryHolderTests
+
+public import NoCompromise.Elliptic.BoundaryHolderTrace
+
+public import NoCompromise.Elliptic.BoundaryHolderOdd
+public import NoCompromise.Elliptic.BoundaryC2aZeroTrace
+public import NoCompromise.Elliptic.BoundaryNeumannC2
+public import NoCompromise.Elliptic.BoundaryNeumannC2Algebra
+public import NoCompromise.Elliptic.BoundaryNeumannC2Data
+public import NoCompromise.Elliptic.BoundaryNeumannC2Equation
+public import NoCompromise.Elliptic.BoundaryNeumannC2Extension
+public import NoCompromise.Elliptic.BoundaryNeumannC2Interior
+public import NoCompromise.Elliptic.BoundaryNeumannC2Tangential
+public import NoCompromise.Elliptic.BoundaryNeumannSmoothFlux
+public import NoCompromise.Elliptic.BoundaryNeumannSmoothTangential
+public import NoCompromise.Elliptic.BoundaryNondivC2
+public import NoCompromise.Elliptic.BoundaryNondivC2Equation
+public import NoCompromise.Elliptic.BoundaryNondivC2Trace
+public import NoCompromise.Elliptic.BoundaryNondivC2TraceData
+public import NoCompromise.Elliptic.BoundaryNormalChart
+public import NoCompromise.Elliptic.BoundaryNormalChartChangeVariables
+public import NoCompromise.Elliptic.BoundaryNormalChartCoefficient
+public import NoCompromise.Elliptic.BoundaryNormalChartInverse
+
+public import NoCompromise.Regularity.TiltImprovement
+
+public import NoCompromise.Regularity.EpsReg
+public import NoCompromise.Regularity.UniformCenters
+public import NoCompromise.Capacity.FluxBoundaryW
+public import NoCompromise.Capacity.FluxIdentity
+public import NoCompromise.Capacity.HullPotential
+public import NoCompromise.Capacity.KelvinHessian
+public import NoCompromise.Capacity.Slabs
+public import NoCompromise.Cones.AffineOfHessian
+public import NoCompromise.Cones.HomogeneousMinimalGraph
+public import NoCompromise.Cones.LinkComponents
+public import NoCompromise.Cones.LinkLocal
+public import NoCompromise.Cones.LinkNonempty
+public import NoCompromise.Cones.MinimalGraphC2
+public import NoCompromise.Cones.MinimalGraphEquation
+public import NoCompromise.Cones.MinimalGraphEquationMain
+public import NoCompromise.Cones.MinimalGraphPointwise
+public import NoCompromise.Cones.SmoothExcess
+public import NoCompromise.Cones.SmoothGraph
+public import NoCompromise.Cones.SmoothHomogeneous
+public import NoCompromise.Cones.SmoothMain
+public import NoCompromise.Cones.ThreeDimFinal
+public import NoCompromise.Cones.ThreeDimMain
+public import NoCompromise.Hull.Defs
+public import NoCompromise.Hull.Properties
+public import NoCompromise.Surface.Morse
+public import NoCompromise.Surface.MorseBand
+public import NoCompromise.Surface.MorseCount
+public import NoCompromise.Surface.MorseSectors
+public import NoCompromise.Surface.TangentFlow
+public import NoCompromise.CapacitaryK.CollarMass
+public import NoCompromise.CapacitaryK.Endpoint
+public import NoCompromise.CapacitaryK.FarFieldMass
+public import NoCompromise.CapacitaryK.FarFieldZero
+public import NoCompromise.CapacitaryK.FromPotential
+public import NoCompromise.CapacitaryK.KelvinNormalization
+public import NoCompromise.CapacitaryK.KelvinSecondOrder
+public import NoCompromise.CapacitaryK.KelvinTranslation
+public import NoCompromise.CapacitaryK.PotentialAssembly
+public import NoCompromise.Cones.NoSingular
+public import NoCompromise.Cones.NoSingularChart
+public import NoCompromise.Cones.NoSingularDefs
+public import NoCompromise.Cones.NoSingularExcess
+public import NoCompromise.Cones.NoSingularGlobal
+public import NoCompromise.Cones.SmoothFinal
+public import NoCompromise.CapacitaryK.LevelSandwich
+public import NoCompromise.Capacity.ExistenceLimit
+public import NoCompromise.Capacity.Translate
+public import NoCompromise.Classification.Subcritical
+public import NoCompromise.Elliptic.BoundaryNeumannC2Scaled
+public import NoCompromise.Elliptic.BoundaryNeumannClosedScaling
+public import NoCompromise.Elliptic.BoundaryNeumannReflectC2Interface
+public import NoCompromise.Elliptic.NeumannGlue
+public import NoCompromise.Elliptic.NeumannInterior
+public import NoCompromise.Elliptic.NeumannInteriorLaplacian
+public import NoCompromise.Elliptic.NeumannInteriorSmooth
+public import NoCompromise.Elliptic.NeumannLocalize
+public import NoCompromise.Elliptic.NeumannLocalizeBoundary
+public import NoCompromise.Elliptic.NeumannLocalizeCoefficient
+public import NoCompromise.Elliptic.NeumannLocalizeExtension
+public import NoCompromise.Elliptic.NeumannLocalizeIntegrals
+public import NoCompromise.Elliptic.NeumannLocalizeMap
+public import NoCompromise.Elliptic.NeumannLocalizePullback
+public import NoCompromise.Elliptic.NeumannLocalizeTests
+public import NoCompromise.Elliptic.NeumannUniqueDiff
+public import NoCompromise.Green.IdentityCapacity
+public import NoCompromise.Isoperimetric.Rigidity
+public import NoCompromise.Isoperimetric.RigidityAffine
+public import NoCompromise.Isoperimetric.RigidityHessian
+public import NoCompromise.Isoperimetric.RigiditySmooth
+public import NoCompromise.Surface.MorseChart
+public import NoCompromise.Surface.MorseCoords
+public import NoCompromise.Surface.MorseMerge
+public import NoCompromise.Surface.MorseModel
+public import NoCompromise.Surface.MorseSurfaceChart
+public import NoCompromise.Surface.SurfaceChart
+public import NoCompromise.Surface.MorseCoordsPlanar
+public import NoCompromise.Surface.MorseDischarged
+public import NoCompromise.Surface.SublevelAttach
+public import NoCompromise.Surface.SublevelClosure
+public import NoCompromise.Surface.SublevelClosureCount
+public import NoCompromise.Surface.SublevelClosureLocal
+public import NoCompromise.Surface.SublevelClosureMerge
+public import NoCompromise.Surface.SublevelClosureSaddle
+public import NoCompromise.Surface.SublevelClosureTwo
+public import NoCompromise.Surface.SublevelClosureZero
+public import NoCompromise.Surface.SublevelStable
+public import NoCompromise.Capacity.AnnularBarrier
+public import NoCompromise.Capacity.AnnularDirichlet
+public import NoCompromise.Capacity.FluxLevel
+public import NoCompromise.Capacity.HullExistence
+public import NoCompromise.Green.SecondIdentity
+public import NoCompromise.Hull.InteriorBall
+public import NoCompromise.Isoperimetric.RigidityBootstrap
+public import NoCompromise.Isoperimetric.RigidityCMC
+public import NoCompromise.Isoperimetric.RigidityEulerLagrange
+public import NoCompromise.Isoperimetric.RigidityMinimal
+public import NoCompromise.Isoperimetric.RigidityRegularity
+public import NoCompromise.Isoperimetric.RigiditySmoothCharts
+public import NoCompromise.Isoperimetric.RigidityStatement
+public import NoCompromise.CapacitaryK.BochnerInvariants
+public import NoCompromise.CapacitaryK.BochnerScalar
+public import NoCompromise.CapacitaryK.CapacitaryRadialGraph
+public import NoCompromise.CapacitaryK.FarFieldUnconditional
+public import NoCompromise.CapacitaryK.FarMassDensity
+public import NoCompromise.CapacitaryK.FarMassExpansion
+public import NoCompromise.CapacitaryK.GradNormExpansion
+public import NoCompromise.CapacitaryK.GradNormFarExpansion
+public import NoCompromise.CapacitaryK.LevelRadialGraph
+public import NoCompromise.CapacitaryK.PolarMass
+public import NoCompromise.CapacitaryK.PolarMassExpansion
+public import NoCompromise.CapacitaryK.QuadrupoleMean
+public import NoCompromise.CapacitaryK.TranslatedDerivatives
+public import NoCompromise.Binding.Main
+public import NoCompromise.Binding.RelaxedAttained
+public import NoCompromise.Classification.Endpoint
+public import NoCompromise.Isoperimetric.ABPNeumannC3
+public import NoCompromise.Isoperimetric.BallSmoothBoundary
+public import NoCompromise.Isoperimetric.ComponentsC3
+public import NoCompromise.Isoperimetric.RigidityC3
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomBounds
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomData
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomPrimitive
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomReduction
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomSmooth
+public import NoCompromise.Elliptic.NeumannChartC1Ambient
+public import NoCompromise.Elliptic.NeumannChartC1Data
+public import NoCompromise.Elliptic.NeumannChartC1Flat
+public import NoCompromise.Elliptic.NeumannChartC1Geometry
+public import NoCompromise.Elliptic.NeumannChartC1Smooth
+public import NoCompromise.Elliptic.NeumannChartC2Flat
+public import NoCompromise.Elliptic.NeumannChartC3Ambient
+public import NoCompromise.Elliptic.NeumannChartC3Data
+public import NoCompromise.Elliptic.NeumannChartC3Flat
+public import NoCompromise.Elliptic.NeumannChartC3Geometry
+public import NoCompromise.Elliptic.NeumannChartC3Localize
+public import NoCompromise.Elliptic.NeumannChartC3Regularity
+public import NoCompromise.Isoperimetric.ABPNeumannC1
+public import NoCompromise.Isoperimetric.ABPNeumannC3Local
+public import NoCompromise.Surface.GaussSard
+public import NoCompromise.Surface.GaussSardChart
+public import NoCompromise.Surface.GaussSardMain
+public import NoCompromise.Surface.LevelArc
+public import NoCompromise.Surface.LevelFlow
+public import NoCompromise.Surface.MergeDisjoint
+public import NoCompromise.Surface.MergeDisjointCore
+public import NoCompromise.Surface.SaddleChart
+public import NoCompromise.Topology.OrbitEnds
+public import NoCompromise.Surface.TotalCurvatureIndex
+public import NoCompromise.Surface.TotalCurvatureIndexBound
+public import NoCompromise.Surface.TotalCurvatureIndexBridge
+public import NoCompromise.Surface.TotalCurvatureIndexTangent
+public import NoCompromise.Classification.CapEstimate
+public import NoCompromise.Stationary.CapEstimateAssembly
+public import NoCompromise.Stationary.TranslateDomain
+public import NoCompromise.CapacitaryK.BoundaryMeanCurvature
+public import NoCompromise.CapacitaryK.BoundaryNormalDerivative
+public import NoCompromise.CapacitaryK.CollarC2
+public import NoCompromise.CapacitaryK.CollarContinuousFlux
+public import NoCompromise.CapacitaryK.CollarGaussGreen
+public import NoCompromise.CapacitaryK.EndpointBoundary
+public import NoCompromise.CapacitaryK.EndpointFields
+public import NoCompromise.CapacitaryK.InequalitiesC2
+public import NoCompromise.CapacitaryK.InequalitiesFinal
+public import NoCompromise.CapacitaryK.InequalitiesHull
+public import NoCompromise.CapacitaryK.LevelAreaDensity
+public import NoCompromise.CapacitaryK.LevelGradExpansion
+public import NoCompromise.Classification.CapEstimateFinal
+public import NoCompromise.Capacity.FiniteEnergy
+public import NoCompromise.Capacity.HullEnergy
+public import NoCompromise.Capacity.LocalExtension
+public import NoCompromise.Elliptic.BoundaryC2aH1
+public import NoCompromise.Elliptic.BoundaryC2aLocal
+public import NoCompromise.Elliptic.BoundaryC2aTrace
+public import NoCompromise.Elliptic.InteriorC2aDiv
+public import NoCompromise.Elliptic.InteriorC2aH1
+public import NoCompromise.Binding.Unconditional
+public import NoCompromise.Classification.Unconditional
+public import NoCompromise.Isoperimetric.Unconditional
+public import NoCompromise.Surface.TotalCurvatureBoundMain
+public import NoCompromise.Classification.MainOfBoundaryC2
+public import NoCompromise.Elliptic.BoundaryC2aLocalAssembly
+public import NoCompromise.CapacitaryK.LevelRadialArea
+public import NoCompromise.CapacitaryK.GaussBonnetCapacitary
+public import NoCompromise.CapacitaryK.TwoIneqCapacitary
+public import NoCompromise.Green.WronskianCapacitary
+public import NoCompromise.Nonexistence.SharpUnconditional
+public import NoCompromise.Nonexistence.SlicingUnconditional
+public import NoCompromise.Capacity.LevelAsymptotics
+public import NoCompromise.Capacity.LevelRadiusDeriv
+public import NoCompromise.Variation.TransportLocal
+public import NoCompromise.Variation.TransportLocalCutoff
+public import NoCompromise.Variation.TransportLocalDefs
+public import NoCompromise.Variation.TransportLocalExtension
+public import NoCompromise.Variation.TransportLocalExtensionGlobal
+public import NoCompromise.Variation.TransportLocalPerimeter
+public import NoCompromise.Capacity.HullPotentialBoundaryC2
+public import NoCompromise.Capacity.HullPotentialCaccioppoli
+public import NoCompromise.Capacity.HullPotentialCaccioppoliBound
+public import NoCompromise.Elliptic.BoundaryC2aFlatTraceZero
+public import NoCompromise.Elliptic.BoundaryC2aPullback
+public import NoCompromise.Elliptic.BoundaryC2aReflection
+public import NoCompromise.Elliptic.BoundaryC2aShear
+public import NoCompromise.Classification.MainUnconditional
+public import NoCompromise.CapacitaryK.CapacitaryLevelArea
+public import NoCompromise.CapacitaryK.CapacitaryLevelRadius
+public import NoCompromise.CapacitaryK.LevelPExpansion
+public import NoCompromise.CapacitaryK.LevelRadiusDerivatives
+public import NoCompromise.CapacitaryK.LevelRadiusSmooth
+public import NoCompromise.CapacitaryK.RadialGraphArea
+public import NoCompromise.CapacitaryK.RadialGraphAreaFormula
+public import NoCompromise.Elliptic.BoundaryNeumannC2HolderAlgebra
+public import NoCompromise.Elliptic.BoundaryNeumannC2HolderData
+public import NoCompromise.Elliptic.BoundaryNeumannC2HolderDatum
+public import NoCompromise.Elliptic.BoundaryNeumannC2HolderLift
+public import NoCompromise.Elliptic.BoundaryNeumannC2HolderPrimitive
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomFinite
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomHolder
+public import NoCompromise.Elliptic.NeumannChartC2Ambient
+public import NoCompromise.Elliptic.NeumannChartC2Holder
+public import NoCompromise.CapacitaryK.LevelGradDerivatives
+public import NoCompromise.CapacitaryK.LevelRadiusSecondDerivative
+public import NoCompromise.CapacitaryK.InequalitiesHullUnconditional
+public import NoCompromise.Capacity.FluxIdentityHull
+public import NoCompromise.Capacity.HullPotentialC2Holder
+public import NoCompromise.Green.SecondIdentityHull
+public import NoCompromise.Stationary.CapEstimateAssemblyUnconditional
+public import NoCompromise.CapacitaryK.LevelAreaDerivatives
+public import NoCompromise.CapacitaryK.LevelAreaSecondDerivative
+public import NoCompromise.CapacitaryK.LevelGradSecondDerivative
+public import NoCompromise.Capacity.LevelAreaElement
+public import NoCompromise.Capacity.LevelAsymptoticsFull
+public import NoCompromise.Capacity.LevelRadiusSecondDeriv
+public import NoCompromise.Elliptic.BoundaryC2aCover
+public import NoCompromise.Elliptic.BoundaryC2aCoverNorm
+public import NoCompromise.Elliptic.BoundaryNeumannHalfBall
+public import NoCompromise.Elliptic.BoundaryNeumannRecentre
+public import NoCompromise.Elliptic.BoundaryNondivCover
+public import NoCompromise.Elliptic.BoundaryNondivCoverOpen
+public import NoCompromise.Elliptic.BoundaryNondivCoverOpenCoeff
+public import NoCompromise.CapacitaryK.LevelAreaComponents
+public import NoCompromise.CapacitaryK.LevelGradSecondAssembly
+public import NoCompromise.CapacitaryK.LevelGradSpatialDecay
+public import NoCompromise.Elliptic.BoundaryC2aCurved
+public import NoCompromise.Elliptic.BoundaryC2aPullbackGeneral
+public import NoCompromise.Elliptic.BoundaryNeumannIterateStep
+public import NoCompromise.Elliptic.NeumannChartC2AmbientHolder
+public import NoCompromise.Elliptic.NeumannChartC2Atlas
+public import NoCompromise.Flow.FlowCkHigher
+public import NoCompromise.Hull.FrontierConnected
+public import NoCompromise.Topology.Unicoherence
+public import NoCompromise.Surface.MorseCoordsSmooth
+public import NoCompromise.Surface.MorseRadialIntegral
+public import NoCompromise.Surface.MorseSurfaceSmooth
+public import NoCompromise.Surface.SurfaceChartSmooth
+public import NoCompromise.Flow.FlowBoxCk
+public import NoCompromise.Flow.FlowLocalCk
+public import NoCompromise.Flow.FlowManifoldAbstract
+public import NoCompromise.Flow.FlowManifoldBox
+public import NoCompromise.Flow.FlowManifoldDomain
+public import NoCompromise.Flow.FlowManifoldLocalCk
+public import NoCompromise.Flow.FlowMaximal
+public import NoCompromise.Surface.MorseBandSmooth
+public import NoCompromise.Surface.SublevelRetract
+public import NoCompromise.Surface.SublevelRetractMorse
+public import NoCompromise.Surface.TangentFlowCk
+public import NoCompromise.Surface.LevelOneManifold
+public import NoCompromise.Surface.OneManifold
+public import NoCompromise.Topology.Ends
+public import NoCompromise.Topology.OneManifoldCircle
+public import NoCompromise.Topology.OneManifoldDiffeo
+public import NoCompromise.Topology.OneManifoldFlow
+public import NoCompromise.Topology.OneManifoldMain
+public import NoCompromise.Topology.OneManifoldMaximal
+public import NoCompromise.Topology.OneManifoldSmooth
+public import NoCompromise.Elliptic.BoundaryC2aCkBase
+public import NoCompromise.Elliptic.BoundaryC2aCkIterate
+public import NoCompromise.Elliptic.BoundaryC2aCkLevel
+public import NoCompromise.Elliptic.BoundaryC2aCurvedHolder
+public import NoCompromise.Elliptic.BoundaryC2aDifferentiate
+public import NoCompromise.Elliptic.BoundaryC2aShearHolder
+public import NoCompromise.Elliptic.BoundaryC2aSmoothChain
+public import NoCompromise.Elliptic.BoundaryFaceExtension
+public import NoCompromise.Elliptic.BoundaryNeumannCkIterate
+public import NoCompromise.Elliptic.BoundaryNeumannCkLevel
+public import NoCompromise.Elliptic.BoundaryNeumannInhomAllOrders
+public import NoCompromise.Elliptic.BoundaryNeumannIterateC3
+public import NoCompromise.Elliptic.BoundaryNeumannSmoothChain
+public import NoCompromise.Elliptic.CkHolderAlgebra
+public import NoCompromise.Elliptic.NeumannChartSmoothAmbient
+public import NoCompromise.Isoperimetric.ABPNeumannSmooth
+public import NoCompromise.Isoperimetric.ABPNeumannSmoothLocal
+public import NoCompromise.Elliptic.BoundaryC2aCurvedSmooth

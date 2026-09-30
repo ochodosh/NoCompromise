@@ -1,8 +1,12 @@
-import NoCompromise.CapacitaryK.CollarGaussGreen
-import NoCompromise.CapacitaryK.CollarContinuousFlux
-import NoCompromise.CapacitaryK.EndpointFields
-import NoCompromise.CapacitaryK.InequalitiesC2
-import NoCompromise.CapacitaryK.LevelInequality
+module
+
+public import NoCompromise.CapacitaryK.CollarGaussGreen
+public import NoCompromise.CapacitaryK.CollarContinuousFlux
+public import NoCompromise.CapacitaryK.EndpointFields
+public import NoCompromise.CapacitaryK.InequalitiesC2
+public import NoCompromise.CapacitaryK.LevelInequality
+
+@[expose] public section
 
 /-!
 # `thm:capacitary-inequalities` in the blueprint's final form

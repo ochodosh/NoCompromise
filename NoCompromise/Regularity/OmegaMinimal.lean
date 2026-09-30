@@ -1,5 +1,9 @@
-import NoCompromise.BV.Basic
-import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+module
+
+public import NoCompromise.BV.Basic
+public import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+
+@[expose] public section
 
 /-!
 # Perimeter quasiminimality at specified scales

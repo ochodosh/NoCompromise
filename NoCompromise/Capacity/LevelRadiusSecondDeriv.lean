@@ -1,5 +1,9 @@
-import NoCompromise.Capacity.LevelRadiusDeriv
-import NoCompromise.CapacitaryK.LevelRadiusSecondDerivative
+module
+
+public import NoCompromise.Capacity.LevelRadiusDeriv
+public import NoCompromise.CapacitaryK.LevelRadiusSecondDerivative
+
+@[expose] public section
 
 /-!
 # Uniform second angular derivatives of small capacitary levels

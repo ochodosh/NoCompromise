@@ -1,8 +1,12 @@
-import NoCompromise.Elliptic.NeumannChartC2Ambient
-import NoCompromise.Elliptic.NeumannChartC2Holder
-import NoCompromise.Elliptic.BoundaryC2aCoverNorm
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomFinite
-import NoCompromise.Elliptic.BoundaryNeumannC2HolderAlgebra
+module
+
+public import NoCompromise.Elliptic.NeumannChartC2Ambient
+public import NoCompromise.Elliptic.NeumannChartC2Holder
+public import NoCompromise.Elliptic.BoundaryC2aCoverNorm
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomFinite
+public import NoCompromise.Elliptic.BoundaryNeumannC2HolderAlgebra
+
+@[expose] public section
 
 /-!
 # Hölder bounds for the ambient Hessian in a smooth chart (`thm:boundary-neumann`)

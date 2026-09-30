@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.DeformationCompactnessPointwise
-import NoCompromise.Regularity.DeformationEstimate
-import NoCompromise.Regularity.DeformationRepresentative
+module
+
+public import NoCompromise.Regularity.DeformationCompactnessPointwise
+public import NoCompromise.Regularity.DeformationEstimate
+public import NoCompromise.Regularity.DeformationRepresentative
+
+@[expose] public section
 
 /-! # Phase-preserving cylindrical deformation
 

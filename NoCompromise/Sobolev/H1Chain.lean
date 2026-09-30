@@ -1,7 +1,11 @@
-import NoCompromise.Sobolev.H1Approximation
-import NoCompromise.Sobolev.H1Calculus
-import NoCompromise.Sobolev.Hilbert
-import Mathlib.Analysis.InnerProductSpace.Adjoint
+module
+
+public import NoCompromise.Sobolev.H1Approximation
+public import NoCompromise.Sobolev.H1Calculus
+public import NoCompromise.Sobolev.Hilbert
+public import Mathlib.Analysis.InnerProductSpace.Adjoint
+
+@[expose] public section
 
 /-!
 # Quantitative H¹ composition under bi-Lipschitz changes of variables

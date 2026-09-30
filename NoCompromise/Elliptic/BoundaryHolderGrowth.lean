@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryHolderRecurrence
-import NoCompromise.Elliptic.BoundaryHolderData
-import NoCompromise.Elliptic.CampanatoHolderIteration
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderRecurrence
+public import NoCompromise.Elliptic.BoundaryHolderData
+public import NoCompromise.Elliptic.CampanatoHolderIteration
+
+@[expose] public section
 
 /-! Uniform subcritical boundary energy growth and the ensuing normal-excess
 power improvement, applied to the genuine half-ball equation data. -/

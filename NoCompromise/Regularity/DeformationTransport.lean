@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.DeformationCompression
+module
+
+public import NoCompromise.Regularity.DeformationCompression
+
+@[expose] public section
 
 /-! # The compression bound in terms of the actual source perimeter measure -/
 

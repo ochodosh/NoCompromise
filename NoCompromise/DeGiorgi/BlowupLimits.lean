@@ -1,4 +1,8 @@
-import NoCompromise.DeGiorgi.BlowupCompactness
+module
+
+public import NoCompromise.DeGiorgi.BlowupCompactness
+
+@[expose] public section
 
 /-!
 # Both phases persist in blow-up limits

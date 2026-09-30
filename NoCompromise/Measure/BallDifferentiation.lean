@@ -1,8 +1,12 @@
-import Mathlib.MeasureTheory.Covering.BesicovitchVectorSpace
-import Mathlib.MeasureTheory.Covering.Differentiation
-import Mathlib.MeasureTheory.Measure.Support
-import Mathlib.Analysis.InnerProductSpace.PiL2
-import Mathlib.Analysis.Normed.Lp.MeasurableSpace
+module
+
+public import Mathlib.MeasureTheory.Covering.BesicovitchVectorSpace
+public import Mathlib.MeasureTheory.Covering.Differentiation
+public import Mathlib.MeasureTheory.Measure.Support
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Analysis.Normed.Lp.MeasurableSpace
+
+@[expose] public section
 
 /-!
 # Differentiation over open Euclidean balls

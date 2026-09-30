@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.RadialDivergence
+module
+
+public import NoCompromise.Regularity.RadialDivergence
+
+@[expose] public section
 
 /-! # Compact smooth radial test fields -/
 

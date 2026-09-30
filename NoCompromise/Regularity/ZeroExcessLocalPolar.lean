@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.ZeroExcessMollification
+module
+
+public import NoCompromise.Regularity.ZeroExcessMollification
+
+@[expose] public section
 
 /-! # Localizing the genuine polar identity for constant normals -/
 

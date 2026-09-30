@@ -1,6 +1,10 @@
-import NoCompromise.BV.BoundaryCut
-import NoCompromise.BV.TraceReflection
-import NoCompromise.BV.ExteriorGeometry
+module
+
+public import NoCompromise.BV.BoundaryCut
+public import NoCompromise.BV.TraceReflection
+public import NoCompromise.BV.ExteriorGeometry
+
+@[expose] public section
 
 /-!
 # Interior and exterior BV traces on a compact C¹ boundary

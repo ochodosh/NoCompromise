@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryC2aCover
-import NoCompromise.Elliptic.BoundaryNeumannTangential
+module
+
+public import NoCompromise.Elliptic.BoundaryC2aCover
+public import NoCompromise.Elliptic.BoundaryNeumannTangential
+
+@[expose] public section
 
 /-!
 # Full C²,α norm on the half ball `B⁺_{1/2}` (`thm:boundary-C2a`)

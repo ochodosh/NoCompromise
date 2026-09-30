@@ -1,5 +1,9 @@
-import NoCompromise.BV.Basic
-import Mathlib.Topology.UrysohnsLemma
+module
+
+public import NoCompromise.BV.Basic
+public import Mathlib.Topology.UrysohnsLemma
+
+@[expose] public section
 
 /-! # Compact smooth approximation and local mass bounds for excess limits -/
 

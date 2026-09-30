@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2Interior
-import NoCompromise.Elliptic.BoundaryNeumannC2Algebra
-import NoCompromise.Elliptic.BoundaryNeumannC2Extension
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2Interior
+public import NoCompromise.Elliptic.BoundaryNeumannC2Algebra
+public import NoCompromise.Elliptic.BoundaryNeumannC2Extension
+
+@[expose] public section
 
 /-!
 # Boundary C²,α estimates for the homogeneous Neumann problem

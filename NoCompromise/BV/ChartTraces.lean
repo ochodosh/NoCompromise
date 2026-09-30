@@ -1,6 +1,10 @@
-import NoCompromise.BV.GraphCut
-import NoCompromise.DeGiorgi.SmoothBoundary
-import NoCompromise.BV.ScalarDistributionUniqueness
+module
+
+public import NoCompromise.BV.GraphCut
+public import NoCompromise.DeGiorgi.SmoothBoundary
+public import NoCompromise.BV.ScalarDistributionUniqueness
+
+@[expose] public section
 
 /-!
 # BV traces in rigidly placed C¹ boundary charts

@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.TangentRepresentative
-import NoCompromise.Regularity.SlabCap
+module
+
+public import NoCompromise.Regularity.TangentRepresentative
+public import NoCompromise.Regularity.SlabCap
+
+@[expose] public section
 
 /-! # Exact boundary and cylinder covariance for the height bound -/
 

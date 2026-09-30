@@ -1,6 +1,10 @@
-import NoCompromise.Surface.SublevelAttach
-import NoCompromise.Surface.SublevelClosureLocal
-import NoCompromise.Surface.MorseCoordsPlanar
+module
+
+public import NoCompromise.Surface.SublevelAttach
+public import NoCompromise.Surface.SublevelClosureLocal
+public import NoCompromise.Surface.MorseCoordsPlanar
+
+@[expose] public section
 
 /-!
 # `lem:sublevel-closure`, case `λ = 0`

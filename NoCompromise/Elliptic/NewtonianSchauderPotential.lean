@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NewtonianSchauderHessian
-import NoCompromise.Elliptic.NewtonianSchauderNorm
+module
+
+public import NoCompromise.Elliptic.NewtonianSchauderHessian
+public import NoCompromise.Elliptic.NewtonianSchauderNorm
+
+@[expose] public section
 
 /-!
 # Quantitative Hölder bounds for the actual Newtonian potential

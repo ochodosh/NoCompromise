@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.Penalization
-import NoCompromise.Regularity.OmegaMinimal
-import NoCompromise.DeGiorgi.PolarDifferentiation
+module
+
+public import NoCompromise.Regularity.Penalization
+public import NoCompromise.Regularity.OmegaMinimal
+public import NoCompromise.DeGiorgi.PolarDifferentiation
+
+@[expose] public section
 
 /-!
 # Local perimeter quasiminimality from global volume penalization

@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.FarMassExpansion
-import NoCompromise.CapacitaryK.GradNormFarExpansion
+module
+
+public import NoCompromise.CapacitaryK.FarMassExpansion
+public import NoCompromise.CapacitaryK.GradNormFarExpansion
+
+@[expose] public section
 
 /-!
 # `eq:K-p-expansion`, `lem:K-far-field`, `thm:capacitary-inequalities`: `hpexp` discharged

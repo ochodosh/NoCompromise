@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NewtonianSchauderSplit
+module
+
+public import NoCompromise.Elliptic.NewtonianSchauderSplit
+
+@[expose] public section
 
 /-!
 # The smooth far part of the Hessian kernel

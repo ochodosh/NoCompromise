@@ -1,6 +1,10 @@
-import NoCompromise.Cones.TwoDimGap
-import NoCompromise.Cones.HalfplanePerimeter
-import NoCompromise.Cones.Classification
+module
+
+public import NoCompromise.Cones.TwoDimGap
+public import NoCompromise.Cones.HalfplanePerimeter
+public import NoCompromise.Cones.Classification
+
+@[expose] public section
 
 /-!
 # The local chord competitor for planar cones

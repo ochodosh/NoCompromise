@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NondivSchauderDifferenceEquation
-import NoCompromise.Elliptic.NondivSchauderTests
+module
+
+public import NoCompromise.Elliptic.NondivSchauderDifferenceEquation
+public import NoCompromise.Elliptic.NondivSchauderTests
+
+@[expose] public section
 
 /-!
 # The actual difference-quotient vector datum

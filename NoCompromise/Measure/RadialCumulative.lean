@@ -1,4 +1,8 @@
-import NoCompromise.Measure.CumulativeDerivative
+module
+
+public import NoCompromise.Measure.CumulativeDerivative
+
+@[expose] public section
 
 /-!
 # Scalar radial cumulative integrals

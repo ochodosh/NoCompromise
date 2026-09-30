@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderExcess
-import NoCompromise.Elliptic.BoundaryHolderDecayIntegrals
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderExcess
+public import NoCompromise.Elliptic.BoundaryHolderDecayIntegrals
+
+@[expose] public section
 
 /-! Transfer of frozen decay to a comparison solution, with the actual L² error. -/
 

@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.InteriorH2Global
+module
+
+public import NoCompromise.Elliptic.InteriorH2Global
+
+@[expose] public section
 
 /-!
 # Localization of the distributional Poisson equation

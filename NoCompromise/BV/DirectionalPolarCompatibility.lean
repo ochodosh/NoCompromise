@@ -1,6 +1,10 @@
-import NoCompromise.BV.JumpDisintegration
-import NoCompromise.DeGiorgi.Structure
-import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+module
+
+public import NoCompromise.BV.JumpDisintegration
+public import NoCompromise.DeGiorgi.Structure
+public import Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+
+@[expose] public section
 
 /-!
 # Directional variation and the reduced normal component

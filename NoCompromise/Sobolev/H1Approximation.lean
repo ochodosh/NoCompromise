@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1Mollification
-import Mathlib.MeasureTheory.Function.LpSpace.ContinuousCompMeasurePreserving
+module
+
+public import NoCompromise.Sobolev.H1Mollification
+public import Mathlib.MeasureTheory.Function.LpSpace.ContinuousCompMeasurePreserving
+
+@[expose] public section
 
 /-!
 # Strong translation and mollifier approximation in L²

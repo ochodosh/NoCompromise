@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryHolderReflection
-import NoCompromise.Sobolev.H1TraceKernelInward
-import NoCompromise.Sobolev.H1TraceKernelFlat
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderReflection
+public import NoCompromise.Sobolev.H1TraceKernelInward
+public import NoCompromise.Sobolev.H1TraceKernelFlat
+
+@[expose] public section
 
 /-!
 # Genuine zero-boundary tests for flat reflection

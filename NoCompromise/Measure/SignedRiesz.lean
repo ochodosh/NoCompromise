@@ -1,6 +1,10 @@
-import Mathlib.MeasureTheory.Integral.RieszMarkovKakutani.Real
-import Mathlib.Topology.ContinuousMap.Bounded.Normed
-import Mathlib.Tactic
+module
+
+public import Mathlib.MeasureTheory.Integral.RieszMarkovKakutani.Real
+public import Mathlib.Topology.ContinuousMap.Bounded.Normed
+public import Mathlib.Tactic
+
+@[expose] public section
 
 /-!
 # Signed Riesz representation from positive functionals

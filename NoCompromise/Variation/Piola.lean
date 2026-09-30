@@ -1,7 +1,11 @@
-import NoCompromise.Area.Cofactor
-import NoCompromise.BV.Defs
-import Mathlib.Analysis.Calculus.FDeriv.Symmetric
-import Mathlib.Analysis.Calculus.FDeriv.WithLp
+module
+
+public import NoCompromise.Area.Cofactor
+public import NoCompromise.BV.Defs
+public import Mathlib.Analysis.Calculus.FDeriv.Symmetric
+public import Mathlib.Analysis.Calculus.FDeriv.WithLp
+
+@[expose] public section
 
 /-!
 # The local Piola identity

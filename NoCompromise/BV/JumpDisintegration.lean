@@ -1,5 +1,9 @@
-import NoCompromise.BV.JointJumpDensity
-import Mathlib.MeasureTheory.VectorMeasure.WithDensityVec
+module
+
+public import NoCompromise.BV.JointJumpDensity
+public import Mathlib.MeasureTheory.VectorMeasure.WithDensityVec
+
+@[expose] public section
 
 /-!
 # Full directional disintegration of binary BV derivatives

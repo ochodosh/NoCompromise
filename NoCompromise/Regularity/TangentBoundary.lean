@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.Monotonicity
+module
+
+public import NoCompromise.Regularity.Monotonicity
+
+@[expose] public section
 
 /-!
 # Nontriviality of a minimizing tangent limit

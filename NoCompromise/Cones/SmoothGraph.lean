@@ -1,6 +1,10 @@
-import NoCompromise.Cones.ThreeDim
-import NoCompromise.Regularity.EpsRegularityMain
-import NoCompromise.Regularity.ExcessDecayCoordinates
+module
+
+public import NoCompromise.Cones.ThreeDim
+public import NoCompromise.Regularity.EpsRegularityMain
+public import NoCompromise.Regularity.ExcessDecayCoordinates
+
+@[expose] public section
 
 /-!
 # `thm:eps-regularity` at nonzero boundary points of a minimising cone (toward `lem:cone-smooth`)

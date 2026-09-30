@@ -1,4 +1,8 @@
-import NoCompromise.BV.Traces
+module
+
+public import NoCompromise.BV.Traces
+
+@[expose] public section
 
 /-!
 # Integrable BV traces on flat interfaces

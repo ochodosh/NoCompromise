@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.FrozenDecayVariance
-import NoCompromise.Elliptic.FrozenDecayEstimates
+module
+
+public import NoCompromise.Elliptic.FrozenDecayVariance
+public import NoCompromise.Elliptic.FrozenDecayEstimates
+
+@[expose] public section
 
 /-! Pointwise interior bounds imply the two integral decay rates. The
 large-radius case uses monotonicity and the minimizing property of the mean. -/

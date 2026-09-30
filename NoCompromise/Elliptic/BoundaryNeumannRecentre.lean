@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2HolderData
-import NoCompromise.Elliptic.BoundaryC2aLocal
-import NoCompromise.Elliptic.BoundaryHolderSimilarity
-import NoCompromise.Elliptic.QuasilinearCampanatoPullback
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2HolderData
+public import NoCompromise.Elliptic.BoundaryC2aLocal
+public import NoCompromise.Elliptic.BoundaryHolderSimilarity
+public import NoCompromise.Elliptic.QuasilinearCampanatoPullback
+
+@[expose] public section
 
 /-!
 # Recentring the flat inhomogeneous Neumann identity (`thm:boundary-neumann`)

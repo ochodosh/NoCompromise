@@ -1,5 +1,9 @@
-import NoCompromise.Capacity.HullEnergy
-import Mathlib.Geometry.Manifold.PartitionOfUnity
+module
+
+public import NoCompromise.Capacity.HullEnergy
+public import Mathlib.Geometry.Manifold.PartitionOfUnity
+
+@[expose] public section
 
 /-!
 # Local-to-global form of the named C² boundary-extension hypothesis

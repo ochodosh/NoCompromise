@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.ClassicalCubeCalculus
-import NoCompromise.Elliptic.ClassicalGaussGreenW11
+module
+
+public import NoCompromise.Elliptic.ClassicalCubeCalculus
+public import NoCompromise.Elliptic.ClassicalGaussGreenW11
+
+@[expose] public section
 
 /-!
 # Genuine W¹,¹ Gauss–Green on coordinate cubes

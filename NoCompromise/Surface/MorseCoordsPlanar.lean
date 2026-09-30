@@ -1,5 +1,9 @@
-import NoCompromise.Surface.MorseCoords
-import NoCompromise.Surface.MorseSurfaceChart
+module
+
+public import NoCompromise.Surface.MorseCoords
+public import NoCompromise.Surface.MorseSurfaceChart
+
+@[expose] public section
 
 /-!
 # The planar Morse lemma `lem:morse-coords`

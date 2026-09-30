@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.DeformationLocality
+module
+
+public import NoCompromise.Regularity.DeformationLocality
+
+@[expose] public section
 
 /-! # The extension's column perimeter is exactly the original cylinder perimeter -/
 

@@ -1,6 +1,10 @@
-import NoCompromise.DeGiorgi.RadialTests
-import NoCompromise.DeGiorgi.NoAtoms
-import NoCompromise.Measure.RadialCumulative
+module
+
+public import NoCompromise.DeGiorgi.RadialTests
+public import NoCompromise.DeGiorgi.NoAtoms
+public import NoCompromise.Measure.RadialCumulative
+
+@[expose] public section
 
 /-!
 # Radial flux of the perimeter derivative

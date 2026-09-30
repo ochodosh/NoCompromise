@@ -1,5 +1,9 @@
-import NoCompromise.BV.CoareaCharts
-import NoCompromise.BV.CoareaIsometry
+module
+
+public import NoCompromise.BV.CoareaCharts
+public import NoCompromise.BV.CoareaIsometry
+
+@[expose] public section
 
 /-!
 # Regular scalar level charts with their full differentiability order

@@ -1,4 +1,8 @@
-import NoCompromise.Surface.Morse
+module
+
+public import NoCompromise.Surface.Morse
+
+@[expose] public section
 
 /-!
 # Local arcs of regular levels

@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.HarmonicAlgebra
+module
+
+public import NoCompromise.Elliptic.HarmonicAlgebra
+
+@[expose] public section
 
 /-!
 # The explicit three-dimensional Hopf barrier

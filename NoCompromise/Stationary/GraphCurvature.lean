@@ -1,7 +1,11 @@
-import NoCompromise.Stationary.Defs
-import NoCompromise.Stationary.EulerLagrange
-import Mathlib.LinearAlgebra.PID
-import Mathlib.Analysis.InnerProductSpace.Trace
+module
+
+public import NoCompromise.Stationary.Defs
+public import NoCompromise.Stationary.EulerLagrange
+public import Mathlib.LinearAlgebra.PID
+public import Mathlib.Analysis.InnerProductSpace.Trace
+
+@[expose] public section
 
 /-!
 # Mean curvature of a boundary chart

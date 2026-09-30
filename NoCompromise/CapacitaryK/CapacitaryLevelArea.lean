@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.CapacitaryLevelRadius
-import NoCompromise.CapacitaryK.RadialGraphAreaFormula
+module
+
+public import NoCompromise.CapacitaryK.CapacitaryLevelRadius
+public import NoCompromise.CapacitaryK.RadialGraphAreaFormula
+
+@[expose] public section
 
 /-!
 # `eq:K-dA` as an identity of measures on the small capacitary levels

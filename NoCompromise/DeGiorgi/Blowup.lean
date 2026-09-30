@@ -1,7 +1,11 @@
-import NoCompromise.DeGiorgi.BlowupLimits
-import NoCompromise.DeGiorgi.HalfspaceRigidity
-import NoCompromise.DeGiorgi.BlowupPolar
-import Mathlib.Order.Filter.AtTopBot.CountablyGenerated
+module
+
+public import NoCompromise.DeGiorgi.BlowupLimits
+public import NoCompromise.DeGiorgi.HalfspaceRigidity
+public import NoCompromise.DeGiorgi.BlowupPolar
+public import Mathlib.Order.Filter.AtTopBot.CountablyGenerated
+
+@[expose] public section
 
 /-!
 # Identification and convergence of perimeter blow-ups

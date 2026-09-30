@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NondivSchauderDifference
+module
+
+public import NoCompromise.Elliptic.NondivSchauderDifference
+
+@[expose] public section
 
 /-! The actual averaged derivative matrix in the quasilinear difference equation.
 Its increment identity is the fundamental theorem of calculus; its bounds are

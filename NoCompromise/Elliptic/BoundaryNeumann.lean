@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryNeumannHolder
-import NoCompromise.Elliptic.BoundaryNeumannWeak
-import NoCompromise.Elliptic.CampanatoHolder
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannHolder
+public import NoCompromise.Elliptic.BoundaryNeumannWeak
+public import NoCompromise.Elliptic.CampanatoHolder
+
+@[expose] public section
 
 /-!
 # Homogeneous conormal boundary regularity

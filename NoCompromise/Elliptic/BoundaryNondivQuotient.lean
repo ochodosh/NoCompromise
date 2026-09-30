@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NondivSchauderDifferenceEquation
-import NoCompromise.Elliptic.BoundaryHolderDecayIntegrals
+module
+
+public import NoCompromise.Elliptic.NondivSchauderDifferenceEquation
+public import NoCompromise.Elliptic.BoundaryHolderDecayIntegrals
+
+@[expose] public section
 
 /-!
 # Tangential difference quotients on the flat half ball

@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.TangentBoundary
-import NoCompromise.Regularity.TangentScaling
+module
+
+public import NoCompromise.Regularity.TangentBoundary
+public import NoCompromise.Regularity.TangentScaling
+
+@[expose] public section
 
 /-!
 # Vanishing radial pairing from constant perimeter ratios

@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NondivSchauderNorm
+module
+
+public import NoCompromise.Elliptic.NondivSchauderNorm
+
+@[expose] public section
 
 /-!
 # Coefficient divergence and the scalar datum

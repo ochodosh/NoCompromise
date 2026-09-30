@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.DeformationCompactnessSource
-import NoCompromise.Regularity.DeformationCutBoundsStrip
-import NoCompromise.BV.Compactness
+module
+
+public import NoCompromise.Regularity.DeformationCompactnessSource
+public import NoCompromise.Regularity.DeformationCutBoundsStrip
+public import NoCompromise.BV.Compactness
+
+@[expose] public section
 
 /-! # Genuine local BV compactness of the compression competitors -/
 

@@ -1,6 +1,10 @@
-import NoCompromise.BV.AnnularGluing
-import NoCompromise.BV.Coarea
-import NoCompromise.Regularity.DensityCutComparison
+module
+
+public import NoCompromise.BV.AnnularGluing
+public import NoCompromise.BV.Coarea
+public import NoCompromise.Regularity.DensityCutComparison
+
+@[expose] public section
 
 /-!
 # Local finite-perimeter realizations for convergence arguments

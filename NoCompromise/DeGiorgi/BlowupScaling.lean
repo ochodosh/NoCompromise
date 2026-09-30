@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.RelativeScaling
+module
+
+public import NoCompromise.Sobolev.RelativeScaling
+
+@[expose] public section
 
 /-!
 # Translation and dilation of perimeter blow-ups

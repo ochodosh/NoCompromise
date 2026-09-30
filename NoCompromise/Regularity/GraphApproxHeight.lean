@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.GraphGoodExtensionHeight
-import NoCompromise.Regularity.GraphEnergy
-import NoCompromise.Regularity.GraphDirichlet
+module
+
+public import NoCompromise.Regularity.GraphGoodExtensionHeight
+public import NoCompromise.Regularity.GraphEnergy
+public import NoCompromise.Regularity.GraphDirichlet
+
+@[expose] public section
 
 /-!
 # Actual graph approximation uniformly over requested slab widths

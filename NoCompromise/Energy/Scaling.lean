@@ -1,7 +1,11 @@
-import NoCompromise.Energy.Coulomb
-import NoCompromise.BV.Basic
-import NoCompromise.Energy.Defs
-import NoCompromise.Measure.NullChangeOfVariables
+module
+
+public import NoCompromise.Energy.Coulomb
+public import NoCompromise.BV.Basic
+public import NoCompromise.Energy.Defs
+public import NoCompromise.Measure.NullChangeOfVariables
+
+@[expose] public section
 
 /-!
 # Translation and dilation of Coulomb energy

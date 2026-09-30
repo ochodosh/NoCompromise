@@ -1,6 +1,10 @@
-import NoCompromise.CapacitaryK.LevelInequality
-import NoCompromise.CapacitaryK.LevelArea
-import NoCompromise.CapacitaryK.FromLevels
+module
+
+public import NoCompromise.CapacitaryK.LevelInequality
+public import NoCompromise.CapacitaryK.LevelArea
+public import NoCompromise.CapacitaryK.FromLevels
+
+@[expose] public section
 
 /-!
 # `thm:capacitary-inequalities` for the harmonic `u` (chapter 31, assembly)

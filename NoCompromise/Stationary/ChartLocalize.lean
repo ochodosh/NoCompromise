@@ -1,6 +1,10 @@
-import NoCompromise.Stationary.Defs
-import NoCompromise.Elliptic.NondivSchauderNorm
-import Mathlib.Analysis.Calculus.BumpFunction.InnerProduct
+module
+
+public import NoCompromise.Stationary.Defs
+public import NoCompromise.Elliptic.NondivSchauderNorm
+public import Mathlib.Analysis.Calculus.BumpFunction.InnerProduct
+
+@[expose] public section
 
 /-!
 # Localizing boundary charts

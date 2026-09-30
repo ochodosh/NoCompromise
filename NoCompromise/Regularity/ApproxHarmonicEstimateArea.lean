@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.ApproxHarmonicTest
-import NoCompromise.Regularity.ApproxHarmonicAlgebra
+module
+
+public import NoCompromise.Regularity.ApproxHarmonicTest
+public import NoCompromise.Regularity.ApproxHarmonicAlgebra
+
+@[expose] public section
 
 /-! # Signed graph area and the actual vertical first-variation density -/
 

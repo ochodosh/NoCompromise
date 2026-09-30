@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.W11TraceFlat
-import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
+module
+
+public import NoCompromise.Sobolev.W11TraceFlat
+public import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
+
+@[expose] public section
 
 /-!
 # Strong L¹ approximation and the weak flat trace

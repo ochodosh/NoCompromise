@@ -1,6 +1,10 @@
-import NoCompromise.Topology.OneManifoldFlow
-import NoCompromise.Topology.Ends
-import Mathlib.Analysis.SpecialFunctions.Log.Basic
+module
+
+public import NoCompromise.Topology.OneManifoldFlow
+public import NoCompromise.Topology.Ends
+public import Mathlib.Analysis.SpecialFunctions.Log.Basic
+
+@[expose] public section
 
 /-!
 # Maximal integral curves on one-manifolds

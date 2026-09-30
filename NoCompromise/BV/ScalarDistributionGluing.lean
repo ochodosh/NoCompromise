@@ -1,5 +1,9 @@
-import NoCompromise.BV.ScalarDistributionUniqueness
-import Mathlib.Topology.Compactness.Lindelof
+module
+
+public import NoCompromise.BV.ScalarDistributionUniqueness
+public import Mathlib.Topology.Compactness.Lindelof
+
+@[expose] public section
 
 /-!
 # Gluing local scalar derivative identities

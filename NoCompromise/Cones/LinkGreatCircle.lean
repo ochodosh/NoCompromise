@@ -1,5 +1,9 @@
-import NoCompromise.Cones.GreatCircle
-import NoCompromise.Cones.Classification
+module
+
+public import NoCompromise.Cones.GreatCircle
+public import NoCompromise.Cones.Classification
+
+@[expose] public section
 
 /-!
 # The link of a three-dimensional minimising cone is one great circle, from its Euler equation

@@ -1,7 +1,11 @@
-import NoCompromise.Regularity.HeightCompactness
-import NoCompromise.Regularity.Excess
-import NoCompromise.Sobolev.PlanarGN
-import NoCompromise.DeGiorgi.BlowupPolar
+module
+
+public import NoCompromise.Regularity.HeightCompactness
+public import NoCompromise.Regularity.Excess
+public import NoCompromise.Sobolev.PlanarGN
+public import NoCompromise.DeGiorgi.BlowupPolar
+
+@[expose] public section
 
 /-! # Small quadratic normal excess controls the actual linear polar error -/
 

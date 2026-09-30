@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.DeformationExtensionPhases
+module
+
+public import NoCompromise.Regularity.DeformationExtensionPhases
+
+@[expose] public section
 
 /-! # Locality of the genuine perimeter measure for the slice extension -/
 

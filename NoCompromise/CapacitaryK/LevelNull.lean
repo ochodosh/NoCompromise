@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.PushforwardDensity
-import NoCompromise.CapacitaryK.Representatives
+module
+
+public import NoCompromise.CapacitaryK.PushforwardDensity
+public import NoCompromise.CapacitaryK.Representatives
+
+@[expose] public section
 
 /-!
 # Regular levels carry no `μ`-mass (chapter 31, input to `lem:K-slab-H` and `lem:K-p-geometric`)

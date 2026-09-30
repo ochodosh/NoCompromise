@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NewtonianSchauderLimit
-import NoCompromise.Energy.SignedPotentialRegularity
+module
+
+public import NoCompromise.Elliptic.NewtonianSchauderLimit
+public import NoCompromise.Energy.SignedPotentialRegularity
+
+@[expose] public section
 
 /-!
 # Classical identification of the Newtonian Hessian

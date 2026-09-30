@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.GraphProjectedExcess
+module
+
+public import NoCompromise.Regularity.GraphProjectedExcess
+
+@[expose] public section
 
 /-! # The quantitative good-base estimate for graph approximation -/
 

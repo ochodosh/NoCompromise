@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.W11Bounds
-import NoCompromise.Sobolev.H1ChartExtension
+module
+
+public import NoCompromise.Sobolev.W11Bounds
+public import NoCompromise.Sobolev.H1ChartExtension
+
+@[expose] public section
 
 /-!
 # W¹,¹ extension pieces in Lipschitz charts

@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.H1TraceBoundary
-import NoCompromise.Sobolev.H1Density
-import Mathlib.Analysis.Normed.Operator.Extend
+module
+
+public import NoCompromise.Sobolev.H1TraceBoundary
+public import NoCompromise.Sobolev.H1Density
+public import Mathlib.Analysis.Normed.Operator.Extend
+
+@[expose] public section
 
 /-!
 # The constructed H¹ trace on bounded Lipschitz domains

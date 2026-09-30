@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannInhomAllOrders
-import NoCompromise.Elliptic.NeumannChartC2Ambient
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannInhomAllOrders
+public import NoCompromise.Elliptic.NeumannChartC2Ambient
+
+@[expose] public section
 
 /-!
 # Ambient regularity of every order up to the boundary in a smooth chart

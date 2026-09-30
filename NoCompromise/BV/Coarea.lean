@@ -1,8 +1,12 @@
-import NoCompromise.BV.CoareaApproximation
-import NoCompromise.BV.CoareaBound
-import NoCompromise.BV.CoareaMeasurability
-import NoCompromise.BV.CoareaSmooth
-import NoCompromise.BV.Compactness
+module
+
+public import NoCompromise.BV.CoareaApproximation
+public import NoCompromise.BV.CoareaBound
+public import NoCompromise.BV.CoareaMeasurability
+public import NoCompromise.BV.CoareaSmooth
+public import NoCompromise.BV.Compactness
+
+@[expose] public section
 
 /-!
 # Coarea for locally BV functions

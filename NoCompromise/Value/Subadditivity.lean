@@ -1,5 +1,9 @@
-import NoCompromise.Value.Defs
-import NoCompromise.Value.BoundedApprox
+module
+
+public import NoCompromise.Value.Defs
+public import NoCompromise.Value.BoundedApprox
+
+@[expose] public section
 
 /-!
 # Subadditivity of the value function

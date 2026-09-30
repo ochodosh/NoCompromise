@@ -1,5 +1,9 @@
-import NoCompromise.Variation.StraightCofactor
-import Mathlib.MeasureTheory.Function.Jacobian
+module
+
+public import NoCompromise.Variation.StraightCofactor
+public import Mathlib.MeasureTheory.Function.Jacobian
+
+@[expose] public section
 
 /-!
 # First variation of volume

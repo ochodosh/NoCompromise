@@ -1,7 +1,11 @@
-import NoCompromise.Threshold.Ledger
-import NoCompromise.Nonexistence.Slicing
-import Mathlib.Analysis.SpecialFunctions.Sqrt
-import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
+module
+
+public import NoCompromise.Threshold.Ledger
+public import NoCompromise.Nonexistence.Slicing
+public import Mathlib.Analysis.SpecialFunctions.Sqrt
+public import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
+
+@[expose] public section
 
 /-! # Sharp nonexistence above the threshold
 

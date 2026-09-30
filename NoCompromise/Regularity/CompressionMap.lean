@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.CompressionLinear
-import Mathlib.Analysis.Calculus.Gradient.Basic
+module
+
+public import NoCompromise.Regularity.CompressionLinear
+public import Mathlib.Analysis.Calculus.Gradient.Basic
+
+@[expose] public section
 
 /-! # The genuine vertical compression map and its inverse -/
 

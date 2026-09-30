@@ -1,7 +1,11 @@
-import NoCompromise.Surface.MergeDisjointCore
-import NoCompromise.Surface.LevelArc
-import NoCompromise.Surface.MorseCount
-import NoCompromise.Surface.SublevelClosure
+module
+
+public import NoCompromise.Surface.MergeDisjointCore
+public import NoCompromise.Surface.LevelArc
+public import NoCompromise.Surface.MorseCount
+public import NoCompromise.Surface.SublevelClosure
+
+@[expose] public section
 
 /-!
 # `lem:merge-disjoint`

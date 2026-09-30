@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.IsometryExcess
-import NoCompromise.Regularity.ReversePoincare
+module
+
+public import NoCompromise.Regularity.IsometryExcess
+public import NoCompromise.Regularity.ReversePoincare
+
+@[expose] public section
 
 /-! # Reverse Poincaré in an arbitrary orthogonal coordinate frame -/
 

@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.TiltCapsGeometry
-import NoCompromise.Regularity.TiltPhases
-import NoCompromise.Regularity.IsometryDensity
+module
+
+public import NoCompromise.Regularity.TiltCapsGeometry
+public import NoCompromise.Regularity.TiltPhases
+public import NoCompromise.Regularity.IsometryDensity
+
+@[expose] public section
 
 /-! # Correct density phases on the actual tilted caps -/
 

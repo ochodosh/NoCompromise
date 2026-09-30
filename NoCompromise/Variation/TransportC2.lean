@@ -1,7 +1,11 @@
-import NoCompromise.Variation.PiolaPullback
-import NoCompromise.Variation.StraightCofactor
-import NoCompromise.DeGiorgi.AmbientPolar
-import NoCompromise.Measure.PolarTransport
+module
+
+public import NoCompromise.Variation.PiolaPullback
+public import NoCompromise.Variation.StraightCofactor
+public import NoCompromise.DeGiorgi.AmbientPolar
+public import NoCompromise.Measure.PolarTransport
+
+@[expose] public section
 
 
 /-!

@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.SlabCap
-import NoCompromise.DeGiorgi.BlowupPolar
+module
+
+public import NoCompromise.Regularity.SlabCap
+public import NoCompromise.DeGiorgi.BlowupPolar
+
+@[expose] public section
 
 /-! # Exact cylinder covariance under positive translation and dilation -/
 

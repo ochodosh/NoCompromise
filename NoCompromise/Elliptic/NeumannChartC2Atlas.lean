@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.NeumannChartC2AmbientHolder
-import NoCompromise.Elliptic.BoundaryNeumannRecentre
-import NoCompromise.Elliptic.NeumannInteriorSmooth
+module
+
+public import NoCompromise.Elliptic.NeumannChartC2AmbientHolder
+public import NoCompromise.Elliptic.BoundaryNeumannRecentre
+public import NoCompromise.Elliptic.NeumannInteriorSmooth
+
+@[expose] public section
 
 /-!
 # Uniform C²,α bounds on a boundary layer over a finite atlas (`thm:boundary-neumann`)

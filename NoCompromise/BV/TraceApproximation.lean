@@ -1,4 +1,8 @@
-import NoCompromise.BV.FlatTraces
+module
+
+public import NoCompromise.BV.FlatTraces
+
+@[expose] public section
 
 /-!
 # One-sided approximation of BV traces

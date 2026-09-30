@@ -1,9 +1,13 @@
-import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
-import Mathlib.Analysis.Calculus.Deriv.Inv
-import Mathlib.Analysis.Calculus.Deriv.Pow
-import Mathlib.Analysis.Real.Sqrt
-import Mathlib.MeasureTheory.Integral.DivergenceTheorem
-import Mathlib.Topology.Order.Monotone
+module
+
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+public import Mathlib.Analysis.Calculus.Deriv.Inv
+public import Mathlib.Analysis.Calculus.Deriv.Pow
+public import Mathlib.Analysis.Real.Sqrt
+public import Mathlib.MeasureTheory.Integral.DivergenceTheorem
+public import Mathlib.Topology.Order.Monotone
+
+@[expose] public section
 
 /-!
 # One-dimensional cores of `lem:K-h-monotone` and `prop:K-two-ineq` (chapter 31)

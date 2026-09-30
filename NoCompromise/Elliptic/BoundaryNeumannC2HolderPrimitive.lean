@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomFinite
-import NoCompromise.Elliptic.BoundaryNeumannC2HolderAlgebra
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomFinite
+public import NoCompromise.Elliptic.BoundaryNeumannC2HolderAlgebra
+
+@[expose] public section
 
 /-!
 # C¹,α bounds for the vertical primitive of the Neumann source

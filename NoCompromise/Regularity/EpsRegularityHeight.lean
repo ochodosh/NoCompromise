@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.HeightBound
-import NoCompromise.Regularity.ExcessDecayCoordinates
-import NoCompromise.Regularity.GraphTwoPointCaps
+module
+
+public import NoCompromise.Regularity.HeightBound
+public import NoCompromise.Regularity.ExcessDecayCoordinates
+public import NoCompromise.Regularity.GraphTwoPointCaps
+
+@[expose] public section
 
 /-! # Height bounds in general position and vertical boundary crossings -/
 

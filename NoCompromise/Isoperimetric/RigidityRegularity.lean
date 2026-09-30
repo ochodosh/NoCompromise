@@ -1,7 +1,11 @@
-import NoCompromise.Isoperimetric.Rigidity
-import NoCompromise.Isoperimetric.RigidityMinimal
-import NoCompromise.Cones.NoSingular
-import NoCompromise.Regularity.RepresentativeOpen
+module
+
+public import NoCompromise.Isoperimetric.Rigidity
+public import NoCompromise.Isoperimetric.RigidityMinimal
+public import NoCompromise.Cones.NoSingular
+public import NoCompromise.Regularity.RepresentativeOpen
+
+@[expose] public section
 
 /-!
 # Steps 1–2 of isoperimetric rigidity: the regular representative of an equality set

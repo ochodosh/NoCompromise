@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.ApproxHarmonicEstimateArea
-import NoCompromise.Regularity.TiltPlane
-import NoCompromise.Sobolev.Extension
+module
+
+public import NoCompromise.Regularity.ApproxHarmonicEstimateArea
+public import NoCompromise.Regularity.TiltPlane
+public import NoCompromise.Sobolev.Extension
+
+@[expose] public section
 
 /-! # Genuine area bounds for affine height on a Lipschitz graph -/
 

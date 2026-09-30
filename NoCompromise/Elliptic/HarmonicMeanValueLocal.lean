@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.HarmonicMeanValueBall
-import NoCompromise.Elliptic.SobolevChainHarmonic
+module
+
+public import NoCompromise.Elliptic.HarmonicMeanValueBall
+public import NoCompromise.Elliptic.SobolevChainHarmonic
+
+@[expose] public section
 
 /-!
 # Local harmonic representatives and mean values

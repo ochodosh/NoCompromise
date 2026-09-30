@@ -1,5 +1,9 @@
-import NoCompromise.Classification.CapEstimate
-import NoCompromise.CapacitaryK.InequalitiesFinal
+module
+
+public import NoCompromise.Classification.CapEstimate
+public import NoCompromise.CapacitaryK.InequalitiesFinal
+
+@[expose] public section
 
 /-! # `prop:cap-estimate` modulo `thm:boundary-C2a` and `thm:total-curvature-bound`
 

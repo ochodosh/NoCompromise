@@ -1,4 +1,8 @@
-import NoCompromise.BV.GluingGlobal
+module
+
+public import NoCompromise.BV.GluingGlobal
+
+@[expose] public section
 
 /-!
 # Gluing inside an open domain

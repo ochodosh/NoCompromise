@@ -1,4 +1,8 @@
-import NoCompromise.Cones.LinkComponents
+module
+
+public import NoCompromise.Cones.LinkComponents
+
+@[expose] public section
 
 /-!
 # A closed subset of `S²` which is locally a great-circle arc is one great circle

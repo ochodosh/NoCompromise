@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.GeometricRecurrence
-import Mathlib.Analysis.SpecificLimits.Basic
-import Mathlib.Analysis.Normed.Group.Continuity
+module
+
+public import NoCompromise.Regularity.GeometricRecurrence
+public import Mathlib.Analysis.SpecificLimits.Basic
+public import Mathlib.Analysis.Normed.Group.Continuity
+
+@[expose] public section
 
 /-!
 # Complete-space geometric tail estimates

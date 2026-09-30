@@ -1,5 +1,9 @@
-import NoCompromise.BV.Basic
-import Mathlib.Analysis.Calculus.Deriv.Slope
+module
+
+public import NoCompromise.BV.Basic
+public import Mathlib.Analysis.Calculus.Deriv.Slope
+
+@[expose] public section
 
 /-!
 # Differentiating integrals with uniform quadratic remainders

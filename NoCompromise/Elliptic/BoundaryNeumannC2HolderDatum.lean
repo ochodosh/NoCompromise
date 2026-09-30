@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2HolderPrimitive
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2HolderPrimitive
+
+@[expose] public section
 
 /-!
 # C²,α of the normal coefficient

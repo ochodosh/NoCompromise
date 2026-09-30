@@ -1,4 +1,8 @@
-import NoCompromise.Capacity.HullPotentialCaccioppoli
+module
+
+public import NoCompromise.Capacity.HullPotentialCaccioppoli
+
+@[expose] public section
 
 /-!
 # L² gradient bound for the capacitary potential up to the obstacle

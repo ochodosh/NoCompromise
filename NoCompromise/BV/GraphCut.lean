@@ -1,7 +1,11 @@
-import NoCompromise.BV.GraphTraces
-import NoCompromise.BV.FlatCutMeasure
-import NoCompromise.BV.ScalarC1Pairing
-import NoCompromise.Measure.PolarTransport
+module
+
+public import NoCompromise.BV.GraphTraces
+public import NoCompromise.BV.FlatCutMeasure
+public import NoCompromise.BV.ScalarC1Pairing
+public import NoCompromise.Measure.PolarTransport
+
+@[expose] public section
 
 /-!
 # Actual BV cuts on C¹ graph domains

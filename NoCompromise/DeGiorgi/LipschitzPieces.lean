@@ -1,6 +1,10 @@
-import NoCompromise.BV.CoareaCoordinates
-import NoCompromise.DeGiorgi.HalfspacePairing
-import Mathlib.Topology.MetricSpace.Lipschitz
+module
+
+public import NoCompromise.BV.CoareaCoordinates
+public import NoCompromise.DeGiorgi.HalfspacePairing
+public import Mathlib.Topology.MetricSpace.Lipschitz
+
+@[expose] public section
 
 /-!
 # Lipschitz graphs from uniform cone bounds

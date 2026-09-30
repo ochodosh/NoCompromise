@@ -1,14 +1,18 @@
-import NoCompromise.Stationary.MinimizerStationary
-import NoCompromise.Stationary.CapacitaryEstimate
-import NoCompromise.Regularity.PenalizationQuasiminimal
-import NoCompromise.Regularity.RepresentativeBounded
-import NoCompromise.Regularity.RepresentativeOpen
-import NoCompromise.Value.Defs
-import NoCompromise.Energy.NullInvariance
-import NoCompromise.Threshold.Algebra
-import NoCompromise.Threshold.Ledger
-import NoCompromise.Cones.NoSingular
-import NoCompromise.Isoperimetric.Rigidity
+module
+
+public import NoCompromise.Stationary.MinimizerStationary
+public import NoCompromise.Stationary.CapacitaryEstimate
+public import NoCompromise.Regularity.PenalizationQuasiminimal
+public import NoCompromise.Regularity.RepresentativeBounded
+public import NoCompromise.Regularity.RepresentativeOpen
+public import NoCompromise.Value.Defs
+public import NoCompromise.Energy.NullInvariance
+public import NoCompromise.Threshold.Algebra
+public import NoCompromise.Threshold.Ledger
+public import NoCompromise.Cones.NoSingular
+public import NoCompromise.Isoperimetric.Rigidity
+
+@[expose] public section
 
 /-!
 # Classification at volumes at most `V_*`

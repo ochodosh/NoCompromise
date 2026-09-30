@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNeumannInhomLift
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannInhomLift
+
+@[expose] public section
 
 /-! Quantitative estimates for the vertical primitive of the interior source. -/
 

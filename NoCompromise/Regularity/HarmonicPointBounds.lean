@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.HarmonicBlowupUniform
-import NoCompromise.Elliptic.HarmonicDerivative
+module
+
+public import NoCompromise.Regularity.HarmonicBlowupUniform
+public import NoCompromise.Elliptic.HarmonicDerivative
+
+@[expose] public section
 
 /-!
 # Center value and slope bounds for the harmonic approximation

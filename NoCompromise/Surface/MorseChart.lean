@@ -1,5 +1,9 @@
-import NoCompromise.Surface.SurfaceChart
-import NoCompromise.Surface.HeightMorse
+module
+
+public import NoCompromise.Surface.SurfaceChart
+public import NoCompromise.Surface.HeightMorse
+
+@[expose] public section
 
 /-!
 # Pulling a surface critical point back to the plane

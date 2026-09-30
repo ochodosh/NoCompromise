@@ -1,9 +1,14 @@
-import NoCompromise.Conventions
-import Mathlib.Analysis.Calculus.ContDiff.RCLike
-import Mathlib.Analysis.Calculus.ContDiff.Operations
-import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ApproximatesLinearOn
-import Mathlib.Analysis.SpecificLimits.Normed
-import Mathlib.Topology.ContinuousMap.BoundedCompactlySupported
+module
+
+public import NoCompromise.Conventions
+public import Mathlib.Analysis.Calculus.ContDiff.RCLike
+public import Mathlib.Analysis.Calculus.ContDiff.Operations
+public import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ApproximatesLinearOn
+public import Mathlib.Analysis.SpecificLimits.Normed
+public import Mathlib.Topology.ContinuousMap.BoundedCompactlySupported
+public import Mathlib.Analysis.Calculus.FDeriv.OfCompLeft
+
+@[expose] public section
 
 /-!
 # Straight perturbations are global diffeomorphisms

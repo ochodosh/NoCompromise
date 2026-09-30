@@ -1,6 +1,10 @@
-import NoCompromise.CapacitaryK.QuadrupoleMean
-import NoCompromise.Elliptic.HarmonicDerivativeTranslation
-import NoCompromise.CapacitaryK.HarmonicSmooth
+module
+
+public import NoCompromise.CapacitaryK.QuadrupoleMean
+public import NoCompromise.Elliptic.HarmonicDerivativeTranslation
+public import NoCompromise.CapacitaryK.HarmonicSmooth
+
+@[expose] public section
 
 /-!
 # Differentiated translated capacitary remainders

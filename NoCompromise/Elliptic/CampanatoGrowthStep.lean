@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.CampanatoGrowthComparison
+module
+
+public import NoCompromise.Elliptic.CampanatoGrowthComparison
+
+@[expose] public section
 
 /-! The subcritical energy recurrence follows from the constructed frozen
 replacement and the proved constant-coefficient decay, with uniform constants. -/

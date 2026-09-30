@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.FixedNormalExcessTests
+module
+
+public import NoCompromise.Regularity.FixedNormalExcessTests
+
+@[expose] public section
 
 /-! # Continuity of local normal pairings under uniform test approximation -/
 

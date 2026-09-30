@@ -1,4 +1,8 @@
-import NoCompromise.CapacitaryK.LevelAreaDerivatives
+module
+
+public import NoCompromise.CapacitaryK.LevelAreaDerivatives
+
+@[expose] public section
 
 /-!
 # Second derivatives of the quotient correction to level area

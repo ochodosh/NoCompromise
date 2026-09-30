@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.DeformationLimitProperties
+module
+
+public import NoCompromise.Regularity.DeformationLimitProperties
+
+@[expose] public section
 
 /-! # Localized perimeter bounds on arbitrary horizontal bands -/
 

@@ -1,6 +1,10 @@
-import Mathlib.Analysis.InnerProductSpace.Spectrum
-import Mathlib.Data.Real.Sign
-import Mathlib.LinearAlgebra.Determinant
+module
+
+public import Mathlib.Analysis.InnerProductSpace.Spectrum
+public import Mathlib.Data.Real.Sign
+public import Mathlib.LinearAlgebra.Determinant
+
+@[expose] public section
 
 /-!
 # Nondegeneracy and index of bilinear forms (linear algebra for `lem:sign-kappa-index`)

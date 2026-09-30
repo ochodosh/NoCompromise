@@ -1,6 +1,10 @@
-import NoCompromise.Isoperimetric.Components
-import NoCompromise.Isoperimetric.ABPNeumann
-import NoCompromise.Value.Defs
+module
+
+public import NoCompromise.Isoperimetric.Components
+public import NoCompromise.Isoperimetric.ABPNeumann
+public import NoCompromise.Value.Defs
+
+@[expose] public section
 
 /-!
 # The sharp isoperimetric inequality from the ABP Neumann problem

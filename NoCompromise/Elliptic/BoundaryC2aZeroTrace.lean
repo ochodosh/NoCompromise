@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNondivC2
+module
+
+public import NoCompromise.Elliptic.BoundaryNondivC2
+
+@[expose] public section
 
 /-!
 # Boundary C²,α for the divergence-form Dirichlet problem (zero trace, C¹,α solution)

@@ -1,6 +1,10 @@
-import NoCompromise.BV.JumpSlicing
-import Mathlib.Topology.ContinuousMap.SecondCountableSpace
-import Mathlib.Probability.Kernel.Defs
+module
+
+public import NoCompromise.BV.JumpSlicing
+public import Mathlib.Topology.ContinuousMap.SecondCountableSpace
+public import Mathlib.Probability.Kernel.Defs
+
+@[expose] public section
 
 /-!
 # Measurability of slice derivative measures

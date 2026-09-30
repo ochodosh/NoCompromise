@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NeumannChartC3Data
-import NoCompromise.Elliptic.NeumannChartC1Flat
+module
+
+public import NoCompromise.Elliptic.NeumannChartC3Data
+public import NoCompromise.Elliptic.NeumannChartC1Flat
+
+@[expose] public section
 
 /-!
 # C¹ flat representatives for C³ boundary charts

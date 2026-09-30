@@ -1,4 +1,8 @@
-import NoCompromise.Topology.OneManifoldDiffeo
+module
+
+public import NoCompromise.Topology.OneManifoldDiffeo
+
+@[expose] public section
 
 /-!
 # `lem:one-manifold`

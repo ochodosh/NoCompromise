@@ -1,4 +1,8 @@
-import NoCompromise.Flow.FlowLocalCk
+module
+
+public import NoCompromise.Flow.FlowLocalCk
+
+@[expose] public section
 
 /-!
 # Maximal integral curves and the `C^k` local flow on an open set

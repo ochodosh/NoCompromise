@@ -1,6 +1,10 @@
-import NoCompromise.CapacitaryK.MuRegular
-import NoCompromise.CapacitaryK.SlabCoarea
-import NoCompromise.Sard.ThreeDimensional
+module
+
+public import NoCompromise.CapacitaryK.MuRegular
+public import NoCompromise.CapacitaryK.SlabCoarea
+public import NoCompromise.Sard.ThreeDimensional
+
+@[expose] public section
 
 /-!
 # Density of `u_#μ` on the regular set (`lem:K-pushforward-density`, chapter 31)

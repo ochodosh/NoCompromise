@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NewtonianSchauderFar
-import NoCompromise.Elliptic.NewtonianSchauderDistribution
+module
+
+public import NoCompromise.Elliptic.NewtonianSchauderFar
+public import NoCompromise.Elliptic.NewtonianSchauderDistribution
+
+@[expose] public section
 
 /-!
 # The compensated Newtonian Hessian integral

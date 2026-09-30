@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.ClassicalCubeW11
-import NoCompromise.Sobolev.W11Classical
+module
+
+public import NoCompromise.Elliptic.ClassicalCubeW11
+public import NoCompromise.Sobolev.W11Classical
+
+@[expose] public section
 
 /-!
 # Translated and rotated cubes

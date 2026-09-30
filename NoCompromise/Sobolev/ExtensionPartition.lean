@@ -1,5 +1,9 @@
-import NoCompromise.BV.StrictApprox
-import Mathlib.Geometry.Manifold.PartitionOfUnity
+module
+
+public import NoCompromise.BV.StrictApprox
+public import Mathlib.Geometry.Manifold.PartitionOfUnity
+
+@[expose] public section
 
 /-!
 # Finite smooth partitions for BV extension

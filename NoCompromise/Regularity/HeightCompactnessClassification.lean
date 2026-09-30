@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.HeightCompactnessPhases
-import NoCompromise.Regularity.ZeroExcess
+module
+
+public import NoCompromise.Regularity.HeightCompactnessPhases
+public import NoCompromise.Regularity.ZeroExcess
+
+@[expose] public section
 
 /-! # Boundary points identify the cutting plane of a classified limit -/
 

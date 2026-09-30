@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.GaussBonnetInput
-import Mathlib.Analysis.InnerProductSpace.Trace
+module
+
+public import NoCompromise.CapacitaryK.GaussBonnetInput
+public import Mathlib.Analysis.InnerProductSpace.Trace
+
+@[expose] public section
 
 /-!
 # The Gauss equation on a regular level (chapter 31, input to `prop:K-measure-inequality`)

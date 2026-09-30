@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.RepresentativeDensity
+module
+
+public import NoCompromise.Regularity.RepresentativeDensity
+
+@[expose] public section
 
 /-! # An interior ball condition detects the phase at a boundary point -/
 

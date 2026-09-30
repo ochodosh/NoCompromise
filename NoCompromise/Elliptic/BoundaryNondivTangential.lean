@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryNondivC1
-import NoCompromise.Elliptic.BoundaryC1Slab
-import NoCompromise.Elliptic.C1HolderLimit
+module
+
+public import NoCompromise.Elliptic.BoundaryNondivC1
+public import NoCompromise.Elliptic.BoundaryC1Slab
+public import NoCompromise.Elliptic.C1HolderLimit
+
+@[expose] public section
 
 /-!
 # Tangential derivatives in `thm:boundary-nondiv` (zero trace)

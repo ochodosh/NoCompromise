@@ -1,7 +1,11 @@
-import NoCompromise.Stationary.BootstrapC2Chart
-import NoCompromise.Stationary.ChartLocalize
-import NoCompromise.Stationary.PointwiseEL
-import NoCompromise.Elliptic.NondivSchauderLocalization
+module
+
+public import NoCompromise.Stationary.BootstrapC2Chart
+public import NoCompromise.Stationary.ChartLocalize
+public import NoCompromise.Stationary.PointwiseEL
+public import NoCompromise.Elliptic.NondivSchauderLocalization
+
+@[expose] public section
 
 /-!
 # The smooth bootstrap at every boundary point

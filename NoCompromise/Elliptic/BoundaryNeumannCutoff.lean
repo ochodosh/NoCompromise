@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderTraceAlgebra
-import NoCompromise.Elliptic.BoundaryNeumannReflection
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderTraceAlgebra
+public import NoCompromise.Elliptic.BoundaryNeumannReflection
+
+@[expose] public section
 
 /-! Compact localization across the curved face, preserving the flat boundary. -/
 

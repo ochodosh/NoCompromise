@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderVariance
-import NoCompromise.Elliptic.CampanatoGrowthComparison
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderVariance
+public import NoCompromise.Elliptic.CampanatoGrowthComparison
+
+@[expose] public section
 
 /-! Stability, almost-everywhere invariance, and monotonicity of the actual
 normal excess used for flat Dirichlet boundary comparisons. -/

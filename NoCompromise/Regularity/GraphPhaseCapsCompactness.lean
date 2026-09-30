@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.GraphPhaseCapsGeometry
+module
+
+public import NoCompromise.Regularity.GraphPhaseCapsGeometry
+
+@[expose] public section
 
 /-!
 # Small excess selects the correctly oriented cap phases

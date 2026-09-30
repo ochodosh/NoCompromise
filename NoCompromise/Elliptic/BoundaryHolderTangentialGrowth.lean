@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderTranslatedData
-import NoCompromise.Elliptic.BoundaryHolderSharp
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderTranslatedData
+public import NoCompromise.Elliptic.BoundaryHolderSharp
+
+@[expose] public section
 
 /-! Uniform boundary excess estimates at all tangential centers in a fixed
 interior flat disk. The record below contains only the original analytic data. -/

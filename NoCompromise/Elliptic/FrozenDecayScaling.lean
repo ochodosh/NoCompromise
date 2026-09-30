@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.FrozenDecayIntegrals
+module
+
+public import NoCompromise.Elliptic.FrozenDecayIntegrals
+
+@[expose] public section
 
 /-! Similarity changes preserve the actual frozen weak equation. Exact
 Lebesgue integral and average formulas retain the same decay constant at

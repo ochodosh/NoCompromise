@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumann
-import NoCompromise.Area.Graph
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumann
+public import NoCompromise.Area.Graph
+
+@[expose] public section
 
 /-!
 # The explicit lift of an inhomogeneous conormal datum

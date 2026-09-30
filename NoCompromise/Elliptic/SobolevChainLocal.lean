@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.SobolevChainClassical
-import NoCompromise.Elliptic.SobolevChainContinuous
-import NoCompromise.Elliptic.SobolevChainDerivatives
+module
+
+public import NoCompromise.Elliptic.SobolevChainClassical
+public import NoCompromise.Elliptic.SobolevChainContinuous
+public import NoCompromise.Elliptic.SobolevChainDerivatives
+
+@[expose] public section
 
 /-!
 # Local classical representatives of weak Sobolev functions

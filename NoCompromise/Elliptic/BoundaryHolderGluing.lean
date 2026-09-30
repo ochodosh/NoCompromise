@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.CampanatoHolderPrimitive
+module
+
+public import NoCompromise.Elliptic.CampanatoHolderPrimitive
+
+@[expose] public section
 
 /-! Compatible local C¹ representatives glue to a single genuine C¹ function.
 Compatibility follows from almost-everywhere equality and continuity on open

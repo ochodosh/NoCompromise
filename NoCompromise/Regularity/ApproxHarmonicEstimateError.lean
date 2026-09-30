@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.ApproxHarmonicAlgebra
-import NoCompromise.Sobolev.Extension
+module
+
+public import NoCompromise.Regularity.ApproxHarmonicAlgebra
+public import NoCompromise.Sobolev.Extension
+
+@[expose] public section
 
 /-! # Integrated nonlinear graph error and bad-planar-set error -/
 

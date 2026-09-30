@@ -1,7 +1,11 @@
-import NoCompromise.Area.GoodPieces
-import NoCompromise.Measure.FinitePartition
-import Mathlib.MeasureTheory.Measure.Real
-import Mathlib.MeasureTheory.Measure.WithDensity
+module
+
+public import NoCompromise.Area.GoodPieces
+public import NoCompromise.Measure.FinitePartition
+public import Mathlib.MeasureTheory.Measure.Real
+public import Mathlib.MeasureTheory.Measure.WithDensity
+
+@[expose] public section
 
 /-!
 # The area measure on an injective uniform piece

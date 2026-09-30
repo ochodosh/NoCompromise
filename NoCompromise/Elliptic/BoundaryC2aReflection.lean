@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2
-import Mathlib.Analysis.Calculus.FDeriv.Extend
-import Mathlib.Topology.ExtendFrom
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2
+public import Mathlib.Analysis.Calculus.FDeriv.Extend
+public import Mathlib.Topology.ExtendFrom
+
+@[expose] public section
 
 /-!
 # C² reflection across a flat face

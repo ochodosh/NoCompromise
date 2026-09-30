@@ -1,7 +1,11 @@
-import NoCompromise.CapacitaryK.Calculus
-import Mathlib.MeasureTheory.Constructions.HaarToSphere
-import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
-import Mathlib.Analysis.SpecialFunctions.ImproperIntegrals
+module
+
+public import NoCompromise.CapacitaryK.Calculus
+public import Mathlib.MeasureTheory.Constructions.HaarToSphere
+public import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+public import Mathlib.Analysis.SpecialFunctions.ImproperIntegrals
+
+@[expose] public section
 
 /-!
 # Polar-coordinate ingredients for the far-field mass expansion

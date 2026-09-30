@@ -1,6 +1,10 @@
-import NoCompromise.Measure.WeakDerivativeOne
-import NoCompromise.Measure.RadialMeasures
-import Mathlib.MeasureTheory.Integral.IntegralEqImproper
+module
+
+public import NoCompromise.Measure.WeakDerivativeOne
+public import NoCompromise.Measure.RadialMeasures
+public import Mathlib.MeasureTheory.Integral.IntegralEqImproper
+
+@[expose] public section
 
 /-!
 # Distributional derivatives of cumulative integrals

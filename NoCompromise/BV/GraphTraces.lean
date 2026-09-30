@@ -1,6 +1,10 @@
-import NoCompromise.BV.FlatCut
-import NoCompromise.BV.ScalarC1Transport
-import NoCompromise.DeGiorgi.SmoothGraph
+module
+
+public import NoCompromise.BV.FlatCut
+public import NoCompromise.BV.ScalarC1Transport
+public import NoCompromise.DeGiorgi.SmoothGraph
+
+@[expose] public section
 
 /-!
 # Actual locally integrable BV traces on C¹ graphs

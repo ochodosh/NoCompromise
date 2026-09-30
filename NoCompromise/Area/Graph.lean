@@ -1,9 +1,13 @@
-import NoCompromise.Area.Cofactor
-import NoCompromise.Area.Formula
-import Mathlib.Analysis.Calculus.Gradient.Basic
-import Mathlib.Analysis.Calculus.Rademacher
-import Mathlib.MeasureTheory.Measure.WithDensity
-import Mathlib.MeasureTheory.Integral.Lebesgue.Map
+module
+
+public import NoCompromise.Area.Cofactor
+public import NoCompromise.Area.Formula
+public import Mathlib.Analysis.Calculus.Gradient.Basic
+public import Mathlib.Analysis.Calculus.Rademacher
+public import Mathlib.MeasureTheory.Measure.WithDensity
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Map
+
+@[expose] public section
 
 /-!
 # Euclidean Lipschitz graphs

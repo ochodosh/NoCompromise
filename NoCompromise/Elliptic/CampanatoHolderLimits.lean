@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.CampanatoHolderAverages
+module
+
+public import NoCompromise.Elliptic.CampanatoHolderAverages
+
+@[expose] public section
 
 /-! Squared mean-oscillation decay constructs a genuine limit of the ball
 averages at every center, with a uniform error at every positive small radius. -/

@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.PlanarGN
+module
+
+public import NoCompromise.Sobolev.PlanarGN
+
+@[expose] public section
 
 /-!
 # Whole-space spatial H¹ to L⁶ estimate

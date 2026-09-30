@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NeumannLocalizeMap
-import Mathlib.Analysis.InnerProductSpace.NormDet
+module
+
+public import NoCompromise.Elliptic.NeumannLocalizeMap
+public import Mathlib.Analysis.InnerProductSpace.NormDet
+
+@[expose] public section
 
 /-!
 # The coefficient of the placed and scaled normal chart

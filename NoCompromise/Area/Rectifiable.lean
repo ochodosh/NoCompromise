@@ -1,4 +1,8 @@
-import NoCompromise.Area.Formula
+module
+
+public import NoCompromise.Area.Formula
+
+@[expose] public section
 
 /-!
 # Injective chart pieces for countably rectifiable sets

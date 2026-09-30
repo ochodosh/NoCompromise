@@ -1,7 +1,11 @@
-import NoCompromise.Regularity.OmegaMinimal
-import NoCompromise.Regularity.FirstVariationScalar
-import NoCompromise.Variation.Perimeter
-import NoCompromise.Variation.SymmetricDifferenceFull
+module
+
+public import NoCompromise.Regularity.OmegaMinimal
+public import NoCompromise.Regularity.FirstVariationScalar
+public import NoCompromise.Variation.Perimeter
+public import NoCompromise.Variation.SymmetricDifferenceFull
+
+@[expose] public section
 
 /-! # Bounded generalized first variation of a quasiminimizer -/
 

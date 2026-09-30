@@ -1,5 +1,9 @@
-import NoCompromise.Cones.SmoothExcess
-import NoCompromise.Cones.SmoothGraph
+module
+
+public import NoCompromise.Cones.SmoothExcess
+public import NoCompromise.Cones.SmoothGraph
+
+@[expose] public section
 
 /-!
 # `lem:cone-smooth`: `C^{1,1/2}` regularity of the punctured boundary of a 3-d minimising cone

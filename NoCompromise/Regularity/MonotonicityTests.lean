@@ -1,5 +1,9 @@
-import NoCompromise.BV.CoareaSmooth
-import NoCompromise.Measure.RadialCumulative
+module
+
+public import NoCompromise.BV.CoareaSmooth
+public import NoCompromise.Measure.RadialCumulative
+
+@[expose] public section
 
 /-!
 # One-sided smooth interval tests for radial monotonicity

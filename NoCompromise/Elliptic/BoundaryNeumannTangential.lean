@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannQuotientC1
-import NoCompromise.Elliptic.BoundaryNondivTangential
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannQuotientC1
+public import NoCompromise.Elliptic.BoundaryNondivTangential
+
+@[expose] public section
 
 /-!
 # Tangential derivatives in `thm:boundary-neumann` (second assertion, homogeneous problem)

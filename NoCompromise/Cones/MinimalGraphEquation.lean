@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.RepresentativeBoundary
-import NoCompromise.Regularity.SlabGeometry
-import NoCompromise.DeGiorgi.SmoothGraph
+module
+
+public import NoCompromise.Regularity.RepresentativeBoundary
+public import NoCompromise.Regularity.SlabGeometry
+public import NoCompromise.DeGiorgi.SmoothGraph
+
+@[expose] public section
 
 /-!
 # Phase identification for a local minimal graph

@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNondivTests
+module
+
+public import NoCompromise.Elliptic.BoundaryNondivTests
+
+@[expose] public section
 
 /-!
 # Boundary Caccioppoli for nondivergence quotients

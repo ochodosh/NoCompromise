@@ -1,5 +1,9 @@
-import NoCompromise.Variation.TransportLocalPerimeter
-import NoCompromise.Variation.TransportLocalDefs
+module
+
+public import NoCompromise.Variation.TransportLocalPerimeter
+public import NoCompromise.Variation.TransportLocalDefs
+
+@[expose] public section
 
 /-!
 # Perimeter transport under a C¹ diffeomorphism between open sets

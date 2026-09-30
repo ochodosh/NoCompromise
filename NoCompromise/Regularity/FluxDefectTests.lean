@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.Deformation
+module
+
+public import NoCompromise.Regularity.Deformation
+
+@[expose] public section
 
 /-! # Compact tensor tests for the signed vertical flux -/
 

@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.HeightCompactnessError
+module
+
+public import NoCompromise.Regularity.HeightCompactnessError
+
+@[expose] public section
 
 /-! # The distributional constant-normal identity in a small-excess limit -/
 

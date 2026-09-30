@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NewtonianSchauderKernel
+module
+
+public import NoCompromise.Elliptic.NewtonianSchauderKernel
+
+@[expose] public section
 
 /-!
 # Smooth regularizations of the signed Newtonian Hessian

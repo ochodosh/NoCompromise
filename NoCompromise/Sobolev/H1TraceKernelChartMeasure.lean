@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.H1TraceChart
+module
+
+public import NoCompromise.Sobolev.H1TraceChart
+
+@[expose] public section
 
 /-!
 # The reverse measure comparison for boundary charts

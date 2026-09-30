@@ -1,6 +1,10 @@
-import NoCompromise.Area.DensityIsometry
-import NoCompromise.Measure.DensityIdentification
-import NoCompromise.Area.GraphDensity
+module
+
+public import NoCompromise.Area.DensityIsometry
+public import NoCompromise.Measure.DensityIdentification
+public import NoCompromise.Area.GraphDensity
+
+@[expose] public section
 
 /-!
 # Area density on countable Lipschitz graph covers

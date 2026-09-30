@@ -1,7 +1,11 @@
-import NoCompromise.Energy.PotentialRegularity
-import NoCompromise.Elliptic.InteriorH2Hessian
-import NoCompromise.Ball.Potential
-import Mathlib.MeasureTheory.Integral.IntegralEqImproper
+module
+
+public import NoCompromise.Energy.PotentialRegularity
+public import NoCompromise.Elliptic.InteriorH2Hessian
+public import NoCompromise.Ball.Potential
+public import Mathlib.MeasureTheory.Integral.IntegralEqImproper
+
+@[expose] public section
 
 /-!
 # The Newtonian fundamental kernel

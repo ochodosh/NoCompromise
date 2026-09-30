@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomData
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomPrimitive
-import NoCompromise.Elliptic.BoundaryNeumannC2Scaled
-import NoCompromise.Elliptic.QuasilinearNorm
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomData
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomPrimitive
+public import NoCompromise.Elliptic.BoundaryNeumannC2Scaled
+public import NoCompromise.Elliptic.QuasilinearNorm
+
+@[expose] public section
 
 /-! The smooth lift and the local homogeneous equation for inhomogeneous data. -/
 

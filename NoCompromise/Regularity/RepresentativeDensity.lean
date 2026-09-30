@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.DensityAhlfors
-import NoCompromise.DeGiorgi.Structure
+module
+
+public import NoCompromise.Regularity.DensityAhlfors
+public import NoCompromise.DeGiorgi.Structure
+
+@[expose] public section
 
 /-!
 # Density bounds and the closed essential boundary of a quasiminimizer

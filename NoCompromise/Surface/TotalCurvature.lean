@@ -1,6 +1,10 @@
-import NoCompromise.Surface.RegularValue
-import NoCompromise.Surface.GaussExtension
-import NoCompromise.Surface.Morse
+module
+
+public import NoCompromise.Surface.RegularValue
+public import NoCompromise.Surface.GaussExtension
+public import NoCompromise.Surface.Morse
+
+@[expose] public section
 
 /-!
 # Total curvature bound (blueprint chapter 14, `Surface/TotalCurvature`)

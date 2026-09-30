@@ -1,4 +1,8 @@
-import NoCompromise.BV.ZeroVariation
+module
+
+public import NoCompromise.BV.ZeroVariation
+
+@[expose] public section
 
 /-!
 # Zero weak derivative on a real interval

@@ -1,4 +1,8 @@
-import NoCompromise.BV.GoodTruncation
+module
+
+public import NoCompromise.BV.GoodTruncation
+
+@[expose] public section
 
 /-!
 # Spherical trace mismatch and selection of gluing radii

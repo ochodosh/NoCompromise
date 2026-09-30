@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.CompressionProfileTheorem
-import NoCompromise.Regularity.CompressionEstimate
-import NoCompromise.Regularity.CompressionBilipschitz
+module
+
+public import NoCompromise.Regularity.CompressionProfileTheorem
+public import NoCompromise.Regularity.CompressionEstimate
+public import NoCompromise.Regularity.CompressionBilipschitz
+
+@[expose] public section
 
 /-! # The actual compression Jacobian and inverse, blueprint lemma -/
 

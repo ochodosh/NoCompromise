@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.CollarC2
-import NoCompromise.Elliptic.HarmonicMeanValueLocal
+module
+
+public import NoCompromise.CapacitaryK.CollarC2
+public import NoCompromise.Elliptic.HarmonicMeanValueLocal
+
+@[expose] public section
 
 /-!
 # Pointwise identities for the endpoint `p(1)` of `thm:capacitary-inequalities`

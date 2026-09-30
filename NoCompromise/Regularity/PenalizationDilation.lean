@@ -1,5 +1,9 @@
-import NoCompromise.Energy.Scaling
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
+module
+
+public import NoCompromise.Energy.Scaling
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+
+@[expose] public section
 
 /-!
 # Elementary dilation quotients

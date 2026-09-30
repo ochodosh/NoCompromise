@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.FluxDefectPairing
-import NoCompromise.Regularity.FluxDefectApprox
-import NoCompromise.Regularity.Excess
+module
+
+public import NoCompromise.Regularity.FluxDefectPairing
+public import NoCompromise.Regularity.FluxDefectApprox
+public import NoCompromise.Regularity.Excess
+
+@[expose] public section
 
 /-! # Exact signed vertical flux and the normal-excess defect -/
 

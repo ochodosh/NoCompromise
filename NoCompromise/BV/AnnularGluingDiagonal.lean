@@ -1,4 +1,8 @@
-import NoCompromise.BV.AnnularGluing
+module
+
+public import NoCompromise.BV.AnnularGluing
+
+@[expose] public section
 
 /-!
 # Diagonal gluing in expanding annuli

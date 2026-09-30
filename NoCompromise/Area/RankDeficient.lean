@@ -1,8 +1,12 @@
-import NoCompromise.Area.AlmostLinear
-import Mathlib.Analysis.Calculus.Rademacher
-import Mathlib.Analysis.Normed.Lp.Matrix
-import NoCompromise.Area.UniformDerivative
-import NoCompromise.Measure.FinitePartition
+module
+
+public import NoCompromise.Area.AlmostLinear
+public import Mathlib.Analysis.Calculus.Rademacher
+public import Mathlib.Analysis.Normed.Lp.Matrix
+public import NoCompromise.Area.UniformDerivative
+public import NoCompromise.Measure.FinitePartition
+
+@[expose] public section
 
 /-!
 # Null image of the rank-deficient set

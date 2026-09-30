@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.HarmonicMeanValue
-import NoCompromise.BV.StrictApprox
+module
+
+public import NoCompromise.Elliptic.HarmonicMeanValue
+public import NoCompromise.BV.StrictApprox
+
+@[expose] public section
 
 /-!
 # Classical harmonic functions are smooth

@@ -1,5 +1,9 @@
-import NoCompromise.Capacity.Potential
-import NoCompromise.Elliptic.HarmonicMeanValue
+module
+
+public import NoCompromise.Capacity.Potential
+public import NoCompromise.Elliptic.HarmonicMeanValue
+
+@[expose] public section
 
 /-!
 # The monotone limit of annular capacitary solutions

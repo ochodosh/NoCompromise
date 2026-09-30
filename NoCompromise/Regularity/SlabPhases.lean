@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.SlabCap
-import NoCompromise.BV.ZeroVariation
+module
+
+public import NoCompromise.Regularity.SlabCap
+public import NoCompromise.BV.ZeroVariation
+
+@[expose] public section
 
 /-! # Vanishing perimeter and constant phases outside the cleared slab -/
 

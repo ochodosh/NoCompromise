@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.QuasilinearCampanatoInterior
-import NoCompromise.Elliptic.NondivSchauderNorm
+module
+
+public import NoCompromise.Elliptic.QuasilinearCampanatoInterior
+public import NoCompromise.Elliptic.NondivSchauderNorm
+
+@[expose] public section
 
 /-!
 # Homogeneous interior Campanato estimates

@@ -1,7 +1,11 @@
-import NoCompromise.CapacitaryK.Calculus
-import NoCompromise.CapacitaryK.HarmonicSmooth
-import NoCompromise.Surface.Geometry
-import Mathlib.Geometry.Euclidean.Volume.Measure
+module
+
+public import NoCompromise.CapacitaryK.Calculus
+public import NoCompromise.CapacitaryK.HarmonicSmooth
+public import NoCompromise.Surface.Geometry
+public import Mathlib.Geometry.Euclidean.Volume.Measure
+
+@[expose] public section
 
 /-!
 # The total-curvature input (chapter 31, `lem:K-gauss-bonnet-input`)

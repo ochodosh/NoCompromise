@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.QuasilinearQuotientBounds
-import NoCompromise.Elliptic.NondivSchauderHessian
+module
+
+public import NoCompromise.Elliptic.QuasilinearQuotientBounds
+public import NoCompromise.Elliptic.NondivSchauderHessian
+
+@[expose] public section
 
 /-! Actual weak second derivatives of the quasilinear solution are constructed
 by H¹ weak compactness and strong convergence of first difference quotients.

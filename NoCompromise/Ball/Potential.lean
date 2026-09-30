@@ -1,6 +1,10 @@
-import NoCompromise.Ball.PotentialAngular
-import NoCompromise.Ball.Perimeter
-import NoCompromise.Energy.Scaling
+module
+
+public import NoCompromise.Ball.PotentialAngular
+public import NoCompromise.Ball.Perimeter
+public import NoCompromise.Energy.Scaling
+
+@[expose] public section
 
 /-!
 # Exact Newtonian potential and energy of a ball

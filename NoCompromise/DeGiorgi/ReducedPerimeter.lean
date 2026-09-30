@@ -1,5 +1,9 @@
-import NoCompromise.DeGiorgi.NormalFlux
-import NoCompromise.DeGiorgi.RadialFlux
+module
+
+public import NoCompromise.DeGiorgi.NormalFlux
+public import NoCompromise.DeGiorgi.RadialFlux
+
+@[expose] public section
 
 /-!
 # Quadratic perimeter bounds near reduced points

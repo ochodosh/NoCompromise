@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.Newtonian
+module
+
+public import NoCompromise.Elliptic.Newtonian
+
+@[expose] public section
 
 /-!
 # Classical Newtonian kernels for the Schauder estimate

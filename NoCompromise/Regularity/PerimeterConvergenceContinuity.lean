@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.PerimeterConvergenceVague
-import Mathlib.MeasureTheory.Measure.Portmanteau
+module
+
+public import NoCompromise.Regularity.PerimeterConvergenceVague
+public import Mathlib.MeasureTheory.Measure.Portmanteau
+
+@[expose] public section
 
 /-! # Upper bounds on precompact continuity sets under local weak convergence -/
 

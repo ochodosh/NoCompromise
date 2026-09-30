@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.FarFieldUnconditional
-import NoCompromise.CapacitaryK.MuMeasure
+module
+
+public import NoCompromise.CapacitaryK.FarFieldUnconditional
+public import NoCompromise.CapacitaryK.MuMeasure
+
+@[expose] public section
 
 /-!
 # `eq:K-p-expansion` for the geometric level integral

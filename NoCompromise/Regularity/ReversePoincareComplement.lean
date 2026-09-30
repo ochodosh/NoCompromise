@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.FluxDefect
-import NoCompromise.Regularity.DensityCutComparison
+module
+
+public import NoCompromise.Regularity.FluxDefect
+public import NoCompromise.Regularity.DensityCutComparison
+
+@[expose] public section
 
 /-! # Complement orientation for reverse Poincaré -/
 

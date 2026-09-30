@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.InteriorH2Mollification
-import NoCompromise.Elliptic.Caccioppoli
+module
+
+public import NoCompromise.Elliptic.InteriorH2Mollification
+public import NoCompromise.Elliptic.Caccioppoli
+
+@[expose] public section
 
 /-!
 # Cutoff energy estimates for smooth Poisson solutions

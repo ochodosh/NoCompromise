@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.StrongMaximumHarmonic
-import NoCompromise.Elliptic.HarmonicAlgebra
+module
+
+public import NoCompromise.Elliptic.StrongMaximumHarmonic
+public import NoCompromise.Elliptic.HarmonicAlgebra
+
+@[expose] public section
 
 /-!
 # Exterior comparison for capacitary potentials

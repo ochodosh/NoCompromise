@@ -1,8 +1,12 @@
-import NoCompromise.Elliptic.ClassicalCharts
-import NoCompromise.Elliptic.ClassicalPartition
-import NoCompromise.Sobolev.W11Smooth
-import NoCompromise.Sobolev.W11TraceBoundary
-import NoCompromise.Sobolev.C1Domain
+module
+
+public import NoCompromise.Elliptic.ClassicalCharts
+public import NoCompromise.Elliptic.ClassicalPartition
+public import NoCompromise.Sobolev.W11Smooth
+public import NoCompromise.Sobolev.W11TraceBoundary
+public import NoCompromise.Sobolev.C1Domain
+
+@[expose] public section
 
 /-!
 # Classical C¹ Gauss–Green by a finite chart partition

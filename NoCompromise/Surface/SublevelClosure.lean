@@ -1,8 +1,12 @@
-import NoCompromise.Surface.SublevelClosureZero
-import NoCompromise.Surface.SublevelClosureTwo
-import NoCompromise.Surface.SublevelClosureCount
-import NoCompromise.Surface.SublevelClosureMerge
-import NoCompromise.Surface.MorseDischarged
+module
+
+public import NoCompromise.Surface.SublevelClosureZero
+public import NoCompromise.Surface.SublevelClosureTwo
+public import NoCompromise.Surface.SublevelClosureCount
+public import NoCompromise.Surface.SublevelClosureMerge
+public import NoCompromise.Surface.MorseDischarged
+
+@[expose] public section
 
 /-!
 # `lem:sublevel-closure`

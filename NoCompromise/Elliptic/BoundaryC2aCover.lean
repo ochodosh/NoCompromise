@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.BoundaryC2aLocalAssembly
-import NoCompromise.Elliptic.InteriorC2aH1
-import NoCompromise.Elliptic.BoundaryHolderSimilarity
-import NoCompromise.Elliptic.BoundaryHolderGluing
+module
+
+public import NoCompromise.Elliptic.BoundaryC2aLocalAssembly
+public import NoCompromise.Elliptic.InteriorC2aH1
+public import NoCompromise.Elliptic.BoundaryHolderSimilarity
+public import NoCompromise.Elliptic.BoundaryHolderGluing
+
+@[expose] public section
 
 /-!
 # Boundary C²,α on the half ball `B⁺_{1/2}` (`thm:boundary-C2a`, covering)

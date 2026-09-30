@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.H1Zero
-import NoCompromise.Elliptic.Caccioppoli
-import NoCompromise.DeGiorgi.SmoothGraph
+module
+
+public import NoCompromise.Sobolev.H1Zero
+public import NoCompromise.Elliptic.Caccioppoli
+public import NoCompromise.DeGiorgi.SmoothGraph
+
+@[expose] public section
 
 /-!
 # Flat integration by parts for the actual H¹ trace

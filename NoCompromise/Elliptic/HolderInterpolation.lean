@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.HolderInterpolationNorm
-import NoCompromise.Elliptic.HolderInterpolationSplit
-import Mathlib.MeasureTheory.Integral.IntegrableOn
+module
+
+public import NoCompromise.Elliptic.HolderInterpolationNorm
+public import NoCompromise.Elliptic.HolderInterpolationSplit
+public import Mathlib.MeasureTheory.Integral.IntegrableOn
+
+@[expose] public section
 
 /-!
 # Hölder interpolation on the same ball

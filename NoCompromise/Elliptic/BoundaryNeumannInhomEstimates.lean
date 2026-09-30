@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryNeumannInhomPrimitive
-import NoCompromise.Elliptic.BoundaryNeumannInhomSlicing
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannInhomPrimitive
+public import NoCompromise.Elliptic.BoundaryNeumannInhomSlicing
+
+@[expose] public section
 
 /-!
 The corrected datum has a quantitative Hölder bound once the corresponding

@@ -1,6 +1,10 @@
-import NoCompromise.DeGiorgi.Reduced
-import NoCompromise.BV.CompactnessIndicators
-import NoCompromise.BV.ScalarDistributionUniqueness
+module
+
+public import NoCompromise.DeGiorgi.Reduced
+public import NoCompromise.BV.CompactnessIndicators
+public import NoCompromise.BV.ScalarDistributionUniqueness
+
+@[expose] public section
 
 /-!
 # Local reduced boundary on an open domain

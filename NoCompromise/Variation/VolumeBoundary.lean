@@ -1,5 +1,9 @@
-import NoCompromise.Variation.Volume
-import NoCompromise.DeGiorgi.Structure
+module
+
+public import NoCompromise.Variation.Volume
+public import NoCompromise.DeGiorgi.Structure
+
+@[expose] public section
 
 /-!
 # First variation of volume with the actual boundary integral

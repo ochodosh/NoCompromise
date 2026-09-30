@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.GraphLoss
-import NoCompromise.Sobolev.Extension
+module
+
+public import NoCompromise.Regularity.GraphLoss
+public import NoCompromise.Sobolev.Extension
+
+@[expose] public section
 
 /-! # The Dirichlet cost of extending across the omitted base -/
 

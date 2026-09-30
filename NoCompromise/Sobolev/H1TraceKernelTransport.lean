@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.H1TraceKernelOperators
-import NoCompromise.Sobolev.H1TraceKernelApprox
-import NoCompromise.Sobolev.H1TraceChart
+module
+
+public import NoCompromise.Sobolev.H1TraceKernelOperators
+public import NoCompromise.Sobolev.H1TraceKernelApprox
+public import NoCompromise.Sobolev.H1TraceChart
+
+@[expose] public section
 
 /-!
 # Interior approximation transported through Lipschitz charts

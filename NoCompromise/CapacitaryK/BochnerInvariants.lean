@@ -1,4 +1,8 @@
-import NoCompromise.CapacitaryK.GradNormExpansion
+module
+
+public import NoCompromise.CapacitaryK.GradNormExpansion
+
+@[expose] public section
 
 /-!
 # Far-field bounds for the Bochner invariants

@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.GraphSlicesCapBridge
-import NoCompromise.Regularity.GraphSlicesPolar
-import NoCompromise.Regularity.Excess
+module
+
+public import NoCompromise.Regularity.GraphSlicesCapBridge
+public import NoCompromise.Regularity.GraphSlicesPolar
+public import NoCompromise.Regularity.Excess
+
+@[expose] public section
 
 /-! # Exact signed vertical flux localized over an arbitrary Borel base -/
 

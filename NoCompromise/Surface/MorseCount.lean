@@ -1,5 +1,10 @@
-import NoCompromise.Surface.Shape
-import Mathlib.Analysis.Normed.Module.Connected
+module
+
+public import NoCompromise.Surface.Shape
+public import Mathlib.Analysis.Normed.Module.Connected
+import all Mathlib.Analysis.Calculus.Implicit
+
+@[expose] public section
 
 /-!
 # Adjacency at regular surface levels

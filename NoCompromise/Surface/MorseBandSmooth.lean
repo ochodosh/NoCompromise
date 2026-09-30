@@ -1,5 +1,9 @@
-import NoCompromise.Flow.FlowBoxCk
-import NoCompromise.Surface.MorseBand
+module
+
+public import NoCompromise.Flow.FlowBoxCk
+public import NoCompromise.Surface.MorseBand
+
+@[expose] public section
 
 /-!
 # Smooth regular Morse bands

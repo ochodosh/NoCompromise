@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.DeformationCompetitor
-import NoCompromise.Regularity.DeformationPhases
+module
+
+public import NoCompromise.Regularity.DeformationCompetitor
+public import NoCompromise.Regularity.DeformationPhases
+
+@[expose] public section
 
 /-! # The actual compressed competitors flatten in the core -/
 

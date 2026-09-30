@@ -1,12 +1,16 @@
-import NoCompromise.Measure.SignedRiesz
-import Mathlib.Topology.ContinuousMap.ZeroAtInftyUnitization
-import Mathlib.Topology.ContinuousMap.SecondCountableSpace
-import Mathlib.Topology.ContinuousMap.Compact
-import Mathlib.Analysis.Normed.Module.WeakDual
-import Mathlib.Topology.UrysohnsLemma
-import Mathlib.MeasureTheory.VectorMeasure.Decomposition.Jordan
-import Mathlib.MeasureTheory.VectorMeasure.Variation.SignedMeasure
-import Mathlib.Analysis.InnerProductSpace.PiL2
+module
+
+public import NoCompromise.Measure.SignedRiesz
+public import Mathlib.Topology.ContinuousMap.ZeroAtInftyUnitization
+public import Mathlib.Topology.ContinuousMap.SecondCountableSpace
+public import Mathlib.Topology.ContinuousMap.Compact
+public import Mathlib.Analysis.Normed.Module.WeakDual
+public import Mathlib.Topology.UrysohnsLemma
+public import Mathlib.MeasureTheory.VectorMeasure.Decomposition.Jordan
+public import Mathlib.MeasureTheory.VectorMeasure.Variation.SignedMeasure
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+
+@[expose] public section
 
 /-!
 # Local weak-star compactness

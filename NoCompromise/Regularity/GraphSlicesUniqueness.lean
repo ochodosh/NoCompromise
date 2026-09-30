@@ -1,4 +1,8 @@
-import NoCompromise.BV.ScalarDistributionUniqueness
+module
+
+public import NoCompromise.BV.ScalarDistributionUniqueness
+
+@[expose] public section
 
 /-! # Localization of scalar measure pairings from genuine compact C1 tests -/
 

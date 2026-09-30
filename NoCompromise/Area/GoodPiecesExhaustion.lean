@@ -1,6 +1,10 @@
-import NoCompromise.Area.GoodPieces
-import Mathlib.MeasureTheory.Function.Egorov
-import Mathlib.MeasureTheory.Measure.Regular
+module
+
+public import NoCompromise.Area.GoodPieces
+public import Mathlib.MeasureTheory.Function.Egorov
+public import Mathlib.MeasureTheory.Measure.Regular
+
+@[expose] public section
 
 /-!
 # Extraction of uniform differentiability carriers

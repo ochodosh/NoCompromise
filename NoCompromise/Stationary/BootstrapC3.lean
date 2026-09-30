@@ -1,5 +1,9 @@
-import NoCompromise.Stationary.BootstrapC2Chart
-import NoCompromise.Elliptic.NondivSchauder
+module
+
+public import NoCompromise.Stationary.BootstrapC2Chart
+public import NoCompromise.Elliptic.NondivSchauder
+
+@[expose] public section
 
 /-!
 # The C³ interior bootstrap for the prescribed-mean-curvature graph equation

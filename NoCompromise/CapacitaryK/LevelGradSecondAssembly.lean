@@ -1,4 +1,8 @@
-import NoCompromise.CapacitaryK.LevelGradSpatialDecay
+module
+
+public import NoCompromise.CapacitaryK.LevelGradSpatialDecay
+
+@[expose] public section
 
 /-!
 # Second angular derivatives of the capacitary gradient-length expansion

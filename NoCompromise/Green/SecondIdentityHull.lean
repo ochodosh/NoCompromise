@@ -1,5 +1,9 @@
-import NoCompromise.Green.SecondIdentity
-import NoCompromise.Capacity.HullPotentialBoundaryC2
+module
+
+public import NoCompromise.Green.SecondIdentity
+public import NoCompromise.Capacity.HullPotentialBoundaryC2
+
+@[expose] public section
 
 /-!
 # `thm:green-identity` for the filled hull, unconditionally

@@ -1,4 +1,8 @@
-import NoCompromise.Area.GoodPiecesExhaustion
+module
+
+public import NoCompromise.Area.GoodPiecesExhaustion
+
+@[expose] public section
 
 /-!
 # Uniform continuity of the derivative

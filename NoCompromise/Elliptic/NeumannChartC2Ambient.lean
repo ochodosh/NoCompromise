@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.NeumannChartC1Ambient
-import NoCompromise.Elliptic.NeumannChartC2Flat
+module
+
+public import NoCompromise.Elliptic.NeumannChartC1Ambient
+public import NoCompromise.Elliptic.NeumannChartC2Flat
+
+@[expose] public section
 
 /-!
 # Ambient C² regularity up to the boundary in a smooth chart

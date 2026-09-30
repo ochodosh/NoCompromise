@@ -1,8 +1,12 @@
-import NoCompromise.DeGiorgi.SmoothBoundary
-import NoCompromise.Sobolev.LipschitzDomains
-import NoCompromise.Sobolev.H1Poincare
-import NoCompromise.Sobolev.H1TraceOperator
-import Mathlib.Analysis.Calculus.ContDiff.RCLike
+module
+
+public import NoCompromise.DeGiorgi.SmoothBoundary
+public import NoCompromise.Sobolev.LipschitzDomains
+public import NoCompromise.Sobolev.H1Poincare
+public import NoCompromise.Sobolev.H1TraceOperator
+public import Mathlib.Analysis.Calculus.ContDiff.RCLike
+
+@[expose] public section
 
 /-!
 # Sobolev estimates on geometric C¹ domains

@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.RepresentativeBoundary
-import Mathlib.MeasureTheory.Measure.Regular
+module
+
+public import NoCompromise.Regularity.RepresentativeBoundary
+public import Mathlib.MeasureTheory.Measure.Regular
+
+@[expose] public section
 
 /-! # Boundedness of the finite-volume canonical representative -/
 

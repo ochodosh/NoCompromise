@@ -1,4 +1,8 @@
-import NoCompromise.CapacitaryK.SlabCoarea
+module
+
+public import NoCompromise.CapacitaryK.SlabCoarea
+
+@[expose] public section
 
 /-!
 # Integrability of `∇w·∇u` on slabs (chapter 31, input to `lem:K-slab-F`)

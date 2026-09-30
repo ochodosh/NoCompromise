@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.DensitySimilarity
-import NoCompromise.Regularity.HeightBound
+module
+
+public import NoCompromise.Regularity.DensitySimilarity
+public import NoCompromise.Regularity.HeightBound
+
+@[expose] public section
 
 /-!
 # Quantitative height control at every boundary center

@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NondivSchauderScalingNorm
+module
+
+public import NoCompromise.Elliptic.NondivSchauderScalingNorm
+
+@[expose] public section
 
 /-!
 # Uniform local norms control the whole interior set

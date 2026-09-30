@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.CampanatoHolder
+module
+
+public import NoCompromise.Elliptic.CampanatoHolder
+
+@[expose] public section
 
 /-! Genuine similarity pullback for variable-coefficient weak equations and
 pointwise derivatives. This supports local Campanato applications on interior balls. -/

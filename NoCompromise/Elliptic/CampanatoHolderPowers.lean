@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.CampanatoHolderEmbedding
+module
+
+public import NoCompromise.Elliptic.CampanatoHolderEmbedding
+
+@[expose] public section
 
 /-! Conversion between integral and averaged Campanato normalizations, retaining
 uniform constants and the genuine almost-everywhere representative. -/

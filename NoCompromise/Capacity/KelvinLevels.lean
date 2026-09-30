@@ -1,6 +1,10 @@
-import NoCompromise.Capacity.Kelvin
-import NoCompromise.Capacity.LowerBarrier
-import Mathlib.Analysis.Calculus.ImplicitContDiff
+module
+
+public import NoCompromise.Capacity.Kelvin
+public import NoCompromise.Capacity.LowerBarrier
+public import Mathlib.Analysis.Calculus.ImplicitContDiff
+
+@[expose] public section
 
 /-!
 # Positivity and radial level sets of capacitary potentials

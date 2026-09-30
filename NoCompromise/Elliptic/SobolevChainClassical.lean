@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1Mollification
-import Mathlib.Analysis.Calculus.UniformLimitsDeriv
+module
+
+public import NoCompromise.Sobolev.H1Mollification
+public import Mathlib.Analysis.Calculus.UniformLimitsDeriv
+
+@[expose] public section
 
 /-!
 # Identifying continuous weak gradients with classical derivatives

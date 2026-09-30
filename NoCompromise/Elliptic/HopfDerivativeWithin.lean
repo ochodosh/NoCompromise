@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.Hopf
+module
+
+public import NoCompromise.Elliptic.Hopf
+
+@[expose] public section
 
 /-!
 # Hopf's sign for a derivative taken from the domain

@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NewtonianSchauderPotential
+module
+
+public import NoCompromise.Elliptic.NewtonianSchauderPotential
+
+@[expose] public section
 
 /-!
 # Localizing a Hölder source

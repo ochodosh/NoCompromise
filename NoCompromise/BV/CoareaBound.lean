@@ -1,4 +1,8 @@
-import NoCompromise.BV.CoareaLayerCake
+module
+
+public import NoCompromise.BV.CoareaLayerCake
+
+@[expose] public section
 
 /-!
 # The reverse BV coarea inequality

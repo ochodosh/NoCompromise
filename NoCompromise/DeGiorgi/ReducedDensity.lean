@@ -1,9 +1,13 @@
-import NoCompromise.DeGiorgi.Reduced
-import NoCompromise.DeGiorgi.DensityFlux
-import NoCompromise.DeGiorgi.DensityODE
-import NoCompromise.BV.Algebra
-import NoCompromise.BV.RadialVolume
-import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+module
+
+public import NoCompromise.DeGiorgi.Reduced
+public import NoCompromise.DeGiorgi.DensityFlux
+public import NoCompromise.DeGiorgi.DensityODE
+public import NoCompromise.BV.Algebra
+public import NoCompromise.BV.RadialVolume
+public import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+
+@[expose] public section
 
 /-!
 # Two-sided volume density at a reduced point

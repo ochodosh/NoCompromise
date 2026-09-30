@@ -1,5 +1,9 @@
-import NoCompromise.BV.JumpSlicing
-import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+module
+
+public import NoCompromise.BV.JumpSlicing
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+
+@[expose] public section
 
 /-!
 # Weighted one-dimensional translation identity

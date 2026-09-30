@@ -1,6 +1,10 @@
-import NoCompromise.DeGiorgi.RectifiabilityGeometry
-import NoCompromise.DeGiorgi.ConeConcentration
-import Mathlib.Topology.Bases
+module
+
+public import NoCompromise.DeGiorgi.RectifiabilityGeometry
+public import NoCompromise.DeGiorgi.ConeConcentration
+public import Mathlib.Topology.Bases
+
+@[expose] public section
 
 /-!
 # Countable graph covers from density and cone concentration

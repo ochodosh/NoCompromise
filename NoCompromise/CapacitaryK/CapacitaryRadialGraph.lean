@@ -1,6 +1,10 @@
-import NoCompromise.CapacitaryK.LevelRadialGraph
-import NoCompromise.CapacitaryK.TranslatedDerivatives
-import NoCompromise.CapacitaryK.FarMassDensity
+module
+
+public import NoCompromise.CapacitaryK.LevelRadialGraph
+public import NoCompromise.CapacitaryK.TranslatedDerivatives
+public import NoCompromise.CapacitaryK.FarMassDensity
+
+@[expose] public section
 
 /-!
 # Capacitary level sets as radial graphs

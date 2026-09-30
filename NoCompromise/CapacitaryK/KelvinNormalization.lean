@@ -1,6 +1,10 @@
-import NoCompromise.CapacitaryK.KelvinSecondOrder
-import NoCompromise.CapacitaryK.KelvinTranslation
-import NoCompromise.Capacity.KelvinLevels
+module
+
+public import NoCompromise.CapacitaryK.KelvinSecondOrder
+public import NoCompromise.CapacitaryK.KelvinTranslation
+public import NoCompromise.Capacity.KelvinLevels
+
+@[expose] public section
 
 /-!
 # `lem:K-normalization`: the translated expansion (chapter 31)

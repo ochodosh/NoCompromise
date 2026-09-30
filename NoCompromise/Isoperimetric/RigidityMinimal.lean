@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.PenalizationQuasiminimal
+module
+
+public import NoCompromise.Regularity.PenalizationQuasiminimal
+
+@[expose] public section
 
 /-!
 # Coulomb-free penalization and quasiminimality for perimeter minimisers

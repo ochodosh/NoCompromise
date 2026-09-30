@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.WeakCompactness
-import Mathlib.Analysis.Normed.Operator.ContinuousLinearMap
+module
+
+public import NoCompromise.Sobolev.WeakCompactness
+public import Mathlib.Analysis.Normed.Operator.ContinuousLinearMap
+
+@[expose] public section
 
 /-!
 # Coercive quadratic minimization from Hilbert representation

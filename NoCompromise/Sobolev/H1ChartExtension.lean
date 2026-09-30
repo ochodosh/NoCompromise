@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.H1FlatExtension
-import NoCompromise.Sobolev.H1Calculus
-import NoCompromise.Sobolev.H1Chain
+module
+
+public import NoCompromise.Sobolev.H1FlatExtension
+public import NoCompromise.Sobolev.H1Calculus
+public import NoCompromise.Sobolev.H1Chain
+
+@[expose] public section
 
 /-!
 # Compact H¹ extension pieces on Lipschitz boundary charts

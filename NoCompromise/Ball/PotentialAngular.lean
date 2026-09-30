@@ -1,6 +1,10 @@
-import NoCompromise.BV.SphericalSlicing
-import NoCompromise.Energy.Coulomb
-import Mathlib.Analysis.InnerProductSpace.Projection.Reflection
+module
+
+public import NoCompromise.BV.SphericalSlicing
+public import NoCompromise.Energy.Coulomb
+public import Mathlib.Analysis.InnerProductSpace.Projection.Reflection
+
+@[expose] public section
 
 /-!
 # Elementary angular integration for the ball potential

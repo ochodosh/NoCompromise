@@ -1,6 +1,10 @@
-import NoCompromise.Regularity.SlabCapArea
-import NoCompromise.Regularity.SlabGeometry
-import NoCompromise.DeGiorgi.SmoothGraph
+module
+
+public import NoCompromise.Regularity.SlabCapArea
+public import NoCompromise.Regularity.SlabGeometry
+public import NoCompromise.DeGiorgi.SmoothGraph
+
+@[expose] public section
 
 /-! # Exact disk perimeter of the flattened core -/
 

@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.Hilbert
-import Mathlib.Analysis.Convex.Integral
-import Mathlib.Analysis.Convex.Mul
+module
+
+public import NoCompromise.Sobolev.Hilbert
+public import Mathlib.Analysis.Convex.Integral
+public import Mathlib.Analysis.Convex.Mul
+
+@[expose] public section
 
 /-!
 # Mollification of whole-space H¹ functions

@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryHolderRepresentative
-import NoCompromise.Elliptic.BoundaryHolderNormalization
-import NoCompromise.Elliptic.BoundaryHolderSimilarity
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderRepresentative
+public import NoCompromise.Elliptic.BoundaryHolderNormalization
+public import NoCompromise.Elliptic.BoundaryHolderSimilarity
+
+@[expose] public section
 
 /-! Uniform local C¹,α representatives across every point of the smaller flat
 disk. All representatives agree almost everywhere with one common raw odd

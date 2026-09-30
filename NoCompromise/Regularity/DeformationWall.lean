@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.DeformationLimitPhases
-import NoCompromise.Regularity.SlabCapArea
+module
+
+public import NoCompromise.Regularity.DeformationLimitPhases
+public import NoCompromise.Regularity.SlabCapArea
+
+@[expose] public section
 
 /-! # No inner-wall perimeter survives the degenerate compression -/
 

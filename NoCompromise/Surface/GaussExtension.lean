@@ -1,5 +1,9 @@
-import NoCompromise.Topology.Tubular
-import Mathlib.Analysis.Calculus.ContDiff.RCLike
+module
+
+public import NoCompromise.Topology.Tubular
+public import Mathlib.Analysis.Calculus.ContDiff.RCLike
+
+@[expose] public section
 
 /-!
 # A smooth Lipschitz extension of the Gauss map

@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryNondivC2Equation
-import NoCompromise.Elliptic.BoundaryNondivTangential
-import NoCompromise.Elliptic.BoundaryNeumannC2
+module
+
+public import NoCompromise.Elliptic.BoundaryNondivC2Equation
+public import NoCompromise.Elliptic.BoundaryNondivTangential
+public import NoCompromise.Elliptic.BoundaryNeumannC2
+
+@[expose] public section
 
 /-!
 # Boundary C²,α estimates for the zero-trace nondivergence problem

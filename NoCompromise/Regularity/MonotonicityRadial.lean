@@ -1,7 +1,11 @@
-import NoCompromise.Regularity.MonotonicityPrimitive
-import NoCompromise.Regularity.MonotonicityTests
-import NoCompromise.Regularity.RadialField
-import NoCompromise.Regularity.FirstVariation
+module
+
+public import NoCompromise.Regularity.MonotonicityPrimitive
+public import NoCompromise.Regularity.MonotonicityTests
+public import NoCompromise.Regularity.RadialField
+public import NoCompromise.Regularity.FirstVariation
+
+@[expose] public section
 
 /-!
 # Radial first-variation inequalities

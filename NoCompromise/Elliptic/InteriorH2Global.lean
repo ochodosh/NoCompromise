@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.InteriorH2Hessian
-import NoCompromise.Elliptic.InteriorH2H1
+module
+
+public import NoCompromise.Elliptic.InteriorH2Hessian
+public import NoCompromise.Elliptic.InteriorH2H1
+
+@[expose] public section
 
 /-!
 # Actual second weak derivatives for compact global Poisson solutions

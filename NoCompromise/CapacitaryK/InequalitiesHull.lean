@@ -1,5 +1,9 @@
-import NoCompromise.CapacitaryK.InequalitiesFinal
-import NoCompromise.Capacity.HullExistence
+module
+
+public import NoCompromise.CapacitaryK.InequalitiesFinal
+public import NoCompromise.Capacity.HullExistence
+
+@[expose] public section
 
 /-!
 # `thm:capacitary-inequalities` for the filled hull of `Ω`

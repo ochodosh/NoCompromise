@@ -1,4 +1,8 @@
-import NoCompromise.Area.GoodPiecesCarrier
+module
+
+public import NoCompromise.Area.GoodPiecesCarrier
+
+@[expose] public section
 
 /-!
 # Countable exhaustion by uniform differentiability pieces

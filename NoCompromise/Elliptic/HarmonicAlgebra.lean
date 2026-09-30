@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NewtonianKernel
+module
+
+public import NoCompromise.Elliptic.NewtonianKernel
+
+@[expose] public section
 
 /-!
 # Linear operations on distributional Poisson equations

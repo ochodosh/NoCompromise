@@ -1,4 +1,8 @@
-import NoCompromise.BV.BoundaryTraces
+module
+
+public import NoCompromise.BV.BoundaryTraces
+
+@[expose] public section
 
 /-!
 # Closed-set bounds for genuine boundary traces

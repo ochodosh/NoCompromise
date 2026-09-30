@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.HarmonicBlowupCompactness
+module
+
+public import NoCompromise.Regularity.HarmonicBlowupCompactness
+
+@[expose] public section
 
 /-!
 # Uniform harmonic approximation from small actual residuals

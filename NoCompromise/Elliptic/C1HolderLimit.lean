@@ -1,8 +1,12 @@
-import Mathlib.Analysis.Calculus.MeanValue
-import Mathlib.Analysis.Calculus.Gradient.Basic
-import Mathlib.Analysis.Normed.Module.FiniteDimension
-import Mathlib.Analysis.SpecialFunctions.Pow.Continuity
-import Mathlib.Topology.MetricSpace.Sequences
+module
+
+public import Mathlib.Analysis.Calculus.MeanValue
+public import Mathlib.Analysis.Calculus.Gradient.Basic
+public import Mathlib.Analysis.Normed.Module.FiniteDimension
+public import Mathlib.Analysis.SpecialFunctions.Pow.Continuity
+public import Mathlib.Topology.MetricSpace.Sequences
+
+@[expose] public section
 
 /-!
 # Uniform `C^{1,α}` bounds pass to pointwise limits

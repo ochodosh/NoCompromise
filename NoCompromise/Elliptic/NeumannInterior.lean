@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.NeumannLocalizeTests
-import NoCompromise.Elliptic.WeakMaximumCore
-import NoCompromise.Elliptic.HarmonicAlgebra
-import NoCompromise.Elliptic.NeumannInteriorLaplacian
+module
+
+public import NoCompromise.Elliptic.NeumannLocalizeTests
+public import NoCompromise.Elliptic.WeakMaximumCore
+public import NoCompromise.Elliptic.HarmonicAlgebra
+public import NoCompromise.Elliptic.NeumannInteriorLaplacian
+
+@[expose] public section
 
 /-!
 # Interior regularity for weak Neumann solutions

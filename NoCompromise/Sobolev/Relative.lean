@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.Poincare
-import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
+module
+
+public import NoCompromise.Sobolev.Poincare
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
+
+@[expose] public section
 
 /-!
 # Relative isoperimetry on fixed Lipschitz domains

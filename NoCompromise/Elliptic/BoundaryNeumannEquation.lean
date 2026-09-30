@@ -1,6 +1,10 @@
-import NoCompromise.Elliptic.BoundaryNeumannReflection
-import NoCompromise.Elliptic.BoundaryNeumannCoefficients
-import NoCompromise.Elliptic.BoundaryHolderOddWeak
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannReflection
+public import NoCompromise.Elliptic.BoundaryNeumannCoefficients
+public import NoCompromise.Elliptic.BoundaryHolderOddWeak
+
+@[expose] public section
 
 /-! The homogeneous conormal test identity implies the full reflected equation. -/
 

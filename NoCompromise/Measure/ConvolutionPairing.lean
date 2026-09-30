@@ -1,5 +1,9 @@
-import NoCompromise.BV.StrictApprox
-import Mathlib.MeasureTheory.Function.LpSpace.ContinuousFunctions
+module
+
+public import NoCompromise.BV.StrictApprox
+public import Mathlib.MeasureTheory.Function.LpSpace.ContinuousFunctions
+
+@[expose] public section
 
 /-!
 # Pairing measure convolutions with bounded continuous fields

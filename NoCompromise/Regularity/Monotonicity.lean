@@ -1,8 +1,12 @@
-import NoCompromise.Regularity.MonotonicityAnnulus
-import NoCompromise.Regularity.DensityAhlfors
-import NoCompromise.Regularity.RepresentativeBoundary
-import NoCompromise.DeGiorgi.NoAtoms
-import Mathlib.Topology.Order.Monotone
+module
+
+public import NoCompromise.Regularity.MonotonicityAnnulus
+public import NoCompromise.Regularity.DensityAhlfors
+public import NoCompromise.Regularity.RepresentativeBoundary
+public import NoCompromise.DeGiorgi.NoAtoms
+public import Mathlib.Topology.Order.Monotone
+
+@[expose] public section
 
 /-!
 # Almost-monotonicity and positive density of quasiminimal boundaries

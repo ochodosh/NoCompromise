@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.H1Mollification
+module
+
+public import NoCompromise.Sobolev.H1Mollification
+
+@[expose] public section
 
 /-!
 # Interior mollification and reflection estimates for H¹ functions

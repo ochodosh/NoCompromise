@@ -1,4 +1,8 @@
-import NoCompromise.Sobolev.W11VectorData
+module
+
+public import NoCompromise.Sobolev.W11VectorData
+
+@[expose] public section
 
 /-! # Recovering actual vector W¹,¹ data from its finitely many scalar rows -/
 

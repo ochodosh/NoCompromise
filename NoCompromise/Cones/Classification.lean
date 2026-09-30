@@ -1,6 +1,10 @@
-import NoCompromise.Cones.Halfspace
-import NoCompromise.Cones.ThreeDim
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+module
+
+public import NoCompromise.Cones.Halfspace
+public import NoCompromise.Cones.ThreeDim
+public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+
+@[expose] public section
 
 /-!
 # Geometric endgames of `lem:cone-2d` and `thm:cone-3d` (chapter 25)

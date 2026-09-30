@@ -1,5 +1,9 @@
-import NoCompromise.Capacity.FluxIdentity
-import NoCompromise.Hull.Defs
+module
+
+public import NoCompromise.Capacity.FluxIdentity
+public import NoCompromise.Hull.Defs
+
+@[expose] public section
 
 /-!
 # Translation invariance of the capacitary problem

@@ -1,6 +1,10 @@
-import NoCompromise.Area.Linear
-import Mathlib.MeasureTheory.Covering.Vitali
-import Mathlib.MeasureTheory.Measure.Regular
+module
+
+public import NoCompromise.Area.Linear
+public import Mathlib.MeasureTheory.Covering.Vitali
+public import Mathlib.MeasureTheory.Measure.Regular
+
+@[expose] public section
 
 /-!
 # Positive lower density and Hausdorff null sets

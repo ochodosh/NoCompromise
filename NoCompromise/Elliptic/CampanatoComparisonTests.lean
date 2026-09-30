@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.Caccioppoli
-import NoCompromise.Sobolev.H1PositivePartPoincare
+module
+
+public import NoCompromise.Elliptic.Caccioppoli
+public import NoCompromise.Sobolev.H1PositivePartPoincare
+
+@[expose] public section
 
 /-! Smooth distributional tests extend to genuine H¹₀ tests by the defining
 closed subspace. Constant divergence data cancel, and the Hilbert energy

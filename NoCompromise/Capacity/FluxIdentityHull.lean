@@ -1,6 +1,10 @@
-import NoCompromise.Capacity.FluxBoundaryW
-import NoCompromise.Capacity.FluxLevel
-import NoCompromise.Capacity.HullPotentialBoundaryC2
+module
+
+public import NoCompromise.Capacity.FluxBoundaryW
+public import NoCompromise.Capacity.FluxLevel
+public import NoCompromise.Capacity.HullPotentialBoundaryC2
+
+@[expose] public section
 
 /-!
 # `lem:flux-identity`, `not:w` and `lem:kelvin` for the filled hull, unconditionally

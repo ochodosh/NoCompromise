@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryNeumannC2InhomHolder
+module
+
+public import NoCompromise.Elliptic.BoundaryNeumannC2InhomHolder
+
+@[expose] public section
 
 /-!
 # Flat boundary C²,α bounds for inhomogeneous conormal data of finite regularity

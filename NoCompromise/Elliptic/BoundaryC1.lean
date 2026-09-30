@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.BoundaryHolderLocal
-import NoCompromise.Elliptic.BoundaryHolderGluing
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderLocal
+public import NoCompromise.Elliptic.BoundaryHolderGluing
+
+@[expose] public section
 
 /-! Boundary C¹,α regularity for the genuine zero-Dirichlet weak problem.
 A single representative is constructed on an open neighborhood of the entire

@@ -1,7 +1,11 @@
-import NoCompromise.Conventions
-import Mathlib.Analysis.InnerProductSpace.NormDet
-import Mathlib.Analysis.Calculus.FDeriv.Measurable
-import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+module
+
+public import NoCompromise.Conventions
+public import Mathlib.Analysis.InnerProductSpace.NormDet
+public import Mathlib.Analysis.Calculus.FDeriv.Measurable
+public import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+
+@[expose] public section
 
 /-!
 # The two-dimensional Jacobian and linear image measure

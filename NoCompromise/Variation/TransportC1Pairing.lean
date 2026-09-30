@@ -1,7 +1,11 @@
-import NoCompromise.Variation.TransportPairing
-import NoCompromise.BV.PolarMollification
-import NoCompromise.BV.IndicatorMollification
-import NoCompromise.Measure.NullChangeOfVariables
+module
+
+public import NoCompromise.Variation.TransportPairing
+public import NoCompromise.BV.PolarMollification
+public import NoCompromise.BV.IndicatorMollification
+public import NoCompromise.Measure.NullChangeOfVariables
+
+@[expose] public section
 
 /-!
 # Distributional perimeter transport under C¹ diffeomorphisms

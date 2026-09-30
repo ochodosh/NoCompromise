@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.BoundaryHolderTangentialGrowth
+module
+
+public import NoCompromise.Elliptic.BoundaryHolderTangentialGrowth
+
+@[expose] public section
 
 /-! A fixed tangential localization and positive similarity preserve the
 original weak boundary problem and its full coefficient hypotheses. The

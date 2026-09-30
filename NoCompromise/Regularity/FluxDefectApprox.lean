@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.FluxDefectTests
-import NoCompromise.BV.CoareaSmooth
+module
+
+public import NoCompromise.Regularity.FluxDefectTests
+public import NoCompromise.BV.CoareaSmooth
+
+@[expose] public section
 
 /-! # Smooth one-sided approximations to horizontal disks -/
 

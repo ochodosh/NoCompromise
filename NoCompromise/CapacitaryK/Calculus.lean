@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.InteriorH2Mollification
+module
+
+public import NoCompromise.Elliptic.InteriorH2Mollification
+
+@[expose] public section
 
 /-!
 # Pointwise calculus vocabulary for chapter 31 (`CapacitaryK`)

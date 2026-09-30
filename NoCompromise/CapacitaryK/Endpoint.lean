@@ -1,4 +1,8 @@
-import NoCompromise.CapacitaryK.Representatives
+module
+
+public import NoCompromise.CapacitaryK.Representatives
+
+@[expose] public section
 
 /-!
 # Endpoint limits at `t ↑ 1` (chapter 31, `thm:capacitary-inequalities`, endpoint step)

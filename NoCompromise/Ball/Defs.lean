@@ -1,5 +1,9 @@
-import NoCompromise.BV.Defs
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
+module
+
+public import NoCompromise.BV.Defs
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+
+@[expose] public section
 
 /-!
 # Ball definitions

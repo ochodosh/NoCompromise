@@ -1,5 +1,9 @@
-import NoCompromise.BV.FlatCut
-import NoCompromise.BV.ScalarDistribution
+module
+
+public import NoCompromise.BV.FlatCut
+public import NoCompromise.BV.ScalarDistribution
+
+@[expose] public section
 
 /-!
 # The derivative measure and BV regularity of a flat cut

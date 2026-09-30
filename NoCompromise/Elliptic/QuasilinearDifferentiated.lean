@@ -1,7 +1,11 @@
-import NoCompromise.Elliptic.QuasilinearHessian
-import NoCompromise.Elliptic.QuasilinearLinearization
-import NoCompromise.Elliptic.NondivSchauderDatumLimit
-import NoCompromise.Elliptic.NondivSchauderEquationLimit
+module
+
+public import NoCompromise.Elliptic.QuasilinearHessian
+public import NoCompromise.Elliptic.QuasilinearLinearization
+public import NoCompromise.Elliptic.NondivSchauderDatumLimit
+public import NoCompromise.Elliptic.NondivSchauderEquationLimit
+
+@[expose] public section
 
 /-! Passage from the genuine quasilinear quotient equations to the equation for
 an actual first derivative. Weak compactness, uniform coefficient convergence,

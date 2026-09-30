@@ -1,7 +1,11 @@
-import NoCompromise.Variation.StraightDiffeo
-import NoCompromise.Variation.Piola
-import Mathlib.LinearAlgebra.Matrix.Trace
-import Mathlib.Topology.Instances.Matrix
+module
+
+public import NoCompromise.Variation.StraightDiffeo
+public import NoCompromise.Variation.Piola
+public import Mathlib.LinearAlgebra.Matrix.Trace
+public import Mathlib.Topology.Instances.Matrix
+
+@[expose] public section
 
 /-!
 # Uniform expansions for straight perturbations

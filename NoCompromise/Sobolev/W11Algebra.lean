@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.W11Calculus
-import NoCompromise.Sobolev.H1Algebra
+module
+
+public import NoCompromise.Sobolev.W11Calculus
+public import NoCompromise.Sobolev.H1Algebra
+
+@[expose] public section
 
 /-!
 # Algebra of W¹,¹ representatives

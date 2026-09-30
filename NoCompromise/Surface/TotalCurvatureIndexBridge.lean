@@ -1,6 +1,10 @@
-import NoCompromise.Surface.SurfaceChart
-import NoCompromise.Area.SmoothSurface
-import NoCompromise.Area.Rectifiable
+module
+
+public import NoCompromise.Surface.SurfaceChart
+public import NoCompromise.Area.SmoothSurface
+public import NoCompromise.Area.Rectifiable
+
+@[expose] public section
 
 /-!
 # Compact smooth embedded surfaces are rectifiable with finite area

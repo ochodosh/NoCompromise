@@ -1,6 +1,10 @@
-import NoCompromise.DeGiorgi.SmoothGraph
-import NoCompromise.DeGiorgi.AmbientPolar
-import NoCompromise.Sobolev.RelativeCubes
+module
+
+public import NoCompromise.DeGiorgi.SmoothGraph
+public import NoCompromise.DeGiorgi.AmbientPolar
+public import NoCompromise.Sobolev.RelativeCubes
+
+@[expose] public section
 
 /-!
 # C¹ boundary charts and classical perimeter

@@ -1,4 +1,8 @@
-import NoCompromise.Flow.FlowManifoldAbstract
+module
+
+public import NoCompromise.Flow.FlowManifoldAbstract
+
+@[expose] public section
 
 /-!
 # The domain and regularity of the abstract maximal flow

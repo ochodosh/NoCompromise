@@ -1,6 +1,10 @@
-import NoCompromise.Isoperimetric.SharpNeumann
-import NoCompromise.Isoperimetric.RigidityHessian
-import NoCompromise.Isoperimetric.RigidityAffine
+module
+
+public import NoCompromise.Isoperimetric.SharpNeumann
+public import NoCompromise.Isoperimetric.RigidityHessian
+public import NoCompromise.Isoperimetric.RigidityAffine
+
+@[expose] public section
 
 /-!
 # Isoperimetric rigidity for smooth domains

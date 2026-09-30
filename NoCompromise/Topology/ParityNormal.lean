@@ -1,4 +1,8 @@
-import NoCompromise.Topology.OrientationParity
+module
+
+public import NoCompromise.Topology.OrientationParity
+
+@[expose] public section
 
 /-!
 # The global unit normal selected by parity (`prop:orientation-parity` (ii))

@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.FrozenDecayVariance
+module
+
+public import NoCompromise.Elliptic.FrozenDecayVariance
+
+@[expose] public section
 
 /-!
 # Boundary excess over normal affine functions

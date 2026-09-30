@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.HarmonicDerivativeTranslation
-import NoCompromise.Elliptic.HarmonicMeanValue
+module
+
+public import NoCompromise.Elliptic.HarmonicDerivativeTranslation
+public import NoCompromise.Elliptic.HarmonicMeanValue
+
+@[expose] public section
 
 /-!
 # Harmonic derivative estimates

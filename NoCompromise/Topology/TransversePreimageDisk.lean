@@ -1,6 +1,10 @@
-import NoCompromise.Topology.TransversePreimage
-import Mathlib.Analysis.Calculus.InverseFunctionTheorem.FDeriv
-import Mathlib.Analysis.InnerProductSpace.Calculus
+module
+
+public import NoCompromise.Topology.TransversePreimage
+public import Mathlib.Analysis.Calculus.InverseFunctionTheorem.FDeriv
+public import Mathlib.Analysis.InnerProductSpace.Calculus
+
+@[expose] public section
 
 /-!
 # cor:transv-preimage, disk case (with boundary transversality)

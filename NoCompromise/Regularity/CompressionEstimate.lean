@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.CompressionLinear
+module
+
+public import NoCompromise.Regularity.CompressionLinear
+
+@[expose] public section
 
 /-! # The quadratic area estimate for the compression cofactor -/
 

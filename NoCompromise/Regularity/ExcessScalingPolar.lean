@@ -1,6 +1,10 @@
-import NoCompromise.DeGiorgi.AmbientPolar
-import NoCompromise.DeGiorgi.BlowupPolar
-import NoCompromise.DeGiorgi.Structure
+module
+
+public import NoCompromise.DeGiorgi.AmbientPolar
+public import NoCompromise.DeGiorgi.BlowupPolar
+public import NoCompromise.DeGiorgi.Structure
+
+@[expose] public section
 
 /-!
 # The genuine perimeter polar under positive blowup

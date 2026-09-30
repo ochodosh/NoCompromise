@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NondivSchauderTests
+module
+
+public import NoCompromise.Elliptic.NondivSchauderTests
+
+@[expose] public section
 
 /-!
 # A uniform interior energy estimate for difference-quotient solutions

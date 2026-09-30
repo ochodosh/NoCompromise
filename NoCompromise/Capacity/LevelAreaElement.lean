@@ -1,6 +1,10 @@
-import NoCompromise.Capacity.LevelRadiusSecondDeriv
-import NoCompromise.CapacitaryK.RadialGraphAreaFormula
-import NoCompromise.CapacitaryK.LevelRadiusDerivatives
+module
+
+public import NoCompromise.Capacity.LevelRadiusSecondDeriv
+public import NoCompromise.CapacitaryK.RadialGraphAreaFormula
+public import NoCompromise.CapacitaryK.LevelRadiusDerivatives
+
+@[expose] public section
 
 /-!
 # The area element of small capacitary levels (`lem:level-asymptotics`)

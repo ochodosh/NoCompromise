@@ -1,14 +1,18 @@
-import NoCompromise.BV.StrictApprox
-import Mathlib.MeasureTheory.Integral.MeanInequalities
-import Mathlib.Analysis.Calculus.Deriv.Pi
-import Mathlib.MeasureTheory.Integral.IntegralEqImproper
-import Mathlib.MeasureTheory.Constructions.Pi
-import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
-import Mathlib.Analysis.MeanInequalities
-import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
-import Mathlib.MeasureTheory.Function.LpSpace.Complete
-import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
-import Mathlib.MeasureTheory.VectorMeasure.Variation.SignedMeasure
+module
+
+public import NoCompromise.BV.StrictApprox
+public import Mathlib.MeasureTheory.Integral.MeanInequalities
+public import Mathlib.Analysis.Calculus.Deriv.Pi
+public import Mathlib.MeasureTheory.Integral.IntegralEqImproper
+public import Mathlib.MeasureTheory.Constructions.Pi
+public import Mathlib.MeasureTheory.Function.LpSeminorm.LpNorm
+public import Mathlib.Analysis.MeanInequalities
+public import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
+public import Mathlib.MeasureTheory.Function.LpSpace.Complete
+public import Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
+public import Mathlib.MeasureTheory.VectorMeasure.Variation.SignedMeasure
+
+@[expose] public section
 
 /-!
 # BV Sobolev inequalities

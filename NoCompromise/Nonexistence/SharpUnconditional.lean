@@ -1,4 +1,8 @@
-import NoCompromise.Classification.Unconditional
+module
+
+public import NoCompromise.Classification.Unconditional
+
+@[expose] public section
 
 /-!
 # `lem:two-ball-comparison`, `prop:nonexistence-6`, `prop:nonexistence-8` for minimisers

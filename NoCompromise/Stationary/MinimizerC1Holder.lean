@@ -1,12 +1,16 @@
-import NoCompromise.Stationary.MinimizerContext
-import NoCompromise.Stationary.ChartLocalize
-import NoCompromise.BV.ExteriorGeometry
-import NoCompromise.Regularity.PenalizationQuasiminimal
-import NoCompromise.Regularity.RepresentativeBoundary
-import NoCompromise.Regularity.IsometryDensity
-import NoCompromise.Regularity.ExcessDecayCoordinates
-import NoCompromise.Regularity.EpsRegularityMain
-import NoCompromise.Stationary.BootstrapC2Chart
+module
+
+public import NoCompromise.Stationary.MinimizerContext
+public import NoCompromise.Stationary.ChartLocalize
+public import NoCompromise.BV.ExteriorGeometry
+public import NoCompromise.Regularity.PenalizationQuasiminimal
+public import NoCompromise.Regularity.RepresentativeBoundary
+public import NoCompromise.Regularity.IsometryDensity
+public import NoCompromise.Regularity.ExcessDecayCoordinates
+public import NoCompromise.Regularity.EpsRegularityMain
+public import NoCompromise.Stationary.BootstrapC2Chart
+
+@[expose] public section
 
 /-!
 # The C¹,¹ᐟ² boundary of the minimizer

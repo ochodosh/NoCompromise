@@ -1,5 +1,9 @@
-import NoCompromise.Elliptic.InteriorC2aDiv
-import NoCompromise.Elliptic.CampanatoHolder
+module
+
+public import NoCompromise.Elliptic.InteriorC2aDiv
+public import NoCompromise.Elliptic.CampanatoHolder
+
+@[expose] public section
 
 /-!
 # Interior C²,α from H¹ for `div(A∇u) = div G`

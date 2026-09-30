@@ -1,4 +1,8 @@
-import NoCompromise.Cones.TwoDimParity
+module
+
+public import NoCompromise.Cones.TwoDimParity
+
+@[expose] public section
 
 /-!
 # Short gaps in the planar link

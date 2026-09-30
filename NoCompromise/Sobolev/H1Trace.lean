@@ -1,6 +1,10 @@
-import NoCompromise.Sobolev.H1Approximation
-import NoCompromise.Sobolev.H1Algebra
-import NoCompromise.BV.CoareaCoordinates
+module
+
+public import NoCompromise.Sobolev.H1Approximation
+public import NoCompromise.Sobolev.H1Algebra
+public import NoCompromise.BV.CoareaCoordinates
+
+@[expose] public section
 
 /-!
 # The flat L² trace of H¹ functions

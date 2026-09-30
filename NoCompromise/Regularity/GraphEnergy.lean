@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.GraphEnergyExtension
-import NoCompromise.Regularity.GraphDirichlet
+module
+
+public import NoCompromise.Regularity.GraphEnergyExtension
+public import NoCompromise.Regularity.GraphDirichlet
+
+@[expose] public section
 
 /-! # Global graph energy without a prescribed clamping height -/
 

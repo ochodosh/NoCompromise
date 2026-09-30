@@ -1,6 +1,10 @@
-import NoCompromise.BV.RadialTestFamily
-import NoCompromise.BV.TraceBounds
-import NoCompromise.Sobolev.AnnulusDomain
+module
+
+public import NoCompromise.BV.RadialTestFamily
+public import NoCompromise.BV.TraceBounds
+public import NoCompromise.Sobolev.AnnulusDomain
+
+@[expose] public section
 
 /-!
 # Good radii for locally finite-perimeter sets

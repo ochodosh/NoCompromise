@@ -1,5 +1,9 @@
-import NoCompromise.BV.SmoothApproxLevels
-import NoCompromise.BV.SmoothApproxDilation
+module
+
+public import NoCompromise.BV.SmoothApproxLevels
+public import NoCompromise.BV.SmoothApproxDilation
+
+@[expose] public section
 
 /-!
 # Strict approximation by bounded open regular superlevels

@@ -1,4 +1,8 @@
-import NoCompromise.Regularity.GraphExtension
+module
+
+public import NoCompromise.Regularity.GraphExtension
+
+@[expose] public section
 
 /-! # Height-preserving Lipschitz graph extension -/
 

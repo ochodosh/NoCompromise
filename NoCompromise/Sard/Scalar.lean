@@ -1,7 +1,11 @@
-import NoCompromise.Sard.OneDimensional
-import NoCompromise.BV.CoareaCharts
-import NoCompromise.BV.CoareaIsometry
-import Mathlib.Topology.Compactness.Lindelof
+module
+
+public import NoCompromise.Sard.OneDimensional
+public import NoCompromise.BV.CoareaCharts
+public import NoCompromise.BV.CoareaIsometry
+public import Mathlib.Topology.Compactness.Lindelof
+
+@[expose] public section
 
 /-!
 # Two-dimensional scalar Sard

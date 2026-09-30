@@ -1,6 +1,10 @@
-import NoCompromise.Surface.MorseChart
-import NoCompromise.Surface.MorseModel
-import NoCompromise.Surface.MorseSectors
+module
+
+public import NoCompromise.Surface.MorseChart
+public import NoCompromise.Surface.MorseModel
+public import NoCompromise.Surface.MorseSectors
+
+@[expose] public section
 
 /-!
 # Morse charts on an embedded surface

@@ -1,6 +1,10 @@
-import NoCompromise.BV.WeakGradientVariation
-import Mathlib.Analysis.SpecialFunctions.SmoothTransition
-import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+module
+
+public import NoCompromise.BV.WeakGradientVariation
+public import Mathlib.Analysis.SpecialFunctions.SmoothTransition
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+
+@[expose] public section
 
 /-!
 # A measurable majorant for smooth superlevel perimeters

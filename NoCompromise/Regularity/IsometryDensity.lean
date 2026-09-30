@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.IsometryMinimal
-import NoCompromise.Regularity.DensitySimilarity
+module
+
+public import NoCompromise.Regularity.IsometryMinimal
+public import NoCompromise.Regularity.DensitySimilarity
+
+@[expose] public section
 
 /-! # Exact canonical phase representatives in rigid coordinates -/
 

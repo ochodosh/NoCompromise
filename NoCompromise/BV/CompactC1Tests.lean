@@ -1,4 +1,8 @@
-import NoCompromise.BV.JumpKernel
+module
+
+public import NoCompromise.BV.JumpKernel
+
+@[expose] public section
 
 /-!
 # Countable compact C¹ test families

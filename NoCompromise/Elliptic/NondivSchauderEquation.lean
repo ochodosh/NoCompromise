@@ -1,4 +1,8 @@
-import NoCompromise.Elliptic.NondivSchauderData
+module
+
+public import NoCompromise.Elliptic.NondivSchauderData
+
+@[expose] public section
 
 /-!
 # Distributional nondivergence equations

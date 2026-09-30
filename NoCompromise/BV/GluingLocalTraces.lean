@@ -1,5 +1,9 @@
-import NoCompromise.BV.BoundaryTraces
-import NoCompromise.BV.GraphCutPerimeter
+module
+
+public import NoCompromise.BV.BoundaryTraces
+public import NoCompromise.BV.GraphCutPerimeter
+
+@[expose] public section
 
 /-!
 # Traces for functions which are BV only near the gluing boundary

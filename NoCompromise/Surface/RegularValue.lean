@@ -1,5 +1,9 @@
-import NoCompromise.Surface.Geometry
-import Mathlib.Topology.Sequences
+module
+
+public import NoCompromise.Surface.Geometry
+public import Mathlib.Topology.Sequences
+
+@[expose] public section
 
 /-!
 # Finite regular fibres of compact surfaces

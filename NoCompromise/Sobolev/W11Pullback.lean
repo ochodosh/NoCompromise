@@ -1,5 +1,9 @@
-import NoCompromise.Sobolev.H1Chain
-import NoCompromise.Sobolev.W11Calculus
+module
+
+public import NoCompromise.Sobolev.H1Chain
+public import NoCompromise.Sobolev.W11Calculus
+
+@[expose] public section
 
 /-!
 # L¹ estimates for bi-Lipschitz pullback

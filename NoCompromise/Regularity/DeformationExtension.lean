@@ -1,5 +1,9 @@
-import NoCompromise.Regularity.SlabPhaseIdentification
-import NoCompromise.BV.FlatCutMeasure
+module
+
+public import NoCompromise.Regularity.SlabPhaseIdentification
+public import NoCompromise.BV.FlatCutMeasure
+
+@[expose] public section
 
 /-! # Extending the vertical slices by the prescribed exterior phases -/
 
