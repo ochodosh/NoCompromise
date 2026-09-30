@@ -7,7 +7,7 @@ A Lean 4 / Mathlib (auto)formalization of the main results of
 
 ## Note/Acknowledgement 
 
-This was done as a learning exercise. I am grateful to Mitchell Taylor and Lukas Liehr for teaching me their process and help throughout the project. 
+This was done as a learning exercise. I am grateful to Mitchell Taylor and Lukas Liehr for teaching me their process and for their help throughout the project. 
 
 ## Statement
 
