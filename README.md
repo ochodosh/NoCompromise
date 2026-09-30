@@ -5,6 +5,10 @@ A Lean 4 / Mathlib (auto)formalization of the main results of
 > Otis Chodosh and Matilde Gianocca, *No compromise in the liquid drop model*,
 > [arXiv:2608.11517](https://arxiv.org/abs/2608.11517).
 
+## Note/Acknowledgement 
+
+This was done as a learning exercise. I am grateful to Mitchell Taylor and Lukas Liehr for teaching me their process and help throughout the project. 
+
 ## Statement
 
 [`Challenge.lean`](Challenge.lean) states the results using only Mathlib, in about 180 lines.
