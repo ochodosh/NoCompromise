@@ -3,19 +3,22 @@
 % ============================================================================
 \module{(this chapter is the answer)}
 
-This chapter records the complete assignment of all 378 target and context
-items to 124 planned Lean modules in the existing \texttt{no\_compromise}
-project.  The module root is \texttt{NoCompromise}; mathematical declarations
-retain the \texttt{LiquidDrop} namespace.  All 302 mathematical results have
-an owner, and all 59 remarks and formalisation notes are attached separately
-as guidance.  No range or wildcard stands for an unassigned item.
+This chapter records the assignment of all 378 target and context items to
+207 Lean modules.  The module root is \texttt{NoCompromise}; mathematical
+declarations retain the \texttt{LiquidDrop} namespace.  All 302 mathematical
+results have an owner, and all 59 remarks and formalisation notes are attached
+separately as guidance.  No range or wildcard stands for an unassigned item.
 
 The tree below lists each module with the items it owns.  The assignment
 was checked mechanically for coverage and acyclicity using every declared
 \verb|\uses| edge, shared conventions, and documented context prerequisites
-(including the regression tests' references).  This is a plan for Lean
-files, not an assertion that their statements or proofs have been elaborated.
-Additional supporting lemmas may be needed during formalisation.
+(including the regression tests' references).
+
+The formalisation is complete: all 302 mathematical results are proved in the
+Lean library, which has 1,206 files.  The tree records the planned home of
+each item.  Some items were implemented in other files, and most supporting
+lemmas live in files that the tree does not list.  The design rules and notes
+below describe the plan the formalisation started from.
 
 \section{Design rules used}
 
