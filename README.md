@@ -1,6 +1,6 @@
 # No compromise in the liquid drop model — Lean formalization
 
-A Lean 4 / Mathlib formalization of the main results of
+A Lean 4 / Mathlib (auto)formalization of the main results of
 
 > Otis Chodosh and Matilde Gianocca, *No compromise in the liquid drop model*,
 > [arXiv:2608.11517](https://arxiv.org/abs/2608.11517).
