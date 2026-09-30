@@ -51,7 +51,8 @@ lake build
 [`Solution.lean`](Solution.lean) proves the challenge theorems from the library, and
 [`comparator.json`](comparator.json) configures
 [comparator](https://github.com/leanprover/comparator) to check that the solution proves exactly
-the challenge statements (comparator runs on Linux).
+the challenge statements (comparator runs on Linux). The `Palomar preflight` workflow runs the
+same check through Palomar's own verification job.
 
 ## Layout
 

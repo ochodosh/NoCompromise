@@ -16,8 +16,9 @@ import NoCompromise.Ball.Potential
 imports, so that `comparator` sees the same constants in the challenge and in the solution.
 
 Each challenge definition agrees with the definition of the same name in the `LiquidDrop`
-namespace of this library by `rfl`. The three theorems then follow from `LiquidDrop.main`,
-`LiquidDrop.main_statement_iff_lebesgue` and `LiquidDrop.main_binding_unconditional`.
+namespace of this library by `rfl`. The main theorems then follow from `LiquidDrop.main`,
+`LiquidDrop.main_statement_iff_lebesgue` and `LiquidDrop.main_binding_unconditional`, and the
+sanity checks from the library's ball formulas and a short numerical argument.
 -/
 
 open MeasureTheory Metric

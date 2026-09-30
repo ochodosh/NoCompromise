@@ -1,0 +1,23 @@
+name: Palomar preflight
+
+# Runs Palomar's own verification job (https://palomar-registry.org) on this
+# repository as a predictive preflight: the sandboxed `lake comparator` check of
+# comparator.json, under the `palomar-standard-v1` profile. It is advisory and is
+# not a registry submission.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  palomar-preflight:
+    uses: PalomarRegistry/PalomarSubmission/.github/workflows/submission.yml@65f0154ed776cd26c224254aa57b379137f28b0d
+    with:
+      repository: ${{ github.repository }}
+      commit: ${{ github.sha }}
+      pipeline_commit: 65f0154ed776cd26c224254aa57b379137f28b0d
+      request_id: preflight-${{ github.run_id }}
+      mode: full
+      execution_profile: palomar-standard-v1
+      options: '{"comparator_config_path":"comparator.json","authorization_relationship":"I am a responsible author or maintainer"}'

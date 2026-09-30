@@ -1,7 +1,9 @@
 name: Build
 
-# Manual for now (private repository). Switch to `push` and `pull_request` once public.
 on:
+  push:
+    branches: [main]
+  pull_request:
   workflow_dispatch:
 
 jobs:
