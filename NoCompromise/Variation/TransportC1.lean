@@ -1,7 +1,7 @@
 module
 
 public import NoCompromise.Variation.TransportC1Pairing
-public import Mathlib.Data.Real.Sign
+public import Mathlib.Basic.Real.Sign
 
 @[expose] public section
 

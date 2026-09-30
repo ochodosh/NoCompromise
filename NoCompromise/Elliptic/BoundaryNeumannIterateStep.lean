@@ -60,7 +60,7 @@ lemma boundaryNeumannIterate_bilin_norm_le
       (EuclideanSpace.proj j : EuclideanSpace ℝ (Fin 3) →L[ℝ] ℝ)‖ ≤ 1 := by
     intro i j
     rw [ContinuousLinearMap.norm_smulRight_apply]
-    exact mul_le_one₀ (hp i) (norm_nonneg _) (hp j)
+    exact (mul_le_of_le_one_left (norm_nonneg _) (hp i)).trans (hp j)
   calc
     ‖T‖ = ‖∑ i, ∑ j, T (EuclideanSpace.single i 1) (EuclideanSpace.single j 1) •
         (EuclideanSpace.proj i : EuclideanSpace ℝ (Fin 3) →L[ℝ] ℝ).smulRight

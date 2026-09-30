@@ -84,7 +84,7 @@ theorem oneManifold_integralCurve_diffeomorph_circle [T2Space M] [ConnectedSpace
         (fun x => Circle.exp (2 * Real.pi / τ * ht.localInverse x)) (γ t) :=
       contMDiff_circleExp.contMDiffAt.comp (γ t)
         (((contDiff_const.mul contDiff_id).contMDiff.contMDiffAt).comp (γ t)
-          ht.localInverse_contMDiffAt)
+          ht.contMDiffAt_localInverse)
     apply hs.congr_of_eventuallyEq
     filter_upwards [ht.localInverse.open_source.mem_nhds ht.localInverse_mem_source] with x hx
     apply f.injective

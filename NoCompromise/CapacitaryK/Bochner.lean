@@ -84,7 +84,7 @@ theorem poissonCoordinateDerivative_gradNormEps {u : E3 → ℝ} {x : E3} {ε : 
   have hd : DifferentiableAt ℝ (fun y => gradNorm u y ^ 2 + ε ^ 2) x :=
     ((contDiffAt_gradNorm_sq (n := 1) hu).differentiableAt (by norm_num)).add_const _
   change fderiv ℝ (fun y => Real.sqrt (gradNorm u y ^ 2 + ε ^ 2)) x (basisVec i) = _
-  rw [fderiv_sqrt hd (ne_of_gt hpos), ContinuousLinearMap.smul_apply,
+  rw [fderiv_sqrt hd (ne_of_gt hpos), smul_apply,
     fderiv_add_const]
   change (1 / (2 * gradNormEps ε u x)) *
     poissonCoordinateDerivative i (fun y => gradNorm u y ^ 2) x = _

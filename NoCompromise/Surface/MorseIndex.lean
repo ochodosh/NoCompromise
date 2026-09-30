@@ -1,7 +1,7 @@
 module
 
 public import Mathlib.Analysis.InnerProductSpace.Spectrum
-public import Mathlib.Data.Real.Sign
+public import Mathlib.Basic.Real.Sign
 public import Mathlib.LinearAlgebra.Determinant
 
 @[expose] public section

@@ -231,7 +231,7 @@ lemma boundaryMeasure_coordinateCube {R : ℝ} (hR : 0 < R) :
         (volume.restrict (closedCoordinateCube 2 R)) := by
   have he : (⋃ j : Fin 3 × Bool, cubeFace R j) =ᵐ[hausdorffMeasure2 3]
       ⋃ j : Fin 3 × Bool, cubeOpenFace R j :=
-    Filter.EventuallyEq.countable_iUnion fun j => cubeFace_ae_eq_openFace R j
+    Filter.EventuallyEqSet.countable_iUnion fun j => cubeFace_ae_eq_openFace R j
   rw [frontier_coordinateCube hR, Measure.restrict_congr_set he,
     Measure.restrict_iUnion (pairwiseDisjoint_cubeOpenFace hR)
       (measurableSet_cubeOpenFace R), Measure.sum_fintype]

@@ -50,7 +50,7 @@ theorem chartTangentialJacobian_apply (Φ : E3 → E3) {f : ℕ → E2 → E3} {
     {i : ℕ} {z : E2} (hz : z ∈ A i) :
     chartTangentialJacobian Φ f A (f i z) = jacobian2 (Φ ∘ f i) z / jacobian2 (f i) z := by
   have h : ∃ p : ℕ × E2, p.2 ∈ A p.1 ∧ f p.1 p.2 = f i z := ⟨(i, z), hz, rfl⟩
-  rw [chartTangentialJacobian, dif_pos h]
+  rw [chartTangentialJacobian, dite_eq_left h]
   obtain ⟨hw, hfw⟩ := h.choose_spec
   obtain ⟨h1, h2⟩ := chart_parameter_unique hinj hd hz hw hfw
   have hp : h.choose = (i, z) := Prod.ext h1 h2

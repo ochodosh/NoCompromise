@@ -70,7 +70,7 @@ theorem HasH1GradientOn.boundary_odd_weak_gradient
   let u₀ := boundaryHolderZeroFunction u
   let F₀ := boundaryHolderZeroGradient u F
   have hzero : HasH1GradientOn u₀ F₀ univ := hu.boundary_zero_extension_ball hT
-  have hc := (hzero.comp_homeomorph R.toHomeomorph R.lipschitz R.symm.lipschitz).1
+  have hc := (hzero.comp_homeomorph R.toHomeomorph R.lipschitzWith R.symm.lipschitzWith).1
   change HasH1GradientOn (u₀ ∘ R)
     (fun x => (fderiv ℝ R x).adjoint (F₀ (R x))) univ at hc
   have hfder (x) : fderiv ℝ R x = R.toContinuousLinearEquiv.toContinuousLinearMap :=

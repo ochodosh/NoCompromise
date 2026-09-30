@@ -81,9 +81,9 @@ lemma fderiv_gradNorm_apply (hu : ContDiffAt ℝ 2 u x) (hw : 0 < gradNorm u x) 
     funext y; simp [gradNorm, sq]
   rw [hfun] at h2
   have := congrArg (fun L => L X) (h2.unique h1)
-  simp only [ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,
-    ContinuousLinearMap.coe_smul', Pi.smul_apply,
-    ContinuousLinearMap.coe_comp', Function.comp_apply, innerSL_apply_apply, smul_eq_mul,
+  simp only [add_apply, smul_apply,
+    FunLike.coe_smul, Pi.smul_apply,
+    ContinuousLinearMap.coe_comp, Function.comp_apply, innerSL_apply_apply, smul_eq_mul,
     nsmul_eq_mul, Nat.cast_ofNat] at this
   rw [dirHess_eq_inner hu, real_inner_comm, eq_inv_mul_iff_mul_eq₀ hw.ne']
   linarith
@@ -111,8 +111,8 @@ lemma fderiv_unitNormal_apply (hu : ContDiffAt ℝ 2 u x) (hw : 0 < gradNorm u x
       ((-((gradNorm u x) ^ 2)⁻¹) • fderiv ℝ (gradNorm u) x).smulRight (gradient u x))) x :=
     (hinv.fun_smul hG).neg
   rw [hν.fderiv]
-  simp only [ContinuousLinearMap.neg_apply, ContinuousLinearMap.add_apply,
-    ContinuousLinearMap.smul_apply, ContinuousLinearMap.smulRight_apply, smul_eq_mul]
+  simp only [neg_apply, add_apply,
+    smul_apply, ContinuousLinearMap.smulRight_apply, smul_eq_mul]
 
 /-- `A(X, Y) = -w⁻¹ D²u(X, Y) + w⁻² (D_X w) ⟪∇u, Y⟫`. -/
 lemma secondFF_eq (hu : ContDiffAt ℝ 2 u x) (hw : 0 < gradNorm u x) (X Y : E3) :

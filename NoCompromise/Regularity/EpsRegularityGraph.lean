@@ -44,7 +44,7 @@ theorem boundary_graph_of_cone_crossing {S : Set AmbientSpace} {r : ℝ} (hr : 0
     intro x' hx'
     have hn : ‖x'‖ < r / 4 := by simpa using hx'
     have h2 : ‖x'‖ < r / 2 := by linarith
-    have hfx : f x' = Classical.choose (hcross x' h2) := by simp only [f, dif_pos h2]
+    have hfx : f x' = Classical.choose (hcross x' h2) := by simp only [f, dite_eq_left h2]
     obtain ⟨ht, hS⟩ := Classical.choose_spec (hcross x' h2)
     rw [← hfx] at ht hS
     refine ⟨ht, hS, ?_, ?_⟩

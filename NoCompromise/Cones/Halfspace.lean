@@ -95,7 +95,7 @@ lemma densityRatio_halfspace_eq_half {ν x : EuclideanSpace ℝ (Fin n)} (hν : 
   have hmeas : MeasurableSet (H ∩ B) := (isOpen_halfspace ν).measurableSet.inter measurableSet_ball
   have hpre : (fun y => (x + x) - y) ⁻¹' (H ∩ B) = H' ∩ B := by
     ext y
-    simp only [hH, hH', hB, mem_preimage, mem_inter_iff, mem_setOf_eq, mem_ball, dist_eq_norm,
+    simp only [hH, hH', hB, mem_preimage, mem_inter_iff, mem_ofPred_eq, mem_ball, dist_eq_norm,
       inner_sub_right, inner_add_right, hx, zero_add, zero_sub, neg_pos]
     rw [show x + x - y - x = -(y - x) by abel, norm_neg]
   have hswap : volume (H' ∩ B) = volume (H ∩ B) := by
@@ -106,7 +106,7 @@ lemma densityRatio_halfspace_eq_half {ν x : EuclideanSpace ℝ (Fin n)} (hν : 
     rw [e, Measure.measure_neg, measure_preimage_add]
   have hsplit : B \ {y | inner ℝ ν y = 0} = (H ∩ B) ∪ (H' ∩ B) := by
     ext y
-    simp only [hH, hH', mem_diff, mem_setOf_eq, mem_union, mem_inter_iff]
+    simp only [hH, hH', Set.mem_sdiff, mem_ofPred_eq, mem_union, mem_inter_iff]
     constructor
     · rintro ⟨hyB, hy0⟩
       rcases lt_or_gt_of_ne hy0 with h | h
@@ -121,7 +121,7 @@ lemma densityRatio_halfspace_eq_half {ν x : EuclideanSpace ℝ (Fin n)} (hν : 
   have hH'meas : MeasurableSet (H' ∩ B) :=
     (isOpen_halfspace_neg ν).measurableSet.inter measurableSet_ball
   have hdiff : volume (B \ {y | inner ℝ ν y = 0}) = volume B :=
-    measure_diff_null (volume_hyperplane hν)
+    measure_sdiff_null (volume_hyperplane hν)
   have hvolB : volume B = volume (H ∩ B) + volume (H ∩ B) := by
     rw [← hdiff, hsplit, measure_union hdisj hH'meas, hswap]
   have hfin : volume (H ∩ B) ≠ ∞ :=
@@ -185,7 +185,7 @@ lemma halfspace_normalize {w : EuclideanSpace ℝ (Fin n)} (hw : w ≠ 0) :
   refine ⟨?_, ?_⟩
   · rw [norm_smul, norm_inv, norm_norm, inv_mul_cancel₀ (norm_ne_zero_iff.mpr hw)]
   · ext x
-    simp only [mem_setOf_eq, real_inner_smul_left]
+    simp only [mem_ofPred_eq, real_inner_smul_left]
     exact mul_pos_iff_of_pos_left hpos
 
 /-- **Frontier in a hyperplane forces a halfspace** (two-sided form).  If the frontier of the
@@ -233,7 +233,7 @@ theorem densityOne_eq_halfspace_or_of_frontier_subset (hn : 0 < n)
         · exact absurd h hx.2
         · exact absurd hx.1 (disjoint_left.mp hB h)
         · exact h
-      · rw [diff_eq_empty.mpr hA, measure_empty]
+      · rw [sdiff_eq_empty.mpr hA, measure_empty]
     calc D = densityOne D := hDD.symm
       _ = densityOne {x | 0 < inner ℝ ν x} := densityOne_congr_ae hae
       _ = {x | 0 < inner ℝ ν x} := densityOne_halfspace hν
@@ -245,7 +245,7 @@ theorem densityOne_eq_halfspace_or_of_frontier_subset (hn : 0 < n)
         · exact absurd hx.1 (disjoint_left.mp hA h)
         · exact absurd h hx.2
         · exact h
-      · rw [diff_eq_empty.mpr hB, measure_empty]
+      · rw [sdiff_eq_empty.mpr hB, measure_empty]
     calc D = densityOne D := hDD.symm
       _ = densityOne {x | 0 < inner ℝ (-ν) x} := densityOne_congr_ae hae
       _ = {x | 0 < inner ℝ (-ν) x} := densityOne_halfspace (neg_ne_zero.mpr hν)
@@ -295,7 +295,7 @@ lemma frontier_subset_hyperplane_of_link {D : Set (EuclideanSpace ℝ (Fin n))}
       mem_link_iff.mpr ⟨hcone.frontier.smul_mem hpos hx,
         by rw [norm_smul, norm_inv, norm_norm, inv_mul_cancel₀ (norm_ne_zero_iff.mpr h0)]⟩
     have := hlink hmem
-    simp only [mem_setOf_eq, real_inner_smul_right] at this ⊢
+    simp only [mem_ofPred_eq, real_inner_smul_right] at this ⊢
     exact (mul_eq_zero.mp this).resolve_left hpos.ne'
 
 /-- **Blueprint `thm:cone-3d`, geometric endgame.**  A nontrivial dilation-invariant density-one

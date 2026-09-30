@@ -710,7 +710,7 @@ lemma volume_preimage_coordinateFold_le {n : ℕ} (i : Fin n)
     _ ≤ volume s + volume (coordinateReflection i '' s) := measure_union_le _ _
     _ ≤ volume s + volume s := add_le_add le_rfl
       (by simpa using (volume_image_le_of_lipschitzOn
-        (coordinateReflection i).lipschitz.lipschitzOnWith))
+        (coordinateReflection i).lipschitzWith.lipschitzOnWith))
     _ = _ := (two_mul _).symm
 
 /-- Shift the folded coordinate a positive distance into the upper half-space. -/

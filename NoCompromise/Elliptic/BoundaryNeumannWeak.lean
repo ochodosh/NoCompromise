@@ -47,7 +47,7 @@ lemma HasH1GradientOn.boundary_neumann_fold_h1
     change 0 < R x (Fin.last 2)
     rw [boundary_reflection_last]
     exact neg_pos.mpr hx.2
-  have hR := (hw.comp_homeomorph_on hL hU R.toHomeomorph R.lipschitz R.symm.lipschitz hmaps).1
+  have hR := (hw.comp_homeomorph_on hL hU R.toHomeomorph R.lipschitzWith R.symm.lipschitzWith hmaps).1
   have hR' : HasH1GradientOn (w ∘ R) (fun x => R (F (R x))) L := by
     change HasH1GradientOn (w ∘ R) (fun x => (fderiv ℝ R x).adjoint (F (R x))) L at hR
     have hfder (x) : fderiv ℝ R x = R.toContinuousLinearEquiv.toContinuousLinearMap :=

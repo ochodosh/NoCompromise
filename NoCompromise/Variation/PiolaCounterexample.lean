@@ -139,7 +139,7 @@ theorem sum_fderiv_cofactor_column_shearMap (x : EuclideanSpace ℝ (Fin 3)) :
         standardMatrix3 (cofactor3 (fderiv ℝ shearMap y)) j 0) =
         fun _ : EuclideanSpace ℝ (Fin 3) => (if j = 0 then 1 else 0 : ℝ) := by
       funext y
-      rw [cofactorColumn_zero, if_neg hj]
+      rw [cofactorColumn_zero, ite_eq_right hj]
     rw [hfun]
     simp
   rw [Fin.sum_univ_three, hconst 0 (by decide), hconst 1 (by decide), hlast]
@@ -187,9 +187,9 @@ theorem not_divergence_cofactor_column :
       split_ifs <;> ring
     rw [hfun]
     by_cases hj : j = 2
-    · simp only [hj, if_true]
+    · simp only [hj, ite_true]
       exact (((EuclideanSpace.proj (𝕜 := ℝ) (2 : Fin 3)).differentiableAt).const_mul _)
-    · simp only [hj, if_false]
+    · simp only [hj, ite_false]
       exact differentiableAt_const _
   rw [divergenceN_eq_sum_fderiv_coord hdiff]
   have hcongr : ∀ j : Fin 3,
